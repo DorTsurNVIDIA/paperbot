@@ -71,7 +71,11 @@ def _no_results_blocks() -> list[dict]:
 def post_to_slack(scored_papers) -> None:
     webhook_url = os.environ.get("SLACK_WEBHOOK_URL")
     if not webhook_url:
-        raise EnvironmentError("SLACK_WEBHOOK_URL is not set")
+        logger.warning(
+            "SLACK_WEBHOOK_URL is not set — skipping Slack post. "
+            "Add the secret in repo Settings → Secrets and variables → Actions to receive summaries in Slack."
+        )
+        return
 
     if scored_papers:
         blocks = _format_blocks(scored_papers)

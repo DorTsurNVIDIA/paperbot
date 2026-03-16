@@ -30,9 +30,9 @@ def main() -> None:
     new_papers = filter_new(all_papers, seen)
     logger.info("New (unseen) papers: %d", len(new_papers))
 
-    # 3. Score & filter with Claude
+    # 3. Score & filter with LLM
     scored = score_and_filter(new_papers)
-    logger.info("Relevant papers after Claude filter: %d", len(scored))
+    logger.info("Relevant papers after LLM filter: %d", len(scored))
 
     # 4. Post to Slack
     post_to_slack(scored)
