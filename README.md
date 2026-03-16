@@ -73,7 +73,7 @@ python -m agent.main
 
 | Setting | Location | Default |
 |---|---|---|
-| Lookback window | `agent/fetch.py` → `LOOKBACK_HOURS` | 48 hours |
+| Lookback window | `agent/fetch.py` → `LOOKBACK_HOURS` | 7 days (168 hours) |
 | Relevance threshold | `agent/filter.py` → `RELEVANCE_THRESHOLD` | 6 / 10 |
 | LLM provider | env `LLM_PROVIDER` or first key set | anthropic → openai → gemini |
 | LLM model | env `LLM_MODEL` or per-provider default | claude-haiku-4-5-20251001 / gpt-4o-mini / gemini-1.5-flash |

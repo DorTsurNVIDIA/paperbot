@@ -4,13 +4,13 @@ from __future__ import annotations
 
 import datetime
 import logging
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 import httpx
 
 logger = logging.getLogger(__name__)
 
-LOOKBACK_HOURS = 48
+LOOKBACK_HOURS = 168  # 7 days — cast a wider net; LLM filters relevance
 
 
 @dataclass
@@ -38,8 +38,17 @@ ARXIV_QUERIES = [
     "LLM efficiency",
     "token generation",
     "draft model",
+    "large language model inference",
+    "transformer inference",
+    "KV cache",
+    "LLM serving",
+    "continuous batching",
+    "attention optimization",
+    "early exit",
+    "mixture of experts inference",
 ]
-ARXIV_CATEGORIES = ["cs.CL", "cs.LG", "cs.AI"]
+ARXIV_CATEGORIES = ["cs.CL", "cs.LG", "cs.AI", "cs.DC", "cs.AR"]
+ARXIV_MAX_RESULTS_PER_QUERY = 50
 
 
 def fetch_arxiv() -> list[Paper]:
@@ -59,7 +68,7 @@ def fetch_arxiv() -> list[Paper]:
         try:
             search = arxiv.Search(
                 query=full_query,
-                max_results=20,
+                max_results=ARXIV_MAX_RESULTS_PER_QUERY,
                 sort_by=arxiv.SortCriterion.SubmittedDate,
             )
             for result in search.results():
@@ -86,6 +95,38 @@ def fetch_arxiv() -> list[Paper]:
         except Exception as exc:
             logger.warning("arXiv query '%s' failed: %s", query, exc)
 
+    # Also fetch latest submissions by category only (no keyword) to catch papers we might miss
+    for cat in ["cs.CL", "cs.LG"]:
+        try:
+            search = arxiv.Search(
+                query=f"cat:{cat}",
+                max_results=80,
+                sort_by=arxiv.SortCriterion.SubmittedDate,
+            )
+            for result in search.results():
+                published = result.published
+                if published.tzinfo is None:
+                    published = published.replace(tzinfo=datetime.timezone.utc)
+                if published < cutoff:
+                    continue
+                paper_id = result.entry_id.split("/")[-1]
+                if paper_id in seen_ids:
+                    continue
+                seen_ids.add(paper_id)
+                papers.append(
+                    Paper(
+                        id=f"arxiv:{paper_id}",
+                        title=result.title,
+                        abstract=result.summary,
+                        authors=[a.name for a in result.authors],
+                        url=result.entry_id,
+                        source="arxiv",
+                        published_date=published.isoformat(),
+                    )
+                )
+        except Exception as exc:
+            logger.warning("arXiv category '%s' fetch failed: %s", cat, exc)
+
     return papers
 
 
@@ -105,6 +146,10 @@ def fetch_semantic_scholar() -> list[Paper]:
     queries = [
         "speculative decoding LLM efficiency",
         "LLM inference acceleration",
+        "large language model inference",
+        "transformer inference optimization",
+        "speculative decoding",
+        "KV cache optimization",
     ]
 
     with httpx.Client(timeout=30) as client:
@@ -115,7 +160,7 @@ def fetch_semantic_scholar() -> list[Paper]:
                     params={
                         "query": query,
                         "fields": S2_FIELDS,
-                        "limit": 20,
+                        "limit": 50,
                         "sort": "publicationDate:desc",
                     },
                 )
@@ -175,6 +220,15 @@ RELEVANCE_KEYWORDS = [
     "throughput",
     "acceleration",
     "quantization",
+    "kv cache",
+    "serving",
+    "batching",
+    "early exit",
+    "moe",
+    "mixture of experts",
+    "vllm",
+    "tgi",
+    "optimization",
 ]
 
 
