@@ -11,6 +11,10 @@ logger = logging.getLogger(__name__)
 
 RELEVANCE_THRESHOLD = 6
 
+# Minimize tokens: short prompt, capped abstract, small max output
+ABSTRACT_MAX_CHARS = 600   # enough for relevance; tune if needed
+LLM_MAX_TOKENS = 128      # score + brief summary
+
 # Model IDs per provider (override with env LLM_MODEL if needed)
 DEFAULT_MODELS = {
     "anthropic": "claude-haiku-4-5-20251001",
@@ -19,14 +23,12 @@ DEFAULT_MODELS = {
 }
 
 PROMPT_TEMPLATE = """\
-Given this paper title and abstract, rate its relevance to LLM inference efficiency \
-and/or speculative decoding on a scale of 1-10. If relevant (score >= 6), \
-write a 2-sentence summary emphasizing the efficiency/speculative decoding contribution.
+Score 1-10 relevance to *LLM inference efficiency* or *speculative decoding*. If >=6, one short summary sentence; else summary null.
 
 Title: {title}
 Abstract: {abstract}
 
-Respond as JSON only, with no other text: {{"score": <int>, "summary": "<str or null>"}}"""
+JSON only: {{"score": N, "summary": "..." or null}}"""
 
 
 @dataclass
@@ -68,7 +70,7 @@ def _call_anthropic(api_key: str, model: str, prompt: str) -> str:
     client = anthropic.Anthropic(api_key=api_key)
     message = client.messages.create(
         model=model,
-        max_tokens=256,
+        max_tokens=LLM_MAX_TOKENS,
         messages=[{"role": "user", "content": prompt}],
     )
     return (message.content[0].text or "").strip()
@@ -79,7 +81,7 @@ def _call_openai(api_key: str, model: str, prompt: str) -> str:
     client = OpenAI(api_key=api_key)
     resp = client.chat.completions.create(
         model=model,
-        max_tokens=256,
+        max_tokens=LLM_MAX_TOKENS,
         messages=[{"role": "user", "content": prompt}],
     )
     return (resp.choices[0].message.content or "").strip()
@@ -87,8 +89,13 @@ def _call_openai(api_key: str, model: str, prompt: str) -> str:
 
 def _call_gemini(api_key: str, model: str, prompt: str) -> str:
     from google import genai
+    from google.genai import types
     client = genai.Client(api_key=api_key)
-    response = client.models.generate_content(model=model, contents=prompt)
+    response = client.models.generate_content(
+        model=model,
+        contents=prompt,
+        config=types.GenerateContentConfig(max_output_tokens=LLM_MAX_TOKENS),
+    )
     text = getattr(response, "text", None)
     if text is None and hasattr(response, "candidates") and response.candidates:
         part = response.candidates[0].content.parts[0] if response.candidates[0].content.parts else None
@@ -119,8 +126,8 @@ def score_and_filter(papers) -> list[ScoredPaper]:
 
     for paper in papers:
         prompt = PROMPT_TEMPLATE.format(
-            title=paper.title,
-            abstract=paper.abstract[:2000],  # guard against very long abstracts
+            title=paper.title[:500],  # cap title too
+            abstract=paper.abstract[:ABSTRACT_MAX_CHARS],
         )
         try:
             raw = _call_llm(provider, api_key, model, prompt)
