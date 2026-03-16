@@ -16,10 +16,12 @@ ABSTRACT_MAX_CHARS = 600   # enough for relevance; tune if needed
 LLM_MAX_TOKENS = 128      # score + brief summary
 
 # Model IDs per provider (override with env LLM_MODEL if needed)
+# Groq: free tier, OpenAI-compatible — https://console.groq.com
 DEFAULT_MODELS = {
     "anthropic": "claude-haiku-4-5-20251001",
     "openai": "gpt-4o-mini",
     "gemini": "gemini-2.0-flash",
+    "groq": "llama-3.1-8b-instant",
 }
 
 PROMPT_TEMPLATE = """\
@@ -41,13 +43,14 @@ class ScoredPaper:
 def _get_provider_and_key() -> tuple[str, str]:
     """Determine which LLM to use from env. Returns (provider, api_key)."""
     provider = (os.environ.get("LLM_PROVIDER") or "").strip().lower()
-    if provider not in ("anthropic", "openai", "gemini"):
+    if provider not in ("anthropic", "openai", "gemini", "groq"):
         provider = ""
     if provider:
         key_var = {
             "anthropic": "ANTHROPIC_API_KEY",
             "openai": "OPENAI_API_KEY",
             "gemini": "GEMINI_API_KEY",
+            "groq": "GROQ_API_KEY",
         }[provider]
         key = os.environ.get(key_var)
         if key:
@@ -60,8 +63,10 @@ def _get_provider_and_key() -> tuple[str, str]:
         return "openai", os.environ["OPENAI_API_KEY"]
     if os.environ.get("GEMINI_API_KEY"):
         return "gemini", os.environ["GEMINI_API_KEY"]
+    if os.environ.get("GROQ_API_KEY"):
+        return "groq", os.environ["GROQ_API_KEY"]
     raise EnvironmentError(
-        "Set one of: ANTHROPIC_API_KEY, OPENAI_API_KEY, GEMINI_API_KEY (or LLM_PROVIDER + the matching key)"
+        "Set one of: ANTHROPIC_API_KEY, OPENAI_API_KEY, GEMINI_API_KEY, GROQ_API_KEY (or LLM_PROVIDER + the matching key)"
     )
 
 
@@ -76,15 +81,24 @@ def _call_anthropic(api_key: str, model: str, prompt: str) -> str:
     return (message.content[0].text or "").strip()
 
 
-def _call_openai(api_key: str, model: str, prompt: str) -> str:
+def _call_openai(api_key: str, model: str, prompt: str, base_url: str | None = None) -> str:
     from openai import OpenAI
-    client = OpenAI(api_key=api_key)
+    client = OpenAI(api_key=api_key, base_url=base_url)
     resp = client.chat.completions.create(
         model=model,
         max_tokens=LLM_MAX_TOKENS,
         messages=[{"role": "user", "content": prompt}],
     )
     return (resp.choices[0].message.content or "").strip()
+
+
+def _call_groq(api_key: str, model: str, prompt: str) -> str:
+    return _call_openai(
+        api_key=api_key,
+        model=model,
+        prompt=prompt,
+        base_url="https://api.groq.com/openai/v1",
+    )
 
 
 def _call_gemini(api_key: str, model: str, prompt: str) -> str:
@@ -108,6 +122,8 @@ def _call_llm(provider: str, api_key: str, model: str, prompt: str) -> str:
         return _call_anthropic(api_key, model, prompt)
     if provider == "openai":
         return _call_openai(api_key, model, prompt)
+    if provider == "groq":
+        return _call_groq(api_key, model, prompt)
     if provider == "gemini":
         return _call_gemini(api_key, model, prompt)
     raise ValueError(f"Unknown provider: {provider}")

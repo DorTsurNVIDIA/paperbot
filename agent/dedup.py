@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import logging
+import os
 from pathlib import Path
 
 logger = logging.getLogger(__name__)
@@ -12,6 +13,10 @@ SEEN_FILE = Path(__file__).parent.parent / "seen_papers.json"
 
 
 def load_seen() -> set[str]:
+    """Load seen paper IDs. If CLEAR_SEEN_PAPERS env is set (e.g. 'true'), return empty set."""
+    if os.environ.get("CLEAR_SEEN_PAPERS", "").strip().lower() in ("1", "true", "yes"):
+        logger.info("CLEAR_SEEN_PAPERS is set — treating all papers as new")
+        return set()
     if not SEEN_FILE.exists():
         return set()
     try:

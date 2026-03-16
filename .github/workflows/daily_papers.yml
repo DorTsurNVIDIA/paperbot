@@ -4,6 +4,12 @@ on:
   schedule:
     - cron: '0 8 * * *'   # 8am UTC daily
   workflow_dispatch:        # allow manual trigger for testing
+    inputs:
+      clear_seen_papers:
+        description: "Clear seen papers so this run processes all fetched as new (one-time reset)"
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write           # needed to commit seen_papers.json back
@@ -31,7 +37,9 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           LLM_PROVIDER: ${{ vars.LLM_PROVIDER }}
+          CLEAR_SEEN_PAPERS: ${{ inputs.clear_seen_papers }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: python -m agent.main
 

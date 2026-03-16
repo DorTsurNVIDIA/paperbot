@@ -43,13 +43,14 @@ Add **one** LLM API key (whichever you have access to) and the Slack webhook:
 | `ANTHROPIC_API_KEY` | Anthropic API key (Claude) |
 | `OPENAI_API_KEY` | OpenAI API key (ChatGPT; use with gpt-4o-mini) |
 | `GEMINI_API_KEY` | Google AI API key (Gemini; get one at [Google AI Studio](https://aistudio.google.com/apikey)) |
+| `GROQ_API_KEY` | **Free tier** — Groq API key (Llama; get one at [console.groq.com](https://console.groq.com)) |
 | `SLACK_WEBHOOK_URL` | The webhook URL from step 1 |
 
-The agent uses the first key it finds (Anthropic → OpenAI → Gemini). To force a provider, add `LLM_PROVIDER` as a repository **variable** (Actions → Variables): `anthropic`, `openai`, or `gemini`.
+The agent uses the first key it finds (Anthropic → OpenAI → Gemini → Groq). To force a provider, add `LLM_PROVIDER` as a repository **variable** (Actions → Variables): `anthropic`, `openai`, `gemini`, or `groq`.
 
 ### 4. Push to GitHub
 
-The workflow runs automatically at **8am UTC** every day. You can also trigger it manually via **Actions → Daily Papers Agent → Run workflow**.
+The workflow runs automatically at **8am UTC** every day. You can also trigger it manually via **Actions → Daily Papers Agent → Run workflow**. To process all fetched papers as new (e.g. after changing the LLM or for a one-time full run), check **Clear seen papers** when running the workflow — this run will treat every fetched paper as unseen, score with the LLM, post to Slack, then save the new seen list.
 
 ### How you'll know it works
 
@@ -59,9 +60,10 @@ The workflow runs automatically at **8am UTC** every day. You can also trigger i
 ## Local testing
 
 ```bash
-# Use one of these (or set LLM_PROVIDER=openai / gemini to force):
-export OPENAI_API_KEY=sk-...        # ChatGPT
-# export GEMINI_API_KEY=...         # Gemini (get at https://aistudio.google.com/apikey)
+# Use one of these (or set LLM_PROVIDER=groq / openai / gemini to force):
+export GROQ_API_KEY=gsk_...        # Free — Groq (https://console.groq.com)
+# export OPENAI_API_KEY=sk-...      # ChatGPT
+# export GEMINI_API_KEY=...         # Gemini (https://aistudio.google.com/apikey)
 # export ANTHROPIC_API_KEY=sk-ant-... # Claude
 export SLACK_WEBHOOK_URL=https://hooks.slack.com/services/...
 
@@ -75,8 +77,8 @@ python -m agent.main
 |---|---|---|
 | Lookback window | `agent/fetch.py` → `LOOKBACK_HOURS` | 7 days (168 hours) |
 | Relevance threshold | `agent/filter.py` → `RELEVANCE_THRESHOLD` | 6 / 10 |
-| LLM provider | env `LLM_PROVIDER` or first key set | anthropic → openai → gemini |
-| LLM model | env `LLM_MODEL` or per-provider default | claude-haiku-4-5-20251001 / gpt-4o-mini / gemini-2.0-flash |
+| LLM provider | env `LLM_PROVIDER` or first key set | anthropic → openai → gemini → groq |
+| LLM model | env `LLM_MODEL` or per-provider default | … / gemini-2.0-flash / llama-3.1-8b-instant (Groq) |
 | Cron schedule | `.github/workflows/daily_papers.yml` | `0 8 * * *` (8am UTC) |
 
 ## License
