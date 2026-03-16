@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import datetime
 import logging
+import time
 from dataclasses import dataclass
 
 import httpx
@@ -143,24 +144,26 @@ def fetch_semantic_scholar() -> list[Paper]:
     papers: list[Paper] = []
     seen_ids: set[str] = set()
 
+    # Fewer queries + delay to avoid Semantic Scholar 429 rate limit
     queries = [
         "speculative decoding LLM efficiency",
         "LLM inference acceleration",
         "large language model inference",
-        "transformer inference optimization",
-        "speculative decoding",
-        "KV cache optimization",
     ]
+    S2_LIMIT = 25
+    S2_DELAY_SEC = 2
 
     with httpx.Client(timeout=30) as client:
-        for query in queries:
+        for i, query in enumerate(queries):
+            if i > 0:
+                time.sleep(S2_DELAY_SEC)
             try:
                 resp = client.get(
                     S2_URL,
                     params={
                         "query": query,
                         "fields": S2_FIELDS,
-                        "limit": 50,
+                        "limit": S2_LIMIT,
                         "sort": "publicationDate:desc",
                     },
                 )

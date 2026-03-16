@@ -19,7 +19,7 @@ LLM_MAX_TOKENS = 128      # score + brief summary
 DEFAULT_MODELS = {
     "anthropic": "claude-haiku-4-5-20251001",
     "openai": "gpt-4o-mini",
-    "gemini": "gemini-1.5-flash",
+    "gemini": "gemini-2.0-flash",
 }
 
 PROMPT_TEMPLATE = """\

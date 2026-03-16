@@ -76,7 +76,7 @@ python -m agent.main
 | Lookback window | `agent/fetch.py` → `LOOKBACK_HOURS` | 7 days (168 hours) |
 | Relevance threshold | `agent/filter.py` → `RELEVANCE_THRESHOLD` | 6 / 10 |
 | LLM provider | env `LLM_PROVIDER` or first key set | anthropic → openai → gemini |
-| LLM model | env `LLM_MODEL` or per-provider default | claude-haiku-4-5-20251001 / gpt-4o-mini / gemini-1.5-flash |
+| LLM model | env `LLM_MODEL` or per-provider default | claude-haiku-4-5-20251001 / gpt-4o-mini / gemini-2.0-flash |
 | Cron schedule | `.github/workflows/daily_papers.yml` | `0 8 * * *` (8am UTC) |
 
 ## License
