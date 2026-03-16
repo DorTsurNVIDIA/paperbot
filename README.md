@@ -79,6 +79,8 @@ python -m agent.main
 | Relevance threshold | `agent/filter.py` → `RELEVANCE_THRESHOLD` | 6 / 10 |
 | LLM provider | env `LLM_PROVIDER` or first key set | anthropic → openai → gemini → groq |
 | LLM model | env `LLM_MODEL` or per-provider default | … / gemini-2.0-flash / llama-3.1-8b-instant (Groq) |
+| Groq delay | env `GROQ_DELAY_SEC` | 3s between requests |
+| Groq max papers | env `GROQ_MAX_PAPERS` | 60 per run (avoids rate limit) |
 | Cron schedule | `.github/workflows/daily_papers.yml` | `0 8 * * *` (8am UTC) |
 
 ## License

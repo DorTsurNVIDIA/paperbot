@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import logging
 import os
+import time
 from dataclasses import dataclass
 
 logger = logging.getLogger(__name__)
@@ -14,6 +15,10 @@ RELEVANCE_THRESHOLD = 6
 # Minimize tokens: short prompt, capped abstract, small max output
 ABSTRACT_MAX_CHARS = 600   # enough for relevance; tune if needed
 LLM_MAX_TOKENS = 128      # score + brief summary
+
+# Groq free tier: throttle and cap papers to avoid 429s and keep runs short
+GROQ_DELAY_SEC = 3.0   # seconds between requests (env GROQ_DELAY_SEC overrides)
+GROQ_MAX_PAPERS = 60   # max papers to score per run (env GROQ_MAX_PAPERS overrides)
 
 # Model IDs per provider (override with env LLM_MODEL if needed)
 # Groq: free tier, OpenAI-compatible — https://console.groq.com
@@ -138,9 +143,23 @@ def score_and_filter(papers) -> list[ScoredPaper]:
     model = os.environ.get("LLM_MODEL") or DEFAULT_MODELS[provider]
     logger.info("Using LLM: %s (%s)", provider, model)
 
-    results: list[ScoredPaper] = []
+    # Groq: cap number of papers and throttle to avoid 429s
+    if provider == "groq":
+        max_papers = int(os.environ.get("GROQ_MAX_PAPERS") or GROQ_MAX_PAPERS)
+        total = len(papers)
+        papers = papers[:max_papers]
+        delay_sec = float(os.environ.get("GROQ_DELAY_SEC") or GROQ_DELAY_SEC)
+        if len(papers) < total:
+            logger.info("Groq: scoring first %d of %d papers (max %d, delay %.1fs)", len(papers), total, max_papers, delay_sec)
+        else:
+            logger.info("Groq: scoring %d papers (delay %.1fs between calls)", len(papers), delay_sec)
 
-    for paper in papers:
+    results: list[ScoredPaper] = []
+    groq_delay_sec = float(os.environ.get("GROQ_DELAY_SEC") or GROQ_DELAY_SEC) if provider == "groq" else 0
+
+    for i, paper in enumerate(papers):
+        if i > 0 and groq_delay_sec > 0:
+            time.sleep(groq_delay_sec)
         prompt = PROMPT_TEMPLATE.format(
             title=paper.title[:500],  # cap title too
             abstract=paper.abstract[:ABSTRACT_MAX_CHARS],
