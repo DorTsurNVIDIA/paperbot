@@ -50,7 +50,14 @@ The agent uses the first key it finds (Anthropic → OpenAI → Gemini → Groq)
 
 ### 4. Push to GitHub
 
-The workflow runs automatically at **8am UTC** every day. You can also trigger it manually via **Actions → Daily Papers Agent → Run workflow**. To process all fetched papers as new (e.g. after changing the LLM or for a one-time full run), check **Clear seen papers** when running the workflow — this run will treat every fetched paper as unseen, score with the LLM, post to Slack, then save the new seen list.
+The workflow runs on a **schedule twice daily** (**08:00 UTC** and **20:00 UTC**) so a missed GitHub slot still usually gives you a run the same day. You can also trigger it manually via **Actions → Daily Papers Agent → Run workflow**. To process all fetched papers as new (e.g. after changing the LLM or for a one-time full run), check **Clear seen papers** when running the workflow — this run will treat every fetched paper as unseen, score with the LLM, post to Slack, then save the new seen list.
+
+### If scheduled runs stop working
+
+1. **Actions tab** — Open **Actions**. If you see a yellow banner that scheduled workflows were disabled (e.g. after ~60 days without repo activity on some plans), click to **re-enable** them.
+2. **Settings → Actions → General** — Ensure **Allow all actions** (or your org’s equivalent) and **Read and write permissions** for workflows are still set.
+3. **Default branch** — The schedule only uses the workflow file on your repo’s **default branch** (`main`). Merge changes there if you develop on another branch.
+4. **Delays** — Scheduled jobs can start **up to ~1 hour late**; that’s normal on GitHub’s side.
 
 ### How you'll know it works
 
@@ -81,7 +88,7 @@ python -m agent.main
 | LLM model | env `LLM_MODEL` or per-provider default | … / gemini-2.0-flash / llama-3.1-8b-instant (Groq) |
 | Groq delay | env `GROQ_DELAY_SEC` | 3s between requests |
 | Groq max papers | env `GROQ_MAX_PAPERS` | 60 per run (avoids rate limit) |
-| Cron schedule | `.github/workflows/daily_papers.yml` | `0 8 * * *` (8am UTC) |
+| Cron schedule | `.github/workflows/daily_papers.yml` | `0 8 * * *` & `0 20 * * *` (08:00 & 20:00 UTC) |
 
 ## License
 
