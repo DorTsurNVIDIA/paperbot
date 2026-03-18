@@ -30,7 +30,7 @@ def _paper_blocks(scored_papers) -> list[dict]:
             authors_str += f" +{len(p.authors) - 3} more"
         # Truncate long summary/title so we don't hit Slack text limits
         title = (p.title or "")[:250]
-        summary = (sp.summary or "")[:500]
+        summary = (sp.summary or "")[:2000]  # longer LLM summaries (Slack section ~3k limit total)
         blocks.append(
             {
                 "type": "section",

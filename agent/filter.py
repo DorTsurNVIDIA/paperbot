@@ -12,11 +12,13 @@ logger = logging.getLogger(__name__)
 
 RELEVANCE_THRESHOLD = 6
 
-# Minimize tokens: short prompt, capped abstract, small max output
-ABSTRACT_MAX_CHARS = 600   # enough for relevance; tune if needed
-LLM_MAX_TOKENS = 128      # score + brief summary
+# Non-Groq: keep prompts cheap. Groq: full abstract + room for richer summary (rate-limited separately).
+ABSTRACT_MAX_CHARS_DEFAULT = 600
+ABSTRACT_MAX_CHARS_GROQ = 25000  # typical arXiv abstract fits; safety cap
+LLM_MAX_TOKENS_DEFAULT = 128
+LLM_MAX_TOKENS_GROQ = 512
 
-# Groq free tier: throttle and cap papers to avoid 429s and keep runs short
+# Groq free tier: throttle and cap *requests* to avoid 429s (not input length)
 GROQ_DELAY_SEC = 3.0   # seconds between requests (env GROQ_DELAY_SEC overrides)
 GROQ_MAX_PAPERS = 60   # max papers to score per run (env GROQ_MAX_PAPERS overrides)
 
@@ -30,7 +32,7 @@ DEFAULT_MODELS = {
 }
 
 PROMPT_TEMPLATE = """\
-Score 1-10 relevance to *LLM inference efficiency* or *speculative decoding*. If >=6, one short summary sentence; else summary null.
+Score 1-10 relevance to *LLM inference efficiency* or *speculative decoding*. If >=6, a concise 1-3 sentence summary; else summary null.
 
 Title: {title}
 Abstract: {abstract}
@@ -75,45 +77,48 @@ def _get_provider_and_key() -> tuple[str, str]:
     )
 
 
-def _call_anthropic(api_key: str, model: str, prompt: str) -> str:
+def _call_anthropic(api_key: str, model: str, prompt: str, max_tokens: int) -> str:
     import anthropic
     client = anthropic.Anthropic(api_key=api_key)
     message = client.messages.create(
         model=model,
-        max_tokens=LLM_MAX_TOKENS,
+        max_tokens=max_tokens,
         messages=[{"role": "user", "content": prompt}],
     )
     return (message.content[0].text or "").strip()
 
 
-def _call_openai(api_key: str, model: str, prompt: str, base_url: str | None = None) -> str:
+def _call_openai(
+    api_key: str, model: str, prompt: str, max_tokens: int, base_url: str | None = None
+) -> str:
     from openai import OpenAI
     client = OpenAI(api_key=api_key, base_url=base_url)
     resp = client.chat.completions.create(
         model=model,
-        max_tokens=LLM_MAX_TOKENS,
+        max_tokens=max_tokens,
         messages=[{"role": "user", "content": prompt}],
     )
     return (resp.choices[0].message.content or "").strip()
 
 
-def _call_groq(api_key: str, model: str, prompt: str) -> str:
+def _call_groq(api_key: str, model: str, prompt: str, max_tokens: int) -> str:
     return _call_openai(
         api_key=api_key,
         model=model,
         prompt=prompt,
+        max_tokens=max_tokens,
         base_url="https://api.groq.com/openai/v1",
     )
 
 
-def _call_gemini(api_key: str, model: str, prompt: str) -> str:
+def _call_gemini(api_key: str, model: str, prompt: str, max_tokens: int) -> str:
     from google import genai
     from google.genai import types
     client = genai.Client(api_key=api_key)
     response = client.models.generate_content(
         model=model,
         contents=prompt,
-        config=types.GenerateContentConfig(max_output_tokens=LLM_MAX_TOKENS),
+        config=types.GenerateContentConfig(max_output_tokens=max_tokens),
     )
     text = getattr(response, "text", None)
     if text is None and hasattr(response, "candidates") and response.candidates:
@@ -122,16 +127,35 @@ def _call_gemini(api_key: str, model: str, prompt: str) -> str:
     return (text or "").strip()
 
 
-def _call_llm(provider: str, api_key: str, model: str, prompt: str) -> str:
+def _call_llm(
+    provider: str, api_key: str, model: str, prompt: str, max_tokens: int
+) -> str:
     if provider == "anthropic":
-        return _call_anthropic(api_key, model, prompt)
+        return _call_anthropic(api_key, model, prompt, max_tokens)
     if provider == "openai":
-        return _call_openai(api_key, model, prompt)
+        return _call_openai(api_key, model, prompt, max_tokens)
     if provider == "groq":
-        return _call_groq(api_key, model, prompt)
+        return _call_groq(api_key, model, prompt, max_tokens)
     if provider == "gemini":
-        return _call_gemini(api_key, model, prompt)
+        return _call_gemini(api_key, model, prompt, max_tokens)
     raise ValueError(f"Unknown provider: {provider}")
+
+
+def _scoring_limits(provider: str) -> tuple[int, int]:
+    """(abstract_max_chars, max_output_tokens). Env ABSTRACT_MAX_CHARS / LLM_MAX_TOKENS override."""
+    if os.environ.get("ABSTRACT_MAX_CHARS"):
+        abstract_max = int(os.environ["ABSTRACT_MAX_CHARS"])
+    elif provider == "groq":
+        abstract_max = ABSTRACT_MAX_CHARS_GROQ
+    else:
+        abstract_max = ABSTRACT_MAX_CHARS_DEFAULT
+    if os.environ.get("LLM_MAX_TOKENS"):
+        max_tokens = int(os.environ["LLM_MAX_TOKENS"])
+    elif provider == "groq":
+        max_tokens = LLM_MAX_TOKENS_GROQ
+    else:
+        max_tokens = LLM_MAX_TOKENS_DEFAULT
+    return abstract_max, max_tokens
 
 
 def score_and_filter(papers) -> list[ScoredPaper]:
@@ -156,16 +180,23 @@ def score_and_filter(papers) -> list[ScoredPaper]:
 
     results: list[ScoredPaper] = []
     groq_delay_sec = float(os.environ.get("GROQ_DELAY_SEC") or GROQ_DELAY_SEC) if provider == "groq" else 0
+    abstract_max, max_tokens = _scoring_limits(provider)
+    if provider == "groq":
+        logger.info(
+            "Scoring with abstract up to %d chars, max_output_tokens=%d",
+            abstract_max,
+            max_tokens,
+        )
 
     for i, paper in enumerate(papers):
         if i > 0 and groq_delay_sec > 0:
             time.sleep(groq_delay_sec)
         prompt = PROMPT_TEMPLATE.format(
-            title=paper.title[:500],  # cap title too
-            abstract=paper.abstract[:ABSTRACT_MAX_CHARS],
+            title=(paper.title or "")[:800],
+            abstract=(paper.abstract or "")[:abstract_max],
         )
         try:
-            raw = _call_llm(provider, api_key, model, prompt)
+            raw = _call_llm(provider, api_key, model, prompt, max_tokens)
             # Strip markdown code fences if present
             if raw.startswith("```"):
                 raw = raw.split("```")[1]

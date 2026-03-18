@@ -88,6 +88,8 @@ python -m agent.main
 | LLM model | env `LLM_MODEL` or per-provider default | … / gemini-2.0-flash / llama-3.1-8b-instant (Groq) |
 | Groq delay | env `GROQ_DELAY_SEC` | 3s between requests |
 | Groq max papers | env `GROQ_MAX_PAPERS` | 60 per run (avoids rate limit) |
+| Abstract length (Groq) | env `ABSTRACT_MAX_CHARS` | 25000 chars (full abstract); others default 600 |
+| LLM output tokens (Groq) | env `LLM_MAX_TOKENS` | 512; others default 128 |
 | Cron schedule | `.github/workflows/daily_papers.yml` | `0 8 * * *` & `0 20 * * *` (08:00 & 20:00 UTC) |
 
 ## License
