@@ -12,15 +12,14 @@ logger = logging.getLogger(__name__)
 
 RELEVANCE_THRESHOLD = 6
 
-# Non-Groq: keep prompts cheap. Groq: full abstract + room for richer summary (rate-limited separately).
 ABSTRACT_MAX_CHARS_DEFAULT = 600
-ABSTRACT_MAX_CHARS_GROQ = 25000  # typical arXiv abstract fits; safety cap
+ABSTRACT_MAX_CHARS_GROQ = 1500
 LLM_MAX_TOKENS_DEFAULT = 128
-LLM_MAX_TOKENS_GROQ = 512
+LLM_MAX_TOKENS_GROQ = 256
 
-# Groq free tier: throttle and cap *requests* to avoid 429s (not input length)
-GROQ_DELAY_SEC = 3.0   # seconds between requests (env GROQ_DELAY_SEC overrides)
-GROQ_MAX_PAPERS = 60   # max papers to score per run (env GROQ_MAX_PAPERS overrides)
+# Groq free tier: throttle and cap *requests* to avoid 429s
+GROQ_DELAY_SEC = 3.5   # seconds between requests (env GROQ_DELAY_SEC overrides)
+GROQ_MAX_PAPERS = 100   # max papers to score per run (env GROQ_MAX_PAPERS overrides)
 
 # Model IDs per provider (override with env LLM_MODEL if needed)
 # Groq: free tier, OpenAI-compatible — https://console.groq.com
@@ -32,12 +31,25 @@ DEFAULT_MODELS = {
 }
 
 PROMPT_TEMPLATE = """\
-Score 1-10 relevance to *LLM inference efficiency* or *speculative decoding*. If >=6, a concise 1-3 sentence summary; else summary null.
+You score papers on relevance to LLM inference optimization.
+
+Core topics (score 8-10): speculative decoding, draft models, KV cache compression/eviction, \
+attention sparsity, continuous batching, LLM serving systems, token generation throughput, \
+early exit, mixture-of-experts routing for inference.
+
+Related topics (score 5-7): model quantization, pruning, distillation for efficiency, \
+memory-efficient transformers, long-context inference, hardware-aware optimization.
+
+Not relevant (score 1-4): training-only methods, NLP applications (translation, OCR, ASR, \
+summarization, QA) unless they specifically address inference speed or cost.
+
+Score 1-10. If score >= 6, write a concise 1-2 sentence summary of the method and result. \
+If score < 6, summary is null.
 
 Title: {title}
 Abstract: {abstract}
 
-JSON only: {{"score": N, "summary": "..." or null}}"""
+Respond with JSON only: {{"score": N, "summary": "..." or null}}"""
 
 
 @dataclass
