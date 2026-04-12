@@ -4,13 +4,13 @@ from __future__ import annotations
 
 import logging
 import os
+import time
 
 import httpx
 
 logger = logging.getLogger(__name__)
 
-# Slack allows max 50 blocks per message; we use 2 (header + divider) + 2 per paper
-PAPERS_PER_SLACK_MESSAGE = 24
+SLACK_POST_DELAY = 1.2  # seconds between messages to avoid Slack rate limits
 
 SOURCE_LABELS = {
     "arxiv": "arXiv",
@@ -19,57 +19,42 @@ SOURCE_LABELS = {
 }
 
 
-def _paper_blocks(scored_papers) -> list[dict]:
-    """Build blocks for a list of papers (no header)."""
-    blocks: list[dict] = []
-    for sp in scored_papers:
-        p = sp.paper
-        source_label = SOURCE_LABELS.get(p.source, p.source)
-        authors_str = ", ".join(p.authors[:3])
-        if len(p.authors) > 3:
-            authors_str += f" +{len(p.authors) - 3} more"
-        # Truncate long summary/title so we don't hit Slack text limits
-        title = (p.title or "")[:250]
-        summary = (sp.summary or "")[:2000]  # longer LLM summaries (Slack section ~3k limit total)
-        blocks.append(
-            {
-                "type": "section",
-                "text": {
-                    "type": "mrkdwn",
-                    "text": (
-                        f"*<{p.url}|{title}>*  `{source_label}`\n"
-                        f":busts_in_silhouette: {authors_str}\n"
-                        f":mag: {summary}"
-                    ),
-                },
-            }
-        )
-        blocks.append({"type": "divider"})
-    return blocks
-
-
-def _format_blocks(scored_papers) -> list[list[dict]]:
-    """Return one list of blocks per message (each ≤50 blocks)."""
-    out: list[list[dict]] = []
-    for i in range(0, len(scored_papers), PAPERS_PER_SLACK_MESSAGE):
-        chunk = scored_papers[i : i + PAPERS_PER_SLACK_MESSAGE]
-        header = (
-            {
-                "type": "header",
-                "text": {
-                    "type": "plain_text",
-                    "text": "Daily LLM Inference & Speculative Decoding Papers",
-                    "emoji": True,
-                },
+def _single_paper_blocks(sp) -> list[dict]:
+    """Build blocks for one paper as its own Slack message."""
+    p = sp.paper
+    source_label = SOURCE_LABELS.get(p.source, p.source)
+    authors_str = ", ".join(p.authors[:3])
+    if len(p.authors) > 3:
+        authors_str += f" +{len(p.authors) - 3} more"
+    title = (p.title or "")[:250]
+    summary = (sp.summary or "")[:2000]
+    return [
+        {
+            "type": "section",
+            "text": {
+                "type": "mrkdwn",
+                "text": (
+                    f"*<{p.url}|{title}>*  `{source_label}`  score: {sp.score}/10\n"
+                    f":busts_in_silhouette: {authors_str}\n"
+                    f":mag: {summary}"
+                ),
             },
-            {"type": "divider"},
-        ) if i == 0 else (
-            {"type": "section", "text": {"type": "mrkdwn", "text": f"_— Part {i // PAPERS_PER_SLACK_MESSAGE + 1} —_"}},
-            {"type": "divider"},
-        )
-        blocks = list(header) + _paper_blocks(chunk)
-        out.append(blocks)
-    return out
+        },
+    ]
+
+
+def _header_blocks() -> list[dict]:
+    return [
+        {
+            "type": "header",
+            "text": {
+                "type": "plain_text",
+                "text": "Daily LLM Inference & Speculative Decoding Papers",
+                "emoji": True,
+            },
+        },
+        {"type": "divider"},
+    ]
 
 
 def _no_results_blocks() -> list[dict]:
@@ -78,9 +63,7 @@ def _no_results_blocks() -> list[dict]:
             "type": "section",
             "text": {
                 "type": "mrkdwn",
-                "text": (
-                    ":newspaper: No new speculative decoding / LLM efficiency papers found today."
-                ),
+                "text": ":newspaper: No new speculative decoding / LLM efficiency papers found today.",
             },
         }
     ]
@@ -96,20 +79,25 @@ def post_to_slack(scored_papers) -> None:
         return
 
     with httpx.Client(timeout=30) as client:
-        if scored_papers:
-            messages_blocks = _format_blocks(scored_papers)
-            for blocks in messages_blocks:
-                resp = client.post(webhook_url, json={"blocks": blocks})
-                if resp.status_code != 200:
-                    raise RuntimeError(
-                        f"Slack webhook returned {resp.status_code}: {resp.text}"
-                    )
-            logger.info("Posted %d paper(s) to Slack (%d message(s))", len(scored_papers), len(messages_blocks))
-        else:
-            blocks = _no_results_blocks()
+        if not scored_papers:
+            resp = client.post(webhook_url, json={"blocks": _no_results_blocks()})
+            if resp.status_code != 200:
+                raise RuntimeError(f"Slack webhook returned {resp.status_code}: {resp.text}")
+            logger.info("Posted 0 paper(s) to Slack")
+            return
+
+        # Header message
+        resp = client.post(webhook_url, json={"blocks": _header_blocks()})
+        if resp.status_code != 200:
+            raise RuntimeError(f"Slack webhook returned {resp.status_code}: {resp.text}")
+
+        # One message per paper
+        for i, sp in enumerate(scored_papers):
+            if i > 0:
+                time.sleep(SLACK_POST_DELAY)
+            blocks = _single_paper_blocks(sp)
             resp = client.post(webhook_url, json={"blocks": blocks})
             if resp.status_code != 200:
-                raise RuntimeError(
-                    f"Slack webhook returned {resp.status_code}: {resp.text}"
-                )
-            logger.info("Posted 0 paper(s) to Slack")
+                raise RuntimeError(f"Slack webhook returned {resp.status_code}: {resp.text}")
+
+        logger.info("Posted %d paper(s) to Slack (%d messages)", len(scored_papers), len(scored_papers) + 1)
