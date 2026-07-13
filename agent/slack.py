@@ -25,6 +25,7 @@ SOURCE_LABELS = {
 class DeliveryResult:
     delivered_ids: set[str]
     failed_ids: set[str]
+    simulated: bool = False
 
 
 def _escape_mrkdwn(value: str) -> str:
@@ -110,6 +111,94 @@ def _no_results_blocks() -> list[dict]:
     ]
 
 
+def _chunk_mrkdwn_lines(lines: list[str], limit: int = 2800) -> list[str]:
+    chunks: list[str] = []
+    current = ""
+    for line in lines:
+        candidate = f"{current}\n{line}" if current else line
+        if current and len(candidate) > limit:
+            chunks.append(current)
+            current = line
+        else:
+            current = candidate
+    if current:
+        chunks.append(current)
+    return chunks
+
+
+def _weekly_digest_blocks(records: list[dict], label: str) -> list[dict]:
+    specdec = [item for item in records if item.get("lane") == "specdec"]
+    inference = [item for item in records if item.get("lane") != "specdec"]
+    specdec.sort(
+        key=lambda item: (
+            int(item.get("specdec_score") or 0),
+            int(item.get("inference_score") or 0),
+        ),
+        reverse=True,
+    )
+    inference.sort(
+        key=lambda item: (
+            int(item.get("inference_score") or 0),
+            int(item.get("specdec_score") or 0),
+        ),
+        reverse=True,
+    )
+
+    blocks: list[dict] = [
+        {
+            "type": "header",
+            "text": {
+                "type": "plain_text",
+                "text": f"Paperbot Weekly — {label}"[:150],
+                "emoji": True,
+            },
+        },
+        {
+            "type": "context",
+            "elements": [
+                {
+                    "type": "mrkdwn",
+                    "text": (
+                        f"*{len(specdec)}* speculative-decoding · "
+                        f"*{len(inference)}* broader-inference paper(s)"
+                    ),
+                }
+            ],
+        },
+    ]
+
+    def add_lane(title: str, items: list[dict]) -> None:
+        if not items:
+            return
+        blocks.append({"type": "divider"})
+        lines = [f"*{title}*"]
+        for item in items:
+            paper_title = _escape_mrkdwn(str(item.get("title") or "Untitled")[:220])
+            url = _safe_url(str(item.get("url") or ""))
+            linked_title = f"<{url}|{paper_title}>" if url else paper_title
+            specdec_score = int(item.get("specdec_score") or 0)
+            inference_score = int(item.get("inference_score") or 0)
+            tags = " ".join(
+                f"`{_escape_mrkdwn(str(tag))}`"
+                for tag in (item.get("tags") or [])[:3]
+            )
+            suffix = f" — S{specdec_score} · I{inference_score}"
+            if tags:
+                suffix += f" · {tags}"
+            lines.append(f"• {linked_title}{suffix}")
+        for chunk in _chunk_mrkdwn_lines(lines):
+            blocks.append(
+                {
+                    "type": "section",
+                    "text": {"type": "mrkdwn", "text": chunk},
+                }
+            )
+
+    add_lane(":dart: Speculative decoding", specdec)
+    add_lane(":gear: Broader inference highlights", inference)
+    return blocks
+
+
 def _post_blocks(client: httpx.Client, webhook_url: str, blocks: list[dict]) -> bool:
     for attempt in range(SLACK_MAX_ATTEMPTS):
         try:
@@ -135,14 +224,33 @@ def _post_blocks(client: httpx.Client, webhook_url: str, blocks: list[dict]) -> 
     return False
 
 
+def post_weekly_digest(records: list[dict], label: str) -> bool:
+    """Post one weekly recap message through the existing incoming webhook."""
+    if _dry_run_enabled():
+        logger.warning(
+            "DRY_RUN is enabled — skipping weekly Slack delivery for %s", label
+        )
+        return True
+    webhook_url = os.environ.get("SLACK_WEBHOOK_URL")
+    if not webhook_url:
+        raise EnvironmentError("SLACK_WEBHOOK_URL is required for weekly delivery")
+    with httpx.Client(timeout=30) as client:
+        delivered = _post_blocks(
+            client, webhook_url, _weekly_digest_blocks(records, label)
+        )
+    if delivered:
+        logger.info("Posted weekly digest with %d paper(s)", len(records))
+    return delivered
+
+
 def post_to_slack(scored_papers, *, announce_empty: bool = True) -> DeliveryResult:
     """Post in ranked order and report exactly which papers were delivered."""
     scored_papers = sorted(
         scored_papers,
         key=lambda item: (
             item.is_specdec,
-            item.specdec_score,
-            item.inference_score,
+            item.specdec_score if item.is_specdec else item.inference_score,
+            item.inference_score if item.is_specdec else item.specdec_score,
         ),
         reverse=True,
     )
@@ -151,7 +259,9 @@ def post_to_slack(scored_papers, *, announce_empty: bool = True) -> DeliveryResu
         if _dry_run_enabled():
             logger.warning("DRY_RUN is enabled — skipping Slack delivery")
             return DeliveryResult(
-                delivered_ids={sp.paper.id for sp in scored_papers}, failed_ids=set()
+                delivered_ids={sp.paper.id for sp in scored_papers},
+                failed_ids=set(),
+                simulated=True,
             )
         raise EnvironmentError(
             "SLACK_WEBHOOK_URL is not set; set DRY_RUN=true only when intentionally "

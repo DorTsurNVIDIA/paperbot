@@ -283,6 +283,86 @@ class FilterTests(unittest.TestCase):
         self.assertEqual(result.rejected_ids, {"arxiv:first"})
         self.assertEqual(result.failed_ids, {"arxiv:second"})
 
+    def test_keeps_all_specdec_and_only_top_three_broader_papers(self):
+        papers = [
+            paper(f"arxiv:{index}", f"2026-07-13T{12-index:02d}:00:00+00:00")
+            for index in range(5)
+        ]
+        responses = [
+            json.dumps(
+                {
+                    "specdec_score": 5,
+                    "inference_score": 8,
+                    "tags": ["serving"],
+                    "summary": "Broad result A.",
+                }
+            ),
+            json.dumps(
+                {
+                    "specdec_score": 1,
+                    "inference_score": 10,
+                    "tags": ["hardware"],
+                    "summary": "Broad result B.",
+                }
+            ),
+            json.dumps(
+                {
+                    "specdec_score": 4,
+                    "inference_score": 9,
+                    "tags": ["kv-cache"],
+                    "summary": "Broad result C.",
+                }
+            ),
+            json.dumps(
+                {
+                    "specdec_score": 3,
+                    "inference_score": 8,
+                    "tags": ["attention"],
+                    "summary": "Broad result D.",
+                }
+            ),
+            json.dumps(
+                {
+                    "specdec_score": 9,
+                    "inference_score": 3,
+                    "tags": ["draft-model"],
+                    "summary": "Speculative decoding result.",
+                }
+            ),
+        ]
+        with patch.dict(
+            os.environ,
+            {"LLM_PROVIDER": "openai", "OPENAI_API_KEY": "test"},
+            clear=True,
+        ), patch("agent.filter._call_llm", side_effect=responses):
+            result = score_and_filter(papers)
+
+        self.assertEqual(
+            [item.paper.id for item in result.accepted],
+            ["arxiv:4", "arxiv:1", "arxiv:2", "arxiv:0"],
+        )
+        self.assertEqual(result.suppressed_ids, {"arxiv:3"})
+
+    def test_inference_score_seven_is_below_threshold(self):
+        candidate = paper("arxiv:seven", "2026-07-13T12:00:00+00:00")
+        response = json.dumps(
+            {
+                "specdec_score": 1,
+                "inference_score": 7,
+                "tags": ["serving"],
+                "summary": None,
+            }
+        )
+        with patch.dict(
+            os.environ,
+            {"LLM_PROVIDER": "openai", "OPENAI_API_KEY": "test"},
+            clear=True,
+        ), patch("agent.filter._call_llm", return_value=response):
+            result = score_and_filter([candidate])
+
+        self.assertEqual(result.accepted, [])
+        self.assertEqual(result.rejected_ids, {candidate.id})
+
 
 if __name__ == "__main__":
     unittest.main()

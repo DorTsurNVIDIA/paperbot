@@ -16,6 +16,8 @@ The useful unit is not “an LLM summary.” It is a ranked, auditable research 
 - Slack and Semantic Scholar retry handling.
 - Atomic local state writes, workflow concurrency, and CI tests.
 - A generic OpenAI-compatible provider adapter for internal or self-hosted model endpoints.
+- Every qualifying specdec paper plus at most three broader-inference papers per run.
+- Webhook-only delivery history and an idempotent weekly recap.
 
 ## Phase 1: measure ranking quality
 
@@ -65,11 +67,11 @@ Start with JSONL or SQLite while the bot remains a single scheduled job. Store:
 - delivery attempts and Slack references;
 - human labels and corrections.
 
-Generate a searchable specdec index and a weekly “what changed” synthesis from this archive. Move to a service database only when multiple writers, an interactive Slack bot, or a web UI makes that necessary.
+Paperbot now records successful webhook deliveries and can generate a weekly recap from that history. Expand this lightweight history into a searchable specdec index and richer “what changed” synthesis. Move to a service database only when multiple writers, an interactive Slack bot, or a web UI makes that necessary.
 
 ## Phase 4: Slack as a feedback surface
 
-Publish one ranked digest with two sections: exact specdec first, adjacent inference second. Thread deep analyses under the corresponding paper to keep the channel scannable.
+Keep individual daily paper messages, with every exact-specdec result first and no more than three high-scoring adjacent-inference results. Publish one compact weekly recap through the same incoming webhook. Threading deep analyses would require a bot/API path that can reliably capture message timestamps.
 
 Add lightweight feedback such as “specdec,” “adjacent,” “irrelevant,” and “must read.” Reading reactions or handling buttons requires a Slack app with Events API/interactivity and durable event IDs; an incoming webhook can only publish. Feed these judgments back into the gold set and threshold calibration.
 

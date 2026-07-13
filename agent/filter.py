@@ -6,13 +6,14 @@ import json
 import logging
 import os
 import time
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime, timezone
 
 logger = logging.getLogger(__name__)
 
 SPECDEC_THRESHOLD = 6
-INFERENCE_THRESHOLD = 7
+INFERENCE_THRESHOLD = 8
+INFERENCE_MAX_PAPERS = 3
 
 LLM_MAX_TOKENS_DEFAULT = 512
 LLM_MAX_TOKENS_GROQ = 512
@@ -119,6 +120,7 @@ class ScoringResult:
     rejected_ids: set[str]
     failed_ids: set[str]
     deferred_ids: set[str]
+    suppressed_ids: set[str] = field(default_factory=set)
 
 
 def _get_provider_and_key() -> tuple[str, str]:
@@ -412,6 +414,43 @@ def _batch_size(provider: str) -> int:
     return 1
 
 
+def _limit_and_rank_results(
+    results: list[ScoredPaper],
+) -> tuple[list[ScoredPaper], set[str]]:
+    """Keep every specdec result and only the strongest broader-inference items."""
+    specdec = sorted(
+        (item for item in results if item.is_specdec),
+        key=lambda item: (
+            item.specdec_score,
+            item.inference_score,
+            _paper_timestamp(item.paper),
+        ),
+        reverse=True,
+    )
+    broader = sorted(
+        (item for item in results if not item.is_specdec),
+        key=lambda item: (
+            item.inference_score,
+            item.specdec_score,
+            _paper_timestamp(item.paper),
+        ),
+        reverse=True,
+    )
+    configured = (os.environ.get("INFERENCE_MAX_PAPERS") or "").strip()
+    limit = int(configured) if configured else INFERENCE_MAX_PAPERS
+    if limit < 0:
+        raise ValueError("INFERENCE_MAX_PAPERS cannot be negative")
+    selected_broader = broader[:limit]
+    suppressed_ids = {item.paper.id for item in broader[limit:]}
+    if suppressed_ids:
+        logger.info(
+            "Suppressed %d broader-inference paper(s) below the top-%d cutoff",
+            len(suppressed_ids),
+            limit,
+        )
+    return [*specdec, *selected_broader], suppressed_ids
+
+
 def _is_fatal_provider_error(exc: Exception) -> bool:
     """Return true for authentication/model-access errors shared by every paper."""
     status_code = getattr(exc, "status_code", None)
@@ -537,13 +576,7 @@ def score_and_filter(papers) -> ScoringResult:
                 scored.paper.title,
             )
 
-    results.sort(
-        key=lambda item: (
-            item.is_specdec,
-            item.specdec_score,
-            item.inference_score,
-            _paper_timestamp(item.paper),
-        ),
-        reverse=True,
+    results, suppressed_ids = _limit_and_rank_results(results)
+    return ScoringResult(
+        results, rejected_ids, failed_ids, deferred_ids, suppressed_ids
     )
-    return ScoringResult(results, rejected_ids, failed_ids, deferred_ids)

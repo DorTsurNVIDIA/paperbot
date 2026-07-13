@@ -1,10 +1,11 @@
+import json
 import os
 import unittest
 from unittest.mock import patch
 
 from agent.fetch import Paper
 from agent.filter import ScoredPaper
-from agent.slack import _single_paper_blocks, post_to_slack
+from agent.slack import _single_paper_blocks, _weekly_digest_blocks, post_to_slack
 
 
 class SlackTests(unittest.TestCase):
@@ -39,7 +40,39 @@ class SlackTests(unittest.TestCase):
                 post_to_slack([])
 
         with patch.dict(os.environ, {"DRY_RUN": "true"}, clear=True):
-            self.assertEqual(post_to_slack([]).failed_ids, set())
+            result = post_to_slack([])
+            self.assertEqual(result.failed_ids, set())
+            self.assertTrue(result.simulated)
+
+    def test_weekly_digest_separates_specdec_and_inference_lanes(self):
+        blocks = _weekly_digest_blocks(
+            [
+                {
+                    "title": "Specdec Paper",
+                    "url": "https://example.com/specdec",
+                    "lane": "specdec",
+                    "specdec_score": 9,
+                    "inference_score": 8,
+                    "tags": ["verification"],
+                },
+                {
+                    "title": "Serving Paper",
+                    "url": "https://example.com/serving",
+                    "lane": "inference",
+                    "specdec_score": 1,
+                    "inference_score": 9,
+                    "tags": ["serving"],
+                },
+            ],
+            "Jul 13–Jul 19, 2026",
+        )
+        rendered = json.dumps(blocks)
+
+        self.assertIn("Paperbot Weekly", rendered)
+        self.assertIn("Specdec Paper", rendered)
+        self.assertIn("Serving Paper", rendered)
+        self.assertIn("S9", rendered)
+        self.assertIn("I9", rendered)
 
 
 if __name__ == "__main__":

@@ -60,6 +60,7 @@ jobs:
           LLM_PROVIDER: ${{ vars.LLM_PROVIDER }}
           LLM_MODEL: ${{ vars.LLM_MODEL }}
           LLM_BATCH_SIZE: ${{ vars.LLM_BATCH_SIZE }}
+          INFERENCE_MAX_PAPERS: ${{ vars.INFERENCE_MAX_PAPERS }}
           SEMANTIC_SCHOLAR_API_KEY: ${{ secrets.SEMANTIC_SCHOLAR_API_KEY }}
           # Only workflow_dispatch has inputs; schedule leaves this unset/false
           CLEAR_SEEN_PAPERS: ${{ github.event_name == 'workflow_dispatch' && inputs.clear_seen_papers || false }}
@@ -67,16 +68,16 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: python -m agent.main
 
-      - name: Commit updated seen_papers.json
+      - name: Commit updated Paperbot state
         if: always()
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add seen_papers.json
+          git add seen_papers.json posted_papers.json
           if git diff --cached --quiet; then
-            echo "No changes to seen_papers.json — skipping commit"
+            echo "No Paperbot state changes — skipping commit"
           else
-            git commit -m "chore: update seen_papers.json [skip ci]"
+            git commit -m "chore: update Paperbot state [skip ci]"
             git pull --rebase origin "$GITHUB_REF_NAME"
             git push
           fi

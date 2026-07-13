@@ -8,6 +8,7 @@ import sys
 from agent.dedup import filter_new, load_seen, save_seen
 from agent.fetch import fetch_all
 from agent.filter import score_and_filter
+from agent.history import record_posted_papers
 from agent.slack import post_to_slack
 
 logging.basicConfig(
@@ -42,6 +43,11 @@ def main() -> None:
             "%d paper(s) were deferred by the provider cap and will be retried",
             len(scoring.deferred_ids),
         )
+    if scoring.suppressed_ids:
+        logger.info(
+            "%d broader-inference paper(s) were outside the per-run top cutoff",
+            len(scoring.suppressed_ids),
+        )
 
     # 4. Post to Slack
     has_pending_scoring = bool(scoring.failed_ids or scoring.deferred_ids)
@@ -52,9 +58,13 @@ def main() -> None:
     # 5. Persist only terminal outcomes. Failed/deferred scoring and failed
     # deliveries remain unseen so a later scheduled run can retry them.
     seen.update(scoring.rejected_ids)
+    seen.update(scoring.suppressed_ids)
     seen.update(delivery.delivered_ids)
     save_seen(seen)
     logger.info("Saved %d total seen paper IDs", len(seen))
+
+    if delivery.delivered_ids and not delivery.simulated:
+        record_posted_papers(scoring.accepted, delivery.delivered_ids)
 
     if delivery.failed_ids:
         raise RuntimeError(

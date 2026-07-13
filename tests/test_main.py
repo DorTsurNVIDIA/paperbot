@@ -30,6 +30,7 @@ class MainTests(unittest.TestCase):
             rejected_ids={"arxiv:rejected"},
             failed_ids={"arxiv:failed"},
             deferred_ids={"arxiv:deferred"},
+            suppressed_ids={"arxiv:suppressed"},
         )
         saved = set()
         with patch("agent.main.fetch_all", return_value=[accepted_paper]), patch(
@@ -39,12 +40,21 @@ class MainTests(unittest.TestCase):
         ), patch(
             "agent.main.post_to_slack",
             return_value=DeliveryResult({"arxiv:accepted"}, set()),
-        ), patch("agent.main.save_seen", side_effect=lambda ids: saved.update(ids)):
+        ), patch("agent.main.save_seen", side_effect=lambda ids: saved.update(ids)), patch(
+            "agent.main.record_posted_papers"
+        ) as record:
             main()
 
         self.assertEqual(
-            saved, {"arxiv:old", "arxiv:rejected", "arxiv:accepted"}
+            saved,
+            {
+                "arxiv:old",
+                "arxiv:rejected",
+                "arxiv:suppressed",
+                "arxiv:accepted",
+            },
         )
+        record.assert_called_once_with([scored], {"arxiv:accepted"})
 
     def test_total_scoring_failure_is_saved_for_retry_and_fails_run(self):
         candidate = Paper(
