@@ -180,7 +180,13 @@ def _call_openai(
         "max_tokens": max_tokens,
         "messages": [{"role": "user", "content": prompt}],
     }
-    if "nemotron-3-super" in model.lower():
+    normalized_model = model.lower()
+    if "glm-5" in normalized_model:
+        # GLM 5.x enables deep thinking by default. This classification task
+        # only needs the final JSON object; disabling thinking avoids spending
+        # the output budget (and substantial latency) on reasoning_content.
+        request.update(extra_body={"thinking": {"type": "disabled"}})
+    elif "nemotron-3-super" in normalized_model:
         # The classifier needs a short structured answer, not a reasoning trace.
         # Nemotron 3 Super enables thinking by default, which can consume the
         # output budget before emitting message.content.
