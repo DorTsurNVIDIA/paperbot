@@ -59,6 +59,7 @@ jobs:
           LLM_BASE_URL: ${{ vars.LLM_BASE_URL }}
           LLM_PROVIDER: ${{ vars.LLM_PROVIDER }}
           LLM_MODEL: ${{ vars.LLM_MODEL }}
+          LLM_BATCH_SIZE: ${{ vars.LLM_BATCH_SIZE }}
           SEMANTIC_SCHOLAR_API_KEY: ${{ secrets.SEMANTIC_SCHOLAR_API_KEY }}
           # Only workflow_dispatch has inputs; schedule leaves this unset/false
           CLEAR_SEEN_PAPERS: ${{ github.event_name == 'workflow_dispatch' && inputs.clear_seen_papers || false }}

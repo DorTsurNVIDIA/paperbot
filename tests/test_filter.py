@@ -92,7 +92,10 @@ class FilterTests(unittest.TestCase):
         request = client.chat.completions.create.call_args.kwargs
         self.assertEqual(
             request["extra_body"],
-            {"thinking": {"type": "disabled"}},
+            {
+                "thinking": {"type": "disabled"},
+                "chat_template_kwargs": {"enable_thinking": False},
+            },
         )
 
     def test_dual_scores_accept_tag_and_sort_specdec_first(self):
@@ -204,6 +207,81 @@ class FilterTests(unittest.TestCase):
             score_and_filter([candidate])
 
         self.assertIn("UNTRUNCATED_TAIL", call.call_args.args[3])
+
+    def test_openai_compatible_batches_full_abstracts(self):
+        papers = [
+            paper("arxiv:first", "2026-07-13T12:00:00+00:00"),
+            paper("arxiv:second", "2026-07-13T11:00:00+00:00"),
+        ]
+        papers[0].abstract = "FIRST_FULL_ABSTRACT"
+        papers[1].abstract = "SECOND_FULL_ABSTRACT"
+        response = json.dumps(
+            [
+                {
+                    "index": 0,
+                    "specdec_score": 1,
+                    "inference_score": 2,
+                    "tags": [],
+                    "summary": None,
+                },
+                {
+                    "index": 1,
+                    "specdec_score": 8,
+                    "inference_score": 8,
+                    "tags": ["draft-model"],
+                    "summary": "A relevant result.",
+                },
+            ]
+        )
+        with patch.dict(
+            os.environ,
+            {
+                "LLM_PROVIDER": "openai_compatible",
+                "LLM_API_KEY": "test",
+                "LLM_BASE_URL": "https://example.com/v1",
+                "LLM_MODEL": "nvidia/zai-org/eccn-glm-5.2",
+            },
+            clear=True,
+        ), patch("agent.filter._call_llm", return_value=response) as call:
+            result = score_and_filter(papers)
+
+        self.assertEqual(call.call_count, 1)
+        self.assertIn("FIRST_FULL_ABSTRACT", call.call_args.args[3])
+        self.assertIn("SECOND_FULL_ABSTRACT", call.call_args.args[3])
+        self.assertEqual(call.call_args.args[4], 1024)
+        self.assertEqual(result.rejected_ids, {"arxiv:first"})
+        self.assertEqual([item.paper.id for item in result.accepted], ["arxiv:second"])
+
+    def test_batch_keeps_valid_scores_when_one_entry_is_missing(self):
+        papers = [
+            paper("arxiv:first", "2026-07-13T12:00:00+00:00"),
+            paper("arxiv:second", "2026-07-13T11:00:00+00:00"),
+        ]
+        response = json.dumps(
+            [
+                {
+                    "index": 0,
+                    "specdec_score": 1,
+                    "inference_score": 2,
+                    "tags": [],
+                    "summary": None,
+                }
+            ]
+        )
+        with patch.dict(
+            os.environ,
+            {
+                "LLM_PROVIDER": "openai_compatible",
+                "LLM_API_KEY": "test",
+                "LLM_BASE_URL": "https://example.com/v1",
+                "LLM_MODEL": "test-model",
+            },
+            clear=True,
+        ), patch("agent.filter._call_llm", return_value=response):
+            result = score_and_filter(papers)
+
+        self.assertEqual(result.rejected_ids, {"arxiv:first"})
+        self.assertEqual(result.failed_ids, {"arxiv:second"})
 
 
 if __name__ == "__main__":

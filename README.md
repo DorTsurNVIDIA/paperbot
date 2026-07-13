@@ -101,11 +101,16 @@ For a local scoring-only run, omit `SLACK_WEBHOOK_URL` and set `DRY_RUN=true`. A
 | LLM model | `LLM_MODEL` or provider default | Provider-specific |
 | Abstract characters | `ABSTRACT_MAX_CHARS` | Full abstract; set a positive integer to cap |
 | LLM output tokens | `LLM_MAX_TOKENS` | 512 |
+| Papers per LLM request | `LLM_BATCH_SIZE` | 8 for OpenAI-compatible endpoints; 1 otherwise |
 | Groq delay | `GROQ_DELAY_SEC` | 3.5 seconds |
 | Groq request cap | `GROQ_MAX_PAPERS` | 100 per run; remaining papers are deferred |
 | Schedule | `.github/workflows/daily_papers.yml` | 08:00 and 20:00 UTC |
 
-When `LLM_MODEL` contains `nemotron-3-super`, Paperbot uses NVIDIA's recommended
+OpenAI-compatible endpoints use small batches to reduce request overhead while still sending every
+full abstract. Set `LLM_BATCH_SIZE=1` to restore one-paper requests.
+
+GLM 5.x requests disable thinking so the model spends its output budget on the score JSON. When
+`LLM_MODEL` contains `nemotron-3-super`, Paperbot uses NVIDIA's recommended
 `temperature=1.0` and `top_p=0.95` and disables thinking for the first-stage
 classifier. This preserves the output budget for the required JSON result.
 
