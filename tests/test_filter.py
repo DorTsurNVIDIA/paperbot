@@ -21,6 +21,26 @@ def paper(identifier: str, published_date: str) -> Paper:
 
 
 class FilterTests(unittest.TestCase):
+    def test_provider_access_error_aborts_remaining_requests(self):
+        class AccessDenied(Exception):
+            status_code = 403
+
+        papers = [
+            paper("arxiv:first", "2026-07-13T12:00:00+00:00"),
+            paper("arxiv:second", "2026-07-13T11:00:00+00:00"),
+        ]
+        with patch.dict(
+            os.environ,
+            {"LLM_PROVIDER": "openai", "OPENAI_API_KEY": "test"},
+            clear=True,
+        ), patch(
+            "agent.filter._call_llm", side_effect=AccessDenied("not allowed")
+        ) as call:
+            result = score_and_filter(papers)
+
+        self.assertEqual(result.failed_ids, {"arxiv:first", "arxiv:second"})
+        self.assertEqual(call.call_count, 1)
+
     def test_nemotron_super_disables_thinking_for_structured_classification(self):
         completion = SimpleNamespace(
             choices=[SimpleNamespace(message=SimpleNamespace(content='{"ok": true}'))]

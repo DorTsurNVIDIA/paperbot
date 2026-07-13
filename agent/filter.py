@@ -325,6 +325,14 @@ def _parse_score(raw: str, paper: object) -> ScoredPaper | None:
     )
 
 
+def _is_fatal_provider_error(exc: Exception) -> bool:
+    """Return true for authentication/model-access errors shared by every paper."""
+    status_code = getattr(exc, "status_code", None)
+    if status_code is None:
+        status_code = getattr(getattr(exc, "response", None), "status_code", None)
+    return status_code in {401, 403, 404}
+
+
 def score_and_filter(papers) -> ScoringResult:
     """Score papers without treating failed or capped requests as processed."""
     if not papers:
@@ -394,6 +402,15 @@ def score_and_filter(papers) -> ScoringResult:
         except Exception as exc:
             logger.warning("LLM scoring failed for '%s': %s", paper.title, exc)
             failed_ids.add(paper.id)
+            if _is_fatal_provider_error(exc):
+                remaining = papers[i + 1 :]
+                failed_ids.update(item.id for item in remaining)
+                logger.error(
+                    "Provider rejected authentication or model access; aborting "
+                    "%d remaining request(s)",
+                    len(remaining),
+                )
+                break
             continue
 
         if scored is not None:
