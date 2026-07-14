@@ -15,5 +15,53 @@
       "serving"
     ],
     "summary": "AdaptiveKV accelerates LLM inference by using a bandwidth-adaptive memory allocation mechanism for KV cache offloading across CXL-enabled memory pools. The method achieves a maximum speedup of 1.90× in LLM inference throughput compared to state-of-the-art strategies."
+  },
+  {
+    "paper_id": "arxiv:2607.08930",
+    "title": "BlockServe: Block-Grained Continuous Batching for High-Throughput Diffusion LLM Serving",
+    "url": "https://www.semanticscholar.org/paper/0756101ba160099835fac4d5431e72cdac9c160b",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-09",
+    "posted_at": "2026-07-14T20:47:49.214405+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "batching",
+      "serving"
+    ],
+    "summary": "BlockServe is a serving framework for diffusion LLMs that uses block-grained continuous batching and mixed-state execution to handle convergence heterogeneity, achieving up to 10.6x throughput improvement over prior baselines."
+  },
+  {
+    "paper_id": "arxiv:2607.08993",
+    "title": "StreamDQ: Near-Memory Weight DeQuantization in Custom HBM for Scalable AI Inference Acceleration",
+    "url": "https://www.semanticscholar.org/paper/ab4c7eb03cc9ab95f902183222505b0adb97b077",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-09",
+    "posted_at": "2026-07-14T20:47:49.214405+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "quantization"
+    ],
+    "summary": "StreamDQ introduces near-memory weight dequantization in custom HBM to eliminate GPU-side overhead, achieving up to 7.08x speedup for mixed-precision GEMM and 2.20x higher decode throughput in end-to-end LLM inference."
+  },
+  {
+    "paper_id": "arxiv:2607.09248",
+    "title": "General Non-Clairvoyant KV-Cache Scheduling via Regime-Aware Routing",
+    "url": "https://www.semanticscholar.org/paper/5fb5e0a4fa819bbc787939b4572515d817f30bb1",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-10",
+    "posted_at": "2026-07-14T20:47:49.214405+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "The paper introduces a non-clairvoyant scheduling algorithm for batched LLM inference that manages requests under a hard KV-cache memory budget to minimize total completion time. It provides the first constant-competitive algorithm for arbitrary prompt and response lengths using a novel regime-aware routing framework of specialized sub-schedulers."
   }
 ]
