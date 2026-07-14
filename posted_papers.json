@@ -1,1 +1,19 @@
-[]
+[
+  {
+    "paper_id": "doi:10.1145/3821219",
+    "title": "AdaptiveKV: Accelerating KV Cache Offloading with a Bandwidth-Adaptive Memory Allocation Mechanism",
+    "url": "https://www.semanticscholar.org/paper/9ca28e42b52306d57c9de2e1b6e9896f44dde253",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-10",
+    "posted_at": "2026-07-14T10:06:18.579761+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "hardware",
+      "serving"
+    ],
+    "summary": "AdaptiveKV accelerates LLM inference by using a bandwidth-adaptive memory allocation mechanism for KV cache offloading across CXL-enabled memory pools. The method achieves a maximum speedup of 1.90× in LLM inference throughput compared to state-of-the-art strategies."
+  }
+]
