@@ -4,10 +4,13 @@ from __future__ import annotations
 
 import datetime
 import logging
+import os
 import time
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 import httpx
+
+from agent.identity import canonical_paper_id
 
 logger = logging.getLogger(__name__)
 
@@ -23,6 +26,8 @@ class Paper:
     url: str
     source: str
     published_date: str
+    source_id: str = ""
+    external_ids: dict[str, str] = field(default_factory=dict)
 
 
 def _cutoff() -> datetime.datetime:
@@ -78,19 +83,24 @@ def fetch_arxiv() -> list[Paper]:
                     published = published.replace(tzinfo=datetime.timezone.utc)
                 if published < cutoff:
                     continue
-                paper_id = result.entry_id.split("/")[-1]
+                source_id = result.entry_id.split("/")[-1]
+                paper_id = canonical_paper_id("arxiv", source_id)
+                if not paper_id:
+                    continue
                 if paper_id in seen_ids:
                     continue
                 seen_ids.add(paper_id)
                 papers.append(
                     Paper(
-                        id=f"arxiv:{paper_id}",
+                        id=paper_id,
                         title=result.title,
                         abstract=result.summary,
                         authors=[a.name for a in result.authors],
                         url=result.entry_id,
                         source="arxiv",
                         published_date=published.isoformat(),
+                        source_id=source_id,
+                        external_ids={"ArXiv": source_id},
                     )
                 )
         except Exception as exc:
@@ -110,19 +120,24 @@ def fetch_arxiv() -> list[Paper]:
                     published = published.replace(tzinfo=datetime.timezone.utc)
                 if published < cutoff:
                     continue
-                paper_id = result.entry_id.split("/")[-1]
+                source_id = result.entry_id.split("/")[-1]
+                paper_id = canonical_paper_id("arxiv", source_id)
+                if not paper_id:
+                    continue
                 if paper_id in seen_ids:
                     continue
                 seen_ids.add(paper_id)
                 papers.append(
                     Paper(
-                        id=f"arxiv:{paper_id}",
+                        id=paper_id,
                         title=result.title,
                         abstract=result.summary,
                         authors=[a.name for a in result.authors],
                         url=result.entry_id,
                         source="arxiv",
                         published_date=published.isoformat(),
+                        source_id=source_id,
+                        external_ids={"ArXiv": source_id},
                     )
                 )
         except Exception as exc:
@@ -135,8 +150,56 @@ def fetch_arxiv() -> list[Paper]:
 # Semantic Scholar
 # ---------------------------------------------------------------------------
 
-S2_URL = "https://api.semanticscholar.org/graph/v1/paper/search"
+S2_URL = "https://api.semanticscholar.org/graph/v1/paper/search/bulk"
 S2_FIELDS = "title,authors,year,url,abstract,externalIds,publicationDate"
+S2_MAX_ATTEMPTS = 3
+
+
+def _s2_request(
+    client: httpx.Client,
+    params: dict[str, object],
+    headers: dict[str, str],
+) -> dict:
+    """Request Semantic Scholar with bounded retry/backoff for transient failures."""
+    last_error: Exception | None = None
+    for attempt in range(S2_MAX_ATTEMPTS):
+        try:
+            response = client.get(S2_URL, params=params, headers=headers)
+        except httpx.TransportError as exc:
+            last_error = exc
+            if attempt + 1 < S2_MAX_ATTEMPTS:
+                time.sleep(2**attempt)
+                continue
+            break
+
+        if response.status_code == 429 or response.status_code >= 500:
+            last_error = httpx.HTTPStatusError(
+                f"Semantic Scholar returned {response.status_code}",
+                request=response.request,
+                response=response,
+            )
+            retry_after = response.headers.get("retry-after", "")
+            try:
+                delay = min(float(retry_after), 30.0) if retry_after else 2**attempt
+            except ValueError:
+                delay = 2**attempt
+            if attempt + 1 < S2_MAX_ATTEMPTS:
+                logger.warning(
+                    "Semantic Scholar returned %d; retrying in %.1fs",
+                    response.status_code,
+                    delay,
+                )
+                time.sleep(delay)
+                continue
+            break
+
+        # Authentication and query errors are not transient; surface them immediately.
+        response.raise_for_status()
+        try:
+            return response.json()
+        except ValueError as exc:
+            raise RuntimeError("Semantic Scholar returned invalid JSON") from exc
+    raise RuntimeError("Semantic Scholar request failed after retries") from last_error
 
 
 def fetch_semantic_scholar() -> list[Paper]:
@@ -150,25 +213,32 @@ def fetch_semantic_scholar() -> list[Paper]:
         "LLM inference acceleration",
         "large language model inference",
     ]
-    S2_LIMIT = 25
-    S2_DELAY_SEC = 2
+    S2_LIMIT = 50
+    S2_DELAY_SEC = 1
+    cutoff_date = cutoff.date().isoformat()
+    api_key = (
+        os.environ.get("SEMANTIC_SCHOLAR_API_KEY")
+        or os.environ.get("S2_API_KEY")
+        or ""
+    )
+    headers = {"x-api-key": api_key} if api_key else {}
 
     with httpx.Client(timeout=30) as client:
         for i, query in enumerate(queries):
             if i > 0:
                 time.sleep(S2_DELAY_SEC)
             try:
-                resp = client.get(
-                    S2_URL,
-                    params={
+                data = _s2_request(
+                    client,
+                    {
                         "query": query,
                         "fields": S2_FIELDS,
                         "limit": S2_LIMIT,
                         "sort": "publicationDate:desc",
+                        "publicationDateOrYear": f"{cutoff_date}:",
                     },
+                    headers,
                 )
-                resp.raise_for_status()
-                data = resp.json()
             except Exception as exc:
                 logger.warning("Semantic Scholar query '%s' failed: %s", query, exc)
                 continue
@@ -185,22 +255,34 @@ def fetch_semantic_scholar() -> list[Paper]:
                     except ValueError:
                         pass
 
-                paper_id = item.get("paperId", "")
+                source_id = item.get("paperId", "")
+                external_ids = {
+                    str(key): str(value)
+                    for key, value in (item.get("externalIds") or {}).items()
+                    if value is not None
+                }
+                paper_id = canonical_paper_id(
+                    "semantic_scholar", source_id, external_ids
+                )
+                if not paper_id:
+                    continue
                 if paper_id in seen_ids:
                     continue
                 seen_ids.add(paper_id)
 
                 authors = [a.get("name", "") for a in item.get("authors", [])]
-                url = item.get("url") or f"https://www.semanticscholar.org/paper/{paper_id}"
+                url = item.get("url") or f"https://www.semanticscholar.org/paper/{source_id}"
                 papers.append(
                     Paper(
-                        id=f"s2:{paper_id}",
+                        id=paper_id,
                         title=item.get("title", ""),
                         abstract=item.get("abstract") or "",
                         authors=authors,
                         url=url,
                         source="semantic_scholar",
                         published_date=pub_date_str,
+                        source_id=source_id,
+                        external_ids=external_ids,
                     )
                 )
 
@@ -254,24 +336,29 @@ def fetch_huggingface() -> list[Paper]:
         if not any(kw in text for kw in RELEVANCE_KEYWORDS):
             continue
 
-        paper_id = paper_info.get("id", "")
+        source_id = paper_info.get("id", "")
+        paper_id = canonical_paper_id("huggingface", source_id)
+        if not paper_id:
+            continue
         authors_raw = paper_info.get("authors", [])
         authors = [
             a.get("name", a) if isinstance(a, dict) else str(a)
             for a in authors_raw
         ]
-        url = f"https://huggingface.co/papers/{paper_id}" if paper_id else "https://huggingface.co/papers"
+        url = f"https://huggingface.co/papers/{source_id}"
         published_date = paper_info.get("publishedAt") or ""
 
         papers.append(
             Paper(
-                id=f"hf:{paper_id}",
+                id=paper_id,
                 title=title,
                 abstract=abstract,
                 authors=authors,
                 url=url,
                 source="huggingface",
                 published_date=published_date,
+                source_id=source_id,
+                external_ids={"ArXiv": source_id},
             )
         )
 
@@ -283,16 +370,17 @@ def fetch_huggingface() -> list[Paper]:
 # ---------------------------------------------------------------------------
 
 def fetch_all() -> list[Paper]:
-    """Fetch papers from all sources and deduplicate by ID."""
+    """Fetch papers from all sources and deduplicate by canonical identity."""
     all_papers: list[Paper] = []
     seen: set[str] = set()
 
     for fetcher in (fetch_arxiv, fetch_semantic_scholar, fetch_huggingface):
+        fetcher_name = getattr(fetcher, "__name__", fetcher.__class__.__name__)
         try:
             batch = fetcher()
-            logger.info("%s returned %d papers", fetcher.__name__, len(batch))
+            logger.info("%s returned %d papers", fetcher_name, len(batch))
         except Exception as exc:
-            logger.error("%s crashed: %s", fetcher.__name__, exc)
+            logger.error("%s crashed: %s", fetcher_name, exc)
             batch = []
 
         for p in batch:

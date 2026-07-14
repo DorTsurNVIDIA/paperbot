@@ -7,6 +7,8 @@ import logging
 import os
 from pathlib import Path
 
+from agent.identity import canonicalize_stored_id
+
 logger = logging.getLogger(__name__)
 
 SEEN_FILE = Path(__file__).parent.parent / "seen_papers.json"
@@ -21,14 +23,27 @@ def load_seen() -> set[str]:
         return set()
     try:
         data = json.loads(SEEN_FILE.read_text())
-        return set(data)
+        if not isinstance(data, list):
+            raise ValueError("seen_papers.json must contain a JSON array")
+        return {
+            canonicalize_stored_id(str(paper_id))
+            for paper_id in data
+            if str(paper_id).strip()
+        }
     except Exception as exc:
-        logger.warning("Could not load seen_papers.json: %s", exc)
-        return set()
+        # An empty fallback would make every historical paper look new and could
+        # flood Slack. Fail closed; CLEAR_SEEN_PAPERS is the explicit reset path.
+        raise RuntimeError(f"Could not load {SEEN_FILE}: {exc}") from exc
 
 
 def save_seen(ids: set[str]) -> None:
-    SEEN_FILE.write_text(json.dumps(sorted(ids), indent=2))
+    """Atomically persist canonical IDs so an interrupted write cannot corrupt state."""
+    canonical_ids = {
+        canonicalize_stored_id(paper_id) for paper_id in ids if paper_id
+    }
+    temporary_file = SEEN_FILE.with_suffix(f"{SEEN_FILE.suffix}.tmp")
+    temporary_file.write_text(json.dumps(sorted(canonical_ids), indent=2) + "\n")
+    temporary_file.replace(SEEN_FILE)
 
 
 def filter_new(papers, seen: set[str]):

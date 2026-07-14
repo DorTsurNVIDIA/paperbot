@@ -8,6 +8,7 @@ import sys
 from agent.dedup import filter_new, load_seen, save_seen
 from agent.fetch import fetch_all
 from agent.filter import score_and_filter
+from agent.history import record_posted_papers
 from agent.slack import post_to_slack
 
 logging.basicConfig(
@@ -31,16 +32,50 @@ def main() -> None:
     logger.info("New (unseen) papers: %d", len(new_papers))
 
     # 3. Score & filter with LLM
-    scored = score_and_filter(new_papers)
-    logger.info("Relevant papers after LLM filter: %d", len(scored))
+    scoring = score_and_filter(new_papers)
+    logger.info("Relevant papers after LLM filter: %d", len(scoring.accepted))
+    if scoring.failed_ids:
+        logger.warning(
+            "%d paper(s) failed scoring and will be retried", len(scoring.failed_ids)
+        )
+    if scoring.deferred_ids:
+        logger.info(
+            "%d paper(s) were deferred by the provider cap and will be retried",
+            len(scoring.deferred_ids),
+        )
+    if scoring.suppressed_ids:
+        logger.info(
+            "%d broader-inference paper(s) were outside the per-run top cutoff",
+            len(scoring.suppressed_ids),
+        )
 
     # 4. Post to Slack
-    post_to_slack(scored)
+    has_pending_scoring = bool(scoring.failed_ids or scoring.deferred_ids)
+    delivery = post_to_slack(
+        scoring.accepted, announce_empty=not has_pending_scoring
+    )
 
-    # 5. Persist seen IDs (all fetched, not just relevant ones — avoids re-scoring)
-    seen.update(p.id for p in new_papers)
+    # 5. Persist only terminal outcomes. Failed/deferred scoring and failed
+    # deliveries remain unseen so a later scheduled run can retry them.
+    seen.update(scoring.rejected_ids)
+    seen.update(scoring.suppressed_ids)
+    seen.update(delivery.delivered_ids)
     save_seen(seen)
     logger.info("Saved %d total seen paper IDs", len(seen))
+
+    if delivery.delivered_ids and not delivery.simulated:
+        record_posted_papers(scoring.accepted, delivery.delivered_ids)
+
+    if delivery.failed_ids:
+        raise RuntimeError(
+            f"Slack delivery failed for {len(delivery.failed_ids)} paper(s); "
+            "their IDs were left unseen for retry"
+        )
+    if scoring.failed_ids and not (scoring.accepted or scoring.rejected_ids):
+        raise RuntimeError(
+            f"LLM scoring failed for all {len(scoring.failed_ids)} attempted "
+            "paper(s); their IDs were left unseen for retry"
+        )
 
     logger.info("=== papers-agent done ===")
 

@@ -17,9 +17,14 @@ on:
 permissions:
   contents: write           # needed to commit seen_papers.json back
 
+concurrency:
+  group: paperbot-production
+  cancel-in-progress: false
+
 jobs:
   run-agent:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
@@ -31,9 +36,18 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+          cache: pip
 
       - name: Install dependencies
         run: pip install -r requirements.txt
+
+      - name: Verify configured model access
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_BASE_URL: ${{ vars.LLM_BASE_URL }}
+          LLM_PROVIDER: ${{ vars.LLM_PROVIDER }}
+          LLM_MODEL: ${{ vars.LLM_MODEL }}
+        run: python -m agent.preflight
 
       - name: Run papers agent
         env:
@@ -41,20 +55,29 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_BASE_URL: ${{ vars.LLM_BASE_URL }}
           LLM_PROVIDER: ${{ vars.LLM_PROVIDER }}
+          LLM_MODEL: ${{ vars.LLM_MODEL }}
+          LLM_BATCH_SIZE: ${{ vars.LLM_BATCH_SIZE }}
+          INFERENCE_MAX_PAPERS: ${{ vars.INFERENCE_MAX_PAPERS }}
+          SEMANTIC_SCHOLAR_API_KEY: ${{ secrets.SEMANTIC_SCHOLAR_API_KEY }}
           # Only workflow_dispatch has inputs; schedule leaves this unset/false
           CLEAR_SEEN_PAPERS: ${{ github.event_name == 'workflow_dispatch' && inputs.clear_seen_papers || false }}
+          DRY_RUN: ${{ vars.DRY_RUN }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: python -m agent.main
 
-      - name: Commit updated seen_papers.json
+      - name: Commit updated Paperbot state
+        if: always()
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add seen_papers.json
+          git add seen_papers.json posted_papers.json
           if git diff --cached --quiet; then
-            echo "No changes to seen_papers.json — skipping commit"
+            echo "No Paperbot state changes — skipping commit"
           else
-            git commit -m "chore: update seen_papers.json [skip ci]"
+            git commit -m "chore: update Paperbot state [skip ci]"
+            git pull --rebase origin "$GITHUB_REF_NAME"
             git push
           fi

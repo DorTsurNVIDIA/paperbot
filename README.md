@@ -1,96 +1,128 @@
 # paperbot
 
-A GitHub Actions bot that runs daily, fetches new academic papers about **LLM inference efficiency** and **speculative decoding** from arXiv, Semantic Scholar, and Hugging Face, filters them with an LLM (Claude, ChatGPT, or Gemini), and posts summaries to a Slack channel.
+Paperbot is a scheduled research feed for **speculative decoding** and **LLM inference optimization**. It fetches recent papers from arXiv, Semantic Scholar, and Hugging Face, scores them with an LLM, and posts ranked papers to Slack.
+
+The feed has two explicit lanes:
+
+- **SPECDEC** — speculative decoding is the main method, or the work directly enables it through drafting, verification, acceptance, multi-token prediction, or a closely related mechanism.
+- **INFERENCE** — broader work on latency, throughput, memory, serving, or hardware efficiency.
+
+Every qualifying specdec paper is posted first. Each run then posts at most the three strongest broader-inference papers with an inference score of at least 8. Every Slack item shows both scores plus controlled topic tags.
 
 ## How it works
 
-1. **Fetch** — pulls papers from the last 48 hours from three sources
-2. **Dedup** — skips papers already posted (tracked in `seen_papers.json`)
-3. **Filter** — uses an LLM to score relevance (1–10); only papers scoring ≥ 6 are kept
-4. **Post** — sends formatted Slack messages via Incoming Webhook
-5. **Save** — commits updated `seen_papers.json` back to the repo
+1. **Fetch** papers from the last seven days.
+2. **Canonicalize and deduplicate** identities across arXiv versions, Hugging Face, Semantic Scholar, and DOI metadata.
+3. **Classify** each unseen paper with independent 1–10 specdec and inference scores.
+4. **Rank and post** every accepted specdec paper followed by the top three broader-inference papers.
+5. **Record successful posts** for a webhook-only weekly recap.
+6. **Checkpoint safely**: rejected, intentionally suppressed, and successfully delivered papers are saved; failed, rate-limited, capped, or undelivered papers remain eligible for retry.
+
+The twice-daily schedule catches papers missed by a delayed run without posting known papers again.
 
 ## Setup
 
 ### 1. Create a Slack Incoming Webhook
 
-1. Go to https://api.slack.com/apps → **Create New App** → From Scratch
-2. Enable **Incoming Webhooks** → **Add New Webhook to Workspace** → choose a channel
-3. Copy the generated webhook URL (`https://hooks.slack.com/services/...`)
+1. Go to [Slack apps](https://api.slack.com/apps) and create an app from scratch.
+2. Enable **Incoming Webhooks**, add a webhook to the target channel, and copy its URL.
+3. Add it to the repository as an Actions secret named `SLACK_WEBHOOK_URL`.
 
-### 2. Allow the workflow to push (GitHub authentication)
+Incoming Webhooks are enough for daily publishing and the weekly recap. A future interactive feedback loop based on emoji or buttons will require a Slack app with read permissions rather than only a webhook.
 
-The agent commits updated `seen_papers.json` back to the repo. The workflow needs permission to push:
+### 2. Configure an LLM
 
-1. Open your repo on GitHub and go to **Settings** (tab next to Insights; you need admin access to see it).
-2. In the **left sidebar**, click **Actions**, then **General**.  
-   Direct URL: `https://github.com/DorTsurNVIDIA/paperbot/settings/actions`
-3. **Workflow permissions** — select **Read and write permissions** (so the workflow can push `seen_papers.json`).
-4. **Actions permissions** — leave **Allow all actions and reusable workflows**.  
-   Do *not* choose "Allow DorTsurNVIDIA, and select non-DorTsurNVIDIA…" for this repo: that blocks GitHub's built-in actions (`actions/checkout`, `actions/setup-python`) unless you add them to an allow list. "Allow all actions" is the right choice here.
-5. Click **Save**.
+Paperbot supports Anthropic, OpenAI, Gemini, Groq, and any OpenAI-compatible chat-completions endpoint.
 
-**If you don't see Settings or Actions:** You need admin/write access to the repo. For an org repo, an owner may have disabled Actions in **Organization Settings → Actions**. If your org blocks changing workflow permissions, use a Personal Access Token: create a PAT with `repo` scope, add it as a repository secret named `GH_PAT`, and we can switch the workflow to use it for the push step.
+For a standard provider, add one corresponding Actions secret:
 
-### 3. Add GitHub Secrets
+| Provider | Secret | Optional repository variable |
+|---|---|---|
+| Anthropic | `ANTHROPIC_API_KEY` | `LLM_PROVIDER=anthropic` |
+| OpenAI | `OPENAI_API_KEY` | `LLM_PROVIDER=openai` |
+| Gemini | `GEMINI_API_KEY` | `LLM_PROVIDER=gemini` |
+| Groq | `GROQ_API_KEY` | `LLM_PROVIDER=groq` |
 
-In your repo: **Settings → Secrets and variables → Actions → New repository secret**
+Without `LLM_PROVIDER`, the first available key is selected in the order shown above.
 
-Add **one** LLM API key (whichever you have access to) and the Slack webhook:
+For an internal or self-hosted OpenAI-compatible service, configure:
 
-| Secret name | Value |
-|---|---|
-| `ANTHROPIC_API_KEY` | Anthropic API key (Claude) |
-| `OPENAI_API_KEY` | OpenAI API key (ChatGPT; use with gpt-4o-mini) |
-| `GEMINI_API_KEY` | Google AI API key (Gemini; get one at [Google AI Studio](https://aistudio.google.com/apikey)) |
-| `GROQ_API_KEY` | **Free tier** — Groq API key (Llama; get one at [console.groq.com](https://console.groq.com)) |
-| `SLACK_WEBHOOK_URL` | The webhook URL from step 1 |
+| Kind | Name | Value |
+|---|---|---|
+| Actions variable | `LLM_PROVIDER` | `openai_compatible` |
+| Actions variable | `LLM_BASE_URL` | Base URL ending at the API version, as required by the service |
+| Actions variable | `LLM_MODEL` | Model ID exposed by the endpoint |
+| Actions secret | `LLM_API_KEY` | Service credential, if the endpoint requires one |
 
-The agent uses the first key it finds (Anthropic → OpenAI → Gemini → Groq). To force a provider, add `LLM_PROVIDER` as a repository **variable** (Actions → Variables): `anthropic`, `openai`, `gemini`, or `groq`.
+Keep internal hostnames, credentials, and deployment-specific instructions out of this public repository.
 
-### 4. Push to GitHub
+### 3. Optional: configure Semantic Scholar
 
-The workflow runs on a **schedule twice daily** (**08:00 UTC** and **20:00 UTC**) so a missed GitHub slot still usually gives you a run the same day. You can also trigger it manually via **Actions → Daily Papers Agent → Run workflow**. To process all fetched papers as new (e.g. after changing the LLM or for a one-time full run), check **Clear seen papers** when running the workflow — this run will treat every fetched paper as unseen, score with the LLM, post to Slack, then save the new seen list.
+Unauthenticated Semantic Scholar requests are frequently rate-limited. Add `SEMANTIC_SCHOLAR_API_KEY` as an Actions secret for more reliable retrieval. Paperbot retries transient 429 and 5xx responses with bounded backoff.
 
-### If scheduled runs stop working
+### 4. Allow workflow state updates
 
-1. **Actions tab** — Open **Actions**. If you see a yellow banner that scheduled workflows were disabled (e.g. after ~60 days without repo activity on some plans), click to **re-enable** them.
-2. **Settings → Actions → General** — Ensure **Allow all actions** (or your org’s equivalent) and **Read and write permissions** for workflows are still set.
-3. **Default branch** — The schedule only uses the workflow file on your repo’s **default branch** (`main`). Merge changes there if you develop on another branch.
-4. **Delays** — Scheduled jobs can start **up to ~1 hour late**; that’s normal on GitHub’s side.
+The scheduled workflows commit `seen_papers.json`, successful post history, and weekly idempotency state back to the current branch.
 
-### How you'll know it works
+1. Open **Settings → Actions → General**.
+2. Under **Workflow permissions**, select **Read and write permissions**.
+3. Keep GitHub's `actions/checkout` and `actions/setup-python` actions allowed by the repository or organization policy.
 
-- **Without Slack:** Run the workflow manually (**Actions → Daily Papers Agent → Run workflow**). Open the run and click the **run-agent** job. If the "Run papers agent" step is green and the log shows lines like `Total fetched: N papers`, `New (unseen) papers: M`, `Relevant papers after LLM filter: K`, then fetch, dedup, and LLM filtering are working. You can add the Slack webhook later.
-- **With Slack:** After you add `SLACK_WEBHOOK_URL`, the next run will post to the channel you chose: either a "Daily LLM Inference & Speculative Decoding Papers" message with each paper's title, link, and summary, or "No new … papers found today" if none passed the filter.
+The production workflows share a concurrency group so daily and weekly runs cannot update state simultaneously.
 
-## Local testing
+### 5. Run it
+
+The paper workflow runs at 08:00 and 20:00 UTC and can also be started from **Actions → Daily Papers Agent → Run workflow**. The manual `clear_seen_papers` option performs a one-run rescore of everything fetched in the current lookback window.
+
+The weekly recap runs Monday at 08:30 UTC for the previous ISO week. It can be run manually for a specific `YYYY-Www` week and will not repost a completed week unless `force` is selected. It reads `posted_papers.json`, not the Slack channel, so no bot token or read permission is required.
+
+## Local development
 
 ```bash
-# Use one of these (or set LLM_PROVIDER=groq / openai / gemini to force):
-export GROQ_API_KEY=gsk_...        # Free — Groq (https://console.groq.com)
-# export OPENAI_API_KEY=sk-...      # ChatGPT
-# export GEMINI_API_KEY=...         # Gemini (https://aistudio.google.com/apikey)
-# export ANTHROPIC_API_KEY=sk-ant-... # Claude
+python -m pip install -r requirements.txt
+
+export LLM_PROVIDER=openai_compatible
+export LLM_BASE_URL=https://your-service.example/v1
+export LLM_MODEL=your-model-id
+export LLM_API_KEY=your-service-key
 export SLACK_WEBHOOK_URL=https://hooks.slack.com/services/...
 
-pip install -r requirements.txt
 python -m agent.main
+DRY_RUN=true python -m agent.weekly_digest
+python -m unittest discover -v
 ```
+
+For a local scoring-only run, omit `SLACK_WEBHOOK_URL` and set `DRY_RUN=true`. Accepted papers are then treated as handled for that local state file, so use a disposable copy of `seen_papers.json` if you intend to deliver them later. Without a webhook or explicit dry-run flag, Paperbot fails closed instead of silently losing deliveries.
 
 ## Configuration
 
 | Setting | Location | Default |
 |---|---|---|
-| Lookback window | `agent/fetch.py` → `LOOKBACK_HOURS` | 7 days (168 hours) |
-| Relevance threshold | `agent/filter.py` → `RELEVANCE_THRESHOLD` | 6 / 10 |
-| LLM provider | env `LLM_PROVIDER` or first key set | anthropic → openai → gemini → groq |
-| LLM model | env `LLM_MODEL` or per-provider default | … / gemini-2.0-flash / llama-3.1-8b-instant (Groq) |
-| Groq delay | env `GROQ_DELAY_SEC` | 3s between requests |
-| Groq max papers | env `GROQ_MAX_PAPERS` | 60 per run (avoids rate limit) |
-| Abstract length (Groq) | env `ABSTRACT_MAX_CHARS` | 25000 chars (full abstract); others default 600 |
-| LLM output tokens (Groq) | env `LLM_MAX_TOKENS` | 512; others default 128 |
-| Cron schedule | `.github/workflows/daily_papers.yml` | `0 8 * * *` & `0 20 * * *` (08:00 & 20:00 UTC) |
+| Lookback window | `agent/fetch.py` → `LOOKBACK_HOURS` | 168 hours |
+| Specdec threshold | `agent/filter.py` → `SPECDEC_THRESHOLD` | 6 / 10 |
+| Inference threshold | `agent/filter.py` → `INFERENCE_THRESHOLD` | 8 / 10 |
+| Broader papers per run | `INFERENCE_MAX_PAPERS` | 3 |
+| LLM provider | `LLM_PROVIDER` or available key | Anthropic → OpenAI → Gemini → Groq |
+| LLM model | `LLM_MODEL` or provider default | Provider-specific |
+| Abstract characters | `ABSTRACT_MAX_CHARS` | Full abstract; set a positive integer to cap |
+| LLM output tokens | `LLM_MAX_TOKENS` | 512 |
+| Papers per LLM request | `LLM_BATCH_SIZE` | 8 for OpenAI-compatible endpoints; 1 otherwise |
+| Groq delay | `GROQ_DELAY_SEC` | 3.5 seconds |
+| Groq request cap | `GROQ_MAX_PAPERS` | 100 per run; remaining papers are deferred |
+| Schedule | `.github/workflows/daily_papers.yml` | 08:00 and 20:00 UTC |
+| Weekly recap | `.github/workflows/weekly_digest.yml` | Monday 08:30 UTC |
+
+OpenAI-compatible endpoints use small batches to reduce request overhead while still sending every
+full abstract. Set `LLM_BATCH_SIZE=1` to restore one-paper requests.
+
+GLM 5.x requests disable thinking so the model spends its output budget on the score JSON. When
+`LLM_MODEL` contains `nemotron-3-super`, Paperbot uses NVIDIA's recommended
+`temperature=1.0` and `top_p=0.95` and disables thinking for the first-stage
+classifier. This preserves the output budget for the required JSON result.
+
+## Roadmap
+
+See [docs/V2_ROADMAP.md](docs/V2_ROADMAP.md) for the proposed evaluation set, two-stage deep-reading pipeline, searchable historical archive, Slack feedback loop, and deployment plan.
 
 ## License
 
