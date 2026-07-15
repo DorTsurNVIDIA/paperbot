@@ -63,5 +63,89 @@
       "serving"
     ],
     "summary": "The paper introduces a non-clairvoyant scheduling algorithm for batched LLM inference that manages requests under a hard KV-cache memory budget to minimize total completion time. It provides the first constant-competitive algorithm for arbitrary prompt and response lengths using a novel regime-aware routing framework of specialized sub-schedulers."
+  },
+  {
+    "paper_id": "arxiv:2607.10183",
+    "title": "Automated Tensor Scheduling for Hybrid CPU-GPU LLM Inference on Consumer Devices",
+    "url": "https://www.semanticscholar.org/paper/a3509097d175e055443d6e698feb156133c63b6c",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-11",
+    "posted_at": "2026-07-15T10:15:11.943642+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "serving",
+      "mixture-of-experts",
+      "kv-cache"
+    ],
+    "summary": "ATSInfer is a hybrid CPU-GPU inference system that performs tensor-granularity offloading combined with load-aware dynamic transfer and asynchronous coordination. The abstract reports up to 1.94x prefill throughput and 3.29x decode throughput improvements over existing systems on consumer devices."
+  },
+  {
+    "paper_id": "arxiv:2607.10661",
+    "title": "Unlocking Parallelism in Autoregressive Language Models via Speculative Decoding with Progressive Tree Drafting",
+    "url": "https://www.semanticscholar.org/paper/23898a3ec5aa5136f881c26c95a0e79183b0c441",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-12",
+    "posted_at": "2026-07-15T10:15:11.943642+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding"
+    ],
+    "summary": "Progressive Tree Drafting (PTD) uses a structured, guided parallel drafting strategy with a progressive tree structure and stepwise pruning to explore multiple paths in a single forward pass. The abstract claims PTD achieves up to 2x decoding speedup while remaining training-free and model-agnostic."
+  },
+  {
+    "paper_id": "arxiv:2607.11131",
+    "title": "TIGER: Text-Conditioned Visual Gated Routing with Acceptance Alignment for Multimodal Speculative Decoding",
+    "url": "https://www.semanticscholar.org/paper/33f2e11d96f04289ca04567a7129a606817fe869",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-13",
+    "posted_at": "2026-07-15T10:15:11.943642+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 7,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "TIGER introduces a text-conditioned visual gated routing framework for multimodal speculative decoding that dynamically selects sparse visual tokens and applies acceptance-aligned policy training to the drafter. The method is evaluated under exact verifier-side speculative decoding, demonstrating gains in accepted prefix length and speculative speedup while maintaining downstream accuracy."
+  },
+  {
+    "paper_id": "arxiv:2607.11211",
+    "title": "FastTPS: An Optimized Method for LLM Token Phase for AI accelerators",
+    "url": "https://www.semanticscholar.org/paper/32569012047d06293b95eab261876f53577cfd57",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-13",
+    "posted_at": "2026-07-15T10:15:11.943642+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "kv-cache",
+      "hardware"
+    ],
+    "summary": "FastTPS accelerates the token-phase in LLM inference via reloading-free KV Cache concatenation, optimized RoPE attention, and a fused MLP pipeline. The method achieves a 6x speedup and 93% peak memory bandwidth utilization on an AMD NPU during Phi3-mini inference."
+  },
+  {
+    "paper_id": "arxiv:2607.11586",
+    "title": "HCRMap: Pressure-Aware Hot-Expert Residency Mapping for 3.5D MoE Chiplet Inference",
+    "url": "https://www.semanticscholar.org/paper/e0dbc2aab6796eb3293cb4dd6a15a906ecf634ae",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-13",
+    "posted_at": "2026-07-15T10:15:11.943642+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "mixture-of-experts",
+      "hardware",
+      "serving"
+    ],
+    "summary": "HCRMap proposes a pressure-aware hot-expert residency mapping framework for 3.5D MoE chiplet inference that dynamically manages expert replicas across memory tiers to mitigate communication and memory bottlenecks. Experiments show the method reduces end-to-end latency by up to 46.7% over baseline methods in both prefill and decode stages."
   }
 ]
