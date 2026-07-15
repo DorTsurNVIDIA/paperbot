@@ -147,5 +147,39 @@
       "serving"
     ],
     "summary": "HCRMap proposes a pressure-aware hot-expert residency mapping framework for 3.5D MoE chiplet inference that dynamically manages expert replicas across memory tiers to mitigate communication and memory bottlenecks. Experiments show the method reduces end-to-end latency by up to 46.7% over baseline methods in both prefill and decode stages."
+  },
+  {
+    "paper_id": "arxiv:2607.12696",
+    "title": "Less Experts, Faster Decoding: Cost-Aware Speculative Decoding for Mixture-of-Experts",
+    "url": "https://www.semanticscholar.org/paper/507a2ffb19ee74512078115039ea577b5e76a83d",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-14",
+    "posted_at": "2026-07-15T20:46:42.998604+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "mixture-of-experts",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "EcoSpec is a cost-aware speculative decoding framework for Mixture-of-Experts models that incorporates predicted marginal expert activation costs into draft tree selection to reduce expert scattering. Evaluated on large-scale MoE models, the method reduces active expert footprints and achieves up to 1.62x end-to-end decoding speedup."
+  },
+  {
+    "paper_id": "doi:10.1145/3830422.3830428",
+    "title": "Rethinking LLM Deployment for Intent-Based Serving",
+    "url": "https://www.semanticscholar.org/paper/0b085c127464167ff6ed898a7b15f88fc067ae60",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-13",
+    "posted_at": "2026-07-15T20:46:42.998604+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "kv-cache"
+    ],
+    "summary": "MaverIQ is an intent-based LLM inference serving system that maps user intents to deployment configurations using lightweight fingerprints and analytical models to extrapolate latency and memory. The abstract reports that the system reduces profiling cost by 7-15x and operational cost by 3.8-8.3x compared to baselines."
   }
 ]
