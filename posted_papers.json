@@ -181,5 +181,56 @@
       "kv-cache"
     ],
     "summary": "MaverIQ is an intent-based LLM inference serving system that maps user intents to deployment configurations using lightweight fingerprints and analytical models to extrapolate latency and memory. The abstract reports that the system reduces profiling cost by 7-15x and operational cost by 3.8-8.3x compared to baselines."
+  },
+  {
+    "paper_id": "arxiv:2607.13068",
+    "title": "The Economics of AI Decoding Chips: Rebalancing Compute, Capacity, and Bandwidth for Efficient LLM Inference",
+    "url": "https://www.semanticscholar.org/paper/75df42263f03712ec90b2724903f77bd699756da",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-10",
+    "posted_at": "2026-07-16T10:19:14.027761+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "serving",
+      "mixture-of-experts"
+    ],
+    "summary": "The paper proposes a rebalanced LLM decoding hardware accelerator (Skymizer HTX-301) using commodity DDR5 memory instead of high-bandwidth memory to lower costs. It demonstrates end-to-end inference serving of DeepSeek-R1 671B at a deterministic 20.3 tokens per second for a fraction of the cost of standard GPU nodes."
+  },
+  {
+    "paper_id": "arxiv:2607.13093",
+    "title": "Efficient and Privacy Aware Edge Cloud Collaborative Inference for Large Language Models",
+    "url": "https://www.semanticscholar.org/paper/7e0c51fdc53bd2ed04bcde81a88e3625b2a35d89",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-14",
+    "posted_at": "2026-07-16T10:19:14.027761+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "kv-cache",
+      "verification",
+      "serving",
+      "quantization"
+    ],
+    "summary": "The paper proposes a privacy-centric edge-cloud collaborative LLM inference framework where local endpoints perform speculative decoding and the cloud conducts token verification. It reports reducing per-token latency by up to 46.1% and downlink payloads by up to 67.4% over baseline split inference."
+  },
+  {
+    "paper_id": "arxiv:2607.13960",
+    "title": "GigaWorld-Policy-0.5: A Faster and Stronger WAM Empowered by AutoResearch",
+    "url": "https://huggingface.co/papers/2607.13960",
+    "source": "huggingface",
+    "published_date": "2026-07-15T00:00:00.000Z",
+    "posted_at": "2026-07-16T10:19:14.027761+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "mixture-of-experts"
+    ],
+    "summary": "The method introduces a Mixture-of-Transformers architecture that separates visual dynamics modeling from action generation to reduce active computation during action-only inference. The abstract reports that this approach preserves training benefits while achieving an 85 ms inference latency on a local RTX 4090 setup."
   }
 ]
