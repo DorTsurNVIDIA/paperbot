@@ -232,5 +232,22 @@
       "mixture-of-experts"
     ],
     "summary": "The method introduces a Mixture-of-Transformers architecture that separates visual dynamics modeling from action generation to reduce active computation during action-only inference. The abstract reports that this approach preserves training benefits while achieving an 85 ms inference latency on a local RTX 4090 setup."
+  },
+  {
+    "paper_id": "doi:10.1109/tpds.2026.3703757",
+    "title": "FlexiTensor: Adaptive Multi-Task Deployment of LLMs on Resource-Constrained Heterogeneous Edge Devices",
+    "url": "https://www.semanticscholar.org/paper/9cbdf19f55100af1b259a573911310823af4b0da",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-01",
+    "posted_at": "2026-07-16T20:41:13.048014+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "hardware",
+      "serving",
+      "quantization"
+    ],
+    "summary": "FlexiTensor is an offline planning and deployment system for LLM inference on heterogeneous edge devices that uses non-uniform tensor parallelism, quantization, and evolutionary scheduling to optimize latency under energy budgets. Evaluated on a physical testbed, it accelerates single-task inference by up to 50% and improves multi-task workflow speed by an average of 50%."
   }
 ]
