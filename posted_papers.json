@@ -249,5 +249,55 @@
       "quantization"
     ],
     "summary": "FlexiTensor is an offline planning and deployment system for LLM inference on heterogeneous edge devices that uses non-uniform tensor parallelism, quantization, and evolutionary scheduling to optimize latency under energy budgets. Evaluated on a physical testbed, it accelerates single-task inference by up to 50% and improves multi-task workflow speed by an average of 50%."
+  },
+  {
+    "paper_id": "arxiv:2607.14431",
+    "title": "Smarter and Cheaper at Once: Byte-Exact KV-Cache Grafting Turns a Frozen Small Model into a Verified-Knowledge Flywheel",
+    "url": "https://huggingface.co/papers/2607.14431",
+    "source": "huggingface",
+    "published_date": "2026-07-15T00:00:00.000Z",
+    "posted_at": "2026-07-17T10:08:55.495017+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "kv-cache",
+      "long-context"
+    ],
+    "summary": "The method grafts byte-exact key-value (KV) state artifacts into fresh inference contexts, achieving byte-for-byte identical logits to fresh computation. It reduces decode tokens by a factor of 6,574 and expands usable context to 2.8 million tokens at zero extra accelerator memory."
+  },
+  {
+    "paper_id": "arxiv:2607.14557",
+    "title": "Seeing the End at Step Zero: Accelerating Diffusion MLLMs via MLP Sparsity-Aware Truncation",
+    "url": "https://www.semanticscholar.org/paper/030a0d9963382da0f8eaa5e3b79b6cf6b405fbad",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-16",
+    "posted_at": "2026-07-17T10:08:55.495017+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "sparsity"
+    ],
+    "summary": "Seer is a training-free framework that accelerates Diffusion MLLMs by detecting the semantic boundary at the first denoising step via MLP activation sparsity and truncating redundant suffixes. It improves batched serving throughput by up to 31x while maintaining or improving accuracy across 9 benchmarks."
+  },
+  {
+    "paper_id": "arxiv:2607.14647",
+    "title": "D-cut: Adaptive Verification Depth Pruning for Batched Speculative Decoding",
+    "url": "https://www.semanticscholar.org/paper/75307316ba4eb1158607ba9c12a7f8b7abfb702e",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-16",
+    "posted_at": "2026-07-17T10:08:55.495017+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "batching",
+      "draft-model",
+      "mixture-of-experts",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "D-Cut is an adaptive cross-request pruning method for batched speculative decoding that selects draft tokens based on confidence and a runtime cost model. Under high concurrency, it improves average speedup from 1.26x to 1.65x and achieves up to 3.0x speedup over autoregressive decoding on MoE models."
   }
 ]
