@@ -299,5 +299,40 @@
       "verification"
     ],
     "summary": "D-Cut is an adaptive cross-request pruning method for batched speculative decoding that selects draft tokens based on confidence and a runtime cost model. Under high concurrency, it improves average speedup from 1.26x to 1.65x and achieves up to 3.0x speedup over autoregressive decoding on MoE models."
+  },
+  {
+    "paper_id": "doi:10.1145/3806645.3807596",
+    "title": "Scaling Attention Beyond GPUs for LLM Inference",
+    "url": "https://www.semanticscholar.org/paper/04f3ee7dd762dff9b6aad25bfb930e1984f74a09",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-13",
+    "posted_at": "2026-07-17T20:40:49.755893+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "attention",
+      "kv-cache",
+      "long-context",
+      "sparsity"
+    ],
+    "summary": "Beyond is a drop-in runtime that uses a smart offloading scheme and hybrid CPU-GPU attention to process oversized KV caches cooperatively during bandwidth-constrained decoding. It improves scalability, supports longer sequences and larger batch sizes, and outperforms existing sparse attention baselines in efficiency and accuracy."
+  },
+  {
+    "paper_id": "doi:10.1145/3806645.3807814",
+    "title": "Omnia: Efficient RAG Serving through Speculative Scheduling",
+    "url": "https://www.semanticscholar.org/paper/16a96d99c0d1b26bb54bc1fbcb217581b3e644c0",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-13",
+    "posted_at": "2026-07-17T20:40:49.755893+00:00",
+    "lane": "specdec",
+    "specdec_score": 6,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving",
+      "speculative-decoding"
+    ],
+    "summary": "Omnia is a RAG serving system that uses chunk speculation with a two-level coarse-to-fine reranking architecture and backpressure-aware scheduling to overlap prefilling and decoding. It maintains near-lossless accuracy while increasing maximum request rate by 57% and reducing average end-to-end latency by 2.99x."
   }
 ]
