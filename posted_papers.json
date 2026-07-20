@@ -385,5 +385,22 @@
       "serving"
     ],
     "summary": "The method develops low-latency GPU collective communication kernels using barrier-free synchronization and multicast to approach the hardware speed-of-light lower bound. When integrated into LLM inference, these kernels improve inter-token latency and throughput while reducing collective overhead to within 7% of the absolute lower bound."
+  },
+  {
+    "paper_id": "arxiv:2607.07690",
+    "title": "Agon: Competitive Cross-Model RL with Implicit Rival Grading of Reasoning",
+    "url": "https://huggingface.co/papers/2607.07690",
+    "source": "huggingface",
+    "published_date": "2026-07-08T00:00:00.000Z",
+    "posted_at": "2026-07-20T20:57:36.596186+00:00",
+    "lane": "specdec",
+    "specdec_score": 6,
+    "inference_score": 7,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "Agon introduces a two-stage cascade where one model drafts a solution and another reads it to provide the final answer, using this setup for competitive cross-model RL. At inference, it doubles GRPO's pass@1 on the hard split of DeepMath with Qwen3 compared to GRPO alone."
   }
 ]
