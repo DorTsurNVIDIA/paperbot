@@ -334,5 +334,56 @@
       "speculative-decoding"
     ],
     "summary": "Omnia is a RAG serving system that uses chunk speculation with a two-level coarse-to-fine reranking architecture and backpressure-aware scheduling to overlap prefilling and decoding. It maintains near-lossless accuracy while increasing maximum request rate by 57% and reducing average end-to-end latency by 2.99x."
+  },
+  {
+    "paper_id": "arxiv:2607.15498",
+    "title": "VarRate: Training-Free Variable-Rate KV Cache Compression for Long-Context LLMs",
+    "url": "https://www.semanticscholar.org/paper/4a322c77946d25f6491155645f46b6b2a1778a17",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-16",
+    "posted_at": "2026-07-20T11:11:40.823676+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "long-context",
+      "sparsity"
+    ],
+    "summary": "VarRate is a training-free KV cache codec that assigns each token a variable low-rank budget based on query salience instead of evicting tokens. It stays within 0.8 points of the uncompressed model on LongBench at a 20% memory budget while significantly reducing prefill overhead."
+  },
+  {
+    "paper_id": "arxiv:2607.15591",
+    "title": "RecGPT-V3 Technical Report",
+    "url": "https://huggingface.co/papers/2607.15591",
+    "source": "huggingface",
+    "published_date": "2026-07-17T00:00:00.000Z",
+    "posted_at": "2026-07-20T11:11:40.823676+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "The method introduces a Memory Hub for structured user memory and Latent Intent Reasoning to internalize verbose rationales into compact latent tokens. In large-scale online A/B tests, it cuts end-to-end serving resource consumption by 52.4% and output token cost by 200x while improving commercial metrics."
+  },
+  {
+    "paper_id": "arxiv:2607.16100",
+    "title": "Every Microsecond Matters: Achieving Near Speed-of-Light Latency in GPU Collectives",
+    "url": "https://www.semanticscholar.org/paper/d0aa0957a87e97fb73a3550312725bb8304f0951",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-17",
+    "posted_at": "2026-07-20T11:11:40.823676+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "kv-cache",
+      "long-context",
+      "serving"
+    ],
+    "summary": "The method develops low-latency GPU collective communication kernels using barrier-free synchronization and multicast to approach the hardware speed-of-light lower bound. When integrated into LLM inference, these kernels improve inter-token latency and throughput while reducing collective overhead to within 7% of the absolute lower bound."
   }
 ]
