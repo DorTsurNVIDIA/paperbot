@@ -418,5 +418,52 @@
       "hardware"
     ],
     "summary": "FlashRT is an agent harness that guides coding agents to optimize multi-GPU deployments of multimodal applications. The abstract claims it achieves up to ~70x latency reduction and up to 3.6x throughput improvement across NVIDIA and AMD hardware, reducing latency by 65% for Qwen3-Omni compared to vLLM."
+  },
+  {
+    "paper_id": "arxiv:2607.17175",
+    "title": "LMEdge: QoS-Aware LLM Inference Orchestration on Edge Clusters",
+    "url": "https://www.semanticscholar.org/paper/2305c67f83e9be891efa7c84b13b715cbfbf68fe",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-19",
+    "posted_at": "2026-07-21T20:56:38.761212+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "quantization"
+    ],
+    "summary": "LMEdge is a QoS-aware orchestration service that uses machine learning predictors and a lightweight heuristic to dynamically select model configuration and execution placement for edge devices. Evaluated on a Kubernetes testbed with 57 instances, the method reduces latency, preserves accuracy, and improves resource utilization compared to baselines."
+  },
+  {
+    "paper_id": "arxiv:2607.17415",
+    "title": "Transition-Aware Backend Dispatch for Edge LLM Inference",
+    "url": "https://www.semanticscholar.org/paper/d338b6749faaf0cf77c1afd032c77f84257b9f3d",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-19",
+    "posted_at": "2026-07-21T20:56:38.761212+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "serving"
+    ],
+    "summary": "The paper proposes a transition-aware backend dispatch approach that dynamically selects operators for edge LLM inference based on shape and backend-transition costs. Evaluated via trace replay, it reduces latency, energy, and energy-delay product by 17.4%, 14.4%, and 28.5% on average compared to the best static policy."
+  },
+  {
+    "paper_id": "arxiv:2607.17538",
+    "title": "D-NOVA: In-Storage Retrieval Accelerator via Dual-Bound 3D NAND-Optimized Similarity Search with Vector Adaptation",
+    "url": "https://www.semanticscholar.org/paper/54d1011a1dde97a96a656498d55632b0167ac41a",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-20",
+    "posted_at": "2026-07-21T20:56:38.761212+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware"
+    ],
+    "summary": "D-NOVA is a hardware-software co-designed in-storage accelerator that executes IVF-based retrieval pipelines directly within 3D NAND memory. It achieves up to 41.7x speedup and 71x energy efficiency over a CPU baseline, and 12.13x higher throughput than state-of-the-art in-storage RAG accelerators."
   }
 ]
