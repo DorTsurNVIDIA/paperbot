@@ -402,5 +402,21 @@
       "verification"
     ],
     "summary": "Agon introduces a two-stage cascade where one model drafts a solution and another reads it to provide the final answer, using this setup for competitive cross-model RL. At inference, it doubles GRPO's pass@1 on the hard split of DeepMath with Qwen3 compared to GRPO alone."
+  },
+  {
+    "paper_id": "arxiv:2607.18171",
+    "title": "FlashRT: Agent Harness for Guiding Agents to Deploy Real-Time Multimodal Applications",
+    "url": "https://huggingface.co/papers/2607.18171",
+    "source": "huggingface",
+    "published_date": "2026-07-20T00:00:00.000Z",
+    "posted_at": "2026-07-21T10:32:39.520888+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "hardware"
+    ],
+    "summary": "FlashRT is an agent harness that guides coding agents to optimize multi-GPU deployments of multimodal applications. The abstract claims it achieves up to ~70x latency reduction and up to 3.6x throughput improvement across NVIDIA and AMD hardware, reducing latency by 65% for Qwen3-Omni compared to vLLM."
   }
 ]
