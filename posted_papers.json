@@ -496,5 +496,86 @@
       "hardware"
     ],
     "summary": "The paper presents Mage-Flow, a compact 4B-scale visual generation stack using a lightweight VAE and CUDA kernel fusion to improve training and inference efficiency. It claims a 2.5x improvement in training throughput and reports that its Turbo variant achieves low-latency inference, generating a 1024x1024 image in 0.59 seconds on an A100 GPU."
+  },
+  {
+    "paper_id": "arxiv:2607.18703",
+    "title": "Generative World Renderer at the Speed of Play",
+    "url": "https://huggingface.co/papers/2607.18703",
+    "source": "huggingface",
+    "published_date": "2026-07-21T04:54:24.000Z",
+    "posted_at": "2026-07-22T20:58:20.233982+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "serving"
+    ],
+    "summary": "The paper introduces AlayaRenderer-Flash, a real-time generative world renderer reformulated as a few-step autoregressive streaming model with lightweight distilled codecs. The method accelerates rendering from 0.56 FPS to 31.54 FPS, enabling a fully playable 30 FPS generative world."
+  },
+  {
+    "paper_id": "arxiv:2607.18957",
+    "title": "InstantInfer: Enabling Fast LLM Cold Start with Communicating Finite Automata",
+    "url": "https://www.semanticscholar.org/paper/e22e3e5c0eb477d002f3c9b58a4f83b667233127",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-21",
+    "posted_at": "2026-07-22T20:58:20.233982+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "hardware"
+    ],
+    "summary": "InstantInfer uses Communicating Finite Automata to safely refactor LLM inference components for concurrent execution and I/O merging, applying this to vLLM cold starts. The abstract reports up to 7.2x speedup for LLM cold-start acceleration across diverse GPUs, workloads, and scales."
+  },
+  {
+    "paper_id": "arxiv:2607.19191",
+    "title": "ABot-World-0: Infinite Interactive World Rollout on a Single Desktop GPU",
+    "url": "https://huggingface.co/papers/2607.19191",
+    "source": "huggingface",
+    "published_date": "2026-07-21T15:26:50.000Z",
+    "posted_at": "2026-07-22T20:58:20.233982+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "hardware",
+      "serving"
+    ],
+    "summary": "The paper presents a streaming inference stack with efficient attention, memory-aware scheduling, and low-bit inference for a video world model. The system streams 720P video at up to 16 FPS on a single desktop GPU with 1.2s action-to-first-frame latency and approximately 19GiB peak VRAM."
+  },
+  {
+    "paper_id": "arxiv:2607.19223",
+    "title": "AdaFlash: Adaptive Speculative Decoding via On-Policy Distilled Diffusion Drafters",
+    "url": "https://www.semanticscholar.org/paper/8c46c09481015f564aa626443105d5939f3300d2",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-21",
+    "posted_at": "2026-07-22T20:58:20.233982+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "AdaFlash improves speculative decoding by using on-policy distillation to reduce variance in diffusion drafters and an adaptive length head to dynamically adjust candidate sequence length. The abstract reports that the method achieves up to approximately 66% higher throughput than previous state-of-the-art methods, with significant gains in high-concurrency scenarios."
+  },
+  {
+    "paper_id": "doi:10.54097/w9c56t64",
+    "title": "Uncertainty-Aware Speculative Decoding for Diffusion Language Models in Long Document Generation",
+    "url": "https://www.semanticscholar.org/paper/eb5847c86661b8037527a2d320dc33b8fdd3bf70",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-20",
+    "posted_at": "2026-07-22T20:58:20.233982+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "verification",
+      "long-context"
+    ],
+    "summary": "The paper proposes UASD-DLM, an uncertainty-aware inference scheduler that dynamically adjusts draft depth and context refresh policy for speculative decoding in diffusion language models. It demonstrates improved speed-memory trade-offs and recovery of technical-term accuracy over fixed-depth speculative decoding in a controlled CPU proxy benchmark."
   }
 ]
