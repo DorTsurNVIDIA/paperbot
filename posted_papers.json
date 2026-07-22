@@ -465,5 +465,36 @@
       "hardware"
     ],
     "summary": "D-NOVA is a hardware-software co-designed in-storage accelerator that executes IVF-based retrieval pipelines directly within 3D NAND memory. It achieves up to 41.7x speedup and 71x energy efficiency over a CPU baseline, and 12.13x higher throughput than state-of-the-art in-storage RAG accelerators."
+  },
+  {
+    "paper_id": "arxiv:2607.17715",
+    "title": "C$^2$KV: Compressed and Composable KV Cache Reuse for Efficient LLM Inference",
+    "url": "https://www.semanticscholar.org/paper/84e3f99a21bb5a9efbaf21b452c9fb5e9a1ad91f",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-20",
+    "posted_at": "2026-07-22T10:32:57.631754+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "kv-cache",
+      "long-context"
+    ],
+    "summary": "C2KV introduces a unified framework for non-prefix KV cache reuse that jointly optimizes extraction and concatenation using a lightweight sidecar extractor. It reduces KV cache storage and transfer costs, achieving up to a 17x inference speedup under long contexts while preserving generation quality."
+  },
+  {
+    "paper_id": "arxiv:2607.19064",
+    "title": "Mage-Flow: An Efficient Native-Resolution Foundation Model for Image Generation and Editing",
+    "url": "https://huggingface.co/papers/2607.19064",
+    "source": "huggingface",
+    "published_date": "2026-07-21T00:00:00.000Z",
+    "posted_at": "2026-07-22T10:32:57.631754+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "hardware"
+    ],
+    "summary": "The paper presents Mage-Flow, a compact 4B-scale visual generation stack using a lightweight VAE and CUDA kernel fusion to improve training and inference efficiency. It claims a 2.5x improvement in training throughput and reports that its Turbo variant achieves low-latency inference, generating a 1024x1024 image in 0.59 seconds on an A100 GPU."
   }
 ]
