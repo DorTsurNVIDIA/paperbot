@@ -577,5 +577,22 @@
       "long-context"
     ],
     "summary": "The paper proposes UASD-DLM, an uncertainty-aware inference scheduler that dynamically adjusts draft depth and context refresh policy for speculative decoding in diffusion language models. It demonstrates improved speed-memory trade-offs and recovery of technical-term accuracy over fixed-depth speculative decoding in a controlled CPU proxy benchmark."
+  },
+  {
+    "paper_id": "arxiv:2607.16190",
+    "title": "FVAttn: Adaptive Sparse Attention with Runtime Load Balancing for Video Generation",
+    "url": "https://huggingface.co/papers/2607.16190",
+    "source": "huggingface",
+    "published_date": "2026-07-17T00:00:00.000Z",
+    "posted_at": "2026-07-23T10:31:50.419304+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "sparsity",
+      "serving"
+    ],
+    "summary": "The paper introduces a training-free sparse attention system with runtime load balancing and slack-aware augmentation for video diffusion transformers. The method achieves a 4.41x attention speedup over FlashAttention and a 2.02--2.11x end-to-end DiT inference speedup with competitive video quality."
   }
 ]
