@@ -594,5 +594,23 @@
       "serving"
     ],
     "summary": "The paper introduces a training-free sparse attention system with runtime load balancing and slack-aware augmentation for video diffusion transformers. The method achieves a 4.41x attention speedup over FlashAttention and a 2.02--2.11x end-to-end DiT inference speedup with competitive video quality."
+  },
+  {
+    "paper_id": "arxiv:2607.19438",
+    "title": "BaseRT: Advancing Best-in-Class LLM Inference with Apple M5 Neural Accelerators",
+    "url": "https://www.semanticscholar.org/paper/3ad2d95aef1c86980fba8cba6f965891b116c4ce",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-21",
+    "posted_at": "2026-07-24T10:26:38.408249+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "serving",
+      "attention",
+      "mixture-of-experts"
+    ],
+    "summary": "BaseRT is a native Metal inference runtime for Apple Silicon that utilizes M5 Neural Accelerators for compute-bound matrix multiplications. It demonstrates up to 6.4x higher prompt-processing throughput and up to 1.75x higher decode throughput compared to baseline runtimes across various LLM configurations."
   }
 ]
