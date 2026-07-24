@@ -612,5 +612,21 @@
       "mixture-of-experts"
     ],
     "summary": "BaseRT is a native Metal inference runtime for Apple Silicon that utilizes M5 Neural Accelerators for compute-bound matrix multiplications. It demonstrates up to 6.4x higher prompt-processing throughput and up to 1.75x higher decode throughput compared to baseline runtimes across various LLM configurations."
+  },
+  {
+    "paper_id": "arxiv:2607.21553",
+    "title": "SANA-Video 2.0: Hybrid Linear Attention with Attention Residuals for Efficient Video Generation",
+    "url": "https://huggingface.co/papers/2607.21553",
+    "source": "huggingface",
+    "published_date": "2026-07-23T00:00:00.000Z",
+    "posted_at": "2026-07-24T20:53:05.786501+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "hardware"
+    ],
+    "summary": "SANA-Video 2.0 introduces a Hybrid Linear-Softmax Attention mechanism and Block Attention Residuals to reduce quadratic attention costs in video diffusion transformers. It achieves a 3.2x faster forward pass than a full-softmax baseline and a further 3.58x speedup via full-stack engine optimization, resulting in 120x faster generation than a competing model on a single H100."
   }
 ]
