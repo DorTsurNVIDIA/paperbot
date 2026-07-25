@@ -628,5 +628,22 @@
       "hardware"
     ],
     "summary": "SANA-Video 2.0 introduces a Hybrid Linear-Softmax Attention mechanism and Block Attention Residuals to reduce quadratic attention costs in video diffusion transformers. It achieves a 3.2x faster forward pass than a full-softmax baseline and a further 3.58x speedup via full-stack engine optimization, resulting in 120x faster generation than a competing model on a single H100."
+  },
+  {
+    "paper_id": "doi:10.3390/electronics15143206",
+    "title": "Cross-Modal Variance-Aware KV Cache Optimization for Efficient Multimodal Long-Context Inference",
+    "url": "https://www.semanticscholar.org/paper/fbbba14256fa0f90bafee83168129e4d9f9a1a5a",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-21",
+    "posted_at": "2026-07-25T09:56:32.385830+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "kv-cache",
+      "long-context"
+    ],
+    "summary": "The method proposes a cross-modal query-position variance-aware KV cache optimization method for multimodal long-context inference that allocates visual KV cache budgets and prunes tokens. Evaluations on LLaVA-v1.5-7B show that retaining 20% of the visual KV cache reduces GPU memory from 1.28 GiB to 0.26 GiB and decoding latency from 100.28 ms/token to 92.85 ms/token while maintaining performance close to the full-cache reference."
   }
 ]
