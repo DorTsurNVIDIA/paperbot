@@ -645,5 +645,36 @@
       "long-context"
     ],
     "summary": "The method proposes a cross-modal query-position variance-aware KV cache optimization method for multimodal long-context inference that allocates visual KV cache budgets and prunes tokens. Evaluations on LLaVA-v1.5-7B show that retaining 20% of the visual KV cache reduces GPU memory from 1.28 GiB to 0.26 GiB and decoding latency from 100.28 ms/token to 92.85 ms/token while maintaining performance close to the full-cache reference."
+  },
+  {
+    "paper_id": "doi:10.1145/3831707",
+    "title": "PHONON: Silicon-Photonic Network-on-Interposer for Energy-Efficient and High Performance LLM Inferencing",
+    "url": "https://www.semanticscholar.org/paper/7728d8e9646f1781a98c19325a07f5afc0db749c",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-22",
+    "posted_at": "2026-07-26T10:08:38.029869+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "serving"
+    ],
+    "summary": "PHONON is a Silicon-Photonic Network-on-Interposer architecture that jointly optimizes compute and storage inter-chiplet communication for LLM inferencing. The abstract claims it reduces NoI latency and energy consumption by up to 9.4x and 28.4x respectively, while improving LLM-serving time-to-first-token by 1.48x and tokens/Joule by 28x."
+  },
+  {
+    "paper_id": "doi:10.65138/ijresm.v9i7.3488",
+    "title": "LLM-Advisor: Dynamic Model Selection and Query Routing in Heterogeneous Multi-LLM Architectures",
+    "url": "https://www.semanticscholar.org/paper/d16c121075da4f6121c6e726d8a9a2d8c869079f",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-23",
+    "posted_at": "2026-07-26T10:08:38.029869+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "serving"
+    ],
+    "summary": "The method introduces an adaptive framework for dynamic model evaluation and constraint-aware request routing across heterogeneous LLMs, evaluated on 1,000 queries to achieve a 42% reduction in inference cost and 35% latency decrease while retaining 94.6% task accuracy."
   }
 ]
