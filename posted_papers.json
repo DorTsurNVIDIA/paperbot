@@ -676,5 +676,35 @@
       "serving"
     ],
     "summary": "The method introduces an adaptive framework for dynamic model evaluation and constraint-aware request routing across heterogeneous LLMs, evaluated on 1,000 queries to achieve a 42% reduction in inference cost and 35% latency decrease while retaining 94.6% task accuracy."
+  },
+  {
+    "paper_id": "arxiv:2607.21985",
+    "title": "Unified Static-Dynamic Pruning for Efficient LLM Inference",
+    "url": "https://www.semanticscholar.org/paper/26effe73105f75da2bbd0a1c6c238dfd62428486",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-24",
+    "posted_at": "2026-07-27T20:58:40.011010+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "sparsity"
+    ],
+    "summary": "The paper presents SPDP, a unified static-dynamic pruning framework with co-designed GPU kernels and compressed formats for efficient LLM inference. Evaluated on inference-optimized GPUs, it achieves 1.24x-1.37x average speedup over state-of-the-art sparse frameworks while maintaining perplexity."
+  },
+  {
+    "paper_id": "arxiv:2607.22200",
+    "title": "LayoutLite: Token-Level Implicit Layout Analysis for Efficient Document OCR",
+    "url": "https://www.semanticscholar.org/paper/94579f5bcd13d40171350c420e9601ad69450b60",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-24",
+    "posted_at": "2026-07-27T20:58:40.011010+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "kv-cache"
+    ],
+    "summary": "LayoutLite is a lightweight plug-and-play module that accelerates VLM-based OCR by implicitly analyzing layout at the token level to remove low-information visual tokens before decoding. It reduces prefill latency, FLOPs, and KV cache memory by over 40% with negligible degradation in recognition quality under up to 50% token compression."
   }
 ]
