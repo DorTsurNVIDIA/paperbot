@@ -752,5 +752,40 @@
       "sparsity"
     ],
     "summary": "Sol-Attn accelerates video generation inference via training-free on-the-fly attention sparsification that dynamically selects critical key-value blocks. It achieves 2.1x and 2.3x end-to-end speedups for video generation and editing while preserving visual quality."
+  },
+  {
+    "paper_id": "arxiv:2607.24424",
+    "title": "MAViE: A Multi-scale Adaptive Vision Encoder for Fine-grained Visual Perception and Efficient Multimodal Reasoning",
+    "url": "https://www.semanticscholar.org/paper/b94645c942c144647ab2afd3d808de23c3f627f2",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-27",
+    "posted_at": "2026-07-28T20:55:20.208355+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "attention",
+      "kv-cache",
+      "long-context"
+    ],
+    "summary": "MAViE is a multi-scale adaptive vision encoder that performs question-conditioned token routing to reduce visual token context length. The method is evaluated on visual question answering benchmarks, demonstrating a reduction in visual tokens from 729 to 146 and a decrease in single-image time to first token from 228 ms to 129 ms."
+  },
+  {
+    "paper_id": "arxiv:2607.24434",
+    "title": "DraftExpert: Expansion-Aware Self-Speculative Decoding for End-Device MoE Inference",
+    "url": "https://www.semanticscholar.org/paper/458b8743b715aa550d3caca484258e6ab0ddfd36",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-27",
+    "posted_at": "2026-07-28T20:55:20.208355+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "mixture-of-experts",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "DraftExpert is an expansion-aware self-speculative decoding framework for expert-offloaded MoE inference that uses a lightweight draft expert verified by the target model. Across CPU-GPU and Flash-NPU offload settings, it raises draft acceptance to 84-87% and improves decode throughput by 1.45x on average."
   }
 ]
