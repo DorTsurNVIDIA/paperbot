@@ -706,5 +706,51 @@
       "kv-cache"
     ],
     "summary": "LayoutLite is a lightweight plug-and-play module that accelerates VLM-based OCR by implicitly analyzing layout at the token level to remove low-information visual tokens before decoding. It reduces prefill latency, FLOPs, and KV cache memory by over 40% with negligible degradation in recognition quality under up to 50% token compression."
+  },
+  {
+    "paper_id": "arxiv:2607.23193",
+    "title": "OmniScope: Modality-Decoupled Token Compression for Omnimodal Large Language Models",
+    "url": "https://www.semanticscholar.org/paper/d3dde4669e74e43e4d89d939404e2e483f983271",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-25",
+    "posted_at": "2026-07-28T10:45:01.529596+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "kv-cache"
+    ],
+    "summary": "OmniScope is a training-free token compression framework for omnimodal LLMs that decouples modality-specific salience estimates. It achieves up to a 3.53x prefill speedup and more than 15% GPU memory reduction at 25% token retention with only a 0.35-point drop in average accuracy."
+  },
+  {
+    "paper_id": "arxiv:2607.23445",
+    "title": "Omni-Prune: Query-Aware Unified Token Pruning for Efficient Omnimodal Large Language Models",
+    "url": "https://www.semanticscholar.org/paper/05b0978ecc4bbc011a1d9c7c424b7a60b43f775b",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-26",
+    "posted_at": "2026-07-28T10:45:01.529596+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "sparsity"
+    ],
+    "summary": "Omni-Prune is a training-free, query-aware token pruning framework that removes redundant audio and video tokens in Omnimodal LLMs to reduce prefill latency and memory usage. The method delivers up to a 3.25x prefill speedup and 1.3x memory reduction while retaining over 99% of full-model performance."
+  },
+  {
+    "paper_id": "arxiv:2607.24027",
+    "title": "Sol-Attn: Accelerating Video Generation Inference via On-the-Fly Attention Sparsification",
+    "url": "https://huggingface.co/papers/2607.24027",
+    "source": "huggingface",
+    "published_date": "2026-07-27T00:00:00.000Z",
+    "posted_at": "2026-07-28T10:45:01.529596+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "sparsity"
+    ],
+    "summary": "Sol-Attn accelerates video generation inference via training-free on-the-fly attention sparsification that dynamically selects critical key-value blocks. It achieves 2.1x and 2.3x end-to-end speedups for video generation and editing while preserving visual quality."
   }
 ]
