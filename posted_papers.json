@@ -787,5 +787,37 @@
       "verification"
     ],
     "summary": "DraftExpert is an expansion-aware self-speculative decoding framework for expert-offloaded MoE inference that uses a lightweight draft expert verified by the target model. Across CPU-GPU and Flash-NPU offload settings, it raises draft acceptance to 84-87% and improves decode throughput by 1.45x on average."
+  },
+  {
+    "paper_id": "arxiv:2607.25498",
+    "title": "Beyond Prefill-Decode Disaggregation: Dissecting LLM Inference for Heterogeneous Platforms via Dynamic Operator Scheduling",
+    "url": "https://www.semanticscholar.org/paper/7db516d99ed99f2243f8b0473979ad62346b8f65",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-28",
+    "posted_at": "2026-07-29T10:46:34.989211+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "serving"
+    ],
+    "summary": "DOPS is a hardware-aware framework that optimizes LLM inference across heterogeneous systems using a dynamic operator scheduler and a weight layout arbiter. Evaluated on systems with NPUs and PIM devices, the method achieves geometric-mean speedups of 1.20x to 2.23x over the prefill-decode disaggregation baseline, with an additional 1.28x to 1.33x speedup from the layout arbiter."
+  },
+  {
+    "paper_id": "arxiv:2607.25669",
+    "title": "OmniDelta: Skill-Driven Budget Allocation for Token Compression in OmniLLMs",
+    "url": "https://huggingface.co/papers/2607.25669",
+    "source": "huggingface",
+    "published_date": "2026-07-28T00:00:00.000Z",
+    "posted_at": "2026-07-29T10:46:34.989211+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "kv-cache",
+      "sparsity"
+    ],
+    "summary": "OmniDelta is a training-free framework for token compression in omni-modal LLMs that dynamically allocates retention budgets across audio and video modalities based on query demands. Evaluated on Qwen2.5-Omni-7B at 25% token retention, the method reduces GPU memory by 22.0% and achieves a 1.64x end-to-end speedup over full-token inference."
   }
 ]
