@@ -819,5 +819,24 @@
       "sparsity"
     ],
     "summary": "OmniDelta is a training-free framework for token compression in omni-modal LLMs that dynamically allocates retention budgets across audio and video modalities based on query demands. Evaluated on Qwen2.5-Omni-7B at 25% token retention, the method reduces GPU memory by 22.0% and achieves a 1.64x end-to-end speedup over full-token inference."
+  },
+  {
+    "paper_id": "arxiv:2607.25852",
+    "title": "AngelSpec: Towards Real-World High Performance Inference with Speculative Decoding",
+    "url": "https://www.semanticscholar.org/paper/4386272ea767438bdb868761f185a2f587d93341",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-28",
+    "posted_at": "2026-07-29T20:40:50.083892+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 10,
+    "tags": [
+      "draft-model",
+      "multi-token-prediction",
+      "serving",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "AngelSpec is a unified training and inference framework for speculative decoding that co-specializes multi-token prediction and block-parallel diffusion drafters, dynamically reallocating verification compute across requests. It achieves a 1.98-2.40x speedup over autoregressive decoding and up to 11.8% higher throughput than the DFlash baseline."
   }
 ]
