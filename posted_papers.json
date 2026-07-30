@@ -853,5 +853,39 @@
       "serving"
     ],
     "summary": "TurboVLA reformulates the vision-language-action pathway into a direct mapping to reduce computational and memory overhead, achieving 31.2 ms inference latency and <1 GB VRAM on an RTX 4090."
+  },
+  {
+    "paper_id": "arxiv:2607.26627",
+    "title": "Revisiting Lossy Verification in Speculative Decoding: Mechanisms, Trade-offs, and Failure Modes",
+    "url": "https://www.semanticscholar.org/paper/ca19bd8cacf1457276b077dd398d260e435ca375",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-29",
+    "posted_at": "2026-07-30T20:52:32.426904+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper presents a principled analysis and diagnostic evaluation framework for lossy verification methods in speculative decoding, classifying them into truncation-based and collaborative approaches. It identifies fundamental pitfalls in truncation-based methods and key principles for collaborative verification to prevent low-quality outputs."
+  },
+  {
+    "paper_id": "arxiv:2607.26805",
+    "title": "MRCoder: An Efficient Context Selecting Approach for Repository-Level Code Generation",
+    "url": "https://www.semanticscholar.org/paper/57dc06703766cf5a1f33d810d4ff6694a07d6d84",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-29",
+    "posted_at": "2026-07-30T20:52:32.426904+00:00",
+    "lane": "specdec",
+    "specdec_score": 6,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "MRCoder uses a lightweight draft model to select repository-level code contexts and employs a parallel verification strategy for final decoding. The method reduces token consumption by 30 to 50% and inference time by up to 52%."
   }
 ]
