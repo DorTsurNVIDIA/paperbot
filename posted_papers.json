@@ -838,5 +838,20 @@
       "verification"
     ],
     "summary": "AngelSpec is a unified training and inference framework for speculative decoding that co-specializes multi-token prediction and block-parallel diffusion drafters, dynamically reallocating verification compute across requests. It achieves a 1.98-2.40x speedup over autoregressive decoding and up to 11.8% higher throughput than the DFlash baseline."
+  },
+  {
+    "paper_id": "arxiv:2607.27205",
+    "title": "TurboVLA: Real-Time Vision-Language-Action Model at 32 Hz on an RTX 4090 with <1 GB VRAM",
+    "url": "https://huggingface.co/papers/2607.27205",
+    "source": "huggingface",
+    "published_date": "2026-07-29T00:00:00.000Z",
+    "posted_at": "2026-07-30T10:31:54.166196+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "serving"
+    ],
+    "summary": "TurboVLA reformulates the vision-language-action pathway into a direct mapping to reduce computational and memory overhead, achieving 31.2 ms inference latency and <1 GB VRAM on an RTX 4090."
   }
 ]
