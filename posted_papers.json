@@ -887,5 +887,73 @@
       "verification"
     ],
     "summary": "MRCoder uses a lightweight draft model to select repository-level code contexts and employs a parallel verification strategy for final decoding. The method reduces token consumption by 30 to 50% and inference time by up to 52%."
+  },
+  {
+    "paper_id": "arxiv:2607.27269",
+    "title": "Beyond KV Reconstruction: Functional Reconstruction for MLA Draft Models in Speculative Decoding",
+    "url": "https://www.semanticscholar.org/paper/0259a9d7148b5b97ddfed795956aaf13cf5da0b1",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-29",
+    "posted_at": "2026-07-31T10:47:38.140392+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification",
+      "attention",
+      "kv-cache"
+    ],
+    "summary": "The paper proposes a functional reconstruction method for converting MHA/GQA draft models to Multi-head Latent Attention (MLA) to improve draft-token acceptance in speculative decoding. Evaluated across 192 configurations, the method materially improves acceptance in 37 of 64 matched task cells without decreasing overall performance."
+  },
+  {
+    "paper_id": "arxiv:2607.27591",
+    "title": "Prox: Training-Free FFN Activation Sparsity via Approximate Intermediate-Channel Salience in LLMs",
+    "url": "https://www.semanticscholar.org/paper/444deb2112acc6802700ab2452a30591c46e5fea",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-30",
+    "posted_at": "2026-07-31T10:47:38.140392+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "sparsity"
+    ],
+    "summary": "Prox is a training-free activation sparsification framework for FFNs that uses input sparsity and quantized proxy weights to construct a shared mask, achieving up to a 1.99x end-to-end decoding speedup at 70% FFN sparsity."
+  },
+  {
+    "paper_id": "arxiv:2607.27700",
+    "title": "Calibrate Before Reason: Robust Visual Token Reduction against Semantic Drift in VLMs",
+    "url": "https://www.semanticscholar.org/paper/d23caec32ac2e67045383878b1995a391dfe1708",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-30",
+    "posted_at": "2026-07-31T10:47:38.140392+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "sparsity",
+      "serving"
+    ],
+    "summary": "CaRe is a training-free visual token reduction framework for VLMs that calibrates compact visual representations to preserve semantic fidelity. Evaluated across diverse benchmarks, it retains 96.4% of full-token performance while pruning 94.4% of visual tokens, achieving up to 2.30x faster end-to-end inference."
+  },
+  {
+    "paper_id": "arxiv:2607.27735",
+    "title": "A Sparse Glimpse of the Whole: Train-Free Self-Speculative Decoding",
+    "url": "https://www.semanticscholar.org/paper/fe149c33cfdfcd36f2afe5fd1b8884a0d038583a",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-30",
+    "posted_at": "2026-07-31T10:47:38.140392+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "kv-cache",
+      "long-context",
+      "draft-model"
+    ],
+    "summary": "SparseSpec-L is a training-free self-speculative decoding framework that drafts from a target model using a dynamically sparsified, recallable KV cache and an entropy-based controller for speculation length. Evaluated on multiple long-context tasks, it demonstrates consistent end-to-end acceleration over autoregressive decoding while preserving the output distribution."
   }
 ]
