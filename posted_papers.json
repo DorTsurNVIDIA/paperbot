@@ -955,5 +955,37 @@
       "draft-model"
     ],
     "summary": "SparseSpec-L is a training-free self-speculative decoding framework that drafts from a target model using a dynamically sparsified, recallable KV cache and an entropy-based controller for speculation length. Evaluated on multiple long-context tasks, it demonstrates consistent end-to-end acceleration over autoregressive decoding while preserving the output distribution."
+  },
+  {
+    "paper_id": "arxiv:2607.28150",
+    "title": "SmartGen: Seamless Disaggregated LLM Inference with Selective KV Cache Transfer",
+    "url": "https://www.semanticscholar.org/paper/649c31a77eac5cc50f870bb77a4fe79ad6bf5119",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-30",
+    "posted_at": "2026-07-31T20:49:45.493971+00:00",
+    "lane": "inference",
+    "specdec_score": 3,
+    "inference_score": 8,
+    "tags": [
+      "kv-cache",
+      "serving",
+      "speculative-decoding"
+    ],
+    "summary": "SmartGen is a KV cache transfer engine that mitigates network bottlenecks in disaggregated LLM serving by selectively transferring essential KV cache entries across prefill and decoding nodes. The method reduces time-to-second-token by up to 4.3x compared to full KV cache transfer while maintaining comparable decoding performance."
+  },
+  {
+    "paper_id": "arxiv:2607.28418",
+    "title": "WIDE: Boosting Adaptive LLM Inference via Token-level Dynamic Width Pruning",
+    "url": "https://www.semanticscholar.org/paper/4adf2d6eb97d6758d97e8e9d2e064be694778bb7",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-30",
+    "posted_at": "2026-07-31T20:49:45.493971+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "sparsity"
+    ],
+    "summary": "WIDE is a token-level dynamic width pruning framework with a pruning-kernel co-design that enables efficient execution across different granularities. The method achieves up to 1.98x prefill and 4.95x decoding kernel-level speedups, along with 1.68x and 1.55x end-to-end acceleration."
   }
 ]
