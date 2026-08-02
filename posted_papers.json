@@ -987,5 +987,22 @@
       "sparsity"
     ],
     "summary": "WIDE is a token-level dynamic width pruning framework with a pruning-kernel co-design that enables efficient execution across different granularities. The method achieves up to 1.98x prefill and 4.95x decoding kernel-level speedups, along with 1.68x and 1.55x end-to-end acceleration."
+  },
+  {
+    "paper_id": "doi:10.1093/bioinformatics/btag579",
+    "title": "Accelerating inference in genomic and proteomic foundation models via speculative decoding.",
+    "url": "https://www.semanticscholar.org/paper/8b85e12fd9478a55bd611f0b233f79e54f734495",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-31",
+    "posted_at": "2026-08-02T10:04:37.018261+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "Adapts speculative decoding to genomic and protein foundation models using a lightweight draft model to propose tokens and a larger target model to verify them in parallel. The method yields consistent speedups over key-value cached decoding, with maximum observed speedups reaching a 100% increase and average gains of 1.2x-1.4x across models without changing the target model's predictions."
   }
 ]
