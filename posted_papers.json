@@ -1004,5 +1004,41 @@
       "verification"
     ],
     "summary": "Adapts speculative decoding to genomic and protein foundation models using a lightweight draft model to propose tokens and a larger target model to verify them in parallel. The method yields consistent speedups over key-value cached decoding, with maximum observed speedups reaching a 100% increase and average gains of 1.2x-1.4x across models without changing the target model's predictions."
+  },
+  {
+    "paper_id": "arxiv:2607.29279",
+    "title": "ParaASR: Multi-Token Prediction for Fast and Long-Context LLM-Based Speech Recognition",
+    "url": "https://www.semanticscholar.org/paper/30a55bc3ef8ede57b089cc0b6847362c78261685",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-31",
+    "posted_at": "2026-08-03T11:36:29.413943+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "multi-token-prediction",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "ParaASR uses Multi-Token Prediction to propose multiple future tokens and admits only the verified prefix into the transcript. It achieves an average accepted length of 5.0 out of 6 proposed tokens and a real-time factor as low as 0.0053."
+  },
+  {
+    "paper_id": "arxiv:2607.29575",
+    "title": "SLIM: Saturation-Aware Lightweight Performance Modeling for LLM Serving",
+    "url": "https://www.semanticscholar.org/paper/8f1a03fc8beeacb89815615b2e1ec1513c61ec76",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-31",
+    "posted_at": "2026-08-03T11:36:29.413943+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "batching",
+      "kv-cache",
+      "serving",
+      "benchmark"
+    ],
+    "summary": "The paper introduces SLIM, a semi-analytical performance model for LLM serving that predicts throughput and latency to advise batching configurations. The model successfully identifies up to 55 GB of avoidable GPU memory allocation for evaluated OPT models with minimal throughput loss."
   }
 ]
