@@ -1040,5 +1040,22 @@
       "benchmark"
     ],
     "summary": "The paper introduces SLIM, a semi-analytical performance model for LLM serving that predicts throughput and latency to advise batching configurations. The model successfully identifies up to 55 GB of avoidable GPU memory allocation for evaluated OPT models with minimal throughput loss."
+  },
+  {
+    "paper_id": "arxiv:2607.29397",
+    "title": "Studying quantization trade-offs for efficient inference deployment in machine translation",
+    "url": "https://www.semanticscholar.org/paper/886c6291ea5877bae0cd9f17f882258893ea9c82",
+    "source": "semantic_scholar",
+    "published_date": "2026-07-31",
+    "posted_at": "2026-08-03T20:50:39.756272+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "quantization",
+      "serving",
+      "benchmark"
+    ],
+    "summary": "The paper studies quantization trade-offs and document-chunking strategies for efficient machine translation deployment. It demonstrates that combining W4A8 or W8A8 quantization with chunking improves the latency-throughput Pareto-curve under various workloads on A100 and H100 GPUs."
   }
 ]
