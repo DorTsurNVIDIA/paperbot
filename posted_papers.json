@@ -1108,5 +1108,72 @@
       "serving"
     ],
     "summary": "TrimMoE is a communication-aware framework for distributed edge inference that couples layer skipping, early exit, and expert selection to reduce MoE cross-server transmission. On a 10-server testbed, it reduces average latency by up to 62.8% while keeping task-quality degradation within a 2% bound."
+  },
+  {
+    "paper_id": "arxiv:2608.01536",
+    "title": "Celty: SpMspV GPU Kernel and SIMT Co-Design for Efficient Dual-Sparse LLM Inference",
+    "url": "https://www.semanticscholar.org/paper/f1e6f2c6470b7d31020e4b160ca8da06230c9cc6",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-02",
+    "posted_at": "2026-08-04T21:00:04.767055+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "sparsity",
+      "hardware"
+    ],
+    "summary": "Celty is a co-designed sparse format, GPU kernel, and SIMT microarchitecture for efficient Sparse Matrix-Sparse Vector (spMspV) workloads in dual-sparse LLM inference. The proposed SIMT core achieves up to 5.3x speedup over cuBLAS at 70% dual-sparsity."
+  },
+  {
+    "paper_id": "arxiv:2608.01651",
+    "title": "Bole: Efficient Tree Speculation for Hybrid-Attention Language Models",
+    "url": "https://www.semanticscholar.org/paper/c4163dfa7328f2ace39a4a5e20fbdf4f5340c585",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-03",
+    "posted_at": "2026-08-04T21:00:04.767055+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 10,
+    "tags": [
+      "speculative-decoding",
+      "verification",
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "Bole is a kernel-runtime co-design enabling efficient tree speculative decoding for hybrid-attention LLMs via a tree-structured recurrence and batch-wide verification. It accelerates linear-attention tree verification by 3.4-7.7x and delivers up to 4.72x offline decode throughput over autoregressive decoding."
+  },
+  {
+    "paper_id": "arxiv:2608.01655",
+    "title": "PrefixPlace: Provable Prefix Key-Value Placement for Large Language Model Serving under Heterogeneous Compute and Transfer Costs",
+    "url": "https://www.semanticscholar.org/paper/d462125803c28c3e87d2afa0dc6798c38773935f",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-03",
+    "posted_at": "2026-08-04T21:00:04.767055+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "PrefixPlace is an epoch-level planner for prefix KV-cache placement across heterogeneous workers, optimizing for compute and transfer costs. The method achieves near-optimal cost savings (40.3% over vLLM-APC in RAG replays) and scales to 50,000 nodes in 12.3 seconds."
+  },
+  {
+    "paper_id": "arxiv:2608.01891",
+    "title": "Energy-Efficient LLM Serving via Disaggregated Attention--FFN and Flexible Frequency Scaling",
+    "url": "https://www.semanticscholar.org/paper/f74613caf491fb7694b55837b54c4d65cd616c25",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-03",
+    "posted_at": "2026-08-04T21:00:04.767055+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "hardware",
+      "quantization"
+    ],
+    "summary": "AFlex is a serving framework that jointly optimizes resource provisioning and GPU frequency scaling for disaggregated Attention-FFN execution using an interleaved A/F pipeline. It reduces energy per token by up to 49% over state-of-the-art disaggregated serving while satisfying latency SLOs."
   }
 ]
