@@ -1057,5 +1057,56 @@
       "benchmark"
     ],
     "summary": "The paper studies quantization trade-offs and document-chunking strategies for efficient machine translation deployment. It demonstrates that combining W4A8 or W8A8 quantization with chunking improves the latency-throughput Pareto-curve under various workloads on A100 and H100 GPUs."
+  },
+  {
+    "paper_id": "arxiv:2608.00434",
+    "title": "AdaMTP: An Adaptive Training Paradigm for Multi-Token Prediction",
+    "url": "https://www.semanticscholar.org/paper/9020c3ff7ac719bbcbb0f61276c6bf8a0a8d7858",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-01",
+    "posted_at": "2026-08-04T10:47:08.256925+00:00",
+    "lane": "specdec",
+    "specdec_score": 6,
+    "inference_score": 6,
+    "tags": [
+      "speculative-decoding",
+      "multi-token-prediction"
+    ],
+    "summary": "AdaMTP proposes an adaptive training paradigm for multi-token prediction that aligns prediction horizons with intrinsic sequence predictability using entropy-based segmentation. It demonstrates improved task performance and inference speedup over standard MTP across multiple backbones."
+  },
+  {
+    "paper_id": "arxiv:2608.00531",
+    "title": "CURE: Local Uncertainty Repair for Block-Parallel Speculative Decoding",
+    "url": "https://www.semanticscholar.org/paper/53c9c0974ac55525e885c05c26677b5a10024542",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-01",
+    "posted_at": "2026-08-04T10:47:08.256925+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "verification",
+      "draft-model"
+    ],
+    "summary": "CURE introduces a budget-aware dynamic repair tree for block-parallel speculative decoding that identifies and repairs high-uncertainty draft tokens. It increases the average accepted length by 4.2-7.5% over baselines, yielding an end-to-end speedup of 2.66-3.49x over target-only decoding."
+  },
+  {
+    "paper_id": "arxiv:2608.00573",
+    "title": "TrimMoE A communication aware and adaptive depth framework for distributed edge inference",
+    "url": "https://www.semanticscholar.org/paper/50c07b058f3610f8958dcdee50bdfcd79dc25fce",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-01",
+    "posted_at": "2026-08-04T10:47:08.256925+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "mixture-of-experts",
+      "early-exit",
+      "hardware",
+      "serving"
+    ],
+    "summary": "TrimMoE is a communication-aware framework for distributed edge inference that couples layer skipping, early exit, and expert selection to reduce MoE cross-server transmission. On a 10-server testbed, it reduces average latency by up to 62.8% while keeping task-quality degradation within a 2% bound."
   }
 ]
