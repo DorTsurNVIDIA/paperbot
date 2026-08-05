@@ -1175,5 +1175,56 @@
       "quantization"
     ],
     "summary": "AFlex is a serving framework that jointly optimizes resource provisioning and GPU frequency scaling for disaggregated Attention-FFN execution using an interleaved A/F pipeline. It reduces energy per token by up to 49% over state-of-the-art disaggregated serving while satisfying latency SLOs."
+  },
+  {
+    "paper_id": "arxiv:2608.02691",
+    "title": "Output-Aware Rotation for INT2 KV-Cache Quantization",
+    "url": "https://www.semanticscholar.org/paper/a3ff8a85c0cb20aaa31df20a612d95b333d016a6",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-03",
+    "posted_at": "2026-08-05T10:43:54.195251+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "kv-cache",
+      "quantization",
+      "long-context"
+    ],
+    "summary": "OptR is an output-aware rotation method for INT2 KV-cache quantization that minimizes post-attention output error by learning per-head orthogonal corrections. The method improves long-context retrieval and strengthens quantization while preserving the paged KV-cache format with negligible inference overhead."
+  },
+  {
+    "paper_id": "arxiv:2608.03036",
+    "title": "LLM Serving in the Wild: An Empirical Study of Frameworks, Methods, and System Designs",
+    "url": "https://www.semanticscholar.org/paper/16aff13694255a0a3fa9471cf60d31cee20764d0",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-04",
+    "posted_at": "2026-08-05T10:43:54.195251+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "serving",
+      "benchmark",
+      "kv-cache",
+      "batching"
+    ],
+    "summary": "The paper empirically studies the adoption of LLM serving frameworks and methods in open-source systems, analyzing frameworks like vLLM and SGLang. The study characterizes framework popularity and serving-method usage across various repositories and deployment settings."
+  },
+  {
+    "paper_id": "arxiv:2608.03048",
+    "title": "PI-Mem: Pushing Long-Context Reasoning to 3.6M Tokens with Parallel-Iterative Memory",
+    "url": "https://www.semanticscholar.org/paper/e50d86ece64a8672aef93572b3d412a53873ae28",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-04",
+    "posted_at": "2026-08-05T10:43:54.195251+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "long-context",
+      "serving"
+    ],
+    "summary": "PI-Mem processes long-context chunks in parallel and iteratively refines a shared memory to avoid sequential bottlenecks. The method is evaluated on HotpotQA up to 3.6M tokens, demonstrating high accuracy and inference speedups of 6.1x and 2.1x."
   }
 ]
