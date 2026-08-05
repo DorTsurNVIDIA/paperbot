@@ -1226,5 +1226,37 @@
       "serving"
     ],
     "summary": "PI-Mem processes long-context chunks in parallel and iteratively refines a shared memory to avoid sequential bottlenecks. The method is evaluated on HotpotQA up to 3.6M tokens, demonstrating high accuracy and inference speedups of 6.1x and 2.1x."
+  },
+  {
+    "paper_id": "arxiv:2608.01247",
+    "title": "RestoreKV: Recovering Full-Cache Behavior Under Aggressive Query-Agnostic KV Cache Eviction",
+    "url": "https://huggingface.co/papers/2608.01247",
+    "source": "huggingface",
+    "published_date": "2026-08-02T00:00:00.000Z",
+    "posted_at": "2026-08-05T20:52:42.986942+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "kv-cache",
+      "long-context"
+    ],
+    "summary": "RestoreKV introduces learned restoration tokens that attend to the full KV cache during prefill to generate a compact restore cache, mitigating aggressive query-agnostic KV cache eviction. It improves 59 of 60 budget-matched settings across five eviction methods and reaches 86.4 RULER accuracy at 16x compression on the KVPress Benchmark with less than 0.5% one-time overhead."
+  },
+  {
+    "paper_id": "arxiv:2608.03867",
+    "title": "Heterogeneity-Aware Microscaling for Efficient Low-Bit LLM Inference",
+    "url": "https://www.semanticscholar.org/paper/520289186d8df8c31a3ed75f35d9a663f2ceb4fb",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-04",
+    "posted_at": "2026-08-05T20:52:42.986942+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "quantization",
+      "hardware"
+    ],
+    "summary": "The paper introduces AdaMX, a heterogeneity-aware adaptive microscaling format and accelerator for low-bit LLM inference that selects precision-recovery schemes per block and per operand. Evaluated on a 22nm FD-SOI accelerator prototype, AdaMX removes up to 83% of the MXFP4 accuracy loss while lowering memory footprint and energy."
   }
 ]
