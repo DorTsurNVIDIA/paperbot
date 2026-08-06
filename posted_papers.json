@@ -1258,5 +1258,21 @@
       "hardware"
     ],
     "summary": "The paper introduces AdaMX, a heterogeneity-aware adaptive microscaling format and accelerator for low-bit LLM inference that selects precision-recovery schemes per block and per operand. Evaluated on a 22nm FD-SOI accelerator prototype, AdaMX removes up to 83% of the MXFP4 accuracy loss while lowering memory footprint and energy."
+  },
+  {
+    "paper_id": "arxiv:2608.04169",
+    "title": "On Design Principles for Efficient Heterogeneous DRAM-PIM-GPU Systems",
+    "url": "https://www.semanticscholar.org/paper/1907b6a07378535cc0c18112246f3ca2ad823a8d",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-04",
+    "posted_at": "2026-08-06T10:46:46.885843+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "serving"
+    ],
+    "summary": "The paper establishes design principles for heterogeneous DRAM-PIM-GPU systems to accelerate decode-phase LLM inference. It reveals that static power dominates efficiency and that workload mapping provides bounded end-to-end gains of up to 5.6%."
   }
 ]
