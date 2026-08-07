@@ -1340,5 +1340,68 @@
       "serving"
     ],
     "summary": "PaDoc proposes a layout-grounded parallel decoding method for document parsing that branches regional content concurrently using masked parallel decoding and shared-prefix reuse in vLLM. Evaluated on an A800 GPU, it improves valid-page throughput by 67.4-118% and reduces P95 latency by 39.2-54.9% relative to a sequential baseline."
+  },
+  {
+    "paper_id": "arxiv:2608.05926",
+    "title": "BALANCE: Hybrid Autoregressive-Speculative LLM Inference in Wireless Edge Networks",
+    "url": "https://www.semanticscholar.org/paper/26737389fd1c3ab8d0a5c9157c64be732c4684bd",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-06",
+    "posted_at": "2026-08-07T20:40:09.905191+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "serving",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "BALANCE is a hybrid autoregressive-speculative decoding framework for edge networks that dynamically schedules users to either standard decoding or small language model drafting with target LLM verification to optimize resource allocation. Experiments demonstrate that the method consistently outperforms conventional autoregressive and speculative decoding by significantly improving task throughput."
+  },
+  {
+    "paper_id": "arxiv:2608.06135",
+    "title": "LLM Inference Under Bursty Workload Distribution: Modifying the WAIT Algorithm",
+    "url": "https://www.semanticscholar.org/paper/87ad9aa1e2aa1476f54ace56acd777f2cd0cd93a",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-06",
+    "posted_at": "2026-08-07T20:40:09.905191+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "serving"
+    ],
+    "summary": "The paper proposes a lightweight extension to the WAIT scheduling algorithm to adapt to time-varying, bursty request arrivals for LLM serving. Simulation-based evaluation demonstrates higher throughput than Sarathi-Serve, ORCA, and vLLM in low arrival-rate shift scenarios while maintaining comparable latency."
+  },
+  {
+    "paper_id": "arxiv:2608.06188",
+    "title": "Routing LLM Inference to the Cleanest Grid in Real Time",
+    "url": "https://www.semanticscholar.org/paper/36b849621f5501024870d4a41198f47ca2f663f7",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-06",
+    "posted_at": "2026-08-07T20:40:09.905191+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "serving"
+    ],
+    "summary": "The paper presents a live validation of carbon-aware inference routing for multi-region GPU testbeds, using real-time marginal operating emissions rate (MOER) signals to steer request placement. In a primary modeled configuration, the method reduces modeled GPU-attributable operational emissions by 50.9% versus round-robin placement."
+  },
+  {
+    "paper_id": "doi:10.1145/3770855.3817626",
+    "title": "OrionInfer: Low-Overhead Parallelism Switching and Live Migration for Efficient LLM Serving",
+    "url": "https://www.semanticscholar.org/paper/617bd1df7cf37647a37ef78f2b4337f8d69e1846",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-09",
+    "posted_at": "2026-08-07T20:40:09.905191+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "serving"
+    ],
+    "summary": "OrionInfer is an LLM serving system that uses low-overhead parallelism switching and live migration to improve efficiency, evaluating the system's serving performance."
   }
 ]
