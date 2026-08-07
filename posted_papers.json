@@ -1274,5 +1274,21 @@
       "serving"
     ],
     "summary": "The paper establishes design principles for heterogeneous DRAM-PIM-GPU systems to accelerate decode-phase LLM inference. It reveals that static power dominates efficiency and that workload mapping provides bounded end-to-end gains of up to 5.6%."
+  },
+  {
+    "paper_id": "arxiv:2608.04991",
+    "title": "RAC: Reference-Aware Activation Compression for Communication-Efficient Split LLM Inference",
+    "url": "https://www.semanticscholar.org/paper/9129674c6863d9e6b9630f2ba8fd5b273979769a",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-05",
+    "posted_at": "2026-08-07T00:49:14.606579+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "RAC is a reference-aware codec for split LLM inference that compresses boundary hidden states to reduce communication bottlenecks. It improves time to first token and time per output token ratios by 1.24-2.72x and 1.01-2.79x respectively across evaluated models while maintaining task quality."
   }
 ]
