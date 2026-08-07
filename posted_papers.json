@@ -1290,5 +1290,55 @@
       "serving"
     ],
     "summary": "RAC is a reference-aware codec for split LLM inference that compresses boundary hidden states to reduce communication bottlenecks. It improves time to first token and time per output token ratios by 1.24-2.72x and 1.01-2.79x respectively across evaluated models while maintaining task quality."
+  },
+  {
+    "paper_id": "arxiv:2608.05303",
+    "title": "EdgeXpert: An Edge Device for Memory-Efficient LLM Inference with Mixture-of-Experts and Speculative Decoding",
+    "url": "https://www.semanticscholar.org/paper/e8a0ab7987153e9903d1e2baae91a348d62093e7",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-05",
+    "posted_at": "2026-08-07T09:08:46.555470+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "mixture-of-experts",
+      "speculative-decoding"
+    ],
+    "summary": "EdgeXpert is a software-hardware co-designed LLM accelerator that resolves incompatibilities between speculative decoding and mixture-of-experts via prompt-wise expert reuse and depth-aware expert coalescing. Evaluated on a 28nm chip at 800 MHz, it achieves up to 56.3% latency reduction and 44.1% energy reduction compared to prior works while maintaining near-baseline accuracy."
+  },
+  {
+    "paper_id": "arxiv:2608.05791",
+    "title": "A Two-Tier Perspective on Inference-Time Parallelism in Multi-Agent LLM Systems",
+    "url": "https://www.semanticscholar.org/paper/6d7604b7f341e90a117719d3af82756b412f1d80",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-06",
+    "posted_at": "2026-08-07T09:08:46.555470+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "serving",
+      "benchmark"
+    ],
+    "summary": "The paper proposes TIPEX, a controllable execution framework that unifies replica and structural parallelism in multi-agent LLM systems to coordinate concurrent execution. Systematic experiments on the GAIA benchmark demonstrate that inference-time parallelism can significantly improve accuracy and reduce end-to-end latency at the cost of increased token consumption."
+  },
+  {
+    "paper_id": "arxiv:2608.06146",
+    "title": "PaDoc: Layout-Grounded Parallel Decoding for Document Parsing",
+    "url": "https://huggingface.co/papers/2608.06146",
+    "source": "huggingface",
+    "published_date": "2026-08-06T00:00:00.000Z",
+    "posted_at": "2026-08-07T09:08:46.555470+00:00",
+    "lane": "inference",
+    "specdec_score": 2,
+    "inference_score": 8,
+    "tags": [
+      "attention",
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "PaDoc proposes a layout-grounded parallel decoding method for document parsing that branches regional content concurrently using masked parallel decoding and shared-prefix reuse in vLLM. Evaluated on an A800 GPU, it improves valid-page throughput by 67.4-118% and reduces P95 latency by 39.2-54.9% relative to a sequential baseline."
   }
 ]
