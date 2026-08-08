@@ -1403,5 +1403,39 @@
       "serving"
     ],
     "summary": "OrionInfer is an LLM serving system that uses low-overhead parallelism switching and live migration to improve efficiency, evaluating the system's serving performance."
+  },
+  {
+    "paper_id": "doi:10.1109/tmc.2026.3676689",
+    "title": "E<inline-formula><tex-math notation=\"LaTeX\">$^{2}$</tex-math><alternatives><mml:math><mml:msup><mml:mrow/><mml:mn>2</mml:mn></mml:msup></mml:math><inline-graphic xlink:href=\"feng-ieq1-3676689.gif\"/></alternatives></inline-formula>LLM: Structure-Guided Efficient Inference for LLMs in Distributed Edge",
+    "url": "https://www.semanticscholar.org/paper/f8f22ba18c7bdfeef0151df67dd41ac8fbbf57a7",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-01",
+    "posted_at": "2026-08-08T20:14:19.737485+00:00",
+    "lane": "inference",
+    "specdec_score": 2,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving",
+      "hardware"
+    ],
+    "summary": "E^2LLM is a distributed inference framework that uses edge devices for structural planning and lightweight auxiliary models to generate segment-specific KV caches for collaborative parallel decoding. The framework achieves 74%-87.7% end-to-end latency reduction and 34.6%-72.2% communication overhead reduction compared to state-of-the-art baselines."
+  },
+  {
+    "paper_id": "doi:10.51903/jtie.v5i2.565",
+    "title": "Token-Burst-Aware Capacity Planning for LLM Inference Services: Request Arrival, Token Demand, and Failure Risk Modeling from BurstGPT Traces",
+    "url": "https://www.semanticscholar.org/paper/7242655287fa348c66dd08b264733b2c5e7f6d72",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-03",
+    "posted_at": "2026-08-08T20:14:19.737485+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "batching",
+      "benchmark"
+    ],
+    "summary": "The paper presents an integrated capacity planning pipeline for LLM inference services that forecasts token demand, detects bursts, and simulates capacity policies. Evaluated on BurstGPT traces, the method links demand forecasting to GPU counts, latency, batching, and memory pressure via Vidur replay to optimize serving efficiency."
   }
 ]
