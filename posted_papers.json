@@ -1437,5 +1437,71 @@
       "benchmark"
     ],
     "summary": "The paper presents an integrated capacity planning pipeline for LLM inference services that forecasts token demand, detects bursts, and simulates capacity policies. Evaluated on BurstGPT traces, the method links demand forecasting to GPU counts, latency, batching, and memory pressure via Vidur replay to optimize serving efficiency."
+  },
+  {
+    "paper_id": "arxiv:2608.06411",
+    "title": "Learning to Predict Middle-Layer Attention in MLLMs for Visual Token Prunin",
+    "url": "https://www.semanticscholar.org/paper/76ee3ab6386faaeca1a22c30c05c47d56960184f",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-04",
+    "posted_at": "2026-08-10T09:41:55.975198+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "sparsity"
+    ],
+    "summary": "The method predicts middle-layer text-to-vision attention using a lightweight predictor to prune visual tokens before the first LLM layer, preserving 97.5% of performance with only 5.56% of visual tokens. The strongest result present in the abstract is a 3.09x end-to-end inference speedup."
+  },
+  {
+    "paper_id": "arxiv:2608.06557",
+    "title": "Cascade: Exploiting SLO-Aware latency budget for fair and high goodput LLM inference serving",
+    "url": "https://www.semanticscholar.org/paper/68999f40518048c13578b5a646ae1b5b3304d531",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-06",
+    "posted_at": "2026-08-10T09:41:55.975198+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "kv-cache",
+      "batching"
+    ],
+    "summary": "Cascade is an LLM serving system that uses a per-request latency budget to jointly coordinate request scheduling and KV-cache management across the memory hierarchy. Evaluated on production traces, it improves SLO-satisfied goodput by up to 2.4x and reduces SLO violations by 40% relative to a baseline vLLM scheduler."
+  },
+  {
+    "paper_id": "arxiv:2608.06819",
+    "title": "FutureBridge: Token Selection Beyond Local Preference in Collaborative Decoding",
+    "url": "https://www.semanticscholar.org/paper/8c12038e61f284343e01337094ed700c0a907ceb",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-07",
+    "posted_at": "2026-08-10T09:41:55.975198+00:00",
+    "lane": "specdec",
+    "specdec_score": 6,
+    "inference_score": 5,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "FutureBridge introduces a token-level collaborative decoding method where a large model expands a candidate pool and a small model verifies tokens based on counterfactual reasoning support. It improves a Qwen3-1.7B SLM's Math Avg. by 35.1% relative to greedy decoding across five benchmarks."
+  },
+  {
+    "paper_id": "arxiv:2608.07088",
+    "title": "RoRA: Role-Oriented Regional Allocation for Visual Token Pruning in MLLMs",
+    "url": "https://www.semanticscholar.org/paper/caaf13295985b750d83758b600a723f44ed4a4fc",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-07",
+    "posted_at": "2026-08-10T09:41:55.975198+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "kv-cache",
+      "long-context"
+    ],
+    "summary": "RoRA is a training-free visual token pruning framework that reduces KV-cache storage for multimodal LLMs. At a 66.7% pruning ratio, it reduces end-to-end inference time by 24.6% (a 1.33x speedup) over unpruned inference on an NVIDIA H800."
   }
 ]
