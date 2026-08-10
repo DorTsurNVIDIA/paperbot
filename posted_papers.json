@@ -1503,5 +1503,20 @@
       "long-context"
     ],
     "summary": "RoRA is a training-free visual token pruning framework that reduces KV-cache storage for multimodal LLMs. At a 66.7% pruning ratio, it reduces end-to-end inference time by 24.6% (a 1.33x speedup) over unpruned inference on an NVIDIA H800."
+  },
+  {
+    "paper_id": "arxiv:2608.07193",
+    "title": "An AI4AI Framework for Visual Token Pruning",
+    "url": "https://www.semanticscholar.org/paper/f0c4ecd19e17af051da626daa9c57868498433a9",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-07",
+    "posted_at": "2026-08-10T20:28:08.394369+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "sparsity"
+    ],
+    "summary": "AutoPrune is a training-free framework that uses LLMs to design visual-token pruning policies for multimodal LLMs via a domain-specific language. It preserves over 99% of full-token performance while removing 94.4% of visual tokens, reducing FLOPs by 9.9x and prefill latency by 6.4x."
   }
 ]
