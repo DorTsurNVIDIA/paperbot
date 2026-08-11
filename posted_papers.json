@@ -1537,5 +1537,86 @@
       "speculative-decoding"
     ],
     "summary": "OasisKV is a memory-centric inference system that uses lookahead tokens drafted via speculative decoding to accurately prefetch and stage sparse KV-cache entries from host/remote memory into HBM. It achieves up to 2.1x throughput over dense vLLM on multi-GPU long-context serving with minimal accuracy loss."
+  },
+  {
+    "paper_id": "arxiv:2608.08569",
+    "title": "VoxZip: Semantic-Anchored Temporal KV Cache Compression for Long-Context Audio Inference",
+    "url": "https://www.semanticscholar.org/paper/f5a26c3d2b6fcb72fb84031928e2b9126ac96aa2",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-09",
+    "posted_at": "2026-08-11T20:31:11.819935+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "long-context"
+    ],
+    "summary": "VoxZip is a train-free, two-stage semantic-anchored KV cache compression framework for audio LLMs that uses ASR transcriptions to fuse tokens and dynamic attention filtering to evict non-essential ones. It sustains over 90% of uncompressed baseline performance under 20x compression and yields a 1.9x increase in inference throughput with a 3.3x reduction in peak memory overhead at 4x compression."
+  },
+  {
+    "paper_id": "arxiv:2608.08611",
+    "title": "C2C-Explorer: An Exploration Framework for Chip-to-Chip Interconnect Architectures in LLM Cloud Computing Systems",
+    "url": "https://www.semanticscholar.org/paper/78219cabdc6e869019ffe9be82e331e7d1cd1aaa",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-09",
+    "posted_at": "2026-08-11T20:31:11.819935+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "serving"
+    ],
+    "summary": "C2C-Explorer is a design space exploration framework for chip-to-chip interconnect architectures that integrates an LLM workload simulator. Applied to a 32-XPU DeepSeek-R1-671B inference workload, it identifies configurations that improve goodput by 44.1% and reduce memory by 98.4%."
+  },
+  {
+    "paper_id": "arxiv:2608.08721",
+    "title": "LibraSpec: Dynamic Diffusion-Based Speculative Decoding via Marginal-Gain-Driven Optimization",
+    "url": "https://www.semanticscholar.org/paper/ba5a5efdbd89b586ab6e25b7b567d819b0f31f8e",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-09",
+    "posted_at": "2026-08-11T20:31:11.819935+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "LibraSpec is a training-free algorithm that dynamically selects the speculative length for diffusion-based drafters by extending the sequence only when the acceptance gain outweighs verification costs. It achieves a further 0.5 to 1.5x speedup over baselines and up to 8.49x speedup over autoregressive decoding across multiple models and tasks."
+  },
+  {
+    "paper_id": "doi:10.1145/3816440.3818586",
+    "title": "HotBa: A Heterogeneous Mamba Accelerator with Δ-Guided Early Rejection for Speculative Decoding",
+    "url": "https://www.semanticscholar.org/paper/b320d896ea8582a6ec2bc8f921738af652e0e580",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-05",
+    "posted_at": "2026-08-11T20:31:11.819935+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "hardware",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper proposes HotBa, a heterogeneous Mamba accelerator that uses a Δ-guided early rejection mechanism to verify tokens for speculative decoding. The abstract is empty, so no specific quantitative results or evaluation details are available."
+  },
+  {
+    "paper_id": "doi:10.1145/3830086",
+    "title": "CELLServe: An SLO-Aware and Cost Efficient LLMs Serving System for Serverless Computing Environments",
+    "url": "https://www.semanticscholar.org/paper/6e68cd959dbf7b85faae95e995e05e89714fdb8e",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-08",
+    "posted_at": "2026-08-11T20:31:11.819935+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "batching",
+      "serving"
+    ],
+    "summary": "CELLServe is a serverless LLM serving system that integrates prefill-decode disaggregation and continuous batching with SLO-aware resource provisioning and instance merging. It achieves 1.85x-1.92x higher request throughput than baselines under identical SLOs and GPU budgets."
   }
 ]
