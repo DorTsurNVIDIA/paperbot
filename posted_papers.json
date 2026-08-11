@@ -1518,5 +1518,24 @@
       "sparsity"
     ],
     "summary": "AutoPrune is a training-free framework that uses LLMs to design visual-token pruning policies for multimodal LLMs via a domain-specific language. It preserves over 99% of full-token performance while removing 94.4% of visual tokens, reducing FLOPs by 9.9x and prefill latency by 6.4x."
+  },
+  {
+    "paper_id": "arxiv:2608.08097",
+    "title": "OasisKV: Scaling In-Decode KV Cache Beyond HBM with Lookahead Sparse Prefetching",
+    "url": "https://huggingface.co/papers/2608.08097",
+    "source": "huggingface",
+    "published_date": "2026-08-08T00:00:00.000Z",
+    "posted_at": "2026-08-11T09:08:07.326656+00:00",
+    "lane": "specdec",
+    "specdec_score": 6,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "long-context",
+      "serving",
+      "sparsity",
+      "speculative-decoding"
+    ],
+    "summary": "OasisKV is a memory-centric inference system that uses lookahead tokens drafted via speculative decoding to accurately prefetch and stage sparse KV-cache entries from host/remote memory into HBM. It achieves up to 2.1x throughput over dense vLLM on multi-GPU long-context serving with minimal accuracy loss."
   }
 ]
