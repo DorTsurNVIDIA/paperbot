@@ -1634,5 +1634,54 @@
       "serving"
     ],
     "summary": "UniMoMo is a post-training compression framework that merges experts in sparse mixture-of-experts (MoE) layers based on functional similarity to meet a constrained expert budget. The method preserves recommendation quality while achieving measured A100 speedups of 1.28x to 2.21x depending on the operating point."
+  },
+  {
+    "paper_id": "arxiv:2608.11152",
+    "title": "Scheduling Mixed RL Rollouts Beyond Prefix Locality",
+    "url": "https://www.semanticscholar.org/paper/47a09c532d4c1266c22581736326334d27f6f950",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-11",
+    "posted_at": "2026-08-12T20:28:43.296367+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "MISA-T is a routing-layer admission policy for mixed RL rollout serving that combines adaptive session admission with workload-aware KV-capacity allocation. It improves rollout throughput by up to 53.3% and reduces mean iteration time by 22.8% compared to cache-aware vLLM baselines while maintaining high prefix-cache hit rates."
+  },
+  {
+    "paper_id": "doi:10.1145/3789240.3829140",
+    "title": "Turbo: Efficiently Serving Long-Context Large Language Models with In-Network Aggregation",
+    "url": "https://www.semanticscholar.org/paper/8e0cd3fba7d593b05b72fbb071974d97a228214e",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-17",
+    "posted_at": "2026-08-12T20:28:43.296367+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "long-context",
+      "serving",
+      "hardware"
+    ],
+    "summary": "The paper proposes an in-network aggregation method to efficiently serve long-context large language models, evaluating the system to demonstrate improved serving efficiency for long contexts."
+  },
+  {
+    "paper_id": "doi:10.1145/3789240.3829347",
+    "title": "DynamoServe: A Distributed Tiered Memory System for Multi-tenant LLM Serving",
+    "url": "https://www.semanticscholar.org/paper/3fada5fea76c30b6fb0f156189b080168f66e241",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-17",
+    "posted_at": "2026-08-12T20:28:43.296367+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "serving",
+      "kv-cache"
+    ],
+    "summary": "The paper introduces a distributed tiered memory system for multi-tenant LLM serving, evaluating the system to improve serving efficiency and memory management."
   }
 ]
