@@ -1618,5 +1618,21 @@
       "serving"
     ],
     "summary": "CELLServe is a serverless LLM serving system that integrates prefill-decode disaggregation and continuous batching with SLO-aware resource provisioning and instance merging. It achieves 1.85x-1.92x higher request throughput than baselines under identical SLOs and GPU budgets."
+  },
+  {
+    "paper_id": "arxiv:2608.08627",
+    "title": "UniMoMo: Expert Merging-Based MoE Acceleration for Large Recommendation Models",
+    "url": "https://huggingface.co/papers/2608.08627",
+    "source": "huggingface",
+    "published_date": "2026-08-09T00:00:00.000Z",
+    "posted_at": "2026-08-12T09:19:06.329941+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "mixture-of-experts",
+      "serving"
+    ],
+    "summary": "UniMoMo is a post-training compression framework that merges experts in sparse mixture-of-experts (MoE) layers based on functional similarity to meet a constrained expert budget. The method preserves recommendation quality while achieving measured A100 speedups of 1.28x to 2.21x depending on the operating point."
   }
 ]
