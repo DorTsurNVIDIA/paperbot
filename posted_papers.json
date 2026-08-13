@@ -1683,5 +1683,50 @@
       "kv-cache"
     ],
     "summary": "The paper introduces a distributed tiered memory system for multi-tenant LLM serving, evaluating the system to improve serving efficiency and memory management."
+  },
+  {
+    "paper_id": "arxiv:2608.11361",
+    "title": "Lifecycle-Optimal Tokenization: Vocabulary Size as a Deployment-Regime-Dependent Infrastructure Parameter",
+    "url": "https://www.semanticscholar.org/paper/6880a24c503aca39ebb9f5e9468b9c245f7213f4",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-11",
+    "posted_at": "2026-08-13T09:19:32.438921+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving"
+    ],
+    "summary": "The paper formalizes LLM deployment cost as a function of tokenizer vocabulary size and serving batch size, analyzing its impact on inference latency and memory. It demonstrates that the inference-optimal vocabulary shifts by 16x with serving batch size, providing actionable capacity planning guidance for different deployment regimes."
+  },
+  {
+    "paper_id": "arxiv:2608.11742",
+    "title": "Ripple-Pivot Search: Active Parallel Decoding for Diffusion Large Language Models",
+    "url": "https://www.semanticscholar.org/paper/4cfd9fbcd4c156f0ebc0bc8c98122fbbde18cd0b",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-12",
+    "posted_at": "2026-08-13T09:19:32.438921+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "kv-cache"
+    ],
+    "summary": "Ripple-Pivot Search (RPS) is a training-free decoding method for diffusion LLMs that proactively commits mid-entropy pivot positions to reduce uncertainty across masked tokens. It achieves 4-10x wall-clock speedup over standard decoders while preserving generation quality, and up to 18x speedup when integrated with KV caching."
+  },
+  {
+    "paper_id": "arxiv:2608.11920",
+    "title": "NITRO: High-Performance 3D NAND Flash-Based In-Storage Computing with Enhanced Activation Dataflow",
+    "url": "https://www.semanticscholar.org/paper/7a082e35e53c06fd19741ff544804094a5f60f39",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-12",
+    "posted_at": "2026-08-13T09:19:32.438921+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware"
+    ],
+    "summary": "The paper proposes a high-performance NAND flash-based in-storage computing architecture with enhanced activation buffering and distributed dataflow to handle intermediate values. It reports reducing LLM inference latency by up to 85% compared to the baseline."
   }
 ]
