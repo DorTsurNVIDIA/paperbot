@@ -1745,5 +1745,40 @@
       "hardware"
     ],
     "summary": "LiveAnimate is a real-time streaming human animation system that uses a bounded KV-cache mechanism (PR-Sink) and sequence parallelism to maintain constant memory and per-block latency. It achieves 19.63 FPS streaming inference on two NVIDIA H100 GPUs, enabling stable long-form generation."
+  },
+  {
+    "paper_id": "arxiv:2608.13076",
+    "title": "SPADE: Speculative Decoding for Precise and Low Cost Distributed Edge Cloud Inference",
+    "url": "https://www.semanticscholar.org/paper/18f903f1784c0e50b4d1345d28d88a21cc633e94",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-13",
+    "posted_at": "2026-08-14T20:18:44.417926+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification",
+      "serving"
+    ],
+    "summary": "SPADE is a distributed inference framework integrating speculative decoding across edge and cloud, where an edge draft model proposes tokens for a large cloud verifier model to accept or reject. Evaluated on NLP tasks using SpecBench and CNN/Dailymail, the approach reduces cloud model calls by 76% with zero loss in accuracy compared to the full model."
+  },
+  {
+    "paper_id": "arxiv:2608.13499",
+    "title": "OpScale: Operator-level Provisioning and Autoscaling for LLM Serving",
+    "url": "https://www.semanticscholar.org/paper/352b3df8ea58657616827a62cb934fee2f49ced3",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-13",
+    "posted_at": "2026-08-14T20:18:44.417926+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "batching",
+      "hardware"
+    ],
+    "summary": "OpScale is an operator-level orchestration framework for LLM serving that handles profiling, provisioning, placement, and runtime autoscaling. Evaluated on production traces with up to 40 A100s and 24 GB200s, it attains SLOs with up to 36.3% fewer GPUs and 28% less power, or achieves 44% higher throughput under fixed cost budgets."
   }
 ]
