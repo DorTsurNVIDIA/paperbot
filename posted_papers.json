@@ -1728,5 +1728,22 @@
       "hardware"
     ],
     "summary": "The paper proposes a high-performance NAND flash-based in-storage computing architecture with enhanced activation buffering and distributed dataflow to handle intermediate values. It reports reducing LLM inference latency by up to 85% compared to the baseline."
+  },
+  {
+    "paper_id": "arxiv:2608.11745",
+    "title": "LiveAnimate: Stable Long-Form Streaming Human Animation in Real-Time",
+    "url": "https://huggingface.co/papers/2608.11745",
+    "source": "huggingface",
+    "published_date": "2026-08-13T00:00:00.000Z",
+    "posted_at": "2026-08-14T09:14:08.548313+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving",
+      "hardware"
+    ],
+    "summary": "LiveAnimate is a real-time streaming human animation system that uses a bounded KV-cache mechanism (PR-Sink) and sequence parallelism to maintain constant memory and per-block latency. It achieves 19.63 FPS streaming inference on two NVIDIA H100 GPUs, enabling stable long-form generation."
   }
 ]
