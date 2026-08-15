@@ -1780,5 +1780,21 @@
       "hardware"
     ],
     "summary": "OpScale is an operator-level orchestration framework for LLM serving that handles profiling, provisioning, placement, and runtime autoscaling. Evaluated on production traces with up to 40 A100s and 24 GB200s, it attains SLOs with up to 36.3% fewer GPUs and 28% less power, or achieves 44% higher throughput under fixed cost budgets."
+  },
+  {
+    "paper_id": "arxiv:2608.08020",
+    "title": "Thought-Level Beam Search for Reasoning",
+    "url": "https://huggingface.co/papers/2608.08020",
+    "source": "huggingface",
+    "published_date": "2026-08-11T00:00:00.000Z",
+    "posted_at": "2026-08-15T08:37:27.310965+00:00",
+    "lane": "inference",
+    "specdec_score": 2,
+    "inference_score": 8,
+    "tags": [
+      "serving",
+      "long-context"
+    ],
+    "summary": "Gambit is an inference algorithm that performs thought-level beam search by pruning unpromising trajectories and branching from high-quality prefixes to dynamically allocate test-time compute. Under identical hardware constraints, the method yields up to a +6.7% absolute accuracy gain on HMMT-24 and >2x higher throughput on trace completion compared to existing baselines."
   }
 ]
