@@ -1813,5 +1813,36 @@
       "batching"
     ],
     "summary": "The paper proposes a training-free adaptive weight pruning method for batched inference in Large Reasoning Models using periodic top-k selection and activation memory. It demonstrates a 1.40x speedup over dense inference at 50% actual sparsity while significantly outperforming previous state-of-the-art pruning methods in accuracy."
+  },
+  {
+    "paper_id": "arxiv:2608.13987",
+    "title": "Nanbeige4.2-3B on Apple Silicon: Fixing Deployment Bugs and Decreasing Looped Transformer Memory Overhead",
+    "url": "https://huggingface.co/papers/2608.13987",
+    "source": "huggingface",
+    "published_date": "2026-08-14T00:00:00.000Z",
+    "posted_at": "2026-08-17T20:11:51.847742+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "The paper introduces a chunked-prefill strategy and bug fixes to reduce the memory overhead of Looped Transformers on Apple Silicon. This extends the allowable context width by 2.7 times on 32 GiB shared memory and enables reliable agentic task evaluation."
+  },
+  {
+    "paper_id": "arxiv:2608.14376",
+    "title": "CoRun: Padding is Simple and Efficient for Deterministic LLM Inference",
+    "url": "https://www.semanticscholar.org/paper/d59bbcfe67d1698b58b8f952c76605cbcae1ca24",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-14",
+    "posted_at": "2026-08-17T20:11:51.847742+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving"
+    ],
+    "summary": "CoRun is a scheduling-based system that achieves deterministic LLM inference by leveraging position-invariance with isolated prefill and fixed-shape batched decode using CUDA graphs. It improves throughput by 15-324% over batch-invariant approaches while reducing time-to-first-token by 51.8% and time-per-output-token by 48.6% on average."
   }
 ]
