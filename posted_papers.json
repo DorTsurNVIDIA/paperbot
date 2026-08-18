@@ -1844,5 +1844,39 @@
       "serving"
     ],
     "summary": "CoRun is a scheduling-based system that achieves deterministic LLM inference by leveraging position-invariance with isolated prefill and fixed-shape batched decode using CUDA graphs. It improves throughput by 15-324% over batch-invariant approaches while reducing time-to-first-token by 51.8% and time-per-output-token by 48.6% on average."
+  },
+  {
+    "paper_id": "arxiv:2608.14614",
+    "title": "DumpsterCluster: From Dumpster Diving to Serving LLaMA-70B on $60 GPUs",
+    "url": "https://huggingface.co/papers/2608.14614",
+    "source": "huggingface",
+    "published_date": "2026-07-10T00:00:00.000Z",
+    "posted_at": "2026-08-18T08:47:21.711546+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "hardware",
+      "serving"
+    ],
+    "summary": "The method evaluates serving LLMs on a cluster of repurposed second-hand GPUs using pipeline-parallel optimizations. The abstract reports that the system achieves competitive LLaMA-70B throughput and details the economic and environmental trade-offs compared to current-generation hardware."
+  },
+  {
+    "paper_id": "arxiv:2608.15018",
+    "title": "S2-MoE: Enabling Efficient Self-Speculative Decoding for Mixture-of-Experts on Edge Devices",
+    "url": "https://www.semanticscholar.org/paper/0254ba17ca9631b1ea056a437c21e7a713b1d132",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-15",
+    "posted_at": "2026-08-18T08:47:21.711546+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "mixture-of-experts",
+      "serving"
+    ],
+    "summary": "S2-MoE is a self-speculative decoding framework for Mixture-of-Experts models that uses routing-aware speculative expansion and reuse-aware expert gating to reduce verification overhead. Evaluated on edge devices, it achieves up to a 5.3x speedup over standard autoregressive decoding."
   }
 ]
