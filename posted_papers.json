@@ -1878,5 +1878,53 @@
       "serving"
     ],
     "summary": "S2-MoE is a self-speculative decoding framework for Mixture-of-Experts models that uses routing-aware speculative expansion and reuse-aware expert gating to reduce verification overhead. Evaluated on edge devices, it achieves up to a 5.3x speedup over standard autoregressive decoding."
+  },
+  {
+    "paper_id": "arxiv:2608.15602",
+    "title": "FluxBin: Flexible LUT-based Ultra-low-bit LLM Inference by Algorithm-Kernel Synergy",
+    "url": "https://www.semanticscholar.org/paper/01f1f7c2d7ba0c35395dbf495e423948de86bd1d",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-16",
+    "posted_at": "2026-08-18T20:09:13.932518+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "quantization",
+      "hardware",
+      "serving"
+    ],
+    "summary": "FluxBin is an algorithm-kernel co-design for ultra-low-bit LLM quantization that replaces expensive floating-point arithmetic with optimized LUT-based CUDA kernels. The abstract reports up to 5.92x speedup and 10.19x energy savings, enabling 70B-scale model deployment on a single A100 GPU with 4x memory reduction."
+  },
+  {
+    "paper_id": "arxiv:2608.16336",
+    "title": "Beyond Binary Priorities: Multi-Tier SLA Scheduling for Large Language Model Serving",
+    "url": "https://www.semanticscholar.org/paper/945f6ad1d64df020c3f1186ccf0ac2d9298eb878",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-17",
+    "posted_at": "2026-08-18T20:09:13.932518+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving"
+    ],
+    "summary": "The paper extends the Llumnix LLM serving scheduler to support an arbitrary number of priority tiers using per-tier headroom, tier-aware dispatch ordering, and migration. Evaluated in the Vidur simulator, the extended scheduler achieves prefill mean speedups of up to 8.3x and end-to-end P99 speedups of up to 3.1x over INFaaS with cost-per-latency improvements of 46 to 68%."
+  },
+  {
+    "paper_id": "arxiv:2608.16477",
+    "title": "Pallas: A Proactive KV Cache Migration Framework for LLM Inference in AI-RAN",
+    "url": "https://www.semanticscholar.org/paper/af8e3532ede8640dbd9cc41901c64d7c7dc544c8",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-17",
+    "posted_at": "2026-08-18T20:09:13.932518+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "Pallas is a proactive KV-cache migration framework for AI-RAN that prepares an inference state at a predicted target base station before cellular handover by reconstructing a stable prefix and streaming an evolving suffix. The vLLM-based prototype reduces average service interruption time by factors of 2.28–89.68 over target-side recovery approaches and lowers average inter-token latency by 16.0%–50.0% compared with source-side forwarding."
   }
 ]
