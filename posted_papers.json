@@ -1926,5 +1926,40 @@
       "serving"
     ],
     "summary": "Pallas is a proactive KV-cache migration framework for AI-RAN that prepares an inference state at a predicted target base station before cellular handover by reconstructing a stable prefix and streaming an evolving suffix. The vLLM-based prototype reduces average service interruption time by factors of 2.28–89.68 over target-side recovery approaches and lowers average inter-token latency by 16.0%–50.0% compared with source-side forwarding."
+  },
+  {
+    "paper_id": "arxiv:2608.16157",
+    "title": "FreeToken: Efficient Edge-Native MoE Serving with Bandwidth-Adaptive Execution",
+    "url": "https://huggingface.co/papers/2608.16157",
+    "source": "huggingface",
+    "published_date": "2026-08-17T00:00:00.000Z",
+    "posted_at": "2026-08-19T08:47:08.714280+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "mixture-of-experts",
+      "serving",
+      "kv-cache"
+    ],
+    "summary": "FreeToken is an edge-native MoE serving system that dynamically maps computation and model state onto heterogeneous local hardware resources. The abstract claims it enables serving models up to 753B parameters on a single workstation GPU by co-designing model layout, expert residency, and runtime memory management."
+  },
+  {
+    "paper_id": "arxiv:2608.17336",
+    "title": "TileMix: Tile-Centric Mixed-Precision Attention for LLM Inference Acceleration",
+    "url": "https://www.semanticscholar.org/paper/07f1586b25da74042beb7add74047468240c1065",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-18",
+    "posted_at": "2026-08-19T08:47:08.714280+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "attention",
+      "quantization",
+      "long-context",
+      "kv-cache"
+    ],
+    "summary": "TileMix is a tile-centric mixed-precision attention kernel that routes hardware-aligned score tiles through FP16 or INT8 computations to accelerate long-context prefill. It improves prefill throughput over FP16 and recovers quality lost under uniform INT8 across LongEval, LV-Eval, and A100 benchmarks."
   }
 ]
