@@ -1961,5 +1961,39 @@
       "kv-cache"
     ],
     "summary": "TileMix is a tile-centric mixed-precision attention kernel that routes hardware-aligned score tiles through FP16 or INT8 computations to accelerate long-context prefill. It improves prefill throughput over FP16 and recovers quality lost under uniform INT8 across LongEval, LV-Eval, and A100 benchmarks."
+  },
+  {
+    "paper_id": "arxiv:2608.18182",
+    "title": "Efficient INT8 Inference of Small NLP Models on Server CPUs with PyTorch Native Stack",
+    "url": "https://www.semanticscholar.org/paper/4ab595841f55710f2e3defee05aea2df3773cf2d",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-18",
+    "posted_at": "2026-08-20T08:48:54.877637+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "quantization",
+      "serving"
+    ],
+    "summary": "The method integrates SmoothQuant into the PyTorch native stack and optimizes INT8 inference for CPUs via graph-level fusion and GEMM kernel selection. It reports up to 5.8x end-to-end throughput speedup with negligible accuracy loss on BERT-family models."
+  },
+  {
+    "paper_id": "arxiv:2608.18656",
+    "title": "FlashAttention for Scalable Vector Architectures",
+    "url": "https://www.semanticscholar.org/paper/058bb2ef4422b7c0cd1a8e65708171e4c8f7dffd",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-19",
+    "posted_at": "2026-08-20T08:48:54.877637+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "hardware",
+      "long-context",
+      "quantization"
+    ],
+    "summary": "FlashAttention-V is a blocked FlashAttention method adapted for scalable vector architectures to improve memory access locality and vector register utilization during LLM inference. Evaluated on TinyLlama and Llama 3.2 via simulation and hardware, it achieves 22x-42x speedup in prefill and 8x-11x speedup in decode over scalar FlashAttention."
   }
 ]
