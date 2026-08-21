@@ -2015,5 +2015,22 @@
       "quantization"
     ],
     "summary": "FlashPrefill V2 introduces block-sparse prefill attention with mean-correction, FP8 support, paged KV cache, and continuous batching integration into SGLang, achieving up to 47.26x speedup over FlashAttention-2 at 128K context length on NVIDIA H20 GPUs."
+  },
+  {
+    "paper_id": "arxiv:2608.20210",
+    "title": "Daedalus-150M: A Convolution-Attention Hybrid Designed for CPU Inference",
+    "url": "https://www.semanticscholar.org/paper/2f2d2a3268f326c4e79ce11b12a8172578a27b12",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-20",
+    "posted_at": "2026-08-21T20:10:52.552500+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "kv-cache",
+      "hardware"
+    ],
+    "summary": "The paper introduces Daedalus-150M, a convolution-attention hybrid architecture specifically designed for CPU inference that replaces attention in 12 of 18 blocks with short convolutions to avoid growing KV-cache memory. The method demonstrates a 1.76x decoding speedup at 2048 tokens of context and produces a 6.3% smaller 4-bit file compared to an equivalent all-attention model."
   }
 ]
