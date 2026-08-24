@@ -2047,5 +2047,38 @@
       "quantization"
     ],
     "summary": "The paper presents a 2.7-bit quantization pipeline for vision-language models that generates its own training data and uses a novel format for efficient execution on Arm CPUs. The strongest result claimed is compressing the Llama 3.2 11B Vision Instruct model to 3.7 GB while preserving performance on visual question answering tasks."
+  },
+  {
+    "paper_id": "arxiv:2608.16425",
+    "title": "ParaTempo: Efficient Parallel Reasoning via Temporal Confidence",
+    "url": "https://huggingface.co/papers/2608.16425",
+    "source": "huggingface",
+    "published_date": "2026-08-17T11:24:46.000Z",
+    "posted_at": "2026-08-24T20:14:58.841463+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "serving"
+    ],
+    "summary": "ParaTempo is a training-free asynchronous parallel reasoning framework that uses temporal confidence to dynamically prune, retire, and fork reasoning branches. It reduces average latency by 21.8-32.2% and total token usage by 18.1-30.3% on mathematical and scientific reasoning benchmarks while maintaining competitive accuracy."
+  },
+  {
+    "paper_id": "arxiv:2608.21240",
+    "title": "SPICE: Speculative Prefetching with Low-Rank Expert Surrogates and Heterogeneous Orchestration for MoE Inference Acceleration",
+    "url": "https://www.semanticscholar.org/paper/969375913df2b1ed3b90495e58aa0664e4bf1a28",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-21",
+    "posted_at": "2026-08-24T20:14:58.841463+00:00",
+    "lane": "specdec",
+    "specdec_score": 6,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "mixture-of-experts",
+      "serving",
+      "speculative-decoding"
+    ],
+    "summary": "SPICE is a speculative prefetching framework for MoE offloading that uses a lightweight draft model to predict future experts and a cost-aware CPU-GPU orchestration for misses. Evaluated on DeepSeek-V2-Lite and Qwen2-57B-A14B, it achieves up to a 3.12x speedup in Time Per Output Token with minimal quality loss."
   }
 ]
