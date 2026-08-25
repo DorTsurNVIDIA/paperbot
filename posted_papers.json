@@ -2113,5 +2113,58 @@
       "long-context"
     ],
     "summary": "ReWorld introduces a fixed-budget KV cache backed by a pose-indexed landmark bank for interactive world models, enabling real-time, minute-long video generation. It achieves high control fidelity and successfully regenerates starting views on 64-second rollouts where sliding windows and full-KV attention fail."
+  },
+  {
+    "paper_id": "arxiv:2608.22613",
+    "title": "NOVA: Technology-Architecture Co-Design of Near-Memory Processing for Attention-SSM-MoE Hybrid LLM Inference",
+    "url": "https://www.semanticscholar.org/paper/9b3edb6660e051795930c83eaa457a683ce5f1c4",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-23",
+    "posted_at": "2026-08-25T20:13:44.437159+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "attention",
+      "long-context",
+      "mixture-of-experts"
+    ],
+    "summary": "NOVA is a near-memory processing (NMP) co-design system for hybrid LLMs that combines 4F^2 VCT DRAM for higher memory density with a 2-tier NMP architecture to handle diverse compute patterns. Evaluated on modern hybrid LLMs, it claims 4.5x higher throughput and 69.8% lower end-to-end latency over a GPU baseline."
+  },
+  {
+    "paper_id": "arxiv:2608.22643",
+    "title": "NeuroPrefetcher: Storage-Aware Sparse LLM Inference via Delta Prefetching",
+    "url": "https://www.semanticscholar.org/paper/fa822c36c32dc14372e37e0f7e708f0425d1d9e0",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-23",
+    "posted_at": "2026-08-25T20:13:44.437159+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "kv-cache",
+      "sparsity",
+      "serving"
+    ],
+    "summary": "NeuroPrefetcher is a storage-backed LLM inference system that uses a small GPU-resident predictor to prefetch sparse MLP weights from NVMe storage during autoregressive decoding. It achieves 7.9-12.0x speedup over llama.cpp on edge hardware by explicitly fetching only newly needed weight rows instead of relying on OS demand paging."
+  },
+  {
+    "paper_id": "arxiv:2608.22932",
+    "title": "AirMoE: Realizing Over-the-Air Distributed Mixture-of-Experts Inference at the Wireless Edge",
+    "url": "https://www.semanticscholar.org/paper/4ea25d25f60a5531ca289aea4092bd07ef8003fc",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-24",
+    "posted_at": "2026-08-25T20:13:44.437159+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "hardware",
+      "mixture-of-experts",
+      "serving"
+    ],
+    "summary": "AirMoE leverages over-the-air computing to aggregate mixture-of-experts outputs simultaneously across wireless edge devices, reducing the uplink bottleneck. The method is evaluated on the ARC-Easy benchmark using the OLMoE-1B-7B-0924 model, demonstrating improved end-to-end inference accuracy over baselines under device heterogeneity."
   }
 ]
