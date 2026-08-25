@@ -2080,5 +2080,38 @@
       "speculative-decoding"
     ],
     "summary": "SPICE is a speculative prefetching framework for MoE offloading that uses a lightweight draft model to predict future experts and a cost-aware CPU-GPU orchestration for misses. Evaluated on DeepSeek-V2-Lite and Qwen2-57B-A14B, it achieves up to a 3.12x speedup in Time Per Output Token with minimal quality loss."
+  },
+  {
+    "paper_id": "arxiv:2608.21836",
+    "title": "LLM4LLM: Bridging Kernel Benchmarks and Real Deployment via Closed-Loop Agentic Optimization",
+    "url": "https://www.semanticscholar.org/paper/05ce627af947fbb7b08b2b653f62974cce24b1b2",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-22",
+    "posted_at": "2026-08-25T08:52:09.975421+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "serving"
+    ],
+    "summary": "LLM4LLM is a closed-loop agentic optimization framework that searches for and applies kernel-level code patches for LLM inference workloads. The abstract claims it achieves 3.91x/6.98x geometric-mean end-to-end latency speedups on A100/H100 GPUs across ten language-model inference workloads."
+  },
+  {
+    "paper_id": "arxiv:2608.23565",
+    "title": "ReWorld: An Interactive World Model with Long-Horizon Memory",
+    "url": "https://huggingface.co/papers/2608.23565",
+    "source": "huggingface",
+    "published_date": "2026-08-24T00:00:00.000Z",
+    "posted_at": "2026-08-25T08:52:09.975421+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "attention",
+      "kv-cache",
+      "long-context"
+    ],
+    "summary": "ReWorld introduces a fixed-budget KV cache backed by a pose-indexed landmark bank for interactive world models, enabling real-time, minute-long video generation. It achieves high control fidelity and successfully regenerates starting views on 64-second rollouts where sliding windows and full-KV attention fail."
   }
 ]
