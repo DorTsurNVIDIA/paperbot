@@ -2166,5 +2166,57 @@
       "serving"
     ],
     "summary": "AirMoE leverages over-the-air computing to aggregate mixture-of-experts outputs simultaneously across wireless edge devices, reducing the uplink bottleneck. The method is evaluated on the ARC-Easy benchmark using the OLMoE-1B-7B-0924 model, demonstrating improved end-to-end inference accuracy over baselines under device heterogeneity."
+  },
+  {
+    "paper_id": "arxiv:2608.23843",
+    "title": "PuzzleKV: Page-Wise Low-Rank Decomposition for KV Cache Compression",
+    "url": "https://www.semanticscholar.org/paper/3e6f6e321269e5270a38a3456e402a51c1406d6b",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-24",
+    "posted_at": "2026-08-26T08:53:36.324832+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "kv-cache",
+      "long-context",
+      "quantization"
+    ],
+    "summary": "PuzzleKV is a training-free KV cache compression method that applies page-wise low-rank decomposition during autoregressive decoding. It achieves over 96% of full KV performance using 60% of original storage, and over 93% performance with 18.7% storage when combined with quantization."
+  },
+  {
+    "paper_id": "arxiv:2608.24004",
+    "title": "AgentSpec: Speculative Decoding for Batch Inference of LLM Agents",
+    "url": "https://www.semanticscholar.org/paper/bd40b2f9e84a8c2205977865417884b96febd2b7",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-25",
+    "posted_at": "2026-08-26T08:53:36.324832+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "serving"
+    ],
+    "summary": "AgentSpec is a speculative decoding algorithm for LLM agents that uses structure-isolated drafting and redundancy-aware budget allocation to maintain speedups under large batch sizes. Evaluated on five workloads and four models in vLLM, it demonstrates superiority over state-of-the-art speculative decoding methods."
+  },
+  {
+    "paper_id": "arxiv:2608.24063",
+    "title": "VisCache: Visual KV Cache Pruning for Efficient Vision Large Language Model Inference",
+    "url": "https://www.semanticscholar.org/paper/2655c9d3521d8af9a51c602f9cb9bb3a33f74c31",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-25",
+    "posted_at": "2026-08-26T08:53:36.324832+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "kv-cache",
+      "long-context",
+      "sparsity"
+    ],
+    "summary": "VisCache is a training-free visual KV cache pruning framework for Vision Large Language Models that uses keyframe filtering and a surgical PruneKV algorithm. Evaluated on long-context VLLM inference, it achieves up to a 2.35x speedup and significant memory reduction while maintaining competitive performance with 19-28% KV cache retention."
   }
 ]
