@@ -2218,5 +2218,21 @@
       "sparsity"
     ],
     "summary": "VisCache is a training-free visual KV cache pruning framework for Vision Large Language Models that uses keyframe filtering and a surgical PruneKV algorithm. Evaluated on long-context VLLM inference, it achieves up to a 2.35x speedup and significant memory reduction while maintaining competitive performance with 19-28% KV cache retention."
+  },
+  {
+    "paper_id": "arxiv:2608.24411",
+    "title": "ResiSpec: Enhancing Multi-Candidate Speculative Sampling via Residual Distribution Shaping",
+    "url": "https://www.semanticscholar.org/paper/addcdab9411492cbb021a2a372cf924c82103431",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-25",
+    "posted_at": "2026-08-26T22:32:44.717299+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "ResiSpec reshapes the proposal distribution during multi-candidate speculative decoding verification to prevent residual drift and keep subsequent candidates valid. It achieves up to 1.92x speedup over state-of-the-art multi-candidate methods."
   }
 ]
