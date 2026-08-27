@@ -22,7 +22,7 @@ from agent.filter import ScoredPaper, score_and_filter
 
 logger = logging.getLogger(__name__)
 
-BACKFILL_ARXIV_MAX_RESULTS = 200
+BACKFILL_ARXIV_MAX_RESULTS = 500
 BACKFILL_ARXIV_CATEGORY_MAX_RESULTS = 500
 
 
