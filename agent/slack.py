@@ -126,7 +126,7 @@ def _chunk_mrkdwn_lines(lines: list[str], limit: int = 2800) -> list[str]:
     return chunks
 
 
-def _weekly_digest_blocks(records: list[dict], label: str) -> list[dict]:
+def _ranked_digest_blocks(records: list[dict], title: str) -> list[dict]:
     specdec = [item for item in records if item.get("lane") == "specdec"]
     inference = [item for item in records if item.get("lane") != "specdec"]
     specdec.sort(
@@ -149,7 +149,7 @@ def _weekly_digest_blocks(records: list[dict], label: str) -> list[dict]:
             "type": "header",
             "text": {
                 "type": "plain_text",
-                "text": f"Paperbot Weekly — {label}"[:150],
+                "text": title[:150],
                 "emoji": True,
             },
         },
@@ -199,6 +199,30 @@ def _weekly_digest_blocks(records: list[dict], label: str) -> list[dict]:
     return blocks
 
 
+def _weekly_digest_blocks(records: list[dict], label: str) -> list[dict]:
+    return _ranked_digest_blocks(records, f"Paperbot Weekly — {label}")
+
+
+def _backfill_digest_blocks(records: list[dict], label: str) -> list[dict]:
+    blocks = _ranked_digest_blocks(records, f"Paperbot Catch-up — {label}")
+    blocks.insert(
+        2,
+        {
+            "type": "context",
+            "elements": [
+                {
+                    "type": "mrkdwn",
+                    "text": (
+                        "Recovered by a read-only 14-day audit after the "
+                        "arXiv crawler outage."
+                    ),
+                }
+            ],
+        },
+    )
+    return blocks
+
+
 def _post_blocks(client: httpx.Client, webhook_url: str, blocks: list[dict]) -> bool:
     for attempt in range(SLACK_MAX_ATTEMPTS):
         try:
@@ -240,6 +264,25 @@ def post_weekly_digest(records: list[dict], label: str) -> bool:
         )
     if delivered:
         logger.info("Posted weekly digest with %d paper(s)", len(records))
+    return delivered
+
+
+def post_backfill_digest(records: list[dict], label: str) -> bool:
+    """Post one explicitly approved historical catch-up message."""
+    if _dry_run_enabled():
+        logger.warning(
+            "DRY_RUN is enabled — skipping backfill Slack delivery for %s", label
+        )
+        return True
+    webhook_url = os.environ.get("SLACK_WEBHOOK_URL")
+    if not webhook_url:
+        raise EnvironmentError("SLACK_WEBHOOK_URL is required for backfill delivery")
+    with httpx.Client(timeout=30) as client:
+        delivered = _post_blocks(
+            client, webhook_url, _backfill_digest_blocks(records, label)
+        )
+    if delivered:
+        logger.info("Posted backfill digest with %d paper(s)", len(records))
     return delivered
 
 

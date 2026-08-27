@@ -5,7 +5,12 @@ from unittest.mock import patch
 
 from agent.fetch import Paper
 from agent.filter import ScoredPaper
-from agent.slack import _single_paper_blocks, _weekly_digest_blocks, post_to_slack
+from agent.slack import (
+    _backfill_digest_blocks,
+    _single_paper_blocks,
+    _weekly_digest_blocks,
+    post_to_slack,
+)
 
 
 class SlackTests(unittest.TestCase):
@@ -73,6 +78,26 @@ class SlackTests(unittest.TestCase):
         self.assertIn("Serving Paper", rendered)
         self.assertIn("S9", rendered)
         self.assertIn("I9", rendered)
+
+    def test_backfill_digest_is_a_dedicated_recovery_message(self):
+        records = [
+            {
+                "paper_id": "arxiv:2608.20530",
+                "title": "LiLiCorr",
+                "url": "https://arxiv.org/abs/2608.20530",
+                "lane": "specdec",
+                "specdec_score": 9,
+                "inference_score": 9,
+                "tags": ["speculative-decoding"],
+            }
+        ]
+        rendered = json.dumps(
+            _backfill_digest_blocks(records, "14-day recovery · Aug 13–27, 2026")
+        )
+
+        self.assertIn("Paperbot Catch-up", rendered)
+        self.assertIn("arXiv crawler outage", rendered)
+        self.assertIn("LiLiCorr", rendered)
 
 
 if __name__ == "__main__":
