@@ -17,6 +17,10 @@ logger = logging.getLogger(__name__)
 LOOKBACK_HOURS = 168  # 7 days — cast a wider net; LLM filters relevance
 
 
+class SourceUnavailableError(RuntimeError):
+    """Raised when a required paper source fails every attempted request."""
+
+
 @dataclass
 class Paper:
     id: str
@@ -30,8 +34,11 @@ class Paper:
     external_ids: dict[str, str] = field(default_factory=dict)
 
 
-def _cutoff() -> datetime.datetime:
-    return datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=LOOKBACK_HOURS)
+def _cutoff(lookback_hours: int | None = None) -> datetime.datetime:
+    hours = LOOKBACK_HOURS if lookback_hours is None else lookback_hours
+    if hours <= 0:
+        raise ValueError("lookback_hours must be positive")
+    return datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=hours)
 
 
 # ---------------------------------------------------------------------------
@@ -55,93 +62,100 @@ ARXIV_QUERIES = [
 ]
 ARXIV_CATEGORIES = ["cs.CL", "cs.LG", "cs.AI", "cs.DC", "cs.AR"]
 ARXIV_MAX_RESULTS_PER_QUERY = 50
+ARXIV_CATEGORY_MAX_RESULTS = 80
 
 
-def fetch_arxiv() -> list[Paper]:
+def _append_arxiv_results(
+    results: list[object],
+    papers: list[Paper],
+    seen_ids: set[str],
+    cutoff: datetime.datetime,
+) -> None:
+    for result in results:
+        published = result.published
+        if published.tzinfo is None:
+            published = published.replace(tzinfo=datetime.timezone.utc)
+        if published < cutoff:
+            continue
+        source_id = result.entry_id.split("/")[-1]
+        paper_id = canonical_paper_id("arxiv", source_id)
+        if not paper_id or paper_id in seen_ids:
+            continue
+        seen_ids.add(paper_id)
+        papers.append(
+            Paper(
+                id=paper_id,
+                title=result.title,
+                abstract=result.summary,
+                authors=[a.name for a in result.authors],
+                url=result.entry_id,
+                source="arxiv",
+                published_date=published.isoformat(),
+                source_id=source_id,
+                external_ids={"ArXiv": source_id},
+            )
+        )
+
+
+def fetch_arxiv(
+    *,
+    lookback_hours: int | None = None,
+    max_results_per_query: int = ARXIV_MAX_RESULTS_PER_QUERY,
+    category_max_results: int = ARXIV_CATEGORY_MAX_RESULTS,
+) -> list[Paper]:
     try:
         import arxiv  # type: ignore
-    except ImportError:
-        logger.error("arxiv package not installed")
-        return []
+    except ImportError as exc:
+        raise SourceUnavailableError("arxiv package is not installed") from exc
 
     papers: list[Paper] = []
     seen_ids: set[str] = set()
-    cutoff = _cutoff()
+    cutoff = _cutoff(lookback_hours)
+    client = arxiv.Client()
+    attempted_requests = 0
+    successful_requests = 0
 
     for query in ARXIV_QUERIES:
         cat_filter = " OR ".join(f"cat:{c}" for c in ARXIV_CATEGORIES)
         full_query = f"({query}) AND ({cat_filter})"
+        attempted_requests += 1
         try:
             search = arxiv.Search(
                 query=full_query,
-                max_results=ARXIV_MAX_RESULTS_PER_QUERY,
+                max_results=max_results_per_query,
                 sort_by=arxiv.SortCriterion.SubmittedDate,
             )
-            for result in search.results():
-                published = result.published
-                if published.tzinfo is None:
-                    published = published.replace(tzinfo=datetime.timezone.utc)
-                if published < cutoff:
-                    continue
-                source_id = result.entry_id.split("/")[-1]
-                paper_id = canonical_paper_id("arxiv", source_id)
-                if not paper_id:
-                    continue
-                if paper_id in seen_ids:
-                    continue
-                seen_ids.add(paper_id)
-                papers.append(
-                    Paper(
-                        id=paper_id,
-                        title=result.title,
-                        abstract=result.summary,
-                        authors=[a.name for a in result.authors],
-                        url=result.entry_id,
-                        source="arxiv",
-                        published_date=published.isoformat(),
-                        source_id=source_id,
-                        external_ids={"ArXiv": source_id},
-                    )
-                )
+            results = list(client.results(search))
+            successful_requests += 1
+            _append_arxiv_results(results, papers, seen_ids, cutoff)
         except Exception as exc:
             logger.warning("arXiv query '%s' failed: %s", query, exc)
 
     # Also fetch latest submissions by category only (no keyword) to catch papers we might miss
     for cat in ["cs.CL", "cs.LG"]:
+        attempted_requests += 1
         try:
             search = arxiv.Search(
                 query=f"cat:{cat}",
-                max_results=80,
+                max_results=category_max_results,
                 sort_by=arxiv.SortCriterion.SubmittedDate,
             )
-            for result in search.results():
-                published = result.published
-                if published.tzinfo is None:
-                    published = published.replace(tzinfo=datetime.timezone.utc)
-                if published < cutoff:
-                    continue
-                source_id = result.entry_id.split("/")[-1]
-                paper_id = canonical_paper_id("arxiv", source_id)
-                if not paper_id:
-                    continue
-                if paper_id in seen_ids:
-                    continue
-                seen_ids.add(paper_id)
-                papers.append(
-                    Paper(
-                        id=paper_id,
-                        title=result.title,
-                        abstract=result.summary,
-                        authors=[a.name for a in result.authors],
-                        url=result.entry_id,
-                        source="arxiv",
-                        published_date=published.isoformat(),
-                        source_id=source_id,
-                        external_ids={"ArXiv": source_id},
-                    )
-                )
+            results = list(client.results(search))
+            successful_requests += 1
+            _append_arxiv_results(results, papers, seen_ids, cutoff)
         except Exception as exc:
             logger.warning("arXiv category '%s' fetch failed: %s", cat, exc)
+
+    if successful_requests == 0:
+        raise SourceUnavailableError(
+            f"all {attempted_requests} arXiv searches failed"
+        )
+    if successful_requests < attempted_requests:
+        logger.warning(
+            "arXiv source was partially available: %d/%d searches succeeded",
+            successful_requests,
+            attempted_requests,
+        )
 
     return papers
 
@@ -202,13 +216,14 @@ def _s2_request(
     raise RuntimeError("Semantic Scholar request failed after retries") from last_error
 
 
-def fetch_semantic_scholar() -> list[Paper]:
-    cutoff = _cutoff()
+def fetch_semantic_scholar(*, lookback_hours: int | None = None) -> list[Paper]:
+    cutoff = _cutoff(lookback_hours)
     papers: list[Paper] = []
     seen_ids: set[str] = set()
 
     # Fewer queries + delay to avoid Semantic Scholar 429 rate limit
     queries = [
+        "speculative decoding",
         "speculative decoding LLM efficiency",
         "LLM inference acceleration",
         "large language model inference",
@@ -369,16 +384,36 @@ def fetch_huggingface() -> list[Paper]:
 # Public API
 # ---------------------------------------------------------------------------
 
-def fetch_all() -> list[Paper]:
+def fetch_all(
+    *,
+    lookback_hours: int | None = None,
+    arxiv_max_results_per_query: int = ARXIV_MAX_RESULTS_PER_QUERY,
+    arxiv_category_max_results: int = ARXIV_CATEGORY_MAX_RESULTS,
+) -> list[Paper]:
     """Fetch papers from all sources and deduplicate by canonical identity."""
     all_papers: list[Paper] = []
     seen: set[str] = set()
 
-    for fetcher in (fetch_arxiv, fetch_semantic_scholar, fetch_huggingface):
+    fetchers = (
+        (
+            fetch_arxiv,
+            {
+                "lookback_hours": lookback_hours,
+                "max_results_per_query": arxiv_max_results_per_query,
+                "category_max_results": arxiv_category_max_results,
+            },
+        ),
+        (fetch_semantic_scholar, {"lookback_hours": lookback_hours}),
+        (fetch_huggingface, {}),
+    )
+    for fetcher, kwargs in fetchers:
         fetcher_name = getattr(fetcher, "__name__", fetcher.__class__.__name__)
         try:
-            batch = fetcher()
+            batch = fetcher(**kwargs)
             logger.info("%s returned %d papers", fetcher_name, len(batch))
+        except SourceUnavailableError:
+            logger.exception("Required source %s is unavailable", fetcher_name)
+            raise
         except Exception as exc:
             logger.error("%s crashed: %s", fetcher_name, exc)
             batch = []

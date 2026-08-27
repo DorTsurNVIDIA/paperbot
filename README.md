@@ -76,6 +76,8 @@ The paper workflow runs at 08:00 and 20:00 UTC and can also be started from **Ac
 
 The weekly recap runs Monday at 08:30 UTC for the previous ISO week. It can be run manually for a specific `YYYY-Www` week and will not repost a completed week unless `force` is selected. It reads `posted_papers.json`, not the Slack channel, so no bot token or read permission is required.
 
+For a historical gap, **Actions → Backfill Audit** runs a read-only crawl for 1–30 days, compares the results with `seen_papers.json`, scores unseen candidates, and uploads `backfill_report.json`. This workflow never imports Slack delivery, never posts messages, and has read-only repository permissions. Review its report before doing any manual catch-up post.
+
 ## Local development
 
 ```bash
@@ -88,6 +90,7 @@ export LLM_API_KEY=your-service-key
 export SLACK_WEBHOOK_URL=https://hooks.slack.com/services/...
 
 python -m agent.main
+python -m agent.backfill --days 14 --fetch-only
 DRY_RUN=true python -m agent.weekly_digest
 python -m unittest discover -v
 ```
