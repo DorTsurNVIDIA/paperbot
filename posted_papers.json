@@ -2234,5 +2234,160 @@
       "verification"
     ],
     "summary": "ResiSpec reshapes the proposal distribution during multi-candidate speculative decoding verification to prevent residual drift and keep subsequent candidates valid. It achieves up to 1.92x speedup over state-of-the-art multi-candidate methods."
+  },
+  {
+    "paper_id": "arxiv:2608.20530",
+    "title": "LiLiCorr: Lightweight Likelihood Correlation of Parallel Drafts for Speculative Decoding",
+    "url": "http://arxiv.org/abs/2608.20530v1",
+    "source": "arxiv",
+    "published_date": "2026-08-20T19:43:02+00:00",
+    "posted_at": "2026-08-27T19:03:36.966167+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification",
+      "multi-token-prediction"
+    ],
+    "summary": "LiLiCorr introduces a lightweight likelihood-based model that correlates per-position marginal distributions from a block drafter to restore joint block coherence for speculative decoding. It increases acceptance length by 9 to 19% over the vanilla DFlash drafter and delivers the highest throughput in 70 of 72 settings."
+  },
+  {
+    "paper_id": "arxiv:2608.20743",
+    "title": "Is Multimodal Speculative Decoding Ready for Diffusion-Based Parallel Drafting? A Survey and Empirical Diagnosis",
+    "url": "http://arxiv.org/abs/2608.20743v1",
+    "source": "arxiv",
+    "published_date": "2026-08-21T05:03:10+00:00",
+    "posted_at": "2026-08-27T19:03:36.966167+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 7,
+    "tags": [
+      "speculative-decoding",
+      "verification",
+      "draft-model"
+    ],
+    "summary": "The paper presents a survey and empirical diagnosis of multimodal speculative decoding using diffusion-based block-parallel generative drafting. It evaluates existing drafting parallelism and cross-modal interaction strategies across standardized multimodal benchmarks to identify limitations and open challenges."
+  },
+  {
+    "paper_id": "arxiv:2608.20961",
+    "title": "TreeWY: Speculative Verification for Gated DeltaNet Hybrids",
+    "url": "http://arxiv.org/abs/2608.20961v1",
+    "source": "arxiv",
+    "published_date": "2026-08-21T10:31:15+00:00",
+    "posted_at": "2026-08-27T19:03:36.966167+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "verification",
+      "kv-cache"
+    ],
+    "summary": "The paper proposes a tree-structured WY transform for Gated DeltaNet layers to verify speculative draft tokens without full recurrent-state snapshots, storing only a small pseudo-value matrix. In serving benchmarks on Qwen3.5 models, this cuts recurrent-state memory and KV-cache pressure at identical acceptance length, turning freed HBM into higher throughput and lower TTFT."
+  },
+  {
+    "paper_id": "arxiv:2608.22788",
+    "title": "TailSieve: Partial-Rollout-Guided Tail Routing for LLM Rollouts",
+    "url": "http://arxiv.org/abs/2608.22788v2",
+    "source": "arxiv",
+    "published_date": "2026-08-24T04:18:09+00:00",
+    "posted_at": "2026-08-27T19:03:36.966167+00:00",
+    "lane": "specdec",
+    "specdec_score": 6,
+    "inference_score": 8,
+    "tags": [
+      "serving",
+      "speculative-decoding",
+      "draft-model"
+    ],
+    "summary": "TailSieve is a routing and replica allocation framework for LLM rollouts that isolates long-tail generations to reduce makespan, enabling route-specialized speculative decoding that achieves up to 2.59x speedup over uniform routing."
+  },
+  {
+    "paper_id": "arxiv:2608.22883",
+    "title": "FOVEA: Focused On-Demand Visual Evidence Adaptation for Cache-Friendly Multimodal Speculative Decoding",
+    "url": "https://www.semanticscholar.org/paper/51ba6bfbfe037a4a68b3c25d6b129db86fd83505",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-24",
+    "posted_at": "2026-08-27T19:03:36.966167+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "FOVEA accelerates multimodal speculative decoding by dynamically retrieving a bounded subset of visual evidence for the draft model, improving draft acceptance and achieving up to 2.13x end-to-end speedup over autoregressive decoding."
+  },
+  {
+    "paper_id": "arxiv:2608.26004",
+    "title": "AsymSpec: Context-Asymmetric Speculative Decoding for Agentic LLMs",
+    "url": "http://arxiv.org/abs/2608.26004v1",
+    "source": "arxiv",
+    "published_date": "2026-08-26T16:50:02+00:00",
+    "posted_at": "2026-08-27T19:03:36.966167+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "AsymSpec introduces an asymmetric speculative decoding framework where a lightweight drafter reads full input while a large verifier operates on compressed context, using contrastive logit fusion and a divergence-aware acceptance gate. The method reportedly reaches ~90% of full-context accuracy while delivering 1.3--1.7x throughput speedups at 0.2--0.3x compute cost on isolated agentic capabilities."
+  },
+  {
+    "paper_id": "doi:10.1109/jiot.2026.3709703",
+    "title": "Co-Optimizing Request Scheduling and KV Caching for Edge LLM Serving",
+    "url": "https://www.semanticscholar.org/paper/f25ba2c420a573830f2b4b2f30dd2fcc3adffeb2",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-01",
+    "posted_at": "2026-08-27T19:03:36.966167+00:00",
+    "lane": "inference",
+    "specdec_score": 2,
+    "inference_score": 9,
+    "tags": [
+      "batching",
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "This paper proposes a dynamic block-level paradigm that co-optimizes request scheduling and KV caching for edge LLM serving, using an online joint optimization algorithm to balance real-time responsiveness and system efficiency. Experiments demonstrate that the method reduces the average time to first token (TTFT) by up to 54.02% over existing baselines."
+  },
+  {
+    "paper_id": "doi:10.1109/tvlsi.2026.3703379",
+    "title": "EVA: Efficient Token Compression Co-Optimization With Heterogeneous CIM Architecture for Video LLM Acceleration",
+    "url": "https://www.semanticscholar.org/paper/489ab5974c3e11dbf00b90b0c145966dea17d4d5",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-01",
+    "posted_at": "2026-08-27T19:03:36.966167+00:00",
+    "lane": "inference",
+    "specdec_score": 2,
+    "inference_score": 10,
+    "tags": [
+      "hardware",
+      "kv-cache",
+      "long-context",
+      "serving",
+      "sparsity"
+    ],
+    "summary": "EVA is an algorithm-hardware co-design framework that accelerates Video LLM inference via training-free token compression and a heterogeneous CIM-based accelerator. It preserves 97.8% accuracy on LLaVA-OneVision-7B while compressing 90% of video tokens, achieving up to 10.3x speedup and 47.4x energy reduction compared to GPUs."
+  },
+  {
+    "paper_id": "doi:10.1109/tvlsi.2026.3712452",
+    "title": "ME-MoD: Algorithm-Hardware-Dataflow Co-Design for Memory Efficient Mixture-of-Depth-Based Vision Transformer Accelerator",
+    "url": "https://www.semanticscholar.org/paper/dd98071feddf47aaca6feac1291c65f14fd9c77c",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-01",
+    "posted_at": "2026-08-27T19:03:36.966167+00:00",
+    "lane": "inference",
+    "specdec_score": 2,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "mixture-of-experts",
+      "sparsity"
+    ],
+    "summary": "ME-MoD is a memory-efficient algorithm-hardware-dataflow co-design accelerator for Mixture-of-Depth-based vision transformers that uses token reordering and on-chip memory optimization to reduce external memory access. The accelerator achieves a 1.62x inference speedup and 45.2% energy reduction compared to standard MoD while maintaining accuracy."
   }
 ]
