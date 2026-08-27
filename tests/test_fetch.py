@@ -38,9 +38,7 @@ class FetchTests(unittest.TestCase):
             authors=[types.SimpleNamespace(name="Researcher")],
         )
         client = Mock()
-        client.results.side_effect = [[result]] + [
-            [] for _ in range(len(ARXIV_QUERIES) + 1)
-        ]
+        client.results.side_effect = [[result], [], []]
         fake_arxiv = types.SimpleNamespace(
             Client=Mock(return_value=client),
             Search=Mock(side_effect=lambda **kwargs: kwargs),
@@ -51,8 +49,11 @@ class FetchTests(unittest.TestCase):
             papers = fetch_arxiv()
 
         self.assertEqual([paper.id for paper in papers], ["arxiv:2608.20530"])
-        self.assertEqual(client.results.call_count, len(ARXIV_QUERIES) + 2)
+        self.assertEqual(client.results.call_count, 3)
         self.assertIsInstance(client.results.call_args_list[0].args[0], dict)
+        query = client.results.call_args_list[0].args[0]["query"]
+        self.assertIn('all:"speculative decoding"', query)
+        self.assertIn("cat:cs.CL", query)
 
     def test_arxiv_total_outage_fails_source_health_check(self):
         client = Mock()

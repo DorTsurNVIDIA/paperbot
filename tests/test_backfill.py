@@ -33,7 +33,7 @@ class BackfillTests(unittest.TestCase):
 
             fetch.assert_called_once_with(
                 lookback_hours=336,
-                arxiv_max_results_per_query=200,
+                arxiv_max_results_per_query=500,
                 arxiv_category_max_results=500,
             )
             score.assert_not_called()

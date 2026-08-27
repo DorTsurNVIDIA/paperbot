@@ -61,7 +61,7 @@ ARXIV_QUERIES = [
     "mixture of experts inference",
 ]
 ARXIV_CATEGORIES = ["cs.CL", "cs.LG", "cs.AI", "cs.DC", "cs.AR"]
-ARXIV_MAX_RESULTS_PER_QUERY = 50
+ARXIV_MAX_RESULTS_PER_QUERY = 250
 ARXIV_CATEGORY_MAX_RESULTS = 80
 
 
@@ -115,21 +115,24 @@ def fetch_arxiv(
     attempted_requests = 0
     successful_requests = 0
 
-    for query in ARXIV_QUERIES:
-        cat_filter = " OR ".join(f"cat:{c}" for c in ARXIV_CATEGORIES)
-        full_query = f"({query}) AND ({cat_filter})"
-        attempted_requests += 1
-        try:
-            search = arxiv.Search(
-                query=full_query,
-                max_results=max_results_per_query,
-                sort_by=arxiv.SortCriterion.SubmittedDate,
-            )
-            results = list(client.results(search))
-            successful_requests += 1
-            _append_arxiv_results(results, papers, seen_ids, cutoff)
-        except Exception as exc:
-            logger.warning("arXiv query '%s' failed: %s", query, exc)
+    # One OR query avoids issuing a separate API request (and retry sequence) for
+    # every phrase. The higher result cap preserves the broad recall of those
+    # former individual searches while being much friendlier to arXiv's limits.
+    keyword_filter = " OR ".join(f'all:"{query}"' for query in ARXIV_QUERIES)
+    cat_filter = " OR ".join(f"cat:{cat}" for cat in ARXIV_CATEGORIES)
+    full_query = f"({keyword_filter}) AND ({cat_filter})"
+    attempted_requests += 1
+    try:
+        search = arxiv.Search(
+            query=full_query,
+            max_results=max_results_per_query,
+            sort_by=arxiv.SortCriterion.SubmittedDate,
+        )
+        results = list(client.results(search))
+        successful_requests += 1
+        _append_arxiv_results(results, papers, seen_ids, cutoff)
+    except Exception as exc:
+        logger.warning("arXiv keyword search failed: %s", exc)
 
     # Also fetch latest submissions by category only (no keyword) to catch papers we might miss
     for cat in ["cs.CL", "cs.LG"]:
