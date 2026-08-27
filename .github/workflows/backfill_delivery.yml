@@ -1,0 +1,78 @@
+name: Backfill Slack Delivery
+
+on:
+  workflow_dispatch:
+    inputs:
+      audit_run_id:
+        description: "Successful Backfill Audit workflow run ID"
+        required: true
+        type: string
+      expected_count:
+        description: "Exact accepted-paper count required before posting"
+        required: true
+        default: "16"
+        type: string
+      label:
+        description: "Catch-up label shown in Slack"
+        required: true
+        default: "14-day recovery · Aug 13–27, 2026"
+        type: string
+      confirm_delivery:
+        description: "I approve one live Slack catch-up message"
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: paperbot-production
+  cancel-in-progress: false
+
+jobs:
+  deliver:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+      REPORT_PATH: audit-artifact/paperbot-backfill-${{ inputs.audit_run_id }}/backfill_report.json
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Download approved audit artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download "${{ inputs.audit_run_id }}" --dir audit-artifact
+
+      - name: Validate exact selection without posting
+        env:
+          DRY_RUN: true
+        run: >-
+          python -m agent.backfill_delivery
+          --report "$REPORT_PATH"
+          --expected-count "${{ inputs.expected_count }}"
+          --label "${{ inputs.label }}"
+
+      - name: Post one dedicated Slack catch-up message
+        if: ${{ inputs.confirm_delivery }}
+        env:
+          CONFIRM_BACKFILL_POST: true
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: >-
+          python -m agent.backfill_delivery
+          --report "$REPORT_PATH"
+          --expected-count "${{ inputs.expected_count }}"
+          --label "${{ inputs.label }}"
