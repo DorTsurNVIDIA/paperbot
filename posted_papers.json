@@ -2389,5 +2389,70 @@
       "sparsity"
     ],
     "summary": "ME-MoD is a memory-efficient algorithm-hardware-dataflow co-design accelerator for Mixture-of-Depth-based vision transformers that uses token reordering and on-chip memory optimization to reduce external memory access. The accelerator achieves a 1.62x inference speedup and 45.2% energy reduction compared to standard MoD while maintaining accuracy."
+  },
+  {
+    "paper_id": "arxiv:2608.26523",
+    "title": "VPP: Virtual Pipeline Parallelism for Efficient Chunked Prefill in Long-Context LLM Inference",
+    "url": "http://arxiv.org/abs/2608.26523v1",
+    "source": "arxiv",
+    "published_date": "2026-08-27T01:59:45+00:00",
+    "posted_at": "2026-08-28T03:54:13.421526+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "kv-cache",
+      "long-context"
+    ],
+    "summary": "Virtual Pipeline Parallelism (VPP) optimizes chunked prefill layout using V-shaped virtual-stage traversal to overlap expensive stages, reducing the pipeline bubble ratio to 0.1% and improving long-sequence throughput by up to 13.1% over dynamic chunk resizing."
+  },
+  {
+    "paper_id": "arxiv:2608.26926",
+    "title": "A Layer Importance Metric for Quantization Accounting for the Speed-Quality Trade-off in Autoregressive Models",
+    "url": "http://arxiv.org/abs/2608.26926v1",
+    "source": "arxiv",
+    "published_date": "2026-08-27T10:23:01+00:00",
+    "posted_at": "2026-08-28T03:54:13.421526+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "quantization"
+    ],
+    "summary": "The paper proposes a composite metric for autoregressive model quantization that balances information retention and roofline-based latency throughput. It demonstrates that the metric predicts accelerated speedup with around 4% prediction error across several architectures."
+  },
+  {
+    "paper_id": "arxiv:2608.26965",
+    "title": "ClusterAttention: A training-free speedup of bidirectional attention",
+    "url": "http://arxiv.org/abs/2608.26965v1",
+    "source": "arxiv",
+    "published_date": "2026-08-27T11:04:41+00:00",
+    "posted_at": "2026-08-28T03:54:13.421526+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "attention",
+      "sparsity"
+    ],
+    "summary": "ClusterAttention is a training-free sparse bidirectional attention mechanism that uses fast recursive clustering of keys and queries to enable efficient block-sparse computation. The method is evaluated on large-scale tabular and video generation tasks, demonstrating speedups of two to six times on TabPFN-3 while retaining at least 99% of dense accuracy."
+  },
+  {
+    "paper_id": "arxiv:2608.27339",
+    "title": "Beyond Parallel Blindness: Information Floors and Model Gaps in Block Drafting",
+    "url": "http://arxiv.org/abs/2608.27339v1",
+    "source": "arxiv",
+    "published_date": "2026-08-27T16:40:45+00:00",
+    "posted_at": "2026-08-28T03:54:13.421526+00:00",
+    "lane": "specdec",
+    "specdec_score": 7,
+    "inference_score": 7,
+    "tags": [
+      "multi-token-prediction",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper proposes an information floor metric to separate within-block path information loss from imperfect modeling loss in block drafting, which is a multi-token prediction method for speculative decoding. The method is evaluated across multiple open-weight and API targets, finding that realizing one token removes 86-100% of the floor and current drafters have significant model gaps."
   }
 ]
