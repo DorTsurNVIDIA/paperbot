@@ -2454,5 +2454,54 @@
       "verification"
     ],
     "summary": "The paper proposes an information floor metric to separate within-block path information loss from imperfect modeling loss in block drafting, which is a multi-token prediction method for speculative decoding. The method is evaluated across multiple open-weight and API targets, finding that realizing one token removes 86-100% of the floor and current drafters have significant model gaps."
+  },
+  {
+    "paper_id": "arxiv:2608.26389",
+    "title": "LowRankArena: A Standardized Evaluation Platform for SVD-Based LLM Compression",
+    "url": "https://www.semanticscholar.org/paper/b5ed1581ff34889b4332d1f4592bab1391633906",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-26",
+    "posted_at": "2026-08-28T20:10:28.984250+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "benchmark",
+      "quantization",
+      "sparsity"
+    ],
+    "summary": "LowRankArena is a standardized evaluation platform for SVD-based LLM compression that unifies compression budgets and inference measurements. Its audit reveals that nominal low-rank savings yield workload-dependent and often limited end-to-end inference speedups under standardized protocols."
+  },
+  {
+    "paper_id": "arxiv:2608.26806",
+    "title": "Multi-Image Visual Token Pruning in Large Visual Language Models",
+    "url": "https://www.semanticscholar.org/paper/d7bfa0b22494f533a6cfa12b8680551ae64caaa5",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-27",
+    "posted_at": "2026-08-28T20:10:28.984250+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "attention",
+      "kv-cache"
+    ],
+    "summary": "A training-free adaptive visual token pruning framework for Large Vision Language Models that dynamically adjusts pruning ratios based on visual attention distributions. The method achieves a 2x inference speedup on Qwen3VL-8B while retaining 96.1% of its original accuracy across multiple multi-image benchmarks."
+  },
+  {
+    "paper_id": "arxiv:2608.27206",
+    "title": "PACE: A Unified Condense-and-Extract Paradigm for Fast VLM Inference",
+    "url": "https://www.semanticscholar.org/paper/9ae06e67a9010753ba529f3ab66c904f18a5daea",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-27",
+    "posted_at": "2026-08-28T20:10:28.984250+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "kv-cache"
+    ],
+    "summary": "A training-free inference framework (PACE) that accelerates Vision-Language Models by downsampling redundant pixels before visual encoding and selectively pruning visual tokens via dual-attention extraction. The method yields a 3.1x speedup in time to first token (TTFT) while retaining 93.8% of the original performance on Qwen2.5-VL-7B with 10% visual tokens."
   }
 ]
