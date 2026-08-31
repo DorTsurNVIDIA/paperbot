@@ -2503,5 +2503,85 @@
       "kv-cache"
     ],
     "summary": "A training-free inference framework (PACE) that accelerates Vision-Language Models by downsampling redundant pixels before visual encoding and selectively pruning visual tokens via dual-attention extraction. The method yields a 3.1x speedup in time to first token (TTFT) while retaining 93.8% of the original performance on Qwen2.5-VL-7B with 10% visual tokens."
+  },
+  {
+    "paper_id": "arxiv:2608.27514",
+    "title": "Trajectory-Level Speculative Decoding for Diffusion Language Models",
+    "url": "http://arxiv.org/abs/2608.27514v1",
+    "source": "arxiv",
+    "published_date": "2026-08-27T09:42:20+00:00",
+    "posted_at": "2026-08-31T16:07:52.187400+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "multi-token-prediction"
+    ],
+    "summary": "The paper introduces a trajectory-level speculative decoding framework for diffusion language models that constructs draft denoising trajectories and verifies them through blockwise parallel evaluation. It demonstrates a 7-14x speedup over vanilla dLLMs and 1.3x over Fast-dLLM with less than 1% accuracy change across reasoning and code benchmarks."
+  },
+  {
+    "paper_id": "arxiv:2608.28003",
+    "title": "A Method for Layer Bit-Width Allocation in LLM Quantization via Performance Maximization Under a Quality-Degradation Constraint",
+    "url": "http://arxiv.org/abs/2608.28003v1",
+    "source": "arxiv",
+    "published_date": "2026-08-28T07:13:42+00:00",
+    "posted_at": "2026-08-31T16:07:52.187400+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "quantization"
+    ],
+    "summary": "The paper proposes a layer bit-width allocation method for LLM quantization to maximize performance under a quality-degradation constraint, finding that optimizing FFN and lm_head quantization achieves up to a 19.1% latency reduction with acceptable quality loss."
+  },
+  {
+    "paper_id": "arxiv:2608.28099",
+    "title": "Speculative Probing: LLM Monitoring at Speculative-Decoding Cost",
+    "url": "http://arxiv.org/abs/2608.28099v1",
+    "source": "arxiv",
+    "published_date": "2026-08-28T09:07:58+00:00",
+    "posted_at": "2026-08-31T16:07:52.187400+00:00",
+    "lane": "specdec",
+    "specdec_score": 7,
+    "inference_score": 7,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The method repurposes the speculative-decoding module for efficient sequence classification by appending a trained soft prompt to leverage the already-computed KV cache. The small probes match or beat specialized 8B safety classifiers on multilingual prompt safety across four models without running a full LLM."
+  },
+  {
+    "paper_id": "arxiv:2608.28158",
+    "title": "HARTS: Efficient Agentic Reinforcement Learning for Hybrid-Attention Models over Arbitrary Rollout Trees",
+    "url": "http://arxiv.org/abs/2608.28158v1",
+    "source": "arxiv",
+    "published_date": "2026-08-28T10:18:54+00:00",
+    "posted_at": "2026-08-31T16:07:52.187400+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "HARTS is a system for agentic RL training that efficiently batches and shares prefix computations over arbitrary rollout trees for hybrid-attention models. It achieves 4.81–4.87x forward/backward/gradient speedups with activation recomputation on SWE-bench tasks compared to baseline execution."
+  },
+  {
+    "paper_id": "arxiv:2608.28276",
+    "title": "Parser States Already Know: Structure-Conditioned KV Persistence for Structured Generation",
+    "url": "http://arxiv.org/abs/2608.28276v1",
+    "source": "arxiv",
+    "published_date": "2026-08-28T12:38:56+00:00",
+    "posted_at": "2026-08-31T16:07:52.187400+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "PASK is a KV compression method for structured generation that uses parser states and task-error sensitivity to determine KV cache persistence. In end-to-end serving, it achieves up to 2.2x higher throughput and 3.3x lower time-per-output-token compared to full KV baselines while maintaining accuracy."
   }
 ]
