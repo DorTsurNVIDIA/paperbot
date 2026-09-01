@@ -2583,5 +2583,158 @@
       "serving"
     ],
     "summary": "PASK is a KV compression method for structured generation that uses parser states and task-error sensitivity to determine KV cache persistence. In end-to-end serving, it achieves up to 2.2x higher throughput and 3.3x lower time-per-output-token compared to full KV baselines while maintaining accuracy."
+  },
+  {
+    "paper_id": "arxiv:2608.28726",
+    "title": "Pro-Router: Token-Aware Progressive Model Routing with Adaptive Edge-Cloud Collaboration for Efficient Multimodal LLM Inference",
+    "url": "http://arxiv.org/abs/2608.28726v1",
+    "source": "arxiv",
+    "published_date": "2026-08-28T16:45:58+00:00",
+    "posted_at": "2026-09-01T13:28:25.460539+00:00",
+    "lane": "specdec",
+    "specdec_score": 6,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "verification",
+      "serving"
+    ],
+    "summary": "Pro-Router proposes a progressive edge-cloud routing mechanism where a small model drafts tokens and a token-aware verifier reads the sampling probability distribution to decide whether to accept the output or escalate to a larger model. The method improves routing speed by more than 10x and increases end-to-end throughput by over 75%."
+  },
+  {
+    "paper_id": "arxiv:2608.28846",
+    "title": "A rigor-matched audit of periodic-step layer skipping for efficient llm inference: conflayers versus swift, with a supplemental analysis of trained routing alternatives",
+    "url": "http://arxiv.org/abs/2608.28846v1",
+    "source": "arxiv",
+    "published_date": "2026-08-28T20:33:40+00:00",
+    "posted_at": "2026-09-01T13:28:25.460539+00:00",
+    "lane": "specdec",
+    "specdec_score": 7,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "early-exit",
+      "verification"
+    ],
+    "summary": "The paper rigorously audits self-speculative decoding (SWIFT) and confidence-gated early exit (ConfLayers) for layer skipping. It finds that SWIFT's true inference speed is faster than ConfLayers in all tested cells by 5-21% once search overhead is accounted for."
+  },
+  {
+    "paper_id": "arxiv:2608.29748",
+    "title": "ReTrace: Rejected-Trajectory Conditioning for Speculative Decoding",
+    "url": "http://arxiv.org/abs/2608.29748v1",
+    "source": "arxiv",
+    "published_date": "2026-08-30T12:20:54+00:00",
+    "posted_at": "2026-09-01T13:28:25.460539+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 7,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "ReTrace is a speculative decoding method that conditions draft block generation on the rejected suffix from the previous round using gated residual fusion. Evaluated on Qwen3 models, ReTrace improves average acceptance length and end-to-end decoding speed over its DFlash backbone."
+  },
+  {
+    "paper_id": "arxiv:2608.30135",
+    "title": "Verification-Aware Training for Speculative Decoding",
+    "url": "http://arxiv.org/abs/2608.30135v1",
+    "source": "arxiv",
+    "published_date": "2026-08-31T01:42:10+00:00",
+    "posted_at": "2026-09-01T13:28:25.460539+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 7,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "VAT is a plug-in training framework that simulates verification during draft model training to improve speculative decoding performance. It improves average acceptance length by up to 11.4% and wall-clock speedup by up to 8.7% across various benchmarks."
+  },
+  {
+    "paper_id": "arxiv:2608.30252",
+    "title": "Strong Drafts Need Compact Memories: Long-Context Speculative Decoding with Compressed KV Cache",
+    "url": "http://arxiv.org/abs/2608.30252v1",
+    "source": "arxiv",
+    "published_date": "2026-08-31T05:03:30+00:00",
+    "posted_at": "2026-09-01T13:28:25.460539+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "kv-cache",
+      "long-context",
+      "speculative-decoding"
+    ],
+    "summary": "The paper introduces memory-augmented drafting for long-context speculative decoding, equipping a draft model with compressed KV memory. The method reduces draft-side memory by over 70% and achieves speedups of up to 3.33x over autoregressive decoding."
+  },
+  {
+    "paper_id": "arxiv:2608.30295",
+    "title": "CateKV: On Sequential Consistency for Long-Context LLM Inference Acceleration",
+    "url": "http://arxiv.org/abs/2608.30295v1",
+    "source": "arxiv",
+    "published_date": "2026-08-31T06:02:37+00:00",
+    "posted_at": "2026-09-01T13:28:25.460539+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "kv-cache",
+      "long-context",
+      "sparsity"
+    ],
+    "summary": "CateKV is a hybrid KV cache method that exploits sequential consistency in attention heads to reduce memory and computational overhead. It reduces memory usage by up to 2.72x and accelerates decoding by 2.18x while maintaining accuracy."
+  },
+  {
+    "paper_id": "arxiv:2608.30386",
+    "title": "DASC: Decay-Aware State Compression for Hybrid Linear-Attention Serving",
+    "url": "http://arxiv.org/abs/2608.30386v1",
+    "source": "arxiv",
+    "published_date": "2026-08-31T07:42:43+00:00",
+    "posted_at": "2026-09-01T13:28:25.460539+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "DASC is a compression method for hybrid linear-attention recurrent state checkpoints that reduces memory pressure and evictions. It reduces mean Time to First Token by 42.6% and improves input throughput by 68.4% under fixed memory budgets."
+  },
+  {
+    "paper_id": "arxiv:2608.30427",
+    "title": "Ceiling-Clipped Acceptance Histograms Indicate Stranded Speed-up in Block-Diffusion Speculative Decoding",
+    "url": "http://arxiv.org/abs/2608.30427v1",
+    "source": "arxiv",
+    "published_date": "2026-08-31T08:23:14+00:00",
+    "posted_at": "2026-09-01T13:28:25.460539+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 7,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper introduces DBloom, a method that post-trains block-diffusion drafters on longer blocks to recover stranded speed-up in speculative decoding. Results show an increase in committed length of up to 1.37 tokens per prompt across various target models."
+  },
+  {
+    "paper_id": "arxiv:2608.30963",
+    "title": "A Universal Context-Reuse Layer for Cross-Model KV Sharing",
+    "url": "http://arxiv.org/abs/2608.30963v1",
+    "source": "arxiv",
+    "published_date": "2026-08-31T15:28:17+00:00",
+    "posted_at": "2026-09-01T13:28:25.460539+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "The paper introduces a universal context-reuse layer that translates KV states from a source model for use by a different target model to avoid redundant prefill. It demonstrates that cross-family handoff reduces target-side prefill cost by up to 67.05% at 4K context length while maintaining decoding perplexity and significantly reducing measured latency."
   }
 ]
