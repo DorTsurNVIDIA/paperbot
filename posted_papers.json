@@ -2736,5 +2736,56 @@
       "serving"
     ],
     "summary": "The paper introduces a universal context-reuse layer that translates KV states from a source model for use by a different target model to avoid redundant prefill. It demonstrates that cross-family handoff reduces target-side prefill cost by up to 67.05% at 4K context length while maintaining decoding perplexity and significantly reducing measured latency."
+  },
+  {
+    "paper_id": "doi:10.1145/3844618",
+    "title": "Cambricon-FlexLLM: A Flexible Chiplet-Based Hybrid Architecture for On-Device 70B LLM Inference",
+    "url": "https://www.semanticscholar.org/paper/d58b326e5577f5ae9a69d13162a1c998395e58be",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-29",
+    "posted_at": "2026-09-01T22:08:17.603824+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "kv-cache",
+      "sparsity"
+    ],
+    "summary": "Cambricon-FlexLLM is a chiplet-based hybrid NPU and NAND flash architecture for on-device LLM inference that utilizes in-flash computing, hardware tiling, and activation sparsity to minimize data movement. The system achieves 3.44 tokens/s for 70B LLMs, outperforming state-of-the-art flash-offloading frameworks by 22x to 45x."
+  },
+  {
+    "paper_id": "doi:10.17586/2226-1494-2026-26-4-851-859",
+    "title": "Real-time NLP moderation on XMPP with GPU-accelerated inference and adaptive batching",
+    "url": "https://www.semanticscholar.org/paper/14b6d53c5695900e61b7d6a1118da6c538269a2a",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-27",
+    "posted_at": "2026-09-01T22:08:17.603824+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "batching",
+      "serving"
+    ],
+    "summary": "The paper introduces Adaptive Cross-Domain Batching (ACDB) to dynamically adjust batch sizes based on queue states and GPU usage for real-time NLP moderation. Evaluated against static batching, ACDB reduces latency by 52-59% while maintaining 85-94% of large-batch throughput."
+  },
+  {
+    "paper_id": "doi:10.3390/electronics15173865",
+    "title": "MorphCloud-LLM: Elastic Spot-Instance-Aware LLM Serving with Transparent Preemption Recovery and Speculative Decoding Continuity",
+    "url": "https://www.semanticscholar.org/paper/438e27ef4132360e0fa9b2c1426babaddb9446f4",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-27",
+    "posted_at": "2026-09-01T22:08:17.603824+00:00",
+    "lane": "specdec",
+    "specdec_score": 7,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving",
+      "speculative-decoding",
+      "draft-model"
+    ],
+    "summary": "MorphCloud-LLM is an elastic LLM serving system for cloud spot instances that uses asynchronous KV-cache checkpointing and preemption prediction to maintain reliability. Its speculative decoding continuity engine offloads draft model generation to fallback nodes during migrations, helping achieve up to 76% cost reduction with only 2.1% p99 latency overhead."
   }
 ]
