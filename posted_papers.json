@@ -2787,5 +2787,89 @@
       "draft-model"
     ],
     "summary": "MorphCloud-LLM is an elastic LLM serving system for cloud spot instances that uses asynchronous KV-cache checkpointing and preemption prediction to maintain reliability. Its speculative decoding continuity engine offloads draft model generation to fallback nodes during migrations, helping achieve up to 76% cost reduction with only 2.1% p99 latency overhead."
+  },
+  {
+    "paper_id": "arxiv:2609.00355",
+    "title": "Vision Is Not Overhead: One-Pass Block Drafting for Lossless Speculative Decoding in Vision-Language Models",
+    "url": "http://arxiv.org/abs/2609.00355v1",
+    "source": "arxiv",
+    "published_date": "2026-08-31T20:50:35+00:00",
+    "posted_at": "2026-09-02T12:44:59.932623+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "multi-token-prediction",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "GLANCE introduces a one-pass block drafter for VLMs that uses a block-diffusion head on the target's vision-language state to propose wide candidate trees verified by the target model. It achieves up to 2.93x faster decoding than autoregression and accepts 2.7x longer blocks than an EAGLE-3 baseline."
+  },
+  {
+    "paper_id": "arxiv:2609.00796",
+    "title": "SFAD: Speculative Factuality-Aware Decoding",
+    "url": "http://arxiv.org/abs/2609.00796v1",
+    "source": "arxiv",
+    "published_date": "2026-09-01T06:46:54+00:00",
+    "posted_at": "2026-09-02T12:44:59.932623+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "speculative-decoding"
+    ],
+    "summary": "The method proposes a speculative decoding framework that trains a context-faithful draft model and uses epistemic friction and logit steering to enhance target model faithfulness while maintaining efficiency. The abstract reports that the method substantially improves faithfulness while achieving a 2.48x speedup."
+  },
+  {
+    "paper_id": "arxiv:2609.00993",
+    "title": "AInfer-PD: Communication-Safe In-Place Prefill-Decode Multiplexing for Distributed MoE Rollouts",
+    "url": "http://arxiv.org/abs/2609.00993v1",
+    "source": "arxiv",
+    "published_date": "2026-09-01T09:44:40+00:00",
+    "posted_at": "2026-09-02T12:44:59.932623+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "mixture-of-experts",
+      "serving"
+    ],
+    "summary": "AInfer-PD introduces an in-place prefill-decode multiplexing method for distributed MoE rollouts that coordinates collective order and isolates communication state. It reduces rollout completion time by up to 35.3% relative to SGLang in multi-node workloads."
+  },
+  {
+    "paper_id": "arxiv:2609.01024",
+    "title": "PCoMoE: Shifting MoE Inference from Monolithic Expert Selection to Fine-Grained Path Composition",
+    "url": "http://arxiv.org/abs/2609.01024v1",
+    "source": "arxiv",
+    "published_date": "2026-09-01T10:21:10+00:00",
+    "posted_at": "2026-09-02T12:44:59.932623+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "mixture-of-experts",
+      "sparsity",
+      "serving"
+    ],
+    "summary": "PCoMoE is a path-compositional execution framework that shifts MoE inference from coarse-grained expert selection to fine-grained sub-expert path composition with compatibility-aware pruning. It achieves up to a 1.31x end-to-end inference speedup while enhancing model accuracy by 10%."
+  },
+  {
+    "paper_id": "arxiv:2609.01338",
+    "title": "mzCache: On-Device LLM Memory Management under Multitasking",
+    "url": "http://arxiv.org/abs/2609.01338v1",
+    "source": "arxiv",
+    "published_date": "2026-09-01T14:49:20+00:00",
+    "posted_at": "2026-09-02T12:44:59.932623+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "mzCache is an on-device LLM inference system that manages memory under multitasking pressure via elastic eviction and cross-processor restoration. It achieves a 2.1-5.5x reduction in Time-to-First-Token compared to storage-backed partial offload."
   }
 ]
