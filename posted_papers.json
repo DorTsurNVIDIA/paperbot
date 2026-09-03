@@ -2871,5 +2871,76 @@
       "serving"
     ],
     "summary": "mzCache is an on-device LLM inference system that manages memory under multitasking pressure via elastic eviction and cross-processor restoration. It achieves a 2.1-5.5x reduction in Time-to-First-Token compared to storage-backed partial offload."
+  },
+  {
+    "paper_id": "arxiv:2608.30509",
+    "title": "CHIPSMORE: Compute-in-Interconnect and -Memory Chiplets for Multi-Mode Multi-Request LLM Inference Acceleration",
+    "url": "https://www.semanticscholar.org/paper/6dde5d5d83a425a67cdfab710a23b9b988554ccd",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-31",
+    "posted_at": "2026-09-03T12:47:52.015551+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "kv-cache",
+      "serving",
+      "long-context"
+    ],
+    "summary": "CHIPSMORE is a multi-mode LLM inference accelerator integrating compute-in-interconnect and compute-in-memory with a composable KV memory scheme and multi-request execution pipeline. Evaluated via hardware-software co-simulation, it achieves up to 2.38x higher throughput and 27x higher energy efficiency compared to an Nvidia H100 on Mistral-7B inference while eliminating weight replication."
+  },
+  {
+    "paper_id": "arxiv:2609.02029",
+    "title": "HeadWiseKV: Budgeted Per-Head Cache Residency for Hybrid Long-Context Language Models",
+    "url": "http://arxiv.org/abs/2609.02029v1",
+    "source": "arxiv",
+    "published_date": "2026-09-02T02:59:11+00:00",
+    "posted_at": "2026-09-03T12:47:52.015551+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "long-context",
+      "serving"
+    ],
+    "summary": "HeadWiseKV is a training-free framework that compresses KV caches in hybrid long-context models by assigning per-head residency budgets. It reduces sampled peak device memory by 8.59% at 112K context length and extends the largest verified context from 114K to 161K."
+  },
+  {
+    "paper_id": "arxiv:2609.02514",
+    "title": "AceSpec: An Asymmetric Edge-Cloud Collaborative Framework for Communication-Efficient LLM Inference",
+    "url": "http://arxiv.org/abs/2609.02514v1",
+    "source": "arxiv",
+    "published_date": "2026-09-02T12:18:32+00:00",
+    "posted_at": "2026-09-03T12:47:52.015551+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "serving",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "AceSpec is an asymmetric edge-cloud collaborative framework that uses an edge small model to draft tokens for cloud verification over WANs, utilizing a probabilistic state cache to avoid pipeline stalls. The abstract reports up to a 3.52x throughput speedup and sustained near-peak inference performance even under severely constrained 50 Kbps WAN conditions."
+  },
+  {
+    "paper_id": "arxiv:2609.02780",
+    "title": "ShallowStream: Index Shallow then Answer Deep for Streaming Video Understanding",
+    "url": "http://arxiv.org/abs/2609.02780v1",
+    "source": "arxiv",
+    "published_date": "2026-09-02T16:14:48+00:00",
+    "posted_at": "2026-09-03T12:47:52.015551+00:00",
+    "lane": "inference",
+    "specdec_score": 2,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "long-context",
+      "early-exit",
+      "serving"
+    ],
+    "summary": "ShallowStream reduces streaming video MLLM computational overhead by using shallow model layers to build a lightweight retrieval index and perform context selection. The method achieves comparable performance to existing methods while reducing per-frame prefill latency by up to 52.1x and 10-second end-to-end latency by up to 11.9x."
   }
 ]
