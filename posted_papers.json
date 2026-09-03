@@ -2942,5 +2942,54 @@
       "serving"
     ],
     "summary": "ShallowStream reduces streaming video MLLM computational overhead by using shallow model layers to build a lightweight retrieval index and perform context selection. The method achieves comparable performance to existing methods while reducing per-frame prefill latency by up to 52.1x and 10-second end-to-end latency by up to 11.9x."
+  },
+  {
+    "paper_id": "arxiv:2608.29618",
+    "title": "Multi-Access Speculative Inference: Uplink or Downlink?",
+    "url": "https://www.semanticscholar.org/paper/391b21be7c82e82f04ad77d1fd525a8081d2c832",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-30",
+    "posted_at": "2026-09-03T21:58:53.768766+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The method introduces adaptive communication-mode selection (uplink/downlink) and draft-length control for multi-access speculative inference across edge devices. It demonstrates improved token goodput on Qwen2.5 and DeepSeek-R1 model pairs by optimizing communication overhead for draft verification."
+  },
+  {
+    "paper_id": "arxiv:2608.29988",
+    "title": "AutoCRAT: Within-trajectory Joint Control of Stochasticity and Compute for LLM Reasoning",
+    "url": "https://www.semanticscholar.org/paper/c696c6d54a97f0692698824ba8a4083fd84f5dd3",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-30",
+    "posted_at": "2026-09-03T21:58:53.768766+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "serving"
+    ],
+    "summary": "AutoCRAT is a decoder-side controller that jointly adjusts sampling stochasticity and reasoning budget at semantic boundaries during generation. The method is evaluated on 6 benchmarks, demonstrating a reduction in inference tokens by 13.8-52.7% while improving accuracy over static and adaptive baselines."
+  },
+  {
+    "paper_id": "arxiv:2608.30310",
+    "title": "Tail-Replay: Escaping the Curse of Linear Attention in Prefix Caching for Hybrid LLMs",
+    "url": "https://www.semanticscholar.org/paper/e07dc96badfcab6876ec4e4d4a467e7fcb3ea771",
+    "source": "semantic_scholar",
+    "published_date": "2026-08-31",
+    "posted_at": "2026-09-03T21:58:53.768766+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "long-context",
+      "serving"
+    ],
+    "summary": "Tail-Replay is a prefix caching mechanism for hybrid LLMs that reconstructs linear-attention states by replaying a short suffix of the matched prefix. It retains 92.8--99.9\\% of full-prefill quality on LongBench/RULER with a 5--10\\% replay budget and achieves 9.1--14.3x time-to-first-token speedups at 32K prefix length."
   }
 ]
