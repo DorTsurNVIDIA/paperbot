@@ -2991,5 +2991,89 @@
       "serving"
     ],
     "summary": "Tail-Replay is a prefix caching mechanism for hybrid LLMs that reconstructs linear-attention states by replaying a short suffix of the matched prefix. It retains 92.8--99.9\\% of full-prefill quality on LongBench/RULER with a 5--10\\% replay budget and achieves 9.1--14.3x time-to-first-token speedups at 32K prefix length."
+  },
+  {
+    "paper_id": "arxiv:2609.03079",
+    "title": "LeanStream: A Speculate-and-Refine Streaming Framework for Efficient on-Device LLM Inference",
+    "url": "http://arxiv.org/abs/2609.03079v1",
+    "source": "arxiv",
+    "published_date": "2026-09-02T18:49:08+00:00",
+    "posted_at": "2026-09-04T12:41:42.863352+00:00",
+    "lane": "specdec",
+    "specdec_score": 6,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "sparsity",
+      "speculative-decoding"
+    ],
+    "summary": "LeanStream is a streaming speculate-and-refine framework that overlaps GPU execution and storage I/O by progressively refining computation priorities using partial GPU results. Evaluated on mobile and embedded platforms, it reduces memory usage by up to 7.5x and improves token generation throughput by up to 2.1x compared to prior on-device systems."
+  },
+  {
+    "paper_id": "arxiv:2609.03181",
+    "title": "Jina-OCR-v1: Efficient Document Parsing with Speculative Decoding and Dense Verifiable Rewards",
+    "url": "http://arxiv.org/abs/2609.03181v1",
+    "source": "arxiv",
+    "published_date": "2026-09-02T21:49:21+00:00",
+    "posted_at": "2026-09-04T12:41:42.863352+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "mixture-of-experts",
+      "multi-token-prediction",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper introduces an OCR model using a recursive multi-token prediction head as a draft for lossless greedy speculative decoding. It reports that the FastMTP speculative head doubles decoding speed over greedy autoregressive decoding while achieving high throughput on low-budget GPUs."
+  },
+  {
+    "paper_id": "arxiv:2609.03494",
+    "title": "GrowPage: On-Demand KV Budgeting for Efficient LLM Reasoning Serving",
+    "url": "http://arxiv.org/abs/2609.03494v1",
+    "source": "arxiv",
+    "published_date": "2026-09-03T07:53:05+00:00",
+    "posted_at": "2026-09-04T12:41:42.863352+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving",
+      "long-context"
+    ],
+    "summary": "GrowPage introduces an on-demand KV budgeting framework that dynamically compresses or expands KV capacity at runtime based on attention demand. It is evaluated on reasoning benchmarks where it achieves a superior performance-throughput trade-off over existing approaches."
+  },
+  {
+    "paper_id": "arxiv:2609.04010",
+    "title": "Unlocking Lossless Speedups in LLMs via Discrete Diffusion",
+    "url": "http://arxiv.org/abs/2609.04010v1",
+    "source": "arxiv",
+    "published_date": "2026-09-03T15:48:43+00:00",
+    "posted_at": "2026-09-04T12:41:42.863352+00:00",
+    "lane": "inference",
+    "specdec_score": 3,
+    "inference_score": 9,
+    "tags": [
+      "multi-token-prediction"
+    ],
+    "summary": "The paper introduces diffusion-augmented LLMs that use a discrete diffusion process to generate multiple tokens in parallel without a separate draft model. The method claims to achieve up to 3x throughput speedups over the base AR model and higher throughput than leading speculative-decoding methods across evaluated batch sizes."
+  },
+  {
+    "paper_id": "arxiv:2609.04098",
+    "title": "Why Gated DeltaNet Survives 4-Bit Quantization: NVFP4 W4A4 for the Recurrent Half of a Hybrid 27B LLM",
+    "url": "http://arxiv.org/abs/2609.04098v1",
+    "source": "arxiv",
+    "published_date": "2026-09-03T17:04:26+00:00",
+    "posted_at": "2026-09-04T12:41:42.863352+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "quantization",
+      "kv-cache",
+      "long-context"
+    ],
+    "summary": "The paper introduces Minima, a 4-bit NVFP4 W4A4 quantization recipe for hybrid LLMs that includes recurrent layers and calibrated FP8 KV-cache scales. It demonstrates that this approach matches BF16 perplexity and accuracy while achieving faster prefill (+14-19%) and reducing model size to 17.5 GiB."
   }
 ]
