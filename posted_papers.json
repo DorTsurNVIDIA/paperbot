@@ -3075,5 +3075,22 @@
       "long-context"
     ],
     "summary": "The paper introduces Minima, a 4-bit NVFP4 W4A4 quantization recipe for hybrid LLMs that includes recurrent layers and calibrated FP8 KV-cache scales. It demonstrates that this approach matches BF16 perplexity and accuracy while achieving faster prefill (+14-19%) and reducing model size to 17.5 GiB."
+  },
+  {
+    "paper_id": "arxiv:2609.01084",
+    "title": "Hardware Acceleration of Block-Diffusion LLM for Edge Devices",
+    "url": "https://www.semanticscholar.org/paper/cc8a22f8b1d31a4040633183a06ee57f9148f9c4",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-01",
+    "posted_at": "2026-09-05T11:48:21.877330+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "kv-cache",
+      "quantization"
+    ],
+    "summary": "The method co-designs a wide-I/O LPDDR memory system with low-rank-plus-INT8-residual KV and FFN compression for block-diffusion LLMs. Evaluated on 1.5B/7B models, it reports arithmetic-mean latency speedups of 2.88x/4.44x and energy-reduction factors of 3.79x/3.96x with less than one percentage point accuracy drop."
   }
 ]
