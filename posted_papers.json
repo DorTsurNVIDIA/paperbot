@@ -3092,5 +3092,39 @@
       "quantization"
     ],
     "summary": "The method co-designs a wide-I/O LPDDR memory system with low-rank-plus-INT8-residual KV and FFN compression for block-diffusion LLMs. Evaluated on 1.5B/7B models, it reports arithmetic-mean latency speedups of 2.88x/4.44x and energy-reduction factors of 3.79x/3.96x with less than one percentage point accuracy drop."
+  },
+  {
+    "paper_id": "arxiv:2609.01807",
+    "title": "hLLM: Single Pass Decoding for Generative Reranking",
+    "url": "https://www.semanticscholar.org/paper/dcccd31d2b84d76c193e0ea78a4ea4763dd6b875",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-01",
+    "posted_at": "2026-09-06T12:06:20.090662+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "attention",
+      "serving"
+    ],
+    "summary": "The paper introduces hLLM, a format-specialized decoding strategy for generative reranking that decodes all N ordinals in O(1) forward passes using a self-attention head and the Hungarian algorithm. It reports a 64x speedup with 28 ms end-to-end inference while maintaining ranking quality."
+  },
+  {
+    "paper_id": "arxiv:2609.01821",
+    "title": "Scaling Inference Prefill with High-Radix Photonic Interconnects",
+    "url": "https://www.semanticscholar.org/paper/fc5d5ac56c8ab9628de4774fb91175a5dabe4a29",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-01",
+    "posted_at": "2026-09-06T12:06:20.090662+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "long-context",
+      "mixture-of-experts",
+      "serving"
+    ],
+    "summary": "The paper analyzes the benefits of 3D-integrated photonic interconnects for LLM inference prefill on Mixture-of-Experts models. It reports 2.1-3.2x latency improvements in high-batch regimes and 2.2-4.5x speedups in time-to-first-token over electrical baselines."
   }
 ]
