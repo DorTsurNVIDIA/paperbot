@@ -3126,5 +3126,104 @@
       "serving"
     ],
     "summary": "The paper analyzes the benefits of 3D-integrated photonic interconnects for LLM inference prefill on Mixture-of-Experts models. It reports 2.1-3.2x latency improvements in high-batch regimes and 2.2-4.5x speedups in time-to-first-token over electrical baselines."
+  },
+  {
+    "paper_id": "arxiv:2609.04773",
+    "title": "Persistent Teacher Anchoring for Tool-Using Agents",
+    "url": "http://arxiv.org/abs/2609.04773v1",
+    "source": "arxiv",
+    "published_date": "2026-09-04T06:09:50+00:00",
+    "posted_at": "2026-09-07T14:13:28.340266+00:00",
+    "lane": "specdec",
+    "specdec_score": 8,
+    "inference_score": 7,
+    "tags": [
+      "speculative-decoding",
+      "verification",
+      "draft-model"
+    ],
+    "summary": "Persistent Teacher Anchoring (PTA) introduces chunk-level verification and turn-level commitment for proposer-verifier generation in tool-using agents. The method improves macro best@4 by 2.5 and 2.8 points over on-policy knowledge distillation, while a persistent lookahead technique improves throughput by 24%."
+  },
+  {
+    "paper_id": "arxiv:2609.04971",
+    "title": "BeaconKV: Key-Value Cache Compression Guided by Beacon Queries for Efficient Large Reasoning Model Inference",
+    "url": "http://arxiv.org/abs/2609.04971v1",
+    "source": "arxiv",
+    "published_date": "2026-09-04T10:23:16+00:00",
+    "posted_at": "2026-09-07T14:13:28.340266+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "long-context"
+    ],
+    "summary": "BeaconKV is a training-free KV cache compression method for Large Reasoning Models that uses compact beacon queries to anticipate which distant KV pairs will be revisited. It achieves up to 5.8x memory reduction and over 4.3x throughput improvement while nearly preserving full cache accuracy."
+  },
+  {
+    "paper_id": "arxiv:2609.05152",
+    "title": "Compression Beyond the Uncompressed: A Two-Stage Training Recipe for Soft Context Compression in RAG",
+    "url": "http://arxiv.org/abs/2609.05152v1",
+    "source": "arxiv",
+    "published_date": "2026-09-04T13:53:43+00:00",
+    "posted_at": "2026-09-07T14:13:28.340266+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "DEX-Comp is a two-stage training recipe for soft context compression in RAG that uses pure distillation and hard exploration to learn compressed representations of retrieved documents. It achieves 16x context compression and 4x-24x inference acceleration while maintaining performance comparable to or exceeding the uncompressed RAG baseline across five open-domain QA benchmarks."
+  },
+  {
+    "paper_id": "arxiv:2609.05274",
+    "title": "How to Speculate about Uncertainty in Agentic Coding? A Draft-Model Gate Method",
+    "url": "http://arxiv.org/abs/2609.05274v1",
+    "source": "arxiv",
+    "published_date": "2026-09-04T15:30:22+00:00",
+    "posted_at": "2026-09-07T14:13:28.340266+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 7,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper proposes Speculative Uncertainty (SU), which inverts speculative decoding by using a small draft model to score an agent's already-generated trajectory and produce a failure-likelihood score. Evaluated on software engineering agents, the method acts as a pre-execution veto gate that cuts execution error rate by 6-8 percentage points and token cost by 14-19%."
+  },
+  {
+    "paper_id": "arxiv:2609.05275",
+    "title": "Don't Drop Dropout: Optimizing Layer Sparsity for Efficient LLM Training and Inference",
+    "url": "http://arxiv.org/abs/2609.05275v1",
+    "source": "arxiv",
+    "published_date": "2026-09-04T15:30:47+00:00",
+    "posted_at": "2026-09-07T14:13:28.340266+00:00",
+    "lane": "specdec",
+    "specdec_score": 6,
+    "inference_score": 8,
+    "tags": [
+      "early-exit",
+      "draft-model",
+      "speculative-decoding",
+      "sparsity"
+    ],
+    "summary": "The paper proposes optimizing layer dropout during LLM pre-training to enable post-training inference optimizations like early exit and self-speculative decoding. It claims these optimizations yield up to a 1.5x inference speedup with negligible accuracy loss across models up to 8.2B parameters."
+  },
+  {
+    "paper_id": "arxiv:2609.05363",
+    "title": "Distill Globally, Adapt Locally: Reasoning Distillation and Product-Type Test-Time Training for Scalable Trade-Up Recommendation",
+    "url": "http://arxiv.org/abs/2609.05363v1",
+    "source": "arxiv",
+    "published_date": "2026-09-04T17:08:50+00:00",
+    "posted_at": "2026-09-07T14:13:28.340266+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "serving"
+    ],
+    "summary": "The method distills LLM reasoning into a compact non-generative student classifier to eliminate LLM calls at inference, evaluated as being approximately 5,000x faster and 10,000x lower in cost than direct LLM inference."
   }
 ]
