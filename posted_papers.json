@@ -3225,5 +3225,87 @@
       "serving"
     ],
     "summary": "The method distills LLM reasoning into a compact non-generative student classifier to eliminate LLM calls at inference, evaluated as being approximately 5,000x faster and 10,000x lower in cost than direct LLM inference."
+  },
+  {
+    "paper_id": "arxiv:2609.05821",
+    "title": "CONDUIT: A Unified Residual-Stream Restoration Framework for KV Cache Reuse in Vision-Language Models",
+    "url": "http://arxiv.org/abs/2609.05821v1",
+    "source": "arxiv",
+    "published_date": "2026-09-05T02:34:16+00:00",
+    "posted_at": "2026-09-09T12:56:19.128877+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "CONDUIT is a training-free KV cache refresh policy for vision-language models that selectively recomputes visual tokens based on query-conditioned scoring. Evaluated on VLM backbones, the method achieves 97.0-99.5% of full-prefill average quality at a 10% refresh budget and a 2.99x time-to-first-token speedup on a latency subset."
+  },
+  {
+    "paper_id": "arxiv:2609.06498",
+    "title": "DFlow: Enabling Verifier Information Flow in Block Diffusion Speculative Decoding",
+    "url": "http://arxiv.org/abs/2609.06498v1",
+    "source": "arxiv",
+    "published_date": "2026-09-06T09:25:56+00:00",
+    "posted_at": "2026-09-09T12:56:19.128877+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "DFlow reuses hidden states from the target verifier's rejected suffix to guide subsequent drafting rounds in block diffusion speculative decoding. Experiments on Qwen3 models demonstrate consistent improvements in draft quality and acceptance length over the DFlash baseline."
+  },
+  {
+    "paper_id": "arxiv:2609.06940",
+    "title": "Unified AI Gateway: A Framework for Joint Model Routing and KV Cache Management",
+    "url": "http://arxiv.org/abs/2609.06940v1",
+    "source": "arxiv",
+    "published_date": "2026-09-07T02:21:39+00:00",
+    "posted_at": "2026-09-09T12:56:19.128877+00:00",
+    "lane": "inference",
+    "specdec_score": 2,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "The paper proposes a Unified AI Gateway system that jointly coordinates model routing, KV cache management, and compute placement for LLM inference. Analytical simulations across eight workload profiles report TTFT speedups of 1.25x to 13.28x and input-cost benefits of 1.20x to 6.16x."
+  },
+  {
+    "paper_id": "arxiv:2609.07108",
+    "title": "Online Draft Co-Training for Speculative Decoding in Large-Scale, Long-Context RL Post-Training",
+    "url": "http://arxiv.org/abs/2609.07108v1",
+    "source": "arxiv",
+    "published_date": "2026-09-07T06:48:29+00:00",
+    "posted_at": "2026-09-09T12:56:19.128877+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "kv-cache",
+      "long-context",
+      "serving"
+    ],
+    "summary": "The paper introduces an end-to-end system for large-scale online draft co-training for speculative decoding, solving branch attention and pipeline-parallel transport issues for long-context models. Experiments demonstrate substantial rollout and end-to-end speedups up to 122B parameters, with strong scaling at 256K tokens and significant memory savings."
+  },
+  {
+    "paper_id": "arxiv:2609.07883",
+    "title": "Deadline-Aware Adaptive Prefill Chunking for Efficient Large Language Model Serving",
+    "url": "http://arxiv.org/abs/2609.07883v1",
+    "source": "arxiv",
+    "published_date": "2026-09-07T18:47:57+00:00",
+    "posted_at": "2026-09-09T12:56:19.128877+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving"
+    ],
+    "summary": "SLOWeave is an online scheduling method for LLM serving that adaptively selects prefill chunk sizes based on decode deadlines to prevent latency spikes. Evaluated in a GPU runtime, it improves goodput by 39% on mixed requests over the strongest fixed-chunk baseline under a 25ms time-per-output-token objective."
   }
 ]
