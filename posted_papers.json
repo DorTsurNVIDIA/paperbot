@@ -3307,5 +3307,91 @@
       "serving"
     ],
     "summary": "SLOWeave is an online scheduling method for LLM serving that adaptively selects prefill chunk sizes based on decode deadlines to prevent latency spikes. Evaluated in a GPU runtime, it improves goodput by 39% on mixed requests over the strongest fixed-chunk baseline under a 25ms time-per-output-token objective."
+  },
+  {
+    "paper_id": "arxiv:2609.09338",
+    "title": "Osprey: Target-agnostic Pre-training Makes Stronger Drafters in Speculative Decoding",
+    "url": "http://arxiv.org/abs/2609.09338v1",
+    "source": "arxiv",
+    "published_date": "2026-09-08T18:23:08+00:00",
+    "posted_at": "2026-09-10T12:53:38.231762+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "speculative-decoding"
+    ],
+    "summary": "Osprey introduces a target-agnostic pretraining method to build reusable draft models for speculative decoding via pruning and lightweight adaptation. It improves mean acceptance length by up to 22.7% and tokens per second by 17.5% across multiple large target models."
+  },
+  {
+    "paper_id": "arxiv:2609.09662",
+    "title": "PELM: Power Efficient On-Device LLM Inference with Speculative Decoding and Dynamic Voltage Frequency Scaling",
+    "url": "http://arxiv.org/abs/2609.09662v1",
+    "source": "arxiv",
+    "published_date": "2026-09-09T03:27:51+00:00",
+    "posted_at": "2026-09-10T12:53:38.231762+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "verification",
+      "early-exit",
+      "hardware"
+    ],
+    "summary": "PELM augments dynamic voltage frequency scaling (DVFS) with speculative decoding and variable verification depth to optimize power and thermal constraints for on-device LLM inference. The abstract reports up to a 23.1% speedup and a 52.4% reduction in energy consumption compared to state-of-the-art power governing methods while maintaining task performance."
+  },
+  {
+    "paper_id": "arxiv:2609.09768",
+    "title": "Fine-Tuning a KV Cache Concatenation-Aware Model or Recomputing KV Caches? Why Not Both?",
+    "url": "http://arxiv.org/abs/2609.09768v1",
+    "source": "arxiv",
+    "published_date": "2026-09-09T06:12:39+00:00",
+    "posted_at": "2026-09-10T12:53:38.231762+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "long-context"
+    ],
+    "summary": "The method combines fine-tuning a model for KV cache concatenation awareness with selective KV cache recomputation for RAG systems. It improves the RULER score by 9.7 points for a 124k-token input while reducing time to first token (TTFT) by 80% compared to full attention."
+  },
+  {
+    "paper_id": "arxiv:2609.09772",
+    "title": "SymbolicLight V2: Hybrid Neuromorphic Architecture and Sparse Execution for Low-Energy Language Inference",
+    "url": "http://arxiv.org/abs/2609.09772v1",
+    "source": "arxiv",
+    "published_date": "2026-09-09T06:18:49+00:00",
+    "posted_at": "2026-09-10T12:53:38.231762+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "kv-cache",
+      "sparsity"
+    ],
+    "summary": "The method introduces a hybrid neuromorphic architecture with sparse event computation and local attention, implemented on FPGA and ARM CPU. It demonstrates up to 89.1% lower estimated card energy during short-context decode and a 27.6% reduction in energy per generated token on FPGA while increasing decode throughput."
+  },
+  {
+    "paper_id": "arxiv:2609.09823",
+    "title": "AMEND: Audited Margins Enable Nonblocking Drops in GPU-PIM LLM Decoding",
+    "url": "http://arxiv.org/abs/2609.09823v1",
+    "source": "arxiv",
+    "published_date": "2026-09-09T07:25:14+00:00",
+    "posted_at": "2026-09-10T12:53:38.231762+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "hardware",
+      "kv-cache",
+      "long-context",
+      "sparsity"
+    ],
+    "summary": "AMEND is a GPU-PIM attention design that uses audited margins from earlier steps to predict and drop low-contribution KV blocks without blocking decoding. In simulation at batch size 8, it achieves 1.40-3.63x end-to-end decode speedup and 28-66% lower dynamic decode energy across 8K-64K contexts while preserving near-baseline task quality."
   }
 ]
