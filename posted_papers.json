@@ -3393,5 +3393,21 @@
       "sparsity"
     ],
     "summary": "AMEND is a GPU-PIM attention design that uses audited margins from earlier steps to predict and drop low-contribution KV blocks without blocking decoding. In simulation at batch size 8, it achieves 1.40-3.63x end-to-end decode speedup and 28-66% lower dynamic decode energy across 8K-64K contexts while preserving near-baseline task quality."
+  },
+  {
+    "paper_id": "arxiv:2609.05463",
+    "title": "A Three-Layer Caching Architecture for Low-Latency LLM Web Search on Commodity CPU Hardware",
+    "url": "https://huggingface.co/papers/2609.05463",
+    "source": "huggingface",
+    "published_date": "2026-08-12T00:00:00.000Z",
+    "posted_at": "2026-09-10T22:01:28.667589+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "The paper introduces a three-layer caching architecture for LLM web search that includes session context, semantic query, and URL embedding caches to eliminate redundant computations. The system reports an 89.3% aggregate Redis keyspace hit rate with 0.1 ms read latency and low memory overhead on commodity CPU hardware."
   }
 ]
