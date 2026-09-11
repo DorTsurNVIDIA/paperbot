@@ -3409,5 +3409,91 @@
       "serving"
     ],
     "summary": "The paper introduces a three-layer caching architecture for LLM web search that includes session context, semantic query, and URL embedding caches to eliminate redundant computations. The system reports an 89.3% aggregate Redis keyspace hit rate with 0.1 ms read latency and low memory overhead on commodity CPU hardware."
+  },
+  {
+    "paper_id": "arxiv:2609.10715",
+    "title": "NCP-ArchPreview Technical Report: Moving towards Latent Space Language Models through Next Concept Prediction",
+    "url": "https://huggingface.co/papers/2609.10715",
+    "source": "huggingface",
+    "published_date": "2026-09-09T00:00:00.000Z",
+    "posted_at": "2026-09-11T12:48:13.555462+00:00",
+    "lane": "specdec",
+    "specdec_score": 6,
+    "inference_score": 4,
+    "tags": [
+      "multi-token-prediction",
+      "draft-model",
+      "speculative-decoding"
+    ],
+    "summary": "NCP-ArchPreview is a latent-space language model trained with Next Concept Prediction alongside standard next-token prediction. The learned concept representations are injected into a DFlash2 drafter, improving the mean accepted length for speculative decoding by 4.17% with negligible overhead."
+  },
+  {
+    "paper_id": "arxiv:2609.11133",
+    "title": "Phase-Decoupled, Model-Calibrated Power Control for Disaggregated LLM Serving",
+    "url": "http://arxiv.org/abs/2609.11133v1",
+    "source": "arxiv",
+    "published_date": "2026-09-10T06:23:37+00:00",
+    "posted_at": "2026-09-11T12:48:13.555462+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 10,
+    "tags": [
+      "hardware",
+      "serving",
+      "mixture-of-experts",
+      "quantization"
+    ],
+    "summary": "A phase-decoupled, model-calibrated power controller for disaggregated LLM serving that places latency-gated power caps on prefill and decode GPUs. On an 8x B200 node serving MoE models, the method achieves a Pareto improvement over standard profiles, delivering +20.4% tokens/J at +3.5% mean e2e latency."
+  },
+  {
+    "paper_id": "arxiv:2609.11392",
+    "title": "PATTON: Enabling Commodity PIM for Production LLM Serving",
+    "url": "http://arxiv.org/abs/2609.11392v1",
+    "source": "arxiv",
+    "published_date": "2026-09-10T11:28:07+00:00",
+    "posted_at": "2026-09-11T12:48:13.555462+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "hardware",
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "PATTON is a Processing-in-Memory (PIM) runtime that integrates production LLM serving engines with commodity PIM by introducing hierarchical granule allocation and a Commit Zone to manage KV cache blocks efficiently. The system achieves an average 1.95x speedup and 4.83x higher energy efficiency over evaluated baselines while maintaining a comparable KV cache hit rate to native vLLM."
+  },
+  {
+    "paper_id": "arxiv:2609.11744",
+    "title": "Building py-kvcache: A Performance Characterization of External KV Caching for vLLM with NVMe SSDs",
+    "url": "http://arxiv.org/abs/2609.11744v1",
+    "source": "arxiv",
+    "published_date": "2026-09-10T16:00:35+00:00",
+    "posted_at": "2026-09-11T12:48:13.555462+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving",
+      "hardware"
+    ],
+    "summary": "py-kvcache is a vLLM KV offload connector utilizing asynchronous direct I/O and scheduler-aware preloading to optimize external NVMe caching. It demonstrates that loading from disk at 80k tokens is 2.0x faster than LMCache, with end-to-end benefits extending to irregular prefix chains and multi-turn workloads."
+  },
+  {
+    "paper_id": "arxiv:2609.11799",
+    "title": "SpecGuard: Inference-Time Backdoor Detection For Free",
+    "url": "http://arxiv.org/abs/2609.11799v1",
+    "source": "arxiv",
+    "published_date": "2026-09-10T16:51:59+00:00",
+    "posted_at": "2026-09-11T12:48:13.555462+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 7,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "SpecGuard repurposes speculative decoding for inference-time backdoor detection by monitoring shifts in the draft token acceptance rate when a backdoor is triggered. The method detects backdoored behavior across diverse model families at zero added model-computation cost compared to standard speculative decoding."
   }
 ]
