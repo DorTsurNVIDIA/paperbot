@@ -3495,5 +3495,53 @@
       "verification"
     ],
     "summary": "SpecGuard repurposes speculative decoding for inference-time backdoor detection by monitoring shifts in the draft token acceptance rate when a backdoor is triggered. The method detects backdoored behavior across diverse model families at zero added model-computation cost compared to standard speculative decoding."
+  },
+  {
+    "paper_id": "arxiv:2609.09800",
+    "title": "HBFSim: Fast and Faithful Simulation of High-Bandwidth Flash Under Real GPU Execution",
+    "url": "https://www.semanticscholar.org/paper/8398f7b76a6b9b5d2848da92c53197519b6170da",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-09",
+    "posted_at": "2026-09-11T22:03:28.980143+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "hardware",
+      "serving"
+    ],
+    "summary": "The paper presents HBFSim, a simulation platform that applies High-Bandwidth Flash timing and capacity constraints to real LLM inference workloads executing on a GPU. The platform successfully simulates unmodified vLLM serving a 30B model, achieving a 20.8x speedup over the detailed reference path while matching measured device calibration exactly."
+  },
+  {
+    "paper_id": "arxiv:2609.10046",
+    "title": "Guaranteeing Faithful Evidence Extraction in Speculative Retrieval-Augmented Generation",
+    "url": "https://www.semanticscholar.org/paper/8c5e27c15bb766375ace2921451094d7cc2ccae3",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-09",
+    "posted_at": "2026-09-11T22:03:28.980143+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 4,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper introduces Constrained Hybrid Decoding (CHyD), which repurposes the speculative decoding architecture to enforce verbatim evidence extraction in RAG. Evaluated on QA benchmarks, the method achieves near-perfect extraction faithfulness compared to existing hybrid methods that drop below 40% accuracy in technical domains."
+  },
+  {
+    "paper_id": "doi:10.3390/info17090869",
+    "title": "Browser-Native Federated Inference on Existing Italian SSN Clinical Workstations: A Peer-to-Peer Sovereignty-Preserving AI Architecture for Italian Regional Health Networks",
+    "url": "https://www.semanticscholar.org/paper/4f6c8e972fbb12e1f5d99afa2bfbfdd76a4f5123",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-08",
+    "posted_at": "2026-09-11T22:03:28.980143+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "serving",
+      "hardware"
+    ],
+    "summary": "The method presents a browser-native federated architecture distributing LLM inference tasks across existing clinical workstations using WebGPU. In a pilot three-node testbed, the system reports increased federated throughput to 19.5 tokens/second (from 8.2 standalone) and a 62% reduction in peak per-node memory."
   }
 ]
