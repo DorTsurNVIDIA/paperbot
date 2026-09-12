@@ -3543,5 +3543,23 @@
       "hardware"
     ],
     "summary": "The method presents a browser-native federated architecture distributing LLM inference tasks across existing clinical workstations using WebGPU. In a pilot three-node testbed, the system reports increased federated throughput to 19.5 tokens/second (from 8.2 standalone) and a 62% reduction in peak per-node memory."
+  },
+  {
+    "paper_id": "doi:10.64898/2026.09.02.749017",
+    "title": "EvSpark: Lossless Speculative Decoding for Hybrid DNA Foundation Models",
+    "url": "https://www.semanticscholar.org/paper/00de63e51f5740d92d47a1bbc6c2e15dee6cb0ee",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-10",
+    "posted_at": "2026-09-12T21:44:43.115228+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification",
+      "long-context"
+    ],
+    "summary": "EvSpark introduces a speculative decoding system for hybrid DNA foundation models, featuring a state-slicing rollback protocol and a distilled neural drafter to handle mixed inference states. It achieves up to 3.27x speedup on a benchmark suite while preserving the target distribution, matching native outputs token-for-token in greedy decoding."
   }
 ]
