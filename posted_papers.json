@@ -3628,5 +3628,56 @@
       "hardware"
     ],
     "summary": "The paper proposes an online scheduling framework for battery-aware speculative decoding in cloud-edge environments, using bandit learning to manage draft length and online learning for battery orchestration. Evaluations on real-world LLM inference demonstrate substantial improvements in cost minimization over state-of-the-art methods with theoretical regret bounds."
+  },
+  {
+    "paper_id": "doi:10.1145/3832810.3832877",
+    "title": "BR-MoE: A Memory-Budget-Aware Co-Design Framework for Efficient MoE Inference on Resource-Constrained GPUs",
+    "url": "https://www.semanticscholar.org/paper/87c90f64aa7d5d3e0795d1d35903787e315e3d32",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-28",
+    "posted_at": "2026-09-14T22:51:17.338566+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "mixture-of-experts",
+      "quantization",
+      "hardware"
+    ],
+    "summary": "BR-MoE is a memory-budget-aware co-design framework that jointly optimizes per-expert bit-width and compensator rank for MoE models using an Integer Linear Programming allocation. It integrates a fused grouped expert GEMM backend to deliver substantial end-to-end inference speedups on A100 GPUs while maintaining a superior memory-accuracy trade-off."
+  },
+  {
+    "paper_id": "doi:10.1145/3832810.3832896",
+    "title": "GroupKV: Hierarchical KV Cache Management for Long-Context Diffusion LLM Inference",
+    "url": "https://www.semanticscholar.org/paper/996065ce8d9648ed7caf02ed729e6afe601ba173",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-28",
+    "posted_at": "2026-09-14T22:51:17.338566+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "long-context",
+      "serving"
+    ],
+    "summary": "GroupKV is a hierarchical KV cache management system for long-context diffusion LLMs that uses group-level sparse selection and predictive prefetching to reduce memory bottlenecks. It extends maximum context length by up to 48x and improves end-to-end inference performance by up to 3.73x in offload-based settings."
+  },
+  {
+    "paper_id": "doi:10.1145/3832810.3832898",
+    "title": "MIGServe: Layout-Aware Multi-Instance GPU Management for Efficient LLM Serving",
+    "url": "https://www.semanticscholar.org/paper/c4d44797bb9f2115daf1b23f14f24406fc8d032d",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-28",
+    "posted_at": "2026-09-14T22:51:17.338566+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "hardware",
+      "batching"
+    ],
+    "summary": "MIGServe is a layout-aware Multi-Instance GPU (MIG) resource management system that uses buddy-aware placement, proactive migration, and temperature-guided eviction to reduce fragmentation and reconfiguration overhead. It demonstrates serving 2.38x–5.32x more requests under 90% SLO attainment compared to state-of-the-art methods."
   }
 ]
