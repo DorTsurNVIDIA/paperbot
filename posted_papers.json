@@ -3561,5 +3561,72 @@
       "long-context"
     ],
     "summary": "EvSpark introduces a speculative decoding system for hybrid DNA foundation models, featuring a state-slicing rollback protocol and a distilled neural drafter to handle mixed inference states. It achieves up to 3.27x speedup on a benchmark suite while preserving the target distribution, matching native outputs token-for-token in greedy decoding."
+  },
+  {
+    "paper_id": "arxiv:2609.12923",
+    "title": "Dissecting GPU Utilization for LLM Inference on Nvidia Hopper",
+    "url": "http://arxiv.org/abs/2609.12923v1",
+    "source": "arxiv",
+    "published_date": "2026-09-11T14:49:05+00:00",
+    "posted_at": "2026-09-14T15:00:29.578698+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "hardware",
+      "serving"
+    ],
+    "summary": "The method profiles vLLM on Nvidia Hopper GPUs, replacing single utilization metrics with eight counter-validated views to map GPU utilization gaps to concrete mechanisms like fragment fill and wave quantization. The abstract states that these views were evaluated across cold prefill, warm prefill, and decode phases sweeping sequence length and batch size for production models, exposing hidden inefficiencies in small-batch decode."
+  },
+  {
+    "paper_id": "arxiv:2609.13031",
+    "title": "Attention Quantization for Tabular Foundation Models",
+    "url": "http://arxiv.org/abs/2609.13031v1",
+    "source": "arxiv",
+    "published_date": "2026-09-11T16:31:29+00:00",
+    "posted_at": "2026-09-14T15:00:29.578698+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "attention",
+      "quantization"
+    ],
+    "summary": "The method quantizes queries, keys, and values to FP8 and uses explicit FP8 matrix multiplication instructions to accelerate attention calculation in tabular foundation models. The strongest result presented in the abstract is a 1.7x speedup over regular 16-bit kernels with no relevant accuracy loss on evaluated benchmarks."
+  },
+  {
+    "paper_id": "doi:10.1145/3832810.3832814",
+    "title": "SSQT: A Hardware-Friendly Fusion Compression Framework of Structured Sparsification and Sensitivity-Driven Quantization for Large-Scale Language Models",
+    "url": "https://www.semanticscholar.org/paper/0b010b82f5fb03e74943d7486f9ea2da1edb828e",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-28",
+    "posted_at": "2026-09-14T15:00:29.578698+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "quantization",
+      "sparsity",
+      "hardware",
+      "serving"
+    ],
+    "summary": "SSQT is a post-training compression framework that fuses structured sparsification with sensitivity-driven quantization to accelerate LLM decoding. Evaluated on Llama 2 and Falcon models, the method improves the per-sequence decoding rate by up to 2.33x on A100 tensor-parallel configurations while maintaining low perplexity."
+  },
+  {
+    "paper_id": "doi:10.1145/3832810.3832825",
+    "title": "Online Scheduling of Battery-Aware Speculative Decoding for Energy-Efficient Cloud-Edge Collaborative LLM Inference",
+    "url": "https://www.semanticscholar.org/paper/c67edb5b5da4c4eb3a01648e219f53df8547bcc9",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-28",
+    "posted_at": "2026-09-14T15:00:29.578698+00:00",
+    "lane": "specdec",
+    "specdec_score": 7,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "serving",
+      "hardware"
+    ],
+    "summary": "The paper proposes an online scheduling framework for battery-aware speculative decoding in cloud-edge environments, using bandit learning to manage draft length and online learning for battery orchestration. Evaluations on real-world LLM inference demonstrate substantial improvements in cost minimization over state-of-the-art methods with theoretical regret bounds."
   }
 ]
