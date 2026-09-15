@@ -3679,5 +3679,120 @@
       "batching"
     ],
     "summary": "MIGServe is a layout-aware Multi-Instance GPU (MIG) resource management system that uses buddy-aware placement, proactive migration, and temperature-guided eviction to reduce fragmentation and reconfiguration overhead. It demonstrates serving 2.38x–5.32x more requests under 90% SLO attainment compared to state-of-the-art methods."
+  },
+  {
+    "paper_id": "arxiv:2609.13537",
+    "title": "Dynamic HBM Repartitioning for Multi-Turn MoE Serving",
+    "url": "http://arxiv.org/abs/2609.13537v1",
+    "source": "arxiv",
+    "published_date": "2026-09-11T21:06:26+00:00",
+    "posted_at": "2026-09-15T22:31:27.238363+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 10,
+    "tags": [
+      "kv-cache",
+      "mixture-of-experts",
+      "serving"
+    ],
+    "summary": "VAMP is an MoE serving framework that dynamically repartitions HBM between expert weights and KV-cache at runtime using CUDA page remapping. It reduces time-to-first-token p90 by 23.6x and increases request throughput by 20.7% on multi-turn workloads compared to unmodified vLLM."
+  },
+  {
+    "paper_id": "arxiv:2609.14643",
+    "title": "BigMoMo: Efficient Inference of Large-Scale MoE with Speculative Decoding on Mobile Devices",
+    "url": "http://arxiv.org/abs/2609.14643v1",
+    "source": "arxiv",
+    "published_date": "2026-09-13T16:28:12+00:00",
+    "posted_at": "2026-09-15T22:31:27.238363+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "mixture-of-experts",
+      "hardware"
+    ],
+    "summary": "BigMoMo is a mobile MoE runtime that leverages the multi-token verification window of speculative decoding to decouple expert weight offloading from execution, enabling load-compute overlap. It achieves mean decoding speedups of 4.83x over on-demand offloading and 1.82x over the best speculative MoE baseline across four MoE models on mobile platforms."
+  },
+  {
+    "paper_id": "arxiv:2609.14717",
+    "title": "Carryover Drafting: Recycling Rejected States for Speculative Decoding",
+    "url": "http://arxiv.org/abs/2609.14717v1",
+    "source": "arxiv",
+    "published_date": "2026-09-13T18:20:31+00:00",
+    "posted_at": "2026-09-15T22:31:27.238363+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification",
+      "kv-cache"
+    ],
+    "summary": "Carryover Drafting recycles rejected target hidden states as temporary KV context for the drafter to improve subsequent drafts. The method improves average acceptance length by 6.5-14.7% and end-to-end vLLM speedup by 7.9-14.4% over baselines, with speedup gains reaching 28.8% on translation."
+  },
+  {
+    "paper_id": "arxiv:2609.15296",
+    "title": "Reason What Matters: Retrieval-Grounded Reasoning for Universal Multimodal Embeddings",
+    "url": "http://arxiv.org/abs/2609.15296v1",
+    "source": "arxiv",
+    "published_date": "2026-09-14T09:48:05+00:00",
+    "posted_at": "2026-09-15T22:31:27.238363+00:00",
+    "lane": "specdec",
+    "specdec_score": 6,
+    "inference_score": 8,
+    "tags": [
+      "early-exit",
+      "speculative-decoding"
+    ],
+    "summary": "ReWAM introduces Retrieval-adaptive Inference (RAI), which uses a confidence head to halt unproductive reasoning traces and accelerates useful ones via speculative decoding. Evaluated on MMEB-V2 and MRMR, the method achieves state-of-the-art retrieval performance while delivering up to 5x the inference throughput of competitive explicit-CoT methods."
+  },
+  {
+    "paper_id": "arxiv:2609.15359",
+    "title": "MAPS: Memory-Aware Predictive Scheduling Framework for Large Language Model Serving",
+    "url": "http://arxiv.org/abs/2609.15359v1",
+    "source": "arxiv",
+    "published_date": "2026-09-14T10:43:42+00:00",
+    "posted_at": "2026-09-15T22:31:27.238363+00:00",
+    "lane": "inference",
+    "specdec_score": 3,
+    "inference_score": 9,
+    "tags": [
+      "serving"
+    ],
+    "summary": "MAPS is a memory-aware predictive scheduling framework for disaggregated LLM serving that uses speculative output length prediction and uncertainty-aware calibration to optimize scheduling. Evaluated on two real-world workloads, it is claimed to reduce average end-to-end latency by 42.6% and tail latency by up to 84.8%."
+  },
+  {
+    "paper_id": "arxiv:2609.15504",
+    "title": "How Lossless Is Lossless Speculative Decoding? The Role of Numerical Precision in Orthrus",
+    "url": "http://arxiv.org/abs/2609.15504v1",
+    "source": "arxiv",
+    "published_date": "2026-09-14T12:55:08+00:00",
+    "posted_at": "2026-09-15T22:31:27.238363+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 5,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper evaluates the losslessness of the Orthrus hybrid autoregressive-diffusion speculative decoding architecture under different numerical precisions. It finds that exact trajectory matching drops to 43-45% under BF16 but achieves 100% exact matching under FP32, without systematic degradation on downstream benchmarks."
+  },
+  {
+    "paper_id": "doi:10.1109/jiot.2026.3718029",
+    "title": "Efficient LLM Coserving at the Edge via Resource-Aware Cooperative Scheduling",
+    "url": "https://www.semanticscholar.org/paper/3f71f011292d4504aa0b754cb9854b3140cba51b",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-15",
+    "posted_at": "2026-09-15T22:31:27.238363+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "kv-cache"
+    ],
+    "summary": "RACS is a resource-aware cooperative scheduling framework for edge LLM coserving that manages PCIe bandwidth contention between high-priority and low-priority models. It improves offline task throughput by up to 27.4% without compromising the latency of the high-priority model."
   }
 ]
