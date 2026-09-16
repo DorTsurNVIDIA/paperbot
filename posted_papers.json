@@ -3794,5 +3794,125 @@
       "kv-cache"
     ],
     "summary": "RACS is a resource-aware cooperative scheduling framework for edge LLM coserving that manages PCIe bandwidth contention between high-priority and low-priority models. It improves offline task throughput by up to 27.4% without compromising the latency of the high-priority model."
+  },
+  {
+    "paper_id": "arxiv:2609.16648",
+    "title": "GrowMTP: Can RL Grow Its Own Draft Head?",
+    "url": "http://arxiv.org/abs/2609.16648v1",
+    "source": "arxiv",
+    "published_date": "2026-09-15T05:09:12+00:00",
+    "posted_at": "2026-09-16T13:25:53.809646+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "multi-token-prediction",
+      "verification"
+    ],
+    "summary": "GrowMTP trains a draft head from scratch within the RL loop using verification signals to accelerate autoregressive rollout generation via speculative decoding. It achieves rollout speedups of up to 2.13x and end-to-end RL training speedups of up to 1.60x."
+  },
+  {
+    "paper_id": "arxiv:2609.16898",
+    "title": "OptiPrime: Optimizing Private Inference through Protocol-Hardware Co-design",
+    "url": "http://arxiv.org/abs/2609.16898v1",
+    "source": "arxiv",
+    "published_date": "2026-09-15T09:29:58+00:00",
+    "posted_at": "2026-09-16T13:25:53.809646+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware"
+    ],
+    "summary": "OptiPrime is a protocol-hardware co-optimization framework for private DNN inference that reduces network communication and memory traffic via a novel HE protocol and compression system. The framework outperforms the Cheetah baseline by up to 5.7 times on CPUs and 4.2 times with an accelerator."
+  },
+  {
+    "paper_id": "arxiv:2609.17008",
+    "title": "FlexEE: Self-Speculative and KV-Compatible Early Exiting for Offloading-Aware LLM Inference",
+    "url": "http://arxiv.org/abs/2609.17008v1",
+    "source": "arxiv",
+    "published_date": "2026-09-15T11:20:23+00:00",
+    "posted_at": "2026-09-16T13:25:53.809646+00:00",
+    "lane": "specdec",
+    "specdec_score": 7,
+    "inference_score": 9,
+    "tags": [
+      "early-exit",
+      "kv-cache",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "FlexEE is an early exiting framework for offloading-based LLM inference that uses self-speculative decoding over a Top-K local vocabulary to make low-cost exit decisions while dynamically managing the KV-cache. It achieves up to 3.16x end-to-end speedup on Llama2-7B and Llama3-8B with minimal accuracy degradation."
+  },
+  {
+    "paper_id": "arxiv:2609.17184",
+    "title": "LoopSpec: Pipelined Self-Speculative Decoding for Looped Transformers",
+    "url": "http://arxiv.org/abs/2609.17184v1",
+    "source": "arxiv",
+    "published_date": "2026-09-15T13:43:31+00:00",
+    "posted_at": "2026-09-16T13:25:53.809646+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "LoopSpec is a training-free self-speculative decoding framework for Looped Transformers that extracts draft tokens from early recurrent states and overlaps draft generation with target verification. The method is evaluated on reasoning and coding benchmarks, achieving up to a 6.83x inference speedup while maintaining lossless decoding."
+  },
+  {
+    "paper_id": "arxiv:2609.17193",
+    "title": "End-to-End Latency-Minimizing and Load-Balanced Request Scheduling for Edge LLM Inference in Agentic AI Services",
+    "url": "http://arxiv.org/abs/2609.17193v1",
+    "source": "arxiv",
+    "published_date": "2026-09-15T13:50:54+00:00",
+    "posted_at": "2026-09-16T13:25:53.809646+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "kv-cache",
+      "batching"
+    ],
+    "summary": "The paper proposes LYREO, an online request scheduling framework for edge LLM inference that uses Lyapunov optimization and reward redistribution to minimize end-to-end latency and balance load. Simulations demonstrate that the method achieves lower latency and more balanced load distribution than representative learning-based and heuristic baselines."
+  },
+  {
+    "paper_id": "arxiv:2609.17241",
+    "title": "ECHO: Early-layer Collaborative Hierarchical Orchestration with Bonus Logits in Speculative Decoding",
+    "url": "http://arxiv.org/abs/2609.17241v1",
+    "source": "arxiv",
+    "published_date": "2026-09-15T14:21:33+00:00",
+    "posted_at": "2026-09-16T13:25:53.809646+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification",
+      "multi-token-prediction"
+    ],
+    "summary": "ECHO is a draft-model-free speculative decoding framework that uses early-layer bonus logits for rapid draft-tree exploration and final-layer logits for target verification and tree correction. The method is evaluated across diverse benchmarks, demonstrating a 2.4x to 2.9x speedup over state-of-the-art baselines with negligible engineering overhead."
+  },
+  {
+    "paper_id": "arxiv:2609.17475",
+    "title": "JustFit: 200K-Token LLM Serving on a 24 GiB Laptop with Just-in-Time State Management",
+    "url": "http://arxiv.org/abs/2609.17475v1",
+    "source": "arxiv",
+    "published_date": "2026-09-15T17:15:48+00:00",
+    "posted_at": "2026-09-16T13:25:53.809646+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving",
+      "long-context"
+    ],
+    "summary": "JustFit is an MLX-based inference runtime combining compressed KV execution, component swapping, and state transitions to manage just-in-time memory materialization. It enables a 24 GiB laptop to process up to 212,992 token positions in a single request (a 6.93x increase over baseline) while maintaining a 16,374 MiB peak footprint."
   }
 ]
