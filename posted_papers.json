@@ -3914,5 +3914,90 @@
       "long-context"
     ],
     "summary": "JustFit is an MLX-based inference runtime combining compressed KV execution, component swapping, and state transitions to manage just-in-time memory materialization. It enables a 24 GiB laptop to process up to 212,992 token positions in a single request (a 6.93x increase over baseline) while maintaining a 16,374 MiB peak footprint."
+  },
+  {
+    "paper_id": "arxiv:2609.17691",
+    "title": "Accelerating Diffusion Sampling via Speculative Draft Trees",
+    "url": "http://arxiv.org/abs/2609.17691v1",
+    "source": "arxiv",
+    "published_date": "2026-09-15T18:04:10+00:00",
+    "posted_at": "2026-09-17T13:21:47.389668+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper introduces draft trees for speculative sampling in diffusion models, replacing linear chain drafts with a tree structure to increase candidate diversity and acceptance rates via greedy rejection sampling. The method achieves up to 8.3% acceleration over reflection coupling baselines in practical diffusion generation settings."
+  },
+  {
+    "paper_id": "arxiv:2609.17943",
+    "title": "ASPIRE: Asynchronous Batched Self-Speculative Decoding for Long-Context LLM Inference",
+    "url": "http://arxiv.org/abs/2609.17943v1",
+    "source": "arxiv",
+    "published_date": "2026-09-16T00:04:13+00:00",
+    "posted_at": "2026-09-17T13:21:47.389668+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "kv-cache",
+      "long-context",
+      "sparsity",
+      "serving"
+    ],
+    "summary": "ASPIRE is an asynchronous batched self-speculative decoding framework that drafts tokens with sparse attention and verifies them with full attention using a per-request online scheduler. The method achieves 1.70-4.58x decoding throughput speedup over autoregressive baselines and ~27% improvement over prior self-speculative baselines."
+  },
+  {
+    "paper_id": "arxiv:2609.18112",
+    "title": "Token Latency Fairness: Performance Isolation for Multi-Tenant LLM Serving",
+    "url": "http://arxiv.org/abs/2609.18112v1",
+    "source": "arxiv",
+    "published_date": "2026-09-16T04:33:08+00:00",
+    "posted_at": "2026-09-17T13:21:47.389668+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "batching",
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "FairInference is a multi-tenant LLM serving scheduler that enforces per-token deadlines to provide strong latency isolation guarantees, evaluated to show it bounds token-level latency spikes and improves overall throughput."
+  },
+  {
+    "paper_id": "arxiv:2609.18675",
+    "title": "HBFlex: A Flexible Memory System for Bridging Fine-Grained LLM States and Coarse-Grained HBF Parallel Execution",
+    "url": "http://arxiv.org/abs/2609.18675v1",
+    "source": "arxiv",
+    "published_date": "2026-09-16T13:52:28+00:00",
+    "posted_at": "2026-09-17T13:21:47.389668+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "HBFlex is a full-HBF memory system optimizing KV-cache reads, writes, and reclamation for LLM serving. It achieves average throughput speedups of up to 1.58x over FlashAccel and 3.30x over H3."
+  },
+  {
+    "paper_id": "arxiv:2609.18849",
+    "title": "Ask the Tool, Don't Guess: Agent Tool Calls Hold Their Progress, and the Serving System Should Read It",
+    "url": "http://arxiv.org/abs/2609.18849v1",
+    "source": "arxiv",
+    "published_date": "2026-09-16T15:54:34+00:00",
+    "posted_at": "2026-09-17T13:21:47.389668+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "kv-cache"
+    ],
+    "summary": "The method proposes that agent tool calls explicitly report their progress to improve KV cache management during tool execution. It demonstrates that this approach significantly improves KV cache prediction accuracy and cuts p90 time to first token (TTFT) after a tool call by 20.7% against an LRU baseline."
   }
 ]
