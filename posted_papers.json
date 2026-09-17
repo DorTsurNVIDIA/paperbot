@@ -3999,5 +3999,21 @@
       "kv-cache"
     ],
     "summary": "The method proposes that agent tool calls explicitly report their progress to improve KV cache management during tool execution. It demonstrates that this approach significantly improves KV cache prediction accuracy and cuts p90 time to first token (TTFT) after a tool call by 20.7% against an LRU baseline."
+  },
+  {
+    "paper_id": "doi:10.1016/j.compeleceng.2026.111505",
+    "title": "Component-aware self-speculative decoding for hybrid language models: An architectural viability study",
+    "url": "https://www.semanticscholar.org/paper/eacd0557b38bb4caa94f2ff2f93ebce13db6b09a",
+    "source": "semantic_scholar",
+    "published_date": "2026-12-01",
+    "posted_at": "2026-09-17T22:29:47.764419+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 7,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper investigates self-speculative decoding for hybrid language models by examining the architectural viability of using internal components to propose and verify tokens. It evaluates the performance and feasibility of this component-aware speculative decoding approach."
   }
 ]
