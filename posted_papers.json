@@ -4015,5 +4015,95 @@
       "verification"
     ],
     "summary": "The paper investigates self-speculative decoding for hybrid language models by examining the architectural viability of using internal components to propose and verify tokens. It evaluates the performance and feasibility of this component-aware speculative decoding approach."
+  },
+  {
+    "paper_id": "arxiv:2609.19169",
+    "title": "SiliconBench: Speed, Memory, and Fidelity for LLM Serving on Unified-Memory Desktops",
+    "url": "http://arxiv.org/abs/2609.19169v1",
+    "source": "arxiv",
+    "published_date": "2026-09-12T23:29:12+00:00",
+    "posted_at": "2026-09-18T12:56:35.390225+00:00",
+    "lane": "inference",
+    "specdec_score": 2,
+    "inference_score": 9,
+    "tags": [
+      "benchmark",
+      "hardware",
+      "kv-cache",
+      "long-context",
+      "mixture-of-experts",
+      "serving"
+    ],
+    "summary": "SiliconBench is a benchmark evaluating LLM serving engines on unified-memory desktops across speed, memory, and fidelity. The evaluation reveals performance and scaling characteristics across various stacks, noting that vllm-metal can more than double throughput on smaller models while maintaining lower first-token latency under concurrent load."
+  },
+  {
+    "paper_id": "arxiv:2609.19207",
+    "title": "MeshKV: A Network-on-Chip KV Cache Fabric for Scalable Transformer Decoding Accelerators",
+    "url": "http://arxiv.org/abs/2609.19207v1",
+    "source": "arxiv",
+    "published_date": "2026-09-16T10:34:39+00:00",
+    "posted_at": "2026-09-18T12:56:35.390225+00:00",
+    "lane": "inference",
+    "specdec_score": 2,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "hardware",
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "MeshKV is a Network-on-Chip KV cache fabric that optimizes irregular KV cache movement via packetized flows, striping, and multicast. On an 8x8 FPGA implementation, it reduces interconnect traffic by up to 58% and delivers up to 1.9x multi-stream throughput."
+  },
+  {
+    "paper_id": "arxiv:2609.19868",
+    "title": "Zarya: A Hybrid Autoregressive--Masked Diffusion Language Model with Flexible Training and Dual-Mode Inference",
+    "url": "http://arxiv.org/abs/2609.19868v1",
+    "source": "arxiv",
+    "published_date": "2026-09-17T08:21:14+00:00",
+    "posted_at": "2026-09-18T12:56:35.390225+00:00",
+    "lane": "specdec",
+    "specdec_score": 8,
+    "inference_score": 7,
+    "tags": [
+      "speculative-decoding",
+      "multi-token-prediction",
+      "kv-cache"
+    ],
+    "summary": "Zarya is a hybrid autoregressive-masked diffusion language model that introduces slotted speculative decoding, interleaving diffusion-based selection with autoregressive infilling to enable full KV cache reuse. The method is evaluated on standard benchmarks across 0.6B, 1.7B, and 4B model sizes to demonstrate performance."
+  },
+  {
+    "paper_id": "arxiv:2609.19969",
+    "title": "DeepSeek-V4.1-Flash: Pushing the Limits of KV Cache Compression",
+    "url": "http://arxiv.org/abs/2609.19969v1",
+    "source": "arxiv",
+    "published_date": "2026-09-17T09:43:10+00:00",
+    "posted_at": "2026-09-18T12:56:35.390225+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "kv-cache",
+      "long-context",
+      "mixture-of-experts"
+    ],
+    "summary": "The method introduces a Mixture-of-Experts model with cross-layer KV cache reuse and FP4 caching to minimize memory and bandwidth bottlenecks. It achieves a persistent KV cache footprint roughly 1/8 of the baseline while maintaining strong performance."
+  },
+  {
+    "paper_id": "arxiv:2609.20186",
+    "title": "To Copy or Not to Copy: Controlling Speculative Decoding via Intrinsic Model Signals",
+    "url": "http://arxiv.org/abs/2609.20186v1",
+    "source": "arxiv",
+    "published_date": "2026-09-17T12:51:20+00:00",
+    "posted_at": "2026-09-18T12:56:35.390225+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "SwitchSD is an adaptive speculative decoding framework that switches between neural drafting and context-based copying using intrinsic model signals trained as lightweight probes. Evaluated on Llama and Qwen families, the method identifies copy-intent with high precision and yields throughput gains of up to 15% over state-of-the-art baselines like EAGLE3."
   }
 ]
