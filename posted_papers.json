@@ -4105,5 +4105,21 @@
       "verification"
     ],
     "summary": "SwitchSD is an adaptive speculative decoding framework that switches between neural drafting and context-based copying using intrinsic model signals trained as lightweight probes. Evaluated on Llama and Qwen families, the method identifies copy-intent with high precision and yields throughput gains of up to 15% over state-of-the-art baselines like EAGLE3."
+  },
+  {
+    "paper_id": "doi:10.1145/3846171",
+    "title": "Towards Optimal Speculative Decoding: A Comprehensive Survey on Optimizations and Future Directions",
+    "url": "https://www.semanticscholar.org/paper/e13910b791400a9191eb92f54e94f21f4c36f463",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-16",
+    "posted_at": "2026-09-18T21:59:33.802461+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "benchmark",
+      "speculative-decoding"
+    ],
+    "summary": "A survey on speculative decoding that provides a unified analysis of factors bounding acceleration, specifically examining draft effectiveness, verification efficiency, and system execution to synthesize trade-offs and outline future research directions."
   }
 ]
