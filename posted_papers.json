@@ -4121,5 +4121,121 @@
       "speculative-decoding"
     ],
     "summary": "A survey on speculative decoding that provides a unified analysis of factors bounding acceleration, specifically examining draft effectiveness, verification efficiency, and system execution to synthesize trade-offs and outline future research directions."
+  },
+  {
+    "paper_id": "arxiv:2609.20874",
+    "title": "Decomposing Predictive Kubernetes Autoscaling for Large Language Model Serving Under Long Startup Delays",
+    "url": "http://arxiv.org/abs/2609.20874v1",
+    "source": "arxiv",
+    "published_date": "2026-09-16T06:45:20+00:00",
+    "posted_at": "2026-09-21T15:04:09.383564+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "kv-cache",
+      "batching"
+    ],
+    "summary": "The paper decomposes predictive autoscaling for LLM serving on Kubernetes into four factors and evaluates their isolated contributions under long startup delays. A simple EWMA predictor with delay-aware lookahead and an upper confidence bound margin reduces time-to-first-token SLO violations from 53% to 0.5% on production-derived workloads, validated on a real Kubernetes cluster."
+  },
+  {
+    "paper_id": "arxiv:2609.20971",
+    "title": "RBS-Attention: Radius-Bounded Sparse Prefill for Long-Context Large Language Models",
+    "url": "http://arxiv.org/abs/2609.20971v1",
+    "source": "arxiv",
+    "published_date": "2026-09-17T18:28:29+00:00",
+    "posted_at": "2026-09-21T15:04:09.383564+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 10,
+    "tags": [
+      "attention",
+      "kv-cache",
+      "long-context",
+      "sparsity"
+    ],
+    "summary": "RBS-Attention is a training-free sparse-prefill method using dual-branch selection to mitigate mean dilution in long-context inference. It achieves a 5.97x end-to-end time-to-first-token speedup on Qwen3-30B-A3B-Instruct-2507-FP8 at 128K context length with minimal accuracy degradation on RULER."
+  },
+  {
+    "paper_id": "arxiv:2609.21172",
+    "title": "TierKV: Long-Context On-Device LLMs via Predictive Multi-Tier KV Caching",
+    "url": "http://arxiv.org/abs/2609.21172v1",
+    "source": "arxiv",
+    "published_date": "2026-09-18T00:36:05+00:00",
+    "posted_at": "2026-09-21T15:04:09.383564+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "hardware",
+      "long-context"
+    ],
+    "summary": "TierKV is a mobile LLM inference framework that uses predictive multi-tier KV caching to assign tokens to exact, low-rank, and offloaded tiers based on runtime memory budgets. It improves prefill throughput by up to 17.6x and reduces RAM-resident KV cache by 12.5-34% across vision, text, and audio models on mobile SoCs."
+  },
+  {
+    "paper_id": "arxiv:2609.21704",
+    "title": "SpecQuant: Speculative Decoding with Multi-Parent Quantization for Adaptive LLM Inference",
+    "url": "http://arxiv.org/abs/2609.21704v1",
+    "source": "arxiv",
+    "published_date": "2026-09-18T12:39:47+00:00",
+    "posted_at": "2026-09-21T15:04:09.383564+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "quantization",
+      "speculative-decoding"
+    ],
+    "summary": "SpecQuant is a training-free framework that combines speculative decoding with multi-parent quantization, using lower-precision model variants as draft models for adaptive inference. Evaluated on Qwen2.5 models across MMLU, AlpacaEval, and GSM8K, the method claims 35-43% speedups with less than 2% accuracy degradation."
+  },
+  {
+    "paper_id": "arxiv:2609.21827",
+    "title": "RheoSampling: Resolving the One-Hot Dilemma in Stochastic Dynamic-Tree Speculative Decoding",
+    "url": "http://arxiv.org/abs/2609.21827v1",
+    "source": "arxiv",
+    "published_date": "2026-09-18T14:28:28+00:00",
+    "posted_at": "2026-09-21T15:04:09.383564+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "RheoSampling decouples draft probability for tree expansion from true sampling probability for verification to resolve one-hot collapse in stochastic dynamic-tree speculative decoding. Experiments across LLMs and benchmarks demonstrate improvements in acceptance rate and speedup over state-of-the-art dynamic tree methods."
+  },
+  {
+    "paper_id": "arxiv:2609.21858",
+    "title": "Watermarkable Multi-Draft Speculative Sampling via Poisson Processes",
+    "url": "http://arxiv.org/abs/2609.21858v1",
+    "source": "arxiv",
+    "published_date": "2026-09-18T14:52:39+00:00",
+    "posted_at": "2026-09-21T15:04:09.383564+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 7,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper proposes a novel multi-draft speculative sampling algorithm based on Poisson processes that inherently supports unbiased watermarking. It experimentally verifies strong performance in both speculative acceptance efficiency and watermark strength."
+  },
+  {
+    "paper_id": "arxiv:2609.21899",
+    "title": "ExpBoN: Exponential-Noise Best-of-$n$ for Efficient Test-Time LLM Alignment",
+    "url": "http://arxiv.org/abs/2609.21899v1",
+    "source": "arxiv",
+    "published_date": "2026-09-18T15:26:51+00:00",
+    "posted_at": "2026-09-21T15:04:09.383564+00:00",
+    "lane": "specdec",
+    "specdec_score": 6,
+    "inference_score": 7,
+    "tags": [
+      "speculative-decoding"
+    ],
+    "summary": "The paper introduces ExpBoN, an exponential-noise Best-of-n method, and integrates it into the guided speculative inference (GSI) framework for efficient reward-guided LLM alignment. Evaluated on math benchmarks, the resulting ExpGSI reduces estimated computation by 14%-39% across candidate budgets while maintaining comparable accuracy."
   }
 ]
