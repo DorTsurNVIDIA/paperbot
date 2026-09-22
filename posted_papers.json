@@ -4404,5 +4404,55 @@
       "serving"
     ],
     "summary": "The paper presents unalloc, an open-source tool that joins cost data from Kubernetes, gateways, and API providers into a single ledger for attributing shared AI inference spend. It evaluates the tool across five case studies, finding that metering rules significantly impact cost attribution in shared vLLM servers with high GPU utilization."
+  },
+  {
+    "paper_id": "arxiv:2609.23169",
+    "title": "UltraTex: Unleashing 2K Multi-View Diffusion for 3D Texturing",
+    "url": "https://huggingface.co/papers/2609.23169",
+    "source": "huggingface",
+    "published_date": "2026-09-19T00:00:00.000Z",
+    "posted_at": "2026-09-22T22:28:13.054192+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "kv-cache",
+      "sparsity"
+    ],
+    "summary": "The method introduces Background Token Dropping and Block-Sparse Attention to reduce sequence length and attention computation in multi-view diffusion for 3D texturing. It evaluates end-to-end inference on common samples, claiming a 22.3x to 74.6x speedup over the baseline."
+  },
+  {
+    "paper_id": "doi:10.1145/3816891.3834895",
+    "title": "Adaptive GPU Sharing for Real-time LLM Serving with Best-effort Workloads",
+    "url": "https://www.semanticscholar.org/paper/9730041e4841cb0678d6e78480595f6475abba5c",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-28",
+    "posted_at": "2026-09-22T22:28:13.054192+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "serving",
+      "batching",
+      "hardware"
+    ],
+    "summary": "The paper proposes an adaptive GPU sharing system for real-time LLM serving to handle best-effort workloads alongside real-time requests. It evaluates the system's impact on serving latency and throughput."
+  },
+  {
+    "paper_id": "doi:10.1145/3837053.3837336",
+    "title": "LLM KV-cache: To Restore or To Recompute, That Is the Question",
+    "url": "https://www.semanticscholar.org/paper/54013045e517f3e5be61a15d667b956449e571e3",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-28",
+    "posted_at": "2026-09-22T22:28:13.054192+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "The paper investigates whether to restore or recompute the LLM KV-cache to optimize inference efficiency. It evaluates the trade-offs between these two approaches for improving serving performance."
   }
 ]
