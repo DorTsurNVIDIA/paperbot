@@ -4237,5 +4237,172 @@
       "speculative-decoding"
     ],
     "summary": "The paper introduces ExpBoN, an exponential-noise Best-of-n method, and integrates it into the guided speculative inference (GSI) framework for efficient reward-guided LLM alignment. Evaluated on math benchmarks, the resulting ExpGSI reduces estimated computation by 14%-39% across candidate budgets while maintaining comparable accuracy."
+  },
+  {
+    "paper_id": "arxiv:2609.22471",
+    "title": "Efficient Mixture-of-Experts with Speculative Decoding via Expert Coactivation",
+    "url": "http://arxiv.org/abs/2609.22471v1",
+    "source": "arxiv",
+    "published_date": "2026-09-18T18:30:43+00:00",
+    "posted_at": "2026-09-22T13:22:42.771772+00:00",
+    "lane": "specdec",
+    "specdec_score": 8,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "serving",
+      "verification"
+    ],
+    "summary": "The work trains MoE models with specific router design choices to maximize expert coactivation for use with Speculative Decoding. It yields a 21% throughput improvement over MoE baselines by mitigating the memory transfer bottleneck caused by increasing verification tokens."
+  },
+  {
+    "paper_id": "arxiv:2609.23033",
+    "title": "WaveFront Decoding: Parallelized Self-Speculative Decoding for Looped Language Models",
+    "url": "http://arxiv.org/abs/2609.23033v1",
+    "source": "arxiv",
+    "published_date": "2026-09-19T14:08:07+00:00",
+    "posted_at": "2026-09-22T13:22:42.771772+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding"
+    ],
+    "summary": "WaveFront Decoding (WFD) is a self-speculative framework for looped LMs that uses intermediate recurrence outputs as drafts and full-depth states as verification. It achieves up to 4.81x speedup on Huginn-3.5B over autoregressive decoding, outperforming draft-then-verify scheduling."
+  },
+  {
+    "paper_id": "arxiv:2609.23816",
+    "title": "SPLASH: Co-Designing Sparse Attention with High-Bandwidth Flash for Efficient Long-Context Inference",
+    "url": "http://arxiv.org/abs/2609.23816v1",
+    "source": "arxiv",
+    "published_date": "2026-09-20T19:11:43+00:00",
+    "posted_at": "2026-09-22T13:22:42.771772+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "long-context",
+      "sparsity",
+      "serving"
+    ],
+    "summary": "SPLASH co-designs sparse attention with High-Bandwidth Flash (HBF) to virtualize the KV cache across HBM and HBF for efficient long-context serving. It improves decode throughput per GPU by 3.5x-11.4x over baselines while keeping accuracy within 4% of dense attention."
+  },
+  {
+    "paper_id": "arxiv:2609.23900",
+    "title": "GDN Tree-Scan: Served Tree Verification for Recurrent-Hybrid Language Models",
+    "url": "http://arxiv.org/abs/2609.23900v1",
+    "source": "arxiv",
+    "published_date": "2026-09-20T22:21:01+00:00",
+    "posted_at": "2026-09-22T13:22:42.771772+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "verification",
+      "serving"
+    ],
+    "summary": "GDN Tree-Scan is a served verifier for recurrent-hybrid language models that uses branch-local scan/replay to verify tree-structured speculative drafts. On a 27B checkpoint, a six-node tree increases committed tokens per event by 17.2% and reaches 23.88 tokens/s, yielding a 27% decode-throughput gain over native multi-token prediction."
+  },
+  {
+    "paper_id": "arxiv:2609.24150",
+    "title": "Acceptance-Aware Draft Model Training for Speculative Decoding",
+    "url": "http://arxiv.org/abs/2609.24150v1",
+    "source": "arxiv",
+    "published_date": "2026-09-21T06:02:51+00:00",
+    "posted_at": "2026-09-22T13:22:42.771772+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper proposes acceptance-length-aware training losses (EAL and WTV) to directly optimize the expected number of tokens verified and accepted by a target model during speculative decoding. The proposed losses consistently improve acceptance length over KL-based training across different target and draft models, tasks, and decoding settings."
+  },
+  {
+    "paper_id": "arxiv:2609.24197",
+    "title": "H-Spec: Parallel Speculative Decoding Without a Drafter-Side KV Cache",
+    "url": "http://arxiv.org/abs/2609.24197v1",
+    "source": "arxiv",
+    "published_date": "2026-09-21T07:11:29+00:00",
+    "posted_at": "2026-09-22T13:22:42.771772+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "kv-cache",
+      "serving",
+      "multi-token-prediction"
+    ],
+    "summary": "H-Spec is a parallel speculative decoding method that eliminates the drafter-side KV cache by using a hybrid Mamba-attention drafter to reuse target hidden states and KVs. It improves mean accepted length by 5.0-13.3% and batch-size-1 inter-token latency speedup by 5.3-12.6% while maintaining lower KV cache utilization under concurrent serving."
+  },
+  {
+    "paper_id": "arxiv:2609.24346",
+    "title": "LADDER: Graph-Guided Diffusion Language Models for Efficient Multi-Hop Reasoning",
+    "url": "http://arxiv.org/abs/2609.24346v1",
+    "source": "arxiv",
+    "published_date": "2026-09-21T09:41:07+00:00",
+    "posted_at": "2026-09-22T13:22:42.771772+00:00",
+    "lane": "inference",
+    "specdec_score": 3,
+    "inference_score": 8,
+    "tags": [],
+    "summary": "LADDER accelerates GraphRAG inference by bridging diffusion language models with graph-guided parallel decoding and asynchronous retrieval. The framework achieves a 4.1x latency reduction and improves exact match scores on multi-hop QA benchmarks."
+  },
+  {
+    "paper_id": "arxiv:2609.24698",
+    "title": "Adapting Tree-Structured Speculative Decoding to DeepSeek-V4 for Efficient Inference",
+    "url": "http://arxiv.org/abs/2609.24698v1",
+    "source": "arxiv",
+    "published_date": "2026-09-21T14:47:06+00:00",
+    "posted_at": "2026-09-22T13:22:42.771772+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "verification",
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "The paper integrates tree-structured speculative decoding into the DeepSeek-V4-Flash pipeline using branch-aware causal verification and temporary state isolation to handle compressed attention states. It reports higher accepted token lengths than linear configurations and up to 18.5% throughput improvement across various budgets and batch sizes."
+  },
+  {
+    "paper_id": "arxiv:2609.24847",
+    "title": "SPECTRA: Adaptive Execution of Speculative Decoding on a Runtime-Reconfigurable Tiled Architecture",
+    "url": "http://arxiv.org/abs/2609.24847v1",
+    "source": "arxiv",
+    "published_date": "2026-09-21T16:25:24+00:00",
+    "posted_at": "2026-09-22T13:22:42.771772+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "hardware"
+    ],
+    "summary": "SPECTRA is a runtime-reconfigurable tiled hardware architecture designed to sustain high utilization across speculative decoding pipelines by adapting computation parallelism to varying speculation lengths and acceptance rates. Evaluated on a 20-tile FPGA prototype, it achieves up to 2.09x speedup from tile-level reconfiguration and a further 1.25x gain from system-level adaptability over fixed designs."
+  },
+  {
+    "paper_id": "arxiv:2609.24991",
+    "title": "Who Pays for the KV Cache? Attributing Shared AI Inference Spend Across Kubernetes and LLM Provider Bills",
+    "url": "http://arxiv.org/abs/2609.24991v1",
+    "source": "arxiv",
+    "published_date": "2026-09-21T17:57:40+00:00",
+    "posted_at": "2026-09-22T13:22:42.771772+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "The paper presents unalloc, an open-source tool that joins cost data from Kubernetes, gateways, and API providers into a single ledger for attributing shared AI inference spend. It evaluates the tool across five case studies, finding that metering rules significantly impact cost attribution in shared vLLM servers with high GPU utilization."
   }
 ]
