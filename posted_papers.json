@@ -4454,5 +4454,89 @@
       "serving"
     ],
     "summary": "The paper investigates whether to restore or recompute the LLM KV-cache to optimize inference efficiency. It evaluates the trade-offs between these two approaches for improving serving performance."
+  },
+  {
+    "paper_id": "arxiv:2609.25451",
+    "title": "Fast Recovery for LLM Serving via Decoupled Device Memory Lifetime in Dynamo",
+    "url": "http://arxiv.org/abs/2609.25451v1",
+    "source": "arxiv",
+    "published_date": "2026-09-21T22:05:55+00:00",
+    "posted_at": "2026-09-23T13:35:19.594655+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 10,
+    "tags": [
+      "serving"
+    ],
+    "summary": "The paper presents a fast recovery mechanism for LLM serving that decouples GPU device-memory ownership from engine processes to avoid weight reloads. Evaluated on production traces, the system recovers a failed replica in under 7 seconds, 13-29 times faster than a warm restart, reclaiming an estimated 79% of lost GPU-hours."
+  },
+  {
+    "paper_id": "arxiv:2609.26425",
+    "title": "QuantWM: Temporally Consistent 2-Bit KV Cache Quantization for World Models and Video Generation",
+    "url": "http://arxiv.org/abs/2609.26425v1",
+    "source": "arxiv",
+    "published_date": "2026-09-22T13:50:54+00:00",
+    "posted_at": "2026-09-23T13:35:19.594655+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "kv-cache",
+      "quantization"
+    ],
+    "summary": "QuantWM introduces a 2-bit KV cache quantization framework for video generation that preserves attention logits via sensitivity-aware clustering and attention compensation. The method achieves up to 6.20x KV cache memory compression with limited additional overhead while improving visual quality and temporal consistency over existing methods."
+  },
+  {
+    "paper_id": "arxiv:2609.26638",
+    "title": "Diffusion Drafts, AR Verifies: Accelerating Document OCR with Self-Speculative Decoding",
+    "url": "http://arxiv.org/abs/2609.26638v1",
+    "source": "arxiv",
+    "published_date": "2026-09-22T16:11:47+00:00",
+    "posted_at": "2026-09-23T13:35:19.594655+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "verification",
+      "draft-model",
+      "serving"
+    ],
+    "summary": "GravityOCR uses a parameter-shared autoregressive block-diffusion model to draft multiple tokens in parallel, which are then verified by a causal AR path before commitment. The method achieves a 3.94x decode-only speedup and a 1.32x end-to-end page-processing speedup in an SGLang serving deployment while maintaining OCR accuracy."
+  },
+  {
+    "paper_id": "arxiv:2609.26763",
+    "title": "SARA: SLO-Aware Resource Allocation for Disaggregated Agentic LLM Services",
+    "url": "http://arxiv.org/abs/2609.26763v1",
+    "source": "arxiv",
+    "published_date": "2026-09-22T17:42:35+00:00",
+    "posted_at": "2026-09-23T13:35:19.594655+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "kv-cache",
+      "batching"
+    ],
+    "summary": "SARA is an SLO-aware resource allocation framework for disaggregated agentic LLM serving systems that models prefill, KV cache transfer, and decode stages to optimize goodput under deployment cost constraints. Evaluated via simulations and hardware tests, it claims to predict stage-wise SLO with <5% mean error and improve goodput by 26.6% on average over baselines."
+  },
+  {
+    "paper_id": "arxiv:2609.26796",
+    "title": "Flash-dLLM: IO-Aware KV Caching and Parallel Decoding for Fast, Memory-Efficient Diffusion LLMs",
+    "url": "http://arxiv.org/abs/2609.26796v1",
+    "source": "arxiv",
+    "published_date": "2026-09-22T17:59:57+00:00",
+    "posted_at": "2026-09-23T13:35:19.594655+00:00",
+    "lane": "specdec",
+    "specdec_score": 7,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "Flash-dLLM is a training-free inference framework for diffusion LLMs that introduces an I/O-aware fused KV-cache kernel and a draft-and-verify decoding strategy where the model serves as its own drafter and verifier. Evaluated on math reasoning and code generation benchmarks, it claims up to 11.0x speedup and improved memory efficiency over prior baselines."
   }
 ]
