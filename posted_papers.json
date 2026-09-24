@@ -4538,5 +4538,71 @@
       "verification"
     ],
     "summary": "Flash-dLLM is a training-free inference framework for diffusion LLMs that introduces an I/O-aware fused KV-cache kernel and a draft-and-verify decoding strategy where the model serves as its own drafter and verifier. Evaluated on math reasoning and code generation benchmarks, it claims up to 11.0x speedup and improved memory efficiency over prior baselines."
+  },
+  {
+    "paper_id": "arxiv:2609.26828",
+    "title": "Bridging LLM Serving and CXL-SSDs with Chunk-Aware KV Cache Management",
+    "url": "http://arxiv.org/abs/2609.26828v1",
+    "source": "arxiv",
+    "published_date": "2026-09-20T22:40:01+00:00",
+    "posted_at": "2026-09-24T13:31:03.283871+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "LM-CXD is a CXL-SSD system designed for LLM prefix caching that makes KV chunks device-visible I/O units and pipelines KV movement with GPU computation. It reduces average Time-To-First-Token (TTFT) over a stock CXL-SSD by up to 4.03x, achieving TTFT within 1.5x of local DRAM."
+  },
+  {
+    "paper_id": "arxiv:2609.27085",
+    "title": "Crossflow: Prefill-Decode Elasticity for Agentic LLM Serving",
+    "url": "http://arxiv.org/abs/2609.27085v1",
+    "source": "arxiv",
+    "published_date": "2026-09-22T21:35:14+00:00",
+    "posted_at": "2026-09-24T13:31:03.283871+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "kv-cache",
+      "batching"
+    ],
+    "summary": "Crossflow introduces an elastic prefill-decode (P/D) boundary using short-lived, revocable leases on decode nodes to dynamically balance cluster capacity. The method improves token throughput by 16.2-17.4% on geometric mean over static P/D and up to 43.4% at high load while reducing mean time to first token (TTFT)."
+  },
+  {
+    "paper_id": "arxiv:2609.27396",
+    "title": "When Parallel Drafter Meets Parallel Speculative Decoding",
+    "url": "http://arxiv.org/abs/2609.27396v1",
+    "source": "arxiv",
+    "published_date": "2026-09-23T05:53:48+00:00",
+    "posted_at": "2026-09-24T13:31:03.283871+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "speculative-decoding"
+    ],
+    "summary": "DPara is a parallel speculative decoding framework that overlaps drafting with verification by using a diffusion backbone to precompute draft representations and an autoregressive head to emit draft tokens based on verification outcomes. Evaluated on Qwen3-8B and Qwen3-14B across seven benchmarks, it achieves average speedups of 3.21x and 3.52x over autoregressive decoding, outperforming serial and parallel speculative decoding baselines."
+  },
+  {
+    "paper_id": "arxiv:2609.27746",
+    "title": "The KV Cache Working Set: Online Capacity Planning for LLM Inference Systems",
+    "url": "http://arxiv.org/abs/2609.27746v1",
+    "source": "arxiv",
+    "published_date": "2026-09-23T11:59:45+00:00",
+    "posted_at": "2026-09-24T13:31:03.283871+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "The paper introduces KVSET, an online analyzer that estimates the KV cache working set for LLM serving systems using the Mattson stack algorithm to predict cache hit rates across various capacities. It validates the approach using production LLM workload traces, showing accurate estimates of minimum cache capacity required for target hit rates."
   }
 ]
