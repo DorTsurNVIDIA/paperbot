@@ -4604,5 +4604,25 @@
       "serving"
     ],
     "summary": "The paper introduces KVSET, an online analyzer that estimates the KV cache working set for LLM serving systems using the Mattson stack algorithm to predict cache hit rates across various capacities. It validates the approach using production LLM workload traces, showing accurate estimates of minimum cache capacity required for target hit rates."
+  },
+  {
+    "paper_id": "doi:10.1109/tpds.2026.3729256",
+    "title": "Mix-or-Split: Latency-Aware Scheduling for Edge–Cloud LLM Inference",
+    "url": "https://www.semanticscholar.org/paper/959de1009a50fc63296d04abc4ee8466d8520681",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-01",
+    "posted_at": "2026-09-24T22:46:03.396520+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "batching",
+      "hardware",
+      "kv-cache",
+      "long-context",
+      "serving",
+      "sparsity"
+    ],
+    "summary": "A latency-aware scheduler for edge-cloud collaborative LLM inference that uses dynamic execution routing (cloud, split, or mix) to optimize goodput and SLO attainment. It reduces mean end-to-end latency by 6.4% relative to the best fixed baseline and attains 100% SLO in a Qwen3-8B replay."
   }
 ]
