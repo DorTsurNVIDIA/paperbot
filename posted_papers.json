@@ -4624,5 +4624,93 @@
       "sparsity"
     ],
     "summary": "A latency-aware scheduler for edge-cloud collaborative LLM inference that uses dynamic execution routing (cloud, split, or mix) to optimize goodput and SLO attainment. It reduces mean end-to-end latency by 6.4% relative to the best fixed baseline and attains 100% SLO in a Qwen3-8B replay."
+  },
+  {
+    "paper_id": "arxiv:2609.28717",
+    "title": "HeteroReason: Heterogeneous FPGA-GPU Acceleration for Disaggregated Speculative Reasoning",
+    "url": "http://arxiv.org/abs/2609.28717v1",
+    "source": "arxiv",
+    "published_date": "2026-09-23T18:57:38+00:00",
+    "posted_at": "2026-09-25T13:37:24.193260+00:00",
+    "lane": "specdec",
+    "specdec_score": 8,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "hardware",
+      "speculative-decoding",
+      "verification",
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "HeteroReason is a heterogeneous FPGA-GPU system for speculative reasoning that offloads draft models to FPGA and target/verification models to GPUs with prefill-decode disaggregation. It achieves 1.01x-1.42x latency speedups and a 4.2% accuracy improvement over homogeneous GPU baselines."
+  },
+  {
+    "paper_id": "arxiv:2609.29364",
+    "title": "NebulaSD: Many-for-Many Speculative Decoding",
+    "url": "https://www.semanticscholar.org/paper/5da1eb1fd8f3a51946b258594012a211afcfaf9b",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-24",
+    "posted_at": "2026-09-25T13:37:24.193260+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "kv-cache",
+      "serving",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "NebulaSD is a many-for-many speculative decoding system that organizes draft and target workers into independently schedulable resource pools with asynchronous KV-state preparation. It improves request-round processing rate by 50.4% over a physically disaggregated baseline and 72.6% over co-located execution on a four-GPU deployment."
+  },
+  {
+    "paper_id": "arxiv:2609.29382",
+    "title": "Decoupled Early Exits for Task-Dependent Compute Allocation in Flow-Matching VLAs",
+    "url": "http://arxiv.org/abs/2609.29382v1",
+    "source": "arxiv",
+    "published_date": "2026-09-24T11:10:00+00:00",
+    "posted_at": "2026-09-25T13:37:24.193260+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "early-exit",
+      "kv-cache"
+    ],
+    "summary": "The method introduces decoupled early exits and a KV cache synthesis mechanism for flow-matching VLA models to jointly configure backbone depth, action expert depth, and denoising steps. Evaluated on LIBERO and Meta-World, the joint configurations reduce latency by 79.2% and computation by 31.8% while improving the mean success rate."
+  },
+  {
+    "paper_id": "arxiv:2609.29812",
+    "title": "FlashLoop: Fast and Memory-Efficient Looped Transformers via Lazy Updates",
+    "url": "http://arxiv.org/abs/2609.29812v1",
+    "source": "arxiv",
+    "published_date": "2026-09-24T13:47:03+00:00",
+    "posted_at": "2026-09-25T13:37:24.193260+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "quantization",
+      "sparsity"
+    ],
+    "summary": "FlashLoop is a training-free inference framework for Looped Transformers that reduces cross-loop redundancy via token-sparse updates, sparse attention, and KV-residual quantization. The abstract reports that the method achieves lossless accuracy while delivering up to 1.64x end-to-end speedup and up to 6x KV-cache memory reduction."
+  },
+  {
+    "paper_id": "arxiv:2609.29913",
+    "title": "MILO: Efficient Many-shot In-Context Learning with Block-wise Low-rank Compression",
+    "url": "http://arxiv.org/abs/2609.29913v1",
+    "source": "arxiv",
+    "published_date": "2026-09-24T14:52:24+00:00",
+    "posted_at": "2026-09-25T13:37:24.193260+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "MILO introduces a block-wise low-rank compression framework for the KV cache to address memory bottlenecks in many-shot in-context learning. Evaluated on Qwen2.5 models, the method claims up to a 50% reduction in KV cache memory and a 1.8x throughput improvement with negligible performance degradation."
   }
 ]
