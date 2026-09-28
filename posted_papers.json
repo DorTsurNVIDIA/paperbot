@@ -4729,5 +4729,69 @@
       "serving"
     ],
     "summary": "PDAcc is a four-chiplet multi-chip-module accelerator optimized for prefill-decode disaggregated LLM inference that uses reconfigurable chiplets and specialized dataflows. It achieves 5.76x higher prefill throughput and 12.42x higher decode throughput than a single chiplet, and 1.50x-3.24x improvement over a four-chiplet PD-aggregated baseline."
+  },
+  {
+    "paper_id": "arxiv:2609.30474",
+    "title": "Mentored Decoding: Faster Inference meets Boosting",
+    "url": "http://arxiv.org/abs/2609.30474v1",
+    "source": "arxiv",
+    "published_date": "2026-09-24T19:12:41+00:00",
+    "posted_at": "2026-09-28T16:43:58.547185+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 7,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper proposes 'mentored decoding', a formal approach to lossy speculative decoding connecting draft/target verification to boosting theory via f-divergences. It theoretically proves how lossy speculative decoding can beat the target quality-wise and provides optimal data structures for constructing optimal mentored distributions in O(n) time."
+  },
+  {
+    "paper_id": "arxiv:2609.31047",
+    "title": "DynBranch: Speculative Subgraph Reuse for Dynamic Agentic LLM Serving",
+    "url": "http://arxiv.org/abs/2609.31047v1",
+    "source": "arxiv",
+    "published_date": "2026-09-25T09:42:18+00:00",
+    "posted_at": "2026-09-28T16:43:58.547185+00:00",
+    "lane": "inference",
+    "specdec_score": 2,
+    "inference_score": 9,
+    "tags": [
+      "serving"
+    ],
+    "summary": "DynBranch makes unresolved agentic LLM workflow branches addressable so candidate subgraphs can execute during branch resolution and be reused. It reduces mean latency by up to 32% over the strongest prior system and 46-66% against a no-reuse floor across four agentic workloads."
+  },
+  {
+    "paper_id": "arxiv:2609.31551",
+    "title": "EAServe: Encode-Aware Disaggregated Serving for Multimodal Large Language Models",
+    "url": "http://arxiv.org/abs/2609.31551v1",
+    "source": "arxiv",
+    "published_date": "2026-09-25T17:20:22+00:00",
+    "posted_at": "2026-09-28T16:43:58.547185+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving"
+    ],
+    "summary": "EAServe is a disaggregated serving system for multimodal LLMs that repositions the Encode phase as a control point for adaptive batching and resource sharing. It achieves up to 4.3x and 1.7x higher goodput than NVIDIA Dynamo and vLLM baselines under identical SLO constraints."
+  },
+  {
+    "paper_id": "arxiv:2609.31568",
+    "title": "DeepEdu-v1: Efficient and Scalable Agentic LLMs for Vietnamese Education",
+    "url": "http://arxiv.org/abs/2609.31568v1",
+    "source": "arxiv",
+    "published_date": "2026-09-25T17:33:41+00:00",
+    "posted_at": "2026-09-28T16:43:58.547185+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "long-context",
+      "serving",
+      "kv-cache"
+    ],
+    "summary": "DeepEdu-v1 introduces a long-context inference engine that amortizes token selection to reduce retrieval calls and prefill latency. The system achieves a nearly 2x TTFT speedup over standard vLLM serving while improving task accuracy."
   }
 ]
