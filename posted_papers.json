@@ -4998,5 +4998,69 @@
       "speculative-decoding"
     ],
     "summary": "A performance engineering study of two-token multi-token prediction (MTP) with proposal, sampling, and verification operations evaluated against autoregressive decoding. It reports a 1.91x to 2.19x increase in output throughput and a median mean acceptance length of 2.370 to 2.595 tokens per verification iteration."
+  },
+  {
+    "paper_id": "arxiv:2609.32869",
+    "title": "Whisper-Flash: Acoustically Conditioned Parallel Drafting for Faster Whisper Decoding",
+    "url": "https://www.semanticscholar.org/paper/a0ea47fe30a7a0a05e45b57d6bc00efd6d3f3422",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-26",
+    "posted_at": "2026-09-29T23:15:29.857242+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "Whisper-Flash introduces a two-layer draft model that leverages encoded audio to propose multiple upcoming tokens for a target Whisper model to verify. The method achieves up to 3.16x more audio processed per second compared to greedy decoding while maintaining identical outputs."
+  },
+  {
+    "paper_id": "arxiv:2609.34045",
+    "title": "Kafila: Serving Large Language Models on a Trusted Set of Heterogeneous Commodity Machines",
+    "url": "https://www.semanticscholar.org/paper/8b56f4b37ec759f7c00854c7ec8759ae46b00d4f",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-28",
+    "posted_at": "2026-09-29T23:15:29.857242+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "kv-cache"
+    ],
+    "summary": "Kafila is a serving system for heterogeneous commodity machines that divides models based on measured memory bandwidth and capacity. It shortens the slowest pipeline stage by up to 5.2x against an even split and improves throughput by 1.56x over a uniform split."
+  },
+  {
+    "paper_id": "arxiv:2609.34330",
+    "title": "MiCo: Mutual Information Coverage Optimization through Semantic Erasure Modeling for Efficient MLLM Inference",
+    "url": "https://www.semanticscholar.org/paper/1a7cdbd5600103593b99b4f27b321a2b8c6c53cf",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-28",
+    "posted_at": "2026-09-29T23:15:29.857242+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache"
+    ],
+    "summary": "MiCo is a training-free visual token pruning method for MLLMs that optimizes a mutual information coverage objective to reduce computational costs. It achieves a 3.8-fold inference speedup on LLaVA-NEXT-13B while retaining 97.5% of baseline performance using only 5.6% of visual tokens."
+  },
+  {
+    "paper_id": "arxiv:2609.34867",
+    "title": "P4Q: Co-designing Token Pruning and Quantization for Vision-Language Model Acceleration",
+    "url": "https://www.semanticscholar.org/paper/f8cba0a612558edbafb18dc32cefbd8c05930eb9",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-28",
+    "posted_at": "2026-09-29T23:15:29.857242+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "quantization",
+      "sparsity"
+    ],
+    "summary": "P4Q is a co-design framework that jointly optimizes visual token pruning and low-bit quantization for vision-language model acceleration. The abstract states that on LLaVA-NeXT, P4Q achieves an average end-to-end inference speedup of 2.8x across eight distinct test sets while retaining higher accuracy than prior methods."
   }
 ]
