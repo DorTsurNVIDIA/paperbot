@@ -4793,5 +4793,22 @@
       "kv-cache"
     ],
     "summary": "DeepEdu-v1 introduces a long-context inference engine that amortizes token selection to reduce retrieval calls and prefill latency. The system achieves a nearly 2x TTFT speedup over standard vLLM serving while improving task accuracy."
+  },
+  {
+    "paper_id": "doi:10.1145/3844511",
+    "title": "SATLLM: A Sparsity-aware Accelerator for Ternary-Weight Large Language Models",
+    "url": "https://www.semanticscholar.org/paper/cf3c7d252864c42cf15c6777f64a7dd995e214b2",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-24",
+    "posted_at": "2026-09-29T00:02:47.986604+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "quantization",
+      "sparsity"
+    ],
+    "summary": "SATLLM is a hardware accelerator for ternary-weight LLMs that uses co-optimized pruning and sparsity-aware hardware merging to accelerate inference. The abstract reports achieving 9.42 TOPS/W energy efficiency and up to 42.41x speedup/efficiency improvements over baseline hardware."
   }
 ]
