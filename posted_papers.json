@@ -4810,5 +4810,193 @@
       "sparsity"
     ],
     "summary": "SATLLM is a hardware accelerator for ternary-weight LLMs that uses co-optimized pruning and sparsity-aware hardware merging to accelerate inference. The abstract reports achieving 9.42 TOPS/W energy efficiency and up to 42.41x speedup/efficiency improvements over baseline hardware."
+  },
+  {
+    "paper_id": "arxiv:2609.33184",
+    "title": "Resource-Efficient Speculative Decoding for Long-Context LLM Serving",
+    "url": "http://arxiv.org/abs/2609.33184v1",
+    "source": "arxiv",
+    "published_date": "2026-09-27T04:01:42+00:00",
+    "posted_at": "2026-09-29T14:49:34.125306+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "kv-cache",
+      "verification",
+      "serving"
+    ],
+    "summary": "SpecStream is a speculative decoding system for long-context serving that overlaps Target verification with KV-cache offloading and uses idle compute bubbles for concurrent Draft execution. It maintains task quality while supporting more concurrent requests, achieving average throughput speedups of 1.41x-1.32x over offloading baselines and 55.4% higher output throughput per GPU over separate-GPU parallel speculative decoding."
+  },
+  {
+    "paper_id": "arxiv:2609.33224",
+    "title": "PackServe: SLO-Aware Request Scheduling for Agentic LLM Serving at Scale",
+    "url": "http://arxiv.org/abs/2609.33224v1",
+    "source": "arxiv",
+    "published_date": "2026-09-27T05:06:17+00:00",
+    "posted_at": "2026-09-29T14:49:34.125306+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 10,
+    "tags": [
+      "kv-cache",
+      "serving",
+      "batching"
+    ],
+    "summary": "PackServe is a request scheduler for agentic LLM serving that uses compact white-box models to predict prefill/decode interference latency and packs requests to trade latency headroom for throughput. Evaluated on 64 GPUs and a 1000-GPU production cluster, it reduces GPU-hours by up to 24.6% under target TPOTs and shrinks the production resource footprint by 34.7%."
+  },
+  {
+    "paper_id": "arxiv:2609.33245",
+    "title": "Acoustic Progress Propagation for Long-Horizon Speculative Decoding in ASR",
+    "url": "http://arxiv.org/abs/2609.33245v1",
+    "source": "arxiv",
+    "published_date": "2026-09-27T05:36:33+00:00",
+    "posted_at": "2026-09-29T14:49:34.125306+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "The paper proposes a progress-aware speculative drafter for ASR that recurrently propagates acoustic progress state across draft steps to guide token generation and avoid acceptance length saturation. It achieves lossless end-to-end speedups of 1.657x and 1.227x over target-only autoregressive decoding on two Qwen3-ASR models."
+  },
+  {
+    "paper_id": "arxiv:2609.33477",
+    "title": "Just Let Linear States Forget the Distant Past: Prefix Caching via Suffix Replay for Hybrid LLMs",
+    "url": "http://arxiv.org/abs/2609.33477v1",
+    "source": "arxiv",
+    "published_date": "2026-09-27T11:43:56+00:00",
+    "posted_at": "2026-09-29T14:49:34.125306+00:00",
+    "lane": "inference",
+    "specdec_score": 2,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving",
+      "long-context"
+    ],
+    "summary": "SuffixReplay is a prefix caching system for hybrid LLMs that approximates linear-attention recurrent states at cache boundaries by replaying only a recent suffix of hidden states. It reduces median TTFT by 15-70% on branching workloads and sustains 2.3-4.3x higher throughput than SGLang when the working set exceeds HBM."
+  },
+  {
+    "paper_id": "arxiv:2609.33536",
+    "title": "Does Execution Require Target KV Fidelity? A Mixed-Fidelity KV Runtime for LLM Serving",
+    "url": "http://arxiv.org/abs/2609.33536v1",
+    "source": "arxiv",
+    "published_date": "2026-09-27T13:03:38+00:00",
+    "posted_at": "2026-09-29T14:49:34.125306+00:00",
+    "lane": "inference",
+    "specdec_score": 2,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving",
+      "attention"
+    ],
+    "summary": "ElasticKV is a mixed-fidelity KV cache runtime that adapts KV fidelity to memory pressure using a compact intermediate state and dual-mode attention. It demonstrates 3.8-4.0x lower TTFT and 9.1x lower P90 TTFT than vLLM under high concurrency while preserving generation quality."
+  },
+  {
+    "paper_id": "arxiv:2609.33652",
+    "title": "Tsubame: Tree Replay for Diffusion-Based Speculative Decoding",
+    "url": "http://arxiv.org/abs/2609.33652v1",
+    "source": "arxiv",
+    "published_date": "2026-09-27T15:18:32+00:00",
+    "posted_at": "2026-09-29T14:49:34.125306+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 7,
+    "tags": [
+      "speculative-decoding",
+      "verification",
+      "draft-model"
+    ],
+    "summary": "Tsubame is a two-pass tree speculative decoding framework for diffusion-based drafters that freezes a context-aware topology in the first pass and samples tokens to populate it in the second pass for target verification. Experiments show improvements in acceptance length and throughput over deterministic trees across multiple datasets and drafters."
+  },
+  {
+    "paper_id": "arxiv:2609.34370",
+    "title": "Spexis: Speculative Lookahead Scheduling for LLM Inference",
+    "url": "http://arxiv.org/abs/2609.34370v1",
+    "source": "arxiv",
+    "published_date": "2026-09-28T05:46:02+00:00",
+    "posted_at": "2026-09-29T14:49:34.125306+00:00",
+    "lane": "specdec",
+    "specdec_score": 8,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "serving",
+      "kv-cache"
+    ],
+    "summary": "Spexis is a multi-GPU LLM inference framework that uses speculative parallelism and lookahead scheduling to improve pipeline and tensor parallelism efficiency while mitigating memory pressure. Evaluated on vLLM across various GPU configurations, it achieves speedups of up to 34% over an optimally combined pipeline and tensor parallelism baseline."
+  },
+  {
+    "paper_id": "arxiv:2609.34388",
+    "title": "Reciprocal Guidance: Orchestrating Draft and Verify Budgets for Advancing the Diffusion-AR Self-Speculation Frontier",
+    "url": "http://arxiv.org/abs/2609.34388v1",
+    "source": "arxiv",
+    "published_date": "2026-09-28T06:04:32+00:00",
+    "posted_at": "2026-09-29T14:49:34.125306+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "serving",
+      "verification"
+    ],
+    "summary": "The paper proposes RecGuide, a runtime draft-verify orchestration framework that adapts speculative decoding to varying serving loads by overlapping drafting and verification and dynamically allocating draft block sizes. Experiments across various concurrency levels demonstrate consistent throughput improvements over vanilla self-speculation, achieving up to 1.8x speedup."
+  },
+  {
+    "paper_id": "arxiv:2609.34538",
+    "title": "Shallow Queries, Mature Values: Depth-Asynchronous Self-Speculation for Looped Transformers",
+    "url": "http://arxiv.org/abs/2609.34538v1",
+    "source": "arxiv",
+    "published_date": "2026-09-28T08:04:19+00:00",
+    "posted_at": "2026-09-29T14:49:34.125306+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "The paper introduces Depth-Asynchronous Self-Speculation (DAS), a method that decouples the depth of draft computation from the depth of verified-prefix representations in looped transformers. Evaluated on recurrent-model checkpoints across math and code workloads, DAS-Wave achieves a 4.00--6.96x mean throughput speedup over full-depth autoregressive decoding."
+  },
+  {
+    "paper_id": "arxiv:2609.34832",
+    "title": "BV Loss: Block Verification-Aware Loss for Block Diffusion Speculative Decoding",
+    "url": "http://arxiv.org/abs/2609.34832v1",
+    "source": "arxiv",
+    "published_date": "2026-09-28T10:25:06+00:00",
+    "posted_at": "2026-09-29T14:49:34.125306+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 7,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper introduces Block Verification-aware loss (BV loss), a training objective for diffusion drafters in speculative decoding designed to maximize the expected acceptance length of drafted sequences. It increases the mean number of tokens accepted per verification call by 13.0-21.0% over cross-entropy loss training without changing the inference procedure."
+  },
+  {
+    "paper_id": "arxiv:2609.35188",
+    "title": "Beneath the Tokens: A Performance Engineering Study of Multi-Token Prediction in GPU-Accelerated LLM Inference",
+    "url": "http://arxiv.org/abs/2609.35188v1",
+    "source": "arxiv",
+    "published_date": "2026-09-28T13:49:34+00:00",
+    "posted_at": "2026-09-29T14:49:34.125306+00:00",
+    "lane": "specdec",
+    "specdec_score": 6,
+    "inference_score": 8,
+    "tags": [
+      "multi-token-prediction",
+      "speculative-decoding"
+    ],
+    "summary": "A performance engineering study of two-token multi-token prediction (MTP) with proposal, sampling, and verification operations evaluated against autoregressive decoding. It reports a 1.91x to 2.19x increase in output throughput and a median mean acceptance length of 2.370 to 2.595 tokens per verification iteration."
   }
 ]
