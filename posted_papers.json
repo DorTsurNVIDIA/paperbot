@@ -5062,5 +5062,206 @@
       "sparsity"
     ],
     "summary": "P4Q is a co-design framework that jointly optimizes visual token pruning and low-bit quantization for vision-language model acceleration. The abstract states that on LLaVA-NeXT, P4Q achieves an average end-to-end inference speedup of 2.8x across eight distinct test sets while retaining higher accuracy than prior methods."
+  },
+  {
+    "paper_id": "arxiv:2609.36173",
+    "title": "Draft in Parallel, Condition Through Depth: Adjacent Causal Injection for Speculative Decoding",
+    "url": "http://arxiv.org/abs/2609.36173v1",
+    "source": "arxiv",
+    "published_date": "2026-09-28T19:44:02+00:00",
+    "posted_at": "2026-09-30T14:53:18.127773+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "serving"
+    ],
+    "summary": "DSpine is a draft model for parallel speculative decoding that injects causal conditioning throughout the backbone to improve candidate consistency. It achieves longer acceptance lengths than DFlash and improves SGLang serving throughput by 23.3% on average."
+  },
+  {
+    "paper_id": "arxiv:2609.36590",
+    "title": "SEED: Self-Speculative Decoding via Implicit Encoder-Decoder",
+    "url": "http://arxiv.org/abs/2609.36590v1",
+    "source": "arxiv",
+    "published_date": "2026-09-29T03:06:13+00:00",
+    "posted_at": "2026-09-30T14:53:18.127773+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "early-exit",
+      "multi-token-prediction",
+      "speculative-decoding"
+    ],
+    "summary": "SEED is a self-speculative decoding method that reuses deep contextual representations from the verification step to cheaply draft tokens via a lightweight implicit decoder. The method achieves up to 2.7x average speedup on 4B-scale models, outperforming early-exit and MTP baselines while running 28% faster than EAGLE-3."
+  },
+  {
+    "paper_id": "arxiv:2609.36760",
+    "title": "QuantMLA: Function-Aligned Dual-Path Quantization for Low-Bit MLA KV Caching",
+    "url": "http://arxiv.org/abs/2609.36760v1",
+    "source": "arxiv",
+    "published_date": "2026-09-29T05:31:42+00:00",
+    "posted_at": "2026-09-30T14:53:18.127773+00:00",
+    "lane": "inference",
+    "specdec_score": 2,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "kv-cache",
+      "quantization"
+    ],
+    "summary": "QuantMLA introduces a function-aligned dual-path quantization framework for Multi-Head Latent Attention (MLA) KV caching that enables joint INT4 caching with minimal accuracy degradation. The method achieves 3.59x physical cache compression at 128K context and 5.168x higher whole-job output throughput than BF16 under a cache-pressure serving workload."
+  },
+  {
+    "paper_id": "arxiv:2609.36860",
+    "title": "IronLLM: Forging Compact Edge-Native Language Models for Real-Time Embodied Intelligence",
+    "url": "http://arxiv.org/abs/2609.36860v1",
+    "source": "arxiv",
+    "published_date": "2026-09-29T07:03:39+00:00",
+    "posted_at": "2026-09-30T14:53:18.127773+00:00",
+    "lane": "specdec",
+    "specdec_score": 8,
+    "inference_score": 7,
+    "tags": [
+      "early-exit",
+      "multi-token-prediction",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "IronLLM-0.6B uses X-MTP, a shared-KV multi-token prediction design that employs a lightweight verification head for rollback-free drafting. The abstract states this multi-token prediction and verification design achieves a 1.48x decoding speedup."
+  },
+  {
+    "paper_id": "arxiv:2609.36956",
+    "title": "Controlled Decoding Attacks on Black-Box LLMs",
+    "url": "https://www.semanticscholar.org/paper/30993fac84346d974d3cdeb4e820c4de6af8561f",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-29",
+    "posted_at": "2026-09-30T14:53:18.127773+00:00",
+    "lane": "specdec",
+    "specdec_score": 7,
+    "inference_score": 4,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The method introduces a jailbreaking framework for black-box LLMs that uses Speculative Multi-Token Execution to amortize target model calls by verifying and accepting draft prefixes that require no intervention. It achieves the highest mean score across four target endpoints and three benchmarks compared to baselines."
+  },
+  {
+    "paper_id": "arxiv:2609.37007",
+    "title": "RVQ Position Aware Speculative Decoding for On Device Text to Speech",
+    "url": "https://www.semanticscholar.org/paper/7e465d113af0038d78005f8b433569195861c9d7",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-29",
+    "posted_at": "2026-09-30T14:53:18.127773+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper proposes an RVQ position-aware speculative decoding scheme for the MultiCodeDecoder in on-device text-to-speech, using a target model to verify proposed tokens. The method attains 2.47 accepted tokens per model call and reduces sequential model calls from 200 to 88 per second, delivering a 2 to 2.2x speedup for RVQ token generation."
+  },
+  {
+    "paper_id": "arxiv:2609.37029",
+    "title": "LongSpark: Efficient speculative decoding with a fixed-cost parallel drafter",
+    "url": "http://arxiv.org/abs/2609.37029v1",
+    "source": "arxiv",
+    "published_date": "2026-09-29T08:42:58+00:00",
+    "posted_at": "2026-09-30T14:53:18.127773+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "long-context",
+      "speculative-decoding"
+    ],
+    "summary": "LongSpark introduces a block-diffusion drafter for speculative decoding that extracts fixed-size views from the target verification pass to maintain a constant drafting cost regardless of context length. The abstract claims state-of-the-art end-to-end efficiency and the lowest time-per-output-token on long-context tasks while reducing the drafter's context state by several orders of magnitude."
+  },
+  {
+    "paper_id": "arxiv:2609.37062",
+    "title": "vSkipper: Translating Dynamic Layer Skipping into LLM Serving Gains",
+    "url": "http://arxiv.org/abs/2609.37062v1",
+    "source": "arxiv",
+    "published_date": "2026-09-29T09:01:41+00:00",
+    "posted_at": "2026-09-30T14:53:18.127773+00:00",
+    "lane": "inference",
+    "specdec_score": 2,
+    "inference_score": 9,
+    "tags": [
+      "serving"
+    ],
+    "summary": "vSkipper is a virtualization layer that integrates dynamic layer skipping into modern serving engines while preserving continuous batching and paged KV caching. The abstract reports that it reduces mean end-to-end latency by 36.8% on GSM8K and increases request throughput by 11.3% under saturation."
+  },
+  {
+    "paper_id": "arxiv:2609.37170",
+    "title": "Interpolated Policy Distillation: A Controllable Continuum Between Off-Policy and On-Policy Distillation",
+    "url": "http://arxiv.org/abs/2609.37170v1",
+    "source": "arxiv",
+    "published_date": "2026-09-29T09:57:24+00:00",
+    "posted_at": "2026-09-30T14:53:18.127773+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 7,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper introduces Interpolated Policy Distillation (IPD) for distillation, which is accelerated using a novel speculative-decoding rule that queries a teacher model to verify and accept/reject tokens from a student draft model while exactly preserving an interpolated next-token distribution. The method is evaluated across text-only and multimodal reasoning benchmarks, showing consistent improvements over endpoint and heuristic interleaving policies."
+  },
+  {
+    "paper_id": "arxiv:2609.37532",
+    "title": "DScale: Scaling Block-Diffusion Speculative Decoding with Adaptive Verification",
+    "url": "http://arxiv.org/abs/2609.37532v1",
+    "source": "arxiv",
+    "published_date": "2026-09-29T13:17:43+00:00",
+    "posted_at": "2026-09-30T14:53:18.127773+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "DScale introduces an adaptive verification system for block-diffusion speculative decoding that uses a small predictor and dynamic verify-length allocation to pack scored prefixes efficiently. On A100 hardware, the method achieves up to 48.8% geometric-mean throughput gains over baselines and reduces decode-step time by 30.8-52.5%."
+  },
+  {
+    "paper_id": "arxiv:2609.37617",
+    "title": "AS$^2$D: Accelerating On-Demand Audio Understanding on Mobile Devices",
+    "url": "http://arxiv.org/abs/2609.37617v1",
+    "source": "arxiv",
+    "published_date": "2026-09-29T13:59:17+00:00",
+    "posted_at": "2026-09-30T14:53:18.127773+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "AS$^2$D proposes a target-decoupled speculative decoding method for audio language models where an audio-conditioned drafter proposes candidates independently of the target's evolving text prefix while the target verifies them. It improves ASR throughput by 42-76% over target-only decoding on mobile devices."
+  },
+  {
+    "paper_id": "arxiv:2609.38169",
+    "title": "STEPQuant: When and Where Errors Matter in Delta-Rule Recurrent State Quantization",
+    "url": "http://arxiv.org/abs/2609.38169v1",
+    "source": "arxiv",
+    "published_date": "2026-09-29T17:59:40+00:00",
+    "posted_at": "2026-09-30T14:53:18.127773+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "quantization",
+      "serving",
+      "kv-cache"
+    ],
+    "summary": "STEPQuant is a spatial-temporal post-training quantization framework for delta-rule recurrent states in linear attention that allocates precision based on error propagation. Integrated into SGLang, it achieves over 5x recurrent-state compression and reduces total serving memory by up to 68.7% while closely matching FP32 accuracy under a 6-bit budget."
   }
 ]
