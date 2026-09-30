@@ -5263,5 +5263,36 @@
       "kv-cache"
     ],
     "summary": "STEPQuant is a spatial-temporal post-training quantization framework for delta-rule recurrent states in linear attention that allocates precision based on error propagation. Integrated into SGLang, it achieves over 5x recurrent-state compression and reduces total serving memory by up to 68.7% while closely matching FP32 accuracy under a 6-bit budget."
+  },
+  {
+    "paper_id": "arxiv:2609.37042",
+    "title": "GleanVID: Complementary Token Selection for Efficient Video Large Language Models",
+    "url": "https://www.semanticscholar.org/paper/944a8f922d4f83286f0c1ebcc245b929665375de",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-29",
+    "posted_at": "2026-09-30T23:16:10.549630+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "long-context",
+      "serving"
+    ],
+    "summary": "GleanVID is a training-free token compression framework for VideoLLMs that allocates global token budgets based on temporal novelty and selects tokens via subspace complementarity. The abstract reports that using 25% of visual tokens preserves 98.6% of Qwen3-VL's original performance while reducing its prefill latency by 44.7%."
+  },
+  {
+    "paper_id": "arxiv:2609.37304",
+    "title": "MetaCtrl: Your Large Language Models Can Reason Better and More Concisely with a Metacognitive Controller",
+    "url": "https://www.semanticscholar.org/paper/87a7c29fb5e93b51fb5870e3ccadb658866b5e0a",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-29",
+    "posted_at": "2026-09-30T23:16:10.549630+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "serving"
+    ],
+    "summary": "MetaCtrl is a lightweight metacognitive controller trained with reinforcement learning to adaptively regulate a frozen reasoning model by deciding whether to continue, simplify, skip, or conclude reasoning steps. The abstract claims that on DeepSeek-R1-Distill-Qwen-7B, the controller improves average accuracy by 4.7 points while reducing generation length by 53.3%, lowering inference-time computation."
   }
 ]
