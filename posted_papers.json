@@ -5294,5 +5294,124 @@
       "serving"
     ],
     "summary": "MetaCtrl is a lightweight metacognitive controller trained with reinforcement learning to adaptively regulate a frozen reasoning model by deciding whether to continue, simplify, skip, or conclude reasoning steps. The abstract claims that on DeepSeek-R1-Distill-Qwen-7B, the controller improves average accuracy by 4.7 points while reducing generation length by 53.3%, lowering inference-time computation."
+  },
+  {
+    "paper_id": "arxiv:2609.38510",
+    "title": "DEdit: Iterative Draft Editing for Speculative Decoding",
+    "url": "http://arxiv.org/abs/2609.38510v1",
+    "source": "arxiv",
+    "published_date": "2026-09-29T20:32:17+00:00",
+    "posted_at": "2026-10-01T15:23:09.926497+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "multi-token-prediction",
+      "speculative-decoding"
+    ],
+    "summary": "DEdit is a diffusion-based drafter for speculative decoding that iteratively edits drafted tokens to repair errors using bidirectional context, trained via a ProposalMix scheme. It achieves macro-average speedups of 5.72x and 5.97x over autoregressive generation on Qwen3-4B and Qwen3-8B, respectively."
+  },
+  {
+    "paper_id": "arxiv:2609.38795",
+    "title": "Recovering Off-Policy Supervision for Speculative Decoding",
+    "url": "http://arxiv.org/abs/2609.38795v1",
+    "source": "arxiv",
+    "published_date": "2026-09-30T02:27:37+00:00",
+    "posted_at": "2026-10-01T15:23:09.926497+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 6,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper proposes a rollout-based training framework to recover off-policy supervision for block drafters in speculative decoding by relabeling tokens and exposing the drafter to target-generated context. The method is evaluated on vision-language and text corpora, increasing greedy accepted length by up to 36.5% over DFlash."
+  },
+  {
+    "paper_id": "arxiv:2609.39334",
+    "title": "Taming Speculative Search for Test-Time Scaling in LLM Serving",
+    "url": "http://arxiv.org/abs/2609.39334v1",
+    "source": "arxiv",
+    "published_date": "2026-09-30T09:04:53+00:00",
+    "posted_at": "2026-10-01T15:23:09.926497+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "serving",
+      "verification"
+    ],
+    "summary": "The paper proposes SpecScale, a serving system designed to efficiently handle speculative execution for test-time scaling by pruning candidate paths, deduplicating computation, and deferring verification. It evaluates the system on reasoning benchmarks and claims substantial improvements in throughput and latency compared to non-speculative and recent speculative approaches."
+  },
+  {
+    "paper_id": "arxiv:2609.39972",
+    "title": "UBTree: Parallel Tree Drafting via Unigram and Bigram Models for Speculative Decoding",
+    "url": "http://arxiv.org/abs/2609.39972v1",
+    "source": "arxiv",
+    "published_date": "2026-09-30T15:35:50+00:00",
+    "posted_at": "2026-10-01T15:23:09.926497+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "UBTree is a parallel drafter for speculative decoding that constructs drafting trees using a Unigram proposer and a Bigram selector to improve draft diversity. It achieves an average speedup of 5.84--6.94x over autoregressive decoding and outperforms DARTree across 28 comparisons."
+  },
+  {
+    "paper_id": "arxiv:2609.40118",
+    "title": "Persistent Context Graphs for Efficient Memory Compaction in LLM Agents",
+    "url": "http://arxiv.org/abs/2609.40118v1",
+    "source": "arxiv",
+    "published_date": "2026-09-30T16:43:28+00:00",
+    "posted_at": "2026-10-01T15:23:09.926497+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "long-context",
+      "serving"
+    ],
+    "summary": "ReCAP is a memory compaction method that uses persistent context graphs of attention-derived scores to select relevant history without model calls. It reduces estimated latency for compaction and cold restoration by approximately 95% and halves historical context per call at comparable task quality."
+  },
+  {
+    "paper_id": "arxiv:2609.40127",
+    "title": "Learning Functional Subspaces for Neural Network Compression",
+    "url": "http://arxiv.org/abs/2609.40127v1",
+    "source": "arxiv",
+    "published_date": "2026-09-30T16:47:35+00:00",
+    "posted_at": "2026-10-01T15:23:09.926497+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "kv-cache",
+      "quantization"
+    ],
+    "summary": "The paper introduces Learnable Subspace Projections (LSP), a method that learns low-rank factorizations for neural network compression end-to-end. The approach yields up to 1.6x faster decoding and a 13.5x reduction in combined memory for weights and KV cache at long contexts, outperforming standard low-rank baselines at high compression rates."
+  },
+  {
+    "paper_id": "doi:10.1109/tpds.2026.3732699",
+    "title": "EcoxPU: Autonomous Multi-Agent Orchestration for Energy-Efficient Disaggregated LLM Inference on Heterogeneous xPUs",
+    "url": "https://www.semanticscholar.org/paper/d4a7de19117efe2f031bd6e5a54a0671f620c8da",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-01",
+    "posted_at": "2026-10-01T15:23:09.926497+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "serving",
+      "mixture-of-experts"
+    ],
+    "summary": "EcoxPU is an autonomous multi-agent framework that coordinates prefill-decode separation and attention-FFN disaggregation for energy-efficient LLM inference on heterogeneous xPUs. Evaluated on a cluster of NVIDIA, Huawei, and Kunlunxin accelerators, it reduces energy consumption by an average of 42% while maintaining less than 6% latency overhead."
   }
 ]
