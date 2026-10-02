@@ -5541,5 +5541,22 @@
       "serving"
     ],
     "summary": "ePACT is a two-level energy-aware controller for LLM serving that adjusts serving capacity and GPU clocks to minimize deviation costs from hourly energy commitments. In 24-hour trace simulations, it reduces asymmetric deviation cost by up to 75.7% relative to vLLM while retaining near-vLLM SLO attainment."
+  },
+  {
+    "paper_id": "arxiv:2610.01230",
+    "title": "HHR: Hierarchical Hash Retrieval for Efficient LLM Generation",
+    "url": "https://www.semanticscholar.org/paper/ef8f2b58364dee9ff95f7fc424cfd1712dc7ff5a",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-01",
+    "posted_at": "2026-10-02T23:21:05.936479+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "kv-cache",
+      "long-context"
+    ],
+    "summary": "The paper proposes Hierarchical Hash Retrieval (HHR), a coarse-to-fine sparse attention framework for long-context inference. It achieves up to a 3.30x decoding speedup and a 2.83x end-to-end speedup for Llama-3.1-8B-Instruct at a 128K context length while improving average scores on LongBench."
   }
 ]
