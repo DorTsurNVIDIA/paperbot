@@ -5413,5 +5413,133 @@
       "mixture-of-experts"
     ],
     "summary": "EcoxPU is an autonomous multi-agent framework that coordinates prefill-decode separation and attention-FFN disaggregation for energy-efficient LLM inference on heterogeneous xPUs. Evaluated on a cluster of NVIDIA, Huawei, and Kunlunxin accelerators, it reduces energy consumption by an average of 42% while maintaining less than 6% latency overhead."
+  },
+  {
+    "paper_id": "arxiv:2610.00321",
+    "title": "CAST: Cost-Aware Speculative Trees from One-Pass Block Drafters",
+    "url": "http://arxiv.org/abs/2610.00321v1",
+    "source": "arxiv",
+    "published_date": "2026-09-29T04:13:00+00:00",
+    "posted_at": "2026-10-02T14:41:39.048662+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "verification",
+      "serving"
+    ],
+    "summary": "CAST constructs cost-aware speculative trees from one-pass block drafters and verifies them in a single target pass to accelerate LLM inference. The method is evaluated across multiple GPU generations and model families, achieving up to 43% speedup over standard chain verification while preserving the target output distribution."
+  },
+  {
+    "paper_id": "arxiv:2610.00623",
+    "title": "HAWK: Rethinking Multimodal Drafting for Speculative Decoding",
+    "url": "https://www.semanticscholar.org/paper/287817cdfe11c49306db686c08bca665620ea2d7",
+    "source": "semantic_scholar",
+    "published_date": "2026-09-30",
+    "posted_at": "2026-10-02T14:41:39.048662+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "speculative-decoding"
+    ],
+    "summary": "HAWK improves multimodal speculative decoding by transferring compressed visual hidden states and training the draft model to adapt to its own proposals. It increases the acceptance length to 4.08 and achieves a 2.60x speedup over EAGLE-3 on multimodal benchmarks."
+  },
+  {
+    "paper_id": "arxiv:2610.00694",
+    "title": "How Divergence Becomes Decision Flips in Compressed Language Models",
+    "url": "http://arxiv.org/abs/2610.00694v1",
+    "source": "arxiv",
+    "published_date": "2026-09-30T20:37:18+00:00",
+    "posted_at": "2026-10-02T14:41:39.048662+00:00",
+    "lane": "specdec",
+    "specdec_score": 6,
+    "inference_score": 4,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper establishes total variation as a theoretical predictor for greedy draft acceptance in speculative decoding. It evaluates the method in vLLM speculative decoding, showing it predicts draft acceptance with a mean relative error of 1.1%-2.4%."
+  },
+  {
+    "paper_id": "arxiv:2610.00864",
+    "title": "Kinematic MeanFlow: One-Step Action Generation Policy for Robotic Foundation Models",
+    "url": "http://arxiv.org/abs/2610.00864v1",
+    "source": "arxiv",
+    "published_date": "2026-10-01T00:31:19+00:00",
+    "posted_at": "2026-10-02T14:41:39.048662+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [],
+    "summary": "The method introduces Kinematic MeanFlow, a one-step action generation policy for robotic foundation models that decouples the denoising process to reduce latency. It reduces action-head latency by 67.5%-74.4% and yields end-to-end latency reductions of 30.3%-54.9% across tested hardware."
+  },
+  {
+    "paper_id": "arxiv:2610.01108",
+    "title": "AgSpec: Pushing the Limits of Retrieval-Based Speculative Decoding in Coding Agent Pipelines",
+    "url": "http://arxiv.org/abs/2610.01108v1",
+    "source": "arxiv",
+    "published_date": "2026-10-01T05:48:29+00:00",
+    "posted_at": "2026-10-02T14:41:39.048662+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "serving"
+    ],
+    "summary": "AgSpec is a retrieval-based speculative decoding framework for coding agent pipelines that constructs drafts from session, workspace, and global corpora while dynamically adapting draft lengths based on verification feedback. It raises generation throughput over autoregressive decoding up to 4.37x at batch size 1 and 4.76x at batch size 16 on repository-level multi-agent coding benchmarks."
+  },
+  {
+    "paper_id": "arxiv:2610.01434",
+    "title": "MWOP: Modality-aware Width-wise Operation Pruning for Efficient MLLMs",
+    "url": "http://arxiv.org/abs/2610.01434v1",
+    "source": "arxiv",
+    "published_date": "2026-10-01T10:31:21+00:00",
+    "posted_at": "2026-10-02T14:41:39.048662+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "sparsity",
+      "attention"
+    ],
+    "summary": "MWOP prunes modality-aware width-wise operations in attention paths and FFN channels for multimodal LLMs, developing path-sparse Triton kernels for acceleration. On LLaVA-OneVision-7B, it achieves a 1.6x prefill speedup with 99.7% performance retention, and boosts token compression speedups up to 2.9x."
+  },
+  {
+    "paper_id": "arxiv:2610.01439",
+    "title": "DRelay: Global Draft Context for Prefix-Aware Parallel Speculative Decoding Repair",
+    "url": "http://arxiv.org/abs/2610.01439v1",
+    "source": "arxiv",
+    "published_date": "2026-10-01T10:37:32+00:00",
+    "posted_at": "2026-10-02T14:41:39.048662+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "verification",
+      "draft-model"
+    ],
+    "summary": "DRelay performs prefix-aware selective repair of candidate selections before target-model verification in parallel speculative decoding. Evaluated across eight benchmarks on an H800 GPU, it improves average acceptance length and achieves 8.1%-16.8% end-to-end speedup over DFlash, Domino, and DSpark baselines."
+  },
+  {
+    "paper_id": "arxiv:2610.01784",
+    "title": "ePACT: Energy-Performance-Aware Commitment Tracking for LLM Serving",
+    "url": "http://arxiv.org/abs/2610.01784v1",
+    "source": "arxiv",
+    "published_date": "2026-10-01T14:32:24+00:00",
+    "posted_at": "2026-10-02T14:41:39.048662+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "serving"
+    ],
+    "summary": "ePACT is a two-level energy-aware controller for LLM serving that adjusts serving capacity and GPU clocks to minimize deviation costs from hourly energy commitments. In 24-hour trace simulations, it reduces asymmetric deviation cost by up to 75.7% relative to vLLM while retaining near-vLLM SLO attainment."
   }
 ]
