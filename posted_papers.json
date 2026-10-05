@@ -5558,5 +5558,140 @@
       "long-context"
     ],
     "summary": "The paper proposes Hierarchical Hash Retrieval (HHR), a coarse-to-fine sparse attention framework for long-context inference. It achieves up to a 3.30x decoding speedup and a 2.83x end-to-end speedup for Llama-3.1-8B-Instruct at a 128K context length while improving average scores on LongBench."
+  },
+  {
+    "paper_id": "arxiv:2610.02491",
+    "title": "What Does a Token Cost? A Mixture-of-Agents Measurement of Sufficient Per-Token Compute",
+    "url": "http://arxiv.org/abs/2610.02491v1",
+    "source": "arxiv",
+    "published_date": "2026-10-01T21:11:41+00:00",
+    "posted_at": "2026-10-05T17:05:23.973349+00:00",
+    "lane": "specdec",
+    "specdec_score": 6,
+    "inference_score": 7,
+    "tags": [
+      "multi-token-prediction",
+      "speculative-decoding"
+    ],
+    "summary": "The paper uses a Mixture-of-Agents approach to measure per-token sufficient compute and applies this map to speculative drafting, reducing draft tokens by 32.6% and lowering projected latency compared to fixed-window drafting."
+  },
+  {
+    "paper_id": "arxiv:2610.02670",
+    "title": "LEAP: Learning Efficient Action Proposals For LLM Agents",
+    "url": "http://arxiv.org/abs/2610.02670v1",
+    "source": "arxiv",
+    "published_date": "2026-10-02T01:44:03+00:00",
+    "posted_at": "2026-10-05T17:05:23.973349+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "LEAP trains a small 0.6B draft model on target action sequences to propose actions for speculative execution in LLM agents. This approach makes agents up to 60% faster in end-to-end wall clock time without systematically changing task success."
+  },
+  {
+    "paper_id": "arxiv:2610.02800",
+    "title": "BitNest: Bit-Nested Speculative Decoding for Memory-Efficient LLM Inference Acceleration",
+    "url": "http://arxiv.org/abs/2610.02800v1",
+    "source": "arxiv",
+    "published_date": "2026-10-02T04:43:42+00:00",
+    "posted_at": "2026-10-05T17:05:23.973349+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "kv-cache",
+      "quantization"
+    ],
+    "summary": "BitNest is a speculative decoding framework that embeds a low-precision draft model directly into a higher-precision target representation via residual refinement to share physical weights. It achieves a 95.2% average speculative acceptance rate and 1.48--1.61x end-to-end speedup over FP16 autoregressive decoding across multiple 7B--8B edge LLMs."
+  },
+  {
+    "paper_id": "arxiv:2610.03027",
+    "title": "Tailoring the Quantization Space for 1-Bit KV Cache Compression",
+    "url": "http://arxiv.org/abs/2610.03027v1",
+    "source": "arxiv",
+    "published_date": "2026-10-02T09:04:25+00:00",
+    "posted_at": "2026-10-05T17:05:23.973349+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "quantization",
+      "serving"
+    ],
+    "summary": "TaSQ is a 1-bit vector quantization method for KV cache compression that combines query-guided channel weighting and covariance-aware channel grouping. Evaluated in SGLang, it preserves reasoning stability while supporting up to 14x larger batch sizes and achieving 1.87x higher peak throughput compared to the BF16 baseline on a single GPU."
+  },
+  {
+    "paper_id": "arxiv:2610.03135",
+    "title": "Page-EntroKV: Hardware-Aligned, Entropy-Weighted KV-Cache Eviction under Grouped-Query Attention",
+    "url": "http://arxiv.org/abs/2610.03135v1",
+    "source": "arxiv",
+    "published_date": "2026-10-02T11:01:39+00:00",
+    "posted_at": "2026-10-05T17:05:23.973349+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "kv-cache",
+      "long-context",
+      "serving",
+      "sparsity"
+    ],
+    "summary": "Page-EntroKV is a KV-cache eviction method for grouped-query attention that pools heads by entropy and projects scores onto PagedAttention page frames. The abstract claims it achieves exact budget preservation and 100% needle recall at a 20% budget while maintaining task performance."
+  },
+  {
+    "paper_id": "arxiv:2610.03228",
+    "title": "Execution-Path Qualification and Realized Costs in Speculative Decoding on Consumer Systems",
+    "url": "https://www.semanticscholar.org/paper/097fcd11447a37e982d021b3860f6a8d73b5cce5",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-02",
+    "posted_at": "2026-10-05T17:05:23.973349+00:00",
+    "lane": "specdec",
+    "specdec_score": 8,
+    "inference_score": 5,
+    "tags": [
+      "speculative-decoding",
+      "hardware",
+      "verification"
+    ],
+    "summary": "The paper investigates execution-path qualification and realized costs for speculative decoding on consumer hardware by analyzing target-only predictors and proposal/replay programs. It evaluates latency tradeoffs, finding that certain qualified serialization approaches are slower than target-only decoding."
+  },
+  {
+    "paper_id": "arxiv:2610.03394",
+    "title": "EdgeAgent: Orchestrating On-Device LLM inference for End-User Multi-Agent Systems on CPU-GPU Unified Memory Architectures",
+    "url": "http://arxiv.org/abs/2610.03394v1",
+    "source": "arxiv",
+    "published_date": "2026-10-02T14:43:42+00:00",
+    "posted_at": "2026-10-05T17:05:23.973349+00:00",
+    "lane": "specdec",
+    "specdec_score": 6,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "speculative-decoding"
+    ],
+    "summary": "EdgeAgent co-designs on-device LLM inference for unified memory architectures with agent-aware dynamic draft budget scheduling for speculative decoding. The full system achieves a 1.77x speedup under extreme tool-use latencies on an Apple M4 SoC."
+  },
+  {
+    "paper_id": "arxiv:2610.03430",
+    "title": "Jumping the Line: Exploiting Length Predictions in LLM Scheduling",
+    "url": "http://arxiv.org/abs/2610.03430v1",
+    "source": "arxiv",
+    "published_date": "2026-10-02T15:12:43+00:00",
+    "posted_at": "2026-10-05T17:05:23.973349+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving"
+    ],
+    "summary": "The paper introduces JIL, an attack on prediction-based LLM schedulers that manipulates the scheduling signal by optimizing an adversarial suffix to cause a lightweight output-length probe to underestimate a request's length. End-to-end serving experiments show adversarial requests complete up to 1.53 times faster on average."
   }
 ]
