@@ -5693,5 +5693,21 @@
       "serving"
     ],
     "summary": "The paper introduces JIL, an attack on prediction-based LLM schedulers that manipulates the scheduling signal by optimizing an adversarial suffix to cause a lightweight output-length probe to underestimate a request's length. End-to-end serving experiments show adversarial requests complete up to 1.53 times faster on average."
+  },
+  {
+    "paper_id": "arxiv:2610.04537",
+    "title": "PhaseGate: Phase-Aware CPU Retrieval Scheduling for On-Device LLMs on Unified Memory",
+    "url": "http://arxiv.org/abs/2610.04537v1",
+    "source": "arxiv",
+    "published_date": "2026-10-03T14:07:04+00:00",
+    "posted_at": "2026-10-06T01:01:07.746408+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "serving",
+      "hardware"
+    ],
+    "summary": "PHASEGATE calibrates CPU retrieval concurrency limits based on LLM prefill and decode phases to mitigate latency interference on unified-memory systems. It achieves 2.0 times the aggregate retrieval throughput of the best fixed policy while keeping p95 LLM latency within 1.25x of its no-retrieval baseline."
   }
 ]
