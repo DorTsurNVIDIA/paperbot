@@ -5709,5 +5709,136 @@
       "hardware"
     ],
     "summary": "PHASEGATE calibrates CPU retrieval concurrency limits based on LLM prefill and decode phases to mitigate latency interference on unified-memory systems. It achieves 2.0 times the aggregate retrieval throughput of the best fixed policy while keeping p95 LLM latency within 1.25x of its no-retrieval baseline."
+  },
+  {
+    "paper_id": "arxiv:2610.04313",
+    "title": "MOIRA: Mass-Oriented Indexing with Ragged Attention for Long-Context Decoding",
+    "url": "http://arxiv.org/abs/2610.04313v1",
+    "source": "arxiv",
+    "published_date": "2026-10-03T05:58:09+00:00",
+    "posted_at": "2026-10-06T15:09:01.462661+00:00",
+    "lane": "inference",
+    "specdec_score": 2,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "kv-cache",
+      "long-context",
+      "sparsity"
+    ],
+    "summary": "MOIRA is a training-free sparse decoding path that adapts KV cache page budgets per head and layer using a coverage rule and a self-planning attention kernel. It reduces time per output token by 2.2-2.5x and matches dense accuracy while reading about 30% of the pages on 128K context tasks."
+  },
+  {
+    "paper_id": "arxiv:2610.04875",
+    "title": "SpecFold: Folding Multi-Branch Redundancy for Faster Speculative Decoding in Diffusion Language Models",
+    "url": "http://arxiv.org/abs/2610.04875v1",
+    "source": "arxiv",
+    "published_date": "2026-10-04T02:25:38+00:00",
+    "posted_at": "2026-10-06T15:09:01.462661+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "verification",
+      "kv-cache"
+    ],
+    "summary": "SpecFold accelerates multi-branch speculative decoding in diffusion language models by identifying and reusing multi-branch computational redundancy during the verification step through folded attention and FFNs. The method achieves up to 1.64x throughput over prior speculation and up to 1.99x over vanilla decoding while maintaining task performance."
+  },
+  {
+    "paper_id": "arxiv:2610.05106",
+    "title": "SharpDraft: Accelerating Long-Context Speculative Decoding with Cardinality-Aware Query Scaling",
+    "url": "http://arxiv.org/abs/2610.05106v1",
+    "source": "arxiv",
+    "published_date": "2026-10-04T10:26:35+00:00",
+    "posted_at": "2026-10-06T15:09:01.462661+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "long-context"
+    ],
+    "summary": "SharpDraft is a training-free method that applies cardinality-aware Query scaling to counteract attention-mass dilution and improve draft acceptance in long-context speculative decoding. Evaluated across AIME-26, GPQA-Diamond, and LongGenBench Diary with multiple drafters, the method reports 2.59-3.19x end-to-end speedups over target-only autoregressive decoding while matching peak GPU memory."
+  },
+  {
+    "paper_id": "arxiv:2610.05976",
+    "title": "Can Language Models Learn to Reject Their Own Bad Reasoning Steps?",
+    "url": "http://arxiv.org/abs/2610.05976v1",
+    "source": "arxiv",
+    "published_date": "2026-10-05T08:27:16+00:00",
+    "posted_at": "2026-10-06T15:09:01.462661+00:00",
+    "lane": "specdec",
+    "specdec_score": 8,
+    "inference_score": 6,
+    "tags": [
+      "speculative-decoding",
+      "verification",
+      "early-exit"
+    ],
+    "summary": "Self-Step Rejection (SSR) trains a lightweight LoRA acceptance gate on the generator backbone to act as a verifier that accepts or rejects the model's own reasoning steps at inference time. It is evaluated on five mathematical reasoning benchmarks, improving accuracy over single-pass decoding using 1.21--1.40x the generated tokens."
+  },
+  {
+    "paper_id": "arxiv:2610.05978",
+    "title": "Byte Language Models: Scaling, Emergent Abstractions, and Information Allocation",
+    "url": "http://arxiv.org/abs/2610.05978v1",
+    "source": "arxiv",
+    "published_date": "2026-10-05T08:29:08+00:00",
+    "posted_at": "2026-10-06T15:09:01.462661+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 7,
+    "tags": [
+      "multi-token-prediction",
+      "speculative-decoding"
+    ],
+    "summary": "The paper studies byte-level language models and finds that highly non-uniform generation difficulty can be exploited for speculative decoding. It reports that this approach yields 3.4x more accepted tokens compared to subword Transformers."
+  },
+  {
+    "paper_id": "arxiv:2610.06011",
+    "title": "D-Loop: Looped Diffusion Drafting for Speculative Decoding",
+    "url": "http://arxiv.org/abs/2610.06011v1",
+    "source": "arxiv",
+    "published_date": "2026-10-05T09:08:24+00:00",
+    "posted_at": "2026-10-06T15:09:01.462661+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "draft-model"
+    ],
+    "summary": "D-Loop introduces intra-block causal conditioning within a diffusion drafter to improve multi-token draft quality and acceptance length without adding model components. It is evaluated across eight math, code, and chat benchmarks, reporting gains over DFlash and DSpark on Qwen3-4B and Qwen3-8B."
+  },
+  {
+    "paper_id": "arxiv:2610.06597",
+    "title": "Can Agent Harnesses and Inference Engines Hear Each Other? The HEAR Protocol for Agentic LLM Serving",
+    "url": "http://arxiv.org/abs/2610.06597v1",
+    "source": "arxiv",
+    "published_date": "2026-10-05T16:07:33+00:00",
+    "posted_at": "2026-10-06T15:09:01.462661+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "kv-cache"
+    ],
+    "summary": "The paper presents HEAR, a bidirectional Harness-Engine Pairing protocol for agentic LLM serving that connects workflow intent with runtime engine state like KV-cache and queues. Evaluated across conversational and research-agent benchmarks, it achieves substantial speedups including a 1.61x batch speedup and a 2.23x reduction in median time-to-first-token."
+  },
+  {
+    "paper_id": "arxiv:2610.06617",
+    "title": "RealtimeWAM: One-Step Asynchronous World Action Models",
+    "url": "http://arxiv.org/abs/2610.06617v1",
+    "source": "arxiv",
+    "published_date": "2026-10-05T16:18:07+00:00",
+    "posted_at": "2026-10-06T15:09:01.462661+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache"
+    ],
+    "summary": "The paper introduces RealtimeWAM, which uses Teacher-Anchored Consistency Distillation for one-step action generation and Cross-Expert Wavefront Pipelining to overlap experts via block-wise video KV cache sharing. The method achieves near-lossless performance while delivering significant end-to-end inference speedups up to 25x on an H100 GPU."
   }
 ]
