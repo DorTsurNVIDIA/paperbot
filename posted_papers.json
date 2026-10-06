@@ -5840,5 +5840,38 @@
       "kv-cache"
     ],
     "summary": "The paper introduces RealtimeWAM, which uses Teacher-Anchored Consistency Distillation for one-step action generation and Cross-Expert Wavefront Pipelining to overlap experts via block-wise video KV cache sharing. The method achieves near-lossless performance while delivering significant end-to-end inference speedups up to 25x on an H100 GPU."
+  },
+  {
+    "paper_id": "arxiv:2610.04646",
+    "title": "SEIS: Self-Evolving Inference Systems",
+    "url": "https://www.semanticscholar.org/paper/1a716edf85728ff75eefb6b40f04af721d2868db",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-03",
+    "posted_at": "2026-10-06T23:24:04.860445+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving"
+    ],
+    "summary": "The paper proposes SEIS, a self-evolving agentic system that autonomously optimizes an end-to-end LLM serving engine (mini-sglang) through iterative code changes. The resulting optimized engine achieves 3.27x the throughput of the original implementation and outperforms state-of-the-art serving engines in single-request workloads."
+  },
+  {
+    "paper_id": "arxiv:2610.04753",
+    "title": "More Value per Key: Asymmetric Sparse Attention for Faster LLM Decoding",
+    "url": "https://www.semanticscholar.org/paper/1df85775b30e3716a21224be9dbd377269e34197",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-03",
+    "posted_at": "2026-10-06T23:24:04.860445+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "attention",
+      "kv-cache",
+      "long-context",
+      "sparsity"
+    ],
+    "summary": "The paper introduces Sparse Asymmetric Group-Query Attention (SAGA), which decouples key and value head counts paired with approximate top-N attention to reduce decoding bottlenecks. The method is evaluated on models up to 1.5B parameters, demonstrating end-to-end decoding speedups exceeding 2x over a full-attention GQA baseline at long contexts."
   }
 ]
