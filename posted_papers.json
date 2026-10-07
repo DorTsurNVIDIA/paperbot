@@ -6025,5 +6025,22 @@
       "verification"
     ],
     "summary": "Proposes SecureSD, a speculative decoding method that applies stricter verification criteria to early draft-model tokens to improve security against jailbreak and prompt injection attacks while preserving efficiency and utility."
+  },
+  {
+    "paper_id": "doi:10.1145/3856827",
+    "title": "EcoMLC: An Energy-Efficient Machine Learning Compilation Framework via Cache Reuse and Frequency Scaling",
+    "url": "https://www.semanticscholar.org/paper/adc930cbd3b8009b36db5ca06b58c615c205052a",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-05",
+    "posted_at": "2026-10-07T23:54:25.840776+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "EcoMLC is an energy-efficient machine learning compilation framework that optimizes DNN inference via cache reuse and frequency scaling, achieving up to 43% energy savings over TensorRT and vLLM baselines."
   }
 ]
