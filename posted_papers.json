@@ -5873,5 +5873,157 @@
       "sparsity"
     ],
     "summary": "The paper introduces Sparse Asymmetric Group-Query Attention (SAGA), which decouples key and value head counts paired with approximate top-N attention to reduce decoding bottlenecks. The method is evaluated on models up to 1.5B parameters, demonstrating end-to-end decoding speedups exceeding 2x over a full-attention GQA baseline at long contexts."
+  },
+  {
+    "paper_id": "arxiv:2610.07086",
+    "title": "SchemaFill: Efficient LLM Tool Calling via Slot-Parallel Speculative Decoding",
+    "url": "http://arxiv.org/abs/2610.07086v1",
+    "source": "arxiv",
+    "published_date": "2026-10-05T12:22:34+00:00",
+    "posted_at": "2026-10-07T15:32:23.520979+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "serving"
+    ],
+    "summary": "SchemaFill is a framework for efficient LLM tool calling that uses slot-parallel speculative decoding to generate future slot values concurrently, which are then verified and accepted or corrected by the target model. On Glaide and BFCL benchmarks, it achieves up to a 4.05x improvement in end-to-end throughput over standard autoregressive decoding."
+  },
+  {
+    "paper_id": "arxiv:2610.07350",
+    "title": "Trajectory-Retrieval Speculative Decoding: When Does a Model's Own History Help?",
+    "url": "http://arxiv.org/abs/2610.07350v1",
+    "source": "arxiv",
+    "published_date": "2026-10-05T20:19:28+00:00",
+    "posted_at": "2026-10-07T15:32:23.520979+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "TLAR retrieves approximately matched continuations from the current reasoning trajectory and combines them with model-generated drafts in a shared candidate tree verified by the target model; it improves token acceptance under matched verification budgets and increases end-to-end throughput over the draft-model baseline."
+  },
+  {
+    "paper_id": "arxiv:2610.07659",
+    "title": "DLoop: Looped Speculative Decoding",
+    "url": "http://arxiv.org/abs/2610.07659v1",
+    "source": "arxiv",
+    "published_date": "2026-10-06T02:55:25+00:00",
+    "posted_at": "2026-10-07T15:32:23.520979+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification",
+      "multi-token-prediction"
+    ],
+    "summary": "DLoop is a looped speculative decoding method that adaptively performs multiple drafting stages before verification to reduce unnecessary target-model forward passes. Across diverse speculative decoding methods, it improves wall-clock speedup by 5 to 41 percent while preserving lossless decoding."
+  },
+  {
+    "paper_id": "arxiv:2610.07780",
+    "title": "APEX: Speculate smarter, not deeper",
+    "url": "http://arxiv.org/abs/2610.07780v1",
+    "source": "arxiv",
+    "published_date": "2026-10-06T05:17:08+00:00",
+    "posted_at": "2026-10-07T15:32:23.520979+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification",
+      "serving"
+    ],
+    "summary": "APEX is a learned controller for speculative decoding that routes among EAGLE-3, n-gram, and draft-model speculation and adapts draft depth using verifier feedback. Integrated into vLLM, it achieves up to 5.24X speedup over autoregressive decoding and reduces wasted tokens by 41.0%."
+  },
+  {
+    "paper_id": "arxiv:2610.07822",
+    "title": "Nucleus Speculative Decoding: Plausibility-Aware Verification Beyond Exact Distribution",
+    "url": "http://arxiv.org/abs/2610.07822v1",
+    "source": "arxiv",
+    "published_date": "2026-10-06T06:18:16+00:00",
+    "posted_at": "2026-10-07T15:32:23.520979+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "verification",
+      "draft-model"
+    ],
+    "summary": "NSD introduces a relaxed verification rule for speculative decoding that accepts draft tokens if they satisfy standard acceptance or fall within the target model's nucleus, achieving up to 5.16× throughput speedup over autoregressive decoding and up to 3.15× over standard speculative decoding."
+  },
+  {
+    "paper_id": "arxiv:2610.08373",
+    "title": "ECO: Energy-Oriented Configuration Optimization for Attention FFN Disaggregated LLM Serving",
+    "url": "http://arxiv.org/abs/2610.08373v1",
+    "source": "arxiv",
+    "published_date": "2026-10-06T13:57:44+00:00",
+    "posted_at": "2026-10-07T15:32:23.520979+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving"
+    ],
+    "summary": "ECO jointly searches deployment structures and operating controls for attention-FFN disaggregated LLM serving using cost-aware Bayesian optimization, reducing serving energy by 40.5% and increasing output token rate by 20.7% on average while meeting SLOs."
+  },
+  {
+    "paper_id": "arxiv:2610.08378",
+    "title": "Lachesis: Lifetime-Aware KV Cache Placement for Agent Serving across HBM and High-Bandwidth Flash",
+    "url": "http://arxiv.org/abs/2610.08378v1",
+    "source": "arxiv",
+    "published_date": "2026-10-06T14:02:19+00:00",
+    "posted_at": "2026-10-07T15:32:23.520979+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving",
+      "hardware"
+    ],
+    "summary": "Lachesis is a lifetime-aware KV cache placement layer that routes cache segments across HBM and high-bandwidth flash based on predicted lifetime, extending flash device lifetime by 1.19-3.13x over HBM-first placement in trace-driven simulation."
+  },
+  {
+    "paper_id": "arxiv:2610.08463",
+    "title": "UNREAL: Unifying Retrieval and Long-Context with a Single Model",
+    "url": "http://arxiv.org/abs/2610.08463v1",
+    "source": "arxiv",
+    "published_date": "2026-10-06T14:48:53+00:00",
+    "posted_at": "2026-10-07T15:32:23.520979+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "long-context",
+      "serving",
+      "sparsity"
+    ],
+    "summary": "UNREAL is a model-native evidence selection framework that unifies corpus retrieval and long-context inference by using the LLM's internal representations. It improves task accuracy while reducing FLOPs and time-to-first-token relative to full-context inference for contexts longer than 32K tokens."
+  },
+  {
+    "paper_id": "arxiv:2610.08678",
+    "title": "Secure Speculative Decoding for Large Language Models",
+    "url": "http://arxiv.org/abs/2610.08678v1",
+    "source": "arxiv",
+    "published_date": "2026-10-06T16:59:37+00:00",
+    "posted_at": "2026-10-07T15:32:23.520979+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 5,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "Proposes SecureSD, a speculative decoding method that applies stricter verification criteria to early draft-model tokens to improve security against jailbreak and prompt injection attacks while preserving efficiency and utility."
   }
 ]
