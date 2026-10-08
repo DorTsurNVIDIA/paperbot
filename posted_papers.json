@@ -6042,5 +6042,91 @@
       "serving"
     ],
     "summary": "EcoMLC is an energy-efficient machine learning compilation framework that optimizes DNN inference via cache reuse and frequency scaling, achieving up to 43% energy savings over TensorRT and vLLM baselines."
+  },
+  {
+    "paper_id": "arxiv:2610.09025",
+    "title": "SPIN: Shadow Predictive Indexer for Sparse Attention",
+    "url": "http://arxiv.org/abs/2610.09025v1",
+    "source": "arxiv",
+    "published_date": "2026-10-06T19:23:10+00:00",
+    "posted_at": "2026-10-08T15:30:55.291631+00:00",
+    "lane": "specdec",
+    "specdec_score": 6,
+    "inference_score": 8,
+    "tags": [
+      "attention",
+      "kv-cache",
+      "serving",
+      "sparsity",
+      "speculative-decoding"
+    ],
+    "summary": "SPIN uses lightweight, history-based prediction to identify important KV blocks and avoid scoring the full KV cache at every decoding step, treating speculative decoding as a first-class implementation consideration. In end-to-end vLLM serving, it achieves 30-40% sparsity while improving output throughput by up to 14.9% and reducing median inter-token latency by up to 13.2%."
+  },
+  {
+    "paper_id": "arxiv:2610.10381",
+    "title": "ResidualQuant: KV Cache Quantization for Looped Transformers with 2-Bit Residuals",
+    "url": "http://arxiv.org/abs/2610.10381v1",
+    "source": "arxiv",
+    "published_date": "2026-10-07T16:40:21+00:00",
+    "posted_at": "2026-10-08T15:30:55.291631+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 10,
+    "tags": [
+      "kv-cache",
+      "quantization"
+    ],
+    "summary": "ResidualQuant is a KV cache quantization method for looped Transformers that leverages cross-loop similarity to represent states with 2-bit residuals. It reduces theoretical KV storage by 80.7% while retaining near-BF16 accuracy, improving fixed-batch decode throughput by up to 2.73x and peak throughput by up to 4.15x via larger batch sizes."
+  },
+  {
+    "paper_id": "arxiv:2610.10411",
+    "title": "Training Parallel Speculative Draft Models by Directly Minimizing Expected Decoding Rounds",
+    "url": "http://arxiv.org/abs/2610.10411v1",
+    "source": "arxiv",
+    "published_date": "2026-10-07T16:56:29+00:00",
+    "posted_at": "2026-10-08T15:30:55.291631+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 7,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "The paper introduces the Expected Decoding Rounds (EDR) objective for training parallel speculative draft models by formulating the process as a Markov reward process. Finetuning drafters with EDR consistently improves mean accepted length and outperforms existing training objectives across nine benchmarks."
+  },
+  {
+    "paper_id": "doi:10.1109/tmc.2026.3711495",
+    "title": "DWI: Efficient On-Device LLM Decoding Through Dynamic Width Selection on Nested Models",
+    "url": "https://www.semanticscholar.org/paper/f7a8a4d19c270b643e921940b7ae83d2439d569d",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-01",
+    "posted_at": "2026-10-08T15:30:55.291631+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 10,
+    "tags": [
+      "early-exit",
+      "sparsity",
+      "serving",
+      "hardware"
+    ],
+    "summary": "The paper introduces a dynamic width selection mechanism on nested LLMs combined with optimized parameter caching and load-computation pipelining to improve on-device I/O efficiency. It demonstrates up to a 34x speedup for on-device LLM inference while maintaining competitive model performance."
+  },
+  {
+    "paper_id": "doi:10.1109/tmc.2026.3723365",
+    "title": "Efficient VLM Inference System With LoRA Adapters at the Edge",
+    "url": "https://www.semanticscholar.org/paper/eb602c34d167fa53d9df2344b92cb107a5255605",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-01",
+    "posted_at": "2026-10-08T15:30:55.291631+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "batching"
+    ],
+    "summary": "The paper presents VaLoRA, an end-to-end LoRA VLM serving system that uses adaptive tiling matrix multiplication and flexible orchestration to optimize edge inference. It reports a 20–89% latency reduction compared to existing LoRA serving baselines across five vision tasks."
   }
 ]
