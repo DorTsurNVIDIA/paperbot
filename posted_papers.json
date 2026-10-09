@@ -6128,5 +6128,86 @@
       "batching"
     ],
     "summary": "The paper presents VaLoRA, an end-to-end LoRA VLM serving system that uses adaptive tiling matrix multiplication and flexible orchestration to optimize edge inference. It reports a 20–89% latency reduction compared to existing LoRA serving baselines across five vision tasks."
+  },
+  {
+    "paper_id": "arxiv:2610.10929",
+    "title": "Speedbumps: Rejection Attacks on Speculative Decoding",
+    "url": "http://arxiv.org/abs/2610.10929v1",
+    "source": "arxiv",
+    "published_date": "2026-10-07T21:35:01+00:00",
+    "posted_at": "2026-10-09T15:13:28.261147+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper introduces Speculative Rejection Attacks (SRAs), adversarial suffixes that increase disagreement between draft and target models to reduce accepted tokens in speculative decoding. The attacks successfully degrade speculative decoding to the point of being slower than autoregressive decoding and transfer across drafters or target models."
+  },
+  {
+    "paper_id": "arxiv:2610.11358",
+    "title": "RaReCache: Bridging the Gap in Cross-Model KV Cache Reuse via Rank disagreement-based Selective Recomputation",
+    "url": "http://arxiv.org/abs/2610.11358v1",
+    "source": "arxiv",
+    "published_date": "2026-10-08T06:49:28+00:00",
+    "posted_at": "2026-10-09T15:13:28.261147+00:00",
+    "lane": "inference",
+    "specdec_score": 2,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "RaReCache introduces a rank disagreement-based selective recomputation method that allows a large target model to decode from a KV cache prefilled by a much smaller source model. It achieves up to a 3.04x prefill speedup and reduces median time-to-first-token by 5.0x in online serving."
+  },
+  {
+    "paper_id": "arxiv:2610.11750",
+    "title": "Where Draft Trees Lose Target Mass: Exit-Guided Speculative Decoding",
+    "url": "http://arxiv.org/abs/2610.11750v1",
+    "source": "arxiv",
+    "published_date": "2026-10-08T11:40:13+00:00",
+    "posted_at": "2026-10-09T15:13:28.261147+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "The paper introduces Tree Exit Verification (TEV) and Exit-Guided Draft-Tree Training (ExitTrain) to improve the verification and acceptance of multiple draft continuations in tree-based speculative decoding. It reports a 13% increase in average output-block length and a 14% end-to-end speedup over the DDTree baseline."
+  },
+  {
+    "paper_id": "arxiv:2610.12242",
+    "title": "TokenRouter: Efficient Serving System for Token-Level LLM Routing",
+    "url": "http://arxiv.org/abs/2610.12242v1",
+    "source": "arxiv",
+    "published_date": "2026-10-08T16:21:50+00:00",
+    "posted_at": "2026-10-09T15:13:28.261147+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "batching",
+      "serving"
+    ],
+    "summary": "TokenRouter is an efficient serving system for token-level LLM routing that uses a delayed-batching scheduler and asynchronous subservers to handle fine-grained routing. The system achieves 2.01-64.15x higher decoding throughput compared to existing systems across diverse routing algorithms and workloads."
+  },
+  {
+    "paper_id": "arxiv:2610.12327",
+    "title": "SparseDecoding: Decoding-Aware Pruning for Accurate and Efficient LLM Inference",
+    "url": "http://arxiv.org/abs/2610.12327v1",
+    "source": "arxiv",
+    "published_date": "2026-10-08T17:06:32+00:00",
+    "posted_at": "2026-10-09T15:13:28.261147+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "sparsity",
+      "quantization"
+    ],
+    "summary": "SparseDecoding is a decoding-aware network pruning framework that aligns calibration with autoregressive generation activations and introduces an optimized N:M sparse matrix-vector kernel. It achieves up to 1.48x end-to-end wall-clock decoding speedup on A100 GPUs while outperforming standard fixed-text calibration on long-form generation benchmarks."
   }
 ]
