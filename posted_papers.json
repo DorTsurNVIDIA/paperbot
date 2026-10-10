@@ -6209,5 +6209,22 @@
       "quantization"
     ],
     "summary": "SparseDecoding is a decoding-aware network pruning framework that aligns calibration with autoregressive generation activations and introduces an optimized N:M sparse matrix-vector kernel. It achieves up to 1.48x end-to-end wall-clock decoding speedup on A100 GPUs while outperforming standard fixed-text calibration on long-form generation benchmarks."
+  },
+  {
+    "paper_id": "doi:10.1109/tpds.2026.3737245",
+    "title": "DIAMM: A Distributed Inference Acceleration Framework for Multimodal Edge Applications",
+    "url": "https://www.semanticscholar.org/paper/52f3278cc61cfc277f412b092917c3e32ea60e06",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-01",
+    "posted_at": "2026-10-10T14:25:25.128963+00:00",
+    "lane": "inference",
+    "specdec_score": 2,
+    "inference_score": 8,
+    "tags": [
+      "serving",
+      "long-context",
+      "hardware"
+    ],
+    "summary": "DIAMM is a distributed inference acceleration framework for multimodal edge applications that co-adapts scheduling, cold-start, and retrieval. It reduces average task-completion latency by 16.5% and lowers average storage by about 6.3× relative to full weight replication."
   }
 ]
