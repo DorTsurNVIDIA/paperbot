@@ -6226,5 +6226,22 @@
       "hardware"
     ],
     "summary": "DIAMM is a distributed inference acceleration framework for multimodal edge applications that co-adapts scheduling, cold-start, and retrieval. It reduces average task-completion latency by 16.5% and lowers average storage by about 6.3× relative to full weight replication."
+  },
+  {
+    "paper_id": "doi:10.1109/tc.2026.3725429",
+    "title": "Fast LM Head via Coarse-Fine Decomposition and Tile-Wise Weight Clustering",
+    "url": "https://www.semanticscholar.org/paper/bc3d735dad836a21fbcaf251eb1db73d3f4c1600",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-01",
+    "posted_at": "2026-10-10T23:00:45.723700+00:00",
+    "lane": "inference",
+    "specdec_score": 2,
+    "inference_score": 8,
+    "tags": [
+      "attention",
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "The paper proposes a coarse-fine decomposition and tile-wise weight clustering algorithm to accelerate the LM Head projection in autoregressive decoding. It demonstrates a 5.82x average speedup for the LM Head computation and up to a 1.18x end-to-end TPOT speedup with minimal accuracy loss."
   }
 ]
