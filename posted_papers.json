@@ -6243,5 +6243,21 @@
       "serving"
     ],
     "summary": "The paper proposes a coarse-fine decomposition and tile-wise weight clustering algorithm to accelerate the LM Head projection in autoregressive decoding. It demonstrates a 5.82x average speedup for the LM Head computation and up to a 1.18x end-to-end TPOT speedup with minimal accuracy loss."
+  },
+  {
+    "paper_id": "doi:10.3390/electronics15204600",
+    "title": "Prompt-Shape- and Prefix-Cache-Aware CPU/NPU Routing for Large Language Model Inference on Edge SoCs",
+    "url": "https://www.semanticscholar.org/paper/5b7a5e38dafdf0f4d9c7bd3bd7cb7c4ec5b59da6",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-09",
+    "posted_at": "2026-10-11T23:15:51.273764+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "The paper proposes a CPU/NPU routing system for edge LLM inference that utilizes prompt-shape and prefix-cache awareness to select the fastest backend. It demonstrates near-oracle routing accuracy and significant latency reductions across evaluated workloads."
   }
 ]
