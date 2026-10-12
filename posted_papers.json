@@ -6259,5 +6259,174 @@
       "serving"
     ],
     "summary": "The paper proposes a CPU/NPU routing system for edge LLM inference that utilizes prompt-shape and prefix-cache awareness to select the fastest backend. It demonstrates near-oracle routing accuracy and significant latency reductions across evaluated workloads."
+  },
+  {
+    "paper_id": "arxiv:2610.12570",
+    "title": "Contextual Correction of Parallel Draftsfor Speculative Decoding",
+    "url": "http://arxiv.org/abs/2610.12570v1",
+    "source": "arxiv",
+    "published_date": "2026-10-08T18:01:03+00:00",
+    "posted_at": "2026-10-12T17:44:22.229815+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "The paper introduces DCOCO, a mechanism for speculative decoding that restores intra-block token dependencies in parallel drafting by evaluating contextual compatibility across adjacent draft positions. The method achieves up to 6.6x speedup over vanilla decoding and outperforms competing methods by 6-23% under concurrent serving loads."
+  },
+  {
+    "paper_id": "arxiv:2610.12939",
+    "title": "Surfing the Activation Wave: Analyzing the Information and Geometry of LLM Hidden States for Speculative Decoding",
+    "url": "http://arxiv.org/abs/2610.12939v1",
+    "source": "arxiv",
+    "published_date": "2026-10-09T03:38:26+00:00",
+    "posted_at": "2026-10-12T17:44:22.229815+00:00",
+    "lane": "specdec",
+    "specdec_score": 8,
+    "inference_score": 7,
+    "tags": [
+      "speculative-decoding",
+      "draft-model"
+    ],
+    "summary": "The paper proposes a principled framework for selecting multi-layer hidden states to construct draft models in EAGLE3-style speculative decoding using informativeness and diversity criteria. The proposed layer selection algorithms outperform fixed baseline heuristics in speculative decoding setups."
+  },
+  {
+    "paper_id": "arxiv:2610.13171",
+    "title": "PreSTO: Predictive Subtree Prefetching for Fast LLM Power Sampling",
+    "url": "http://arxiv.org/abs/2610.13171v1",
+    "source": "arxiv",
+    "published_date": "2026-10-09T07:58:06+00:00",
+    "posted_at": "2026-10-12T17:44:22.229815+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "multi-token-prediction"
+    ],
+    "summary": "PreSTO accelerates PowerMH LLM sampling by batch-prefetching a subtree of future Metropolis-Hastings proposals and verifying them using the original MH acceptance rule. Across seven datasets and five LLMs, the method achieves median speedups of 1.71x to 2.33x on PowerMH and its variants while making a median of 3.9x fewer model calls."
+  },
+  {
+    "paper_id": "arxiv:2610.13202",
+    "title": "S$^3$R: Fast and Faithful RL Rollouts via Self-Sparse Speculative Decoding",
+    "url": "http://arxiv.org/abs/2610.13202v1",
+    "source": "arxiv",
+    "published_date": "2026-10-09T08:22:40+00:00",
+    "posted_at": "2026-10-12T17:44:22.229815+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "sparsity",
+      "kv-cache",
+      "draft-model"
+    ],
+    "summary": "S$^3$R uses sparse attention to propose tokens which are then verified using full-attention and exact speculative sampling, employing a KV-aware scheduler to reduce cache traffic. On long-context mathematical reasoning, it achieves 1.39x and 1.35x end-to-end training throughput over autoregressive rollouts on Qwen3 models while maintaining task performance."
+  },
+  {
+    "paper_id": "arxiv:2610.13506",
+    "title": "Lossless Inference Acceleration for ASR via EAGLE-Style Speculative Decoding",
+    "url": "https://www.semanticscholar.org/paper/17fcc8e9e12d42a94dd856be9aba20399e6e289e",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-09",
+    "posted_at": "2026-10-12T17:44:22.229815+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "The paper introduces EAGLE-ASR, a framework that accelerates ASR inference using EAGLE-style speculative decoding with a lightweight draft model trained on acoustic and hierarchical decoder features. Evaluated on Whisper and Conformer models, the method claims lossless speedups of up to 1.9x and 2.4x respectively, outperforming existing ASR speculative decoding baselines."
+  },
+  {
+    "paper_id": "arxiv:2610.13708",
+    "title": "Adaptive DHiSparse: Speculative Decoding over a Load-Adaptive KV Hierarchy",
+    "url": "http://arxiv.org/abs/2610.13708v1",
+    "source": "arxiv",
+    "published_date": "2026-10-09T15:02:35+00:00",
+    "posted_at": "2026-10-12T17:44:22.229815+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "kv-cache",
+      "long-context",
+      "serving",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "Adaptive DHiSparse introduces a load-adaptive hierarchical KV cache tailored for speculative decoding, preserving draft model acceptance rules while adapting memory residency and fetching. At 100K context and concurrency 128, the method delivers 793 output tokens/s per decode GPU and sustains up to 4x the concurrency compared to a non-speculative baseline."
+  },
+  {
+    "paper_id": "arxiv:2610.13735",
+    "title": "Orthros: Phase-Aware Heterogeneous Attention for Efficient Transformers",
+    "url": "http://arxiv.org/abs/2610.13735v1",
+    "source": "arxiv",
+    "published_date": "2026-10-09T15:30:08+00:00",
+    "posted_at": "2026-10-12T17:44:22.229815+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "long-context"
+    ],
+    "summary": "Orthros is a phase-aware attention mechanism that decouples prefilling and decoding to achieve linear complexity prefilling and full attention decoding. It demonstrates a 21.9x prefilling speedup over standard Transformers while preserving long-context capabilities."
+  },
+  {
+    "paper_id": "arxiv:2610.13767",
+    "title": "DualQuant: Dual-scale Calibration-free Weight-and-Activation Quantization for LLMs",
+    "url": "http://arxiv.org/abs/2610.13767v1",
+    "source": "arxiv",
+    "published_date": "2026-10-09T15:51:38+00:00",
+    "posted_at": "2026-10-12T17:44:22.229815+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "quantization"
+    ],
+    "summary": "DUALQUANT is a calibration-free post-training weight-and-activation quantization framework for LLMs that directly minimizes weight-reconstruction error to yield activation rescalings. Evaluated on a real packed W4A4 inference path, it matches calibration-based accuracy while delivering up to 2.61x memory reduction and 2.46x throughput speedup over BF16."
+  },
+  {
+    "paper_id": "arxiv:2610.13778",
+    "title": "ReplaySSM: Cache SSM Inputs, Not State",
+    "url": "http://arxiv.org/abs/2610.13778v1",
+    "source": "arxiv",
+    "published_date": "2026-10-09T15:59:40+00:00",
+    "posted_at": "2026-10-12T17:44:22.229815+00:00",
+    "lane": "specdec",
+    "specdec_score": 8,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "quantization",
+      "serving",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "ReplaySSM unrolls state-space model recurrence into checkpoints and input buffers to reduce memory traffic and enable efficient speculative rollback and output-only verification. At batch size 256, it accelerates standard decoding by 1.20-1.47x and achieves about 1.8x the throughput of vLLM's speculative decoding on 120B-class models."
+  },
+  {
+    "paper_id": "arxiv:2610.13806",
+    "title": "FORTE: A Production Framework for Feature Evaluation and Deprecation in Industrial Recommender Systems",
+    "url": "http://arxiv.org/abs/2610.13806v1",
+    "source": "arxiv",
+    "published_date": "2026-10-09T16:18:39+00:00",
+    "posted_at": "2026-10-12T17:44:22.229815+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving"
+    ],
+    "summary": "FORTE is a model-agnostic framework for identifying and safely deprecating features in industrial recommender systems. In a large ranking model, it identified features for removal that reduced trainable parameters by 29.9% and improved serving throughput by 19.8-25.5%."
   }
 ]
