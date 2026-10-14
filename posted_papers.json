@@ -6428,5 +6428,89 @@
       "serving"
     ],
     "summary": "FORTE is a model-agnostic framework for identifying and safely deprecating features in industrial recommender systems. In a large ranking model, it identified features for removal that reduced trainable parameters by 29.9% and improved serving throughput by 19.8-25.5%."
+  },
+  {
+    "paper_id": "arxiv:2610.15417",
+    "title": "SpecFit: Not All Draft Tokens Cost the Same in Offloaded MoE Inference",
+    "url": "http://arxiv.org/abs/2610.15417v1",
+    "source": "arxiv",
+    "published_date": "2026-10-11T07:41:12+00:00",
+    "posted_at": "2026-10-14T13:37:02.660672+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "mixture-of-experts",
+      "draft-model"
+    ],
+    "summary": "SpecFit optimizes speculative decoding for offloaded MoE models by selecting a verified draft subtree that maximizes predicted throughput rather than acceptance length, accounting for the monotone submodular union of experts activated across the subtree. On CNN/DailyMail and a GSM8K subset with Qwen3-30B-A3B, it decodes 21.6% and 7.0% faster than EAGLE-3 and 1.97x and 1.72x faster than vanilla EAGLE-3."
+  },
+  {
+    "paper_id": "arxiv:2610.16890",
+    "title": "FORGE: Procedural Weight Generation for Sparse MoE Inference",
+    "url": "http://arxiv.org/abs/2610.16890v1",
+    "source": "arxiv",
+    "published_date": "2026-10-12T14:47:04+00:00",
+    "posted_at": "2026-10-14T13:37:02.660672+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "mixture-of-experts",
+      "kv-cache",
+      "quantization"
+    ],
+    "summary": "FORGE uses a procedural weight generation system (RGU) to regenerate Sparse MoE expert weights on-the-fly from compact rotor parameters, reducing HBM bandwidth bottlenecks. It estimates 1.3-2.8x higher system throughput and 1.10-1.15x lower per-user decode latency, while expanding KV cache capacity by 1.2-2.6x."
+  },
+  {
+    "paper_id": "arxiv:2610.18140",
+    "title": "SparPR: Runtime KV-Cache Recovery for Resource-Constrained LLM Inference on Consumer Hardware",
+    "url": "http://arxiv.org/abs/2610.18140v1",
+    "source": "arxiv",
+    "published_date": "2026-10-13T10:47:05+00:00",
+    "posted_at": "2026-10-14T13:37:02.660672+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "hardware",
+      "serving",
+      "sparsity"
+    ],
+    "summary": "SparPR is a runtime KV-cache recovery mechanism that uses query-aware block selection and dynamic cost-aware recomputation to run LLMs on consumer hardware. It cuts end-to-end latency by up to 63% and improves throughput by 1.4x-2.7x on a single consumer laptop compared to a FlexGen baseline."
+  },
+  {
+    "paper_id": "arxiv:2610.18143",
+    "title": "RadixFlow: Filling Execution Bubbles in Prefix-Cached Hybrid LLM Serving",
+    "url": "http://arxiv.org/abs/2610.18143v1",
+    "source": "arxiv",
+    "published_date": "2026-10-13T10:49:05+00:00",
+    "posted_at": "2026-10-14T13:37:02.660672+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "RadixFlow is a scheduler that decouples prefix matching from state readiness to eliminate execution bubbles in prefix-cached hybrid LLM serving. It lowers mean latency by 3% to 24% and worker rounds by 11% to 44% on five hybrid models with almost unchanged reuse."
+  },
+  {
+    "paper_id": "arxiv:2610.18735",
+    "title": "SP$^2$ec: Adaptive Self-Speculative Decoding for Vision-Language Models",
+    "url": "http://arxiv.org/abs/2610.18735v1",
+    "source": "arxiv",
+    "published_date": "2026-10-13T17:08:28+00:00",
+    "posted_at": "2026-10-14T13:37:02.660672+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding"
+    ],
+    "summary": "The method proposes SP2ec, a training-free bandit algorithm that adapts the draft configuration during generation for self-speculative decoding in vision-language models. It demonstrates consistent throughput improvements of up to 11% over original self-speculative methods across visual and textual tasks."
   }
 ]
