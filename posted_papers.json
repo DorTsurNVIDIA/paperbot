@@ -6789,5 +6789,25 @@
       "hardware"
     ],
     "summary": "EdgeFlow is a hybrid KV cache migration scheme for collaborative edge computing that integrates direct transmission with activation-based recomputation to minimize migration time. The abstract claims the method reduces KV cache migration time by up to 45% on a real-world distributed LLM inference platform."
+  },
+  {
+    "paper_id": "doi:10.59256/ijsreat.20260605010",
+    "title": "SUSHILA: Scalable Upstream Synthesis for Hybrid Inference in Large-model Acceleration",
+    "url": "https://www.semanticscholar.org/paper/6d6768e241ae0963c77c91cfc2668aa39b778c7d",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-13",
+    "posted_at": "2026-10-16T22:16:14.649997+00:00",
+    "lane": "specdec",
+    "specdec_score": 8,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "hardware",
+      "mixture-of-experts",
+      "serving",
+      "speculative-decoding",
+      "sparsity"
+    ],
+    "summary": "SUSHILA is an inference engine that accelerates LLM generation using precomputed draft heads to cheaply predict next-token scores and exactly verify only the best candidates. It reports a geometric-mean speedup of 2.35x over Ollama across eight models, with up to 4.05x on Llama-3.3-70B while maintaining accuracy."
   }
 ]
