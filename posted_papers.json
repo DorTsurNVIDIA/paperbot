@@ -6647,5 +6647,147 @@
       "early-exit"
     ],
     "summary": "GeoThinker-F internalizes 3D spatial perception into an MLLM using lightweight latent frame prediction heads to eliminate the need for an external 3D encoder at runtime. The method is evaluated on spatial reasoning benchmarks and achieves a 3.6x inference speedup, reducing latency from 1.45s to 0.40s."
+  },
+  {
+    "paper_id": "arxiv:2610.20687",
+    "title": "On-Policy Residual Learning for Diffusion Language Models",
+    "url": "http://arxiv.org/abs/2610.20687v1",
+    "source": "arxiv",
+    "published_date": "2026-10-14T17:13:17+00:00",
+    "posted_at": "2026-10-16T13:12:01.142917+00:00",
+    "lane": "specdec",
+    "specdec_score": 8,
+    "inference_score": 10,
+    "tags": [
+      "serving",
+      "speculative-decoding",
+      "multi-token-prediction",
+      "hardware",
+      "kv-cache"
+    ],
+    "summary": "The paper introduces On-Policy Residual Learning (ORL), a framework that improves diffusion language model inference speed by carrying forward predictive distributions across denoising steps. The method is evaluated against speculative decoding and achieves up to 6.9x end-to-end throughput speedup while running 1.74x faster than DFlash speculative decoding at matched accuracy."
+  },
+  {
+    "paper_id": "arxiv:2610.20865",
+    "title": "Long-Context Drafting Does Not Require Long-Context Drafters",
+    "url": "http://arxiv.org/abs/2610.20865v1",
+    "source": "arxiv",
+    "published_date": "2026-10-14T19:54:59+00:00",
+    "posted_at": "2026-10-16T13:12:01.142917+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "kv-cache",
+      "long-context",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper introduces inference-time mechanisms that bound the attention cache and re-base rotary positions for frozen short-context drafters, enabling them to operate efficiently at ultra-long context lengths for speculative decoding. It claims that a frozen drafter retains its short-context speedup out to two million tokens at a maximum speedup cost of 0.16x."
+  },
+  {
+    "paper_id": "arxiv:2610.21436",
+    "title": "HyCo: Hybrid Drafting for Cost-Efficient Mobile-Cloud Speculative Decoding",
+    "url": "http://arxiv.org/abs/2610.21436v1",
+    "source": "arxiv",
+    "published_date": "2026-10-15T07:45:49+00:00",
+    "posted_at": "2026-10-16T13:12:01.142917+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "multi-token-prediction",
+      "draft-model",
+      "hardware",
+      "quantization",
+      "speculative-decoding"
+    ],
+    "summary": "HyCo is a mobile-cloud speculative decoding method that hybridizes server multi-token prediction with on-device SLM drafting to reduce server GPU time. It reduces server GPU time per output token by 38.6% on Spec-Bench compared to server-side self-speculation while improving delivery speed."
+  },
+  {
+    "paper_id": "arxiv:2610.21463",
+    "title": "Trajectory-Level Speculation with Semantic Verification for Tool-Using Agents",
+    "url": "http://arxiv.org/abs/2610.21463v1",
+    "source": "arxiv",
+    "published_date": "2026-10-15T08:06:32+00:00",
+    "posted_at": "2026-10-16T13:12:01.142917+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "SpecAgent introduces a collaboration protocol where a weak model drafts grounded tool-using agent trajectories that a strong model verifies and repairs via a single parallel prefill pass. It halves memory traffic and wall time on $\\tau^2$-Bench while coming within one point of the strong model's success rate."
+  },
+  {
+    "paper_id": "arxiv:2610.21500",
+    "title": "When the KV Cache Is Slower Than the GPU: Scaling Remote KV Tiers for Context-Parallel Prefill",
+    "url": "http://arxiv.org/abs/2610.21500v1",
+    "source": "arxiv",
+    "published_date": "2026-10-15T08:37:22+00:00",
+    "posted_at": "2026-10-16T13:12:01.142917+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 10,
+    "tags": [
+      "kv-cache",
+      "long-context",
+      "serving"
+    ],
+    "summary": "The paper proposes sharding and asynchronously loading a remote KV cache store across prefill context-parallel ranks to reduce latency. On a hit-heavy production stream, the method reduces p99 time-to-first-token from 83.32s to 0.67s and raises prefill throughput by 34% alongside an upstream kernel fix."
+  },
+  {
+    "paper_id": "arxiv:2610.21594",
+    "title": "LoopAhead: Speculating Ahead for Faster Decoding in Looped Language Models",
+    "url": "http://arxiv.org/abs/2610.21594v1",
+    "source": "arxiv",
+    "published_date": "2026-10-15T09:38:11+00:00",
+    "posted_at": "2026-10-16T13:12:01.142917+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "early-exit",
+      "speculative-decoding"
+    ],
+    "summary": "LoopAhead is a speculative decoding framework for looped transformers that uses a lightweight lookahead drafter to predict future tokens from early-loop states and deeper-loop feedback to decide which draft branches to continue or pause. The method achieves up to a 7.82x decoding speedup over autoregressive decoding while preserving the target model's output distribution."
+  },
+  {
+    "paper_id": "arxiv:2610.22130",
+    "title": "DropKV: Decoupling Residual-Output Perturbation for Near-Optimal KV-Cache Eviction",
+    "url": "http://arxiv.org/abs/2610.22130v1",
+    "source": "arxiv",
+    "published_date": "2026-10-15T16:05:17+00:00",
+    "posted_at": "2026-10-16T13:12:01.142917+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "long-context",
+      "sparsity"
+    ],
+    "summary": "DropKV is a KV-cache eviction framework that decouples joint eviction decisions into per-token scores to reduce memory and latency for long-context LLMs. Evaluated on RULER and LongBench, it achieves up to a 9.9% end-to-end prefill speedup and the lowest inference latency among eviction methods at equivalent cache budgets."
+  },
+  {
+    "paper_id": "arxiv:2610.22172",
+    "title": "Efficient KV Cache Migration for Geo-Distributed LLM Inference in Collaborative Edge Computing",
+    "url": "http://arxiv.org/abs/2610.22172v1",
+    "source": "arxiv",
+    "published_date": "2026-10-15T16:31:19+00:00",
+    "posted_at": "2026-10-16T13:12:01.142917+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving",
+      "hardware"
+    ],
+    "summary": "EdgeFlow is a hybrid KV cache migration scheme for collaborative edge computing that integrates direct transmission with activation-based recomputation to minimize migration time. The abstract claims the method reduces KV cache migration time by up to 45% on a real-world distributed LLM inference platform."
   }
 ]
