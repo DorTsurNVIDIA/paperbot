@@ -6809,5 +6809,159 @@
       "sparsity"
     ],
     "summary": "SUSHILA is an inference engine that accelerates LLM generation using precomputed draft heads to cheaply predict next-token scores and exactly verify only the best candidates. It reports a geometric-mean speedup of 2.35x over Ollama across eight models, with up to 4.05x on Llama-3.3-70B while maintaining accuracy."
+  },
+  {
+    "paper_id": "arxiv:2610.22543",
+    "title": "On the SPOT: Enhancing Speculative Decoding for Diffusion Language Models via Commit-Order Prediction",
+    "url": "http://arxiv.org/abs/2610.22543v1",
+    "source": "arxiv",
+    "published_date": "2026-10-15T18:40:42+00:00",
+    "posted_at": "2026-10-19T15:31:49.576479+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "SPOT enhances speculative decoding for diffusion language models by using a small draft model to predict the generation order and propose a tree of candidate continuations, which the target model verifies in a single pass. The method cuts target passes by up to 6.8x and reaches up to 3.2x the throughput of standard decoding, beating baselines across various tasks."
+  },
+  {
+    "paper_id": "arxiv:2610.22788",
+    "title": "Next Token or Vector? Learning How Far to Decode",
+    "url": "http://arxiv.org/abs/2610.22788v1",
+    "source": "arxiv",
+    "published_date": "2026-10-16T01:00:34+00:00",
+    "posted_at": "2026-10-19T15:31:49.576479+00:00",
+    "lane": "specdec",
+    "specdec_score": 8,
+    "inference_score": 7,
+    "tags": [
+      "multi-token-prediction",
+      "speculative-decoding",
+      "verification",
+      "draft-model"
+    ],
+    "summary": "CADENCE is a context-adaptive decoding method where Gaussian prediction heads draft future token spans and a learned router selects draft length, which the backbone verifies and accepts matching prefixes. It achieves up to 1.3x higher generation throughput than standard greedy decoding on Llama-3.1-8B-Instruct."
+  },
+  {
+    "paper_id": "arxiv:2610.22877",
+    "title": "BS-Spec: BFP-Based Bit-Sharing for Self-Speculative LLM Decoding with LUT-Driven Mixed-Precision Acceleration",
+    "url": "http://arxiv.org/abs/2610.22877v1",
+    "source": "arxiv",
+    "published_date": "2026-10-16T03:30:21+00:00",
+    "posted_at": "2026-10-19T15:31:49.576479+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "kv-cache",
+      "quantization",
+      "serving",
+      "speculative-decoding",
+      "draft-model"
+    ],
+    "summary": "BS-Spec is a block floating point (BFP)-based bit-sharing framework for self-speculative decoding that derives draft representations from a single target model by partially loading weights and KV cache. It achieves up to 1.9x speedup over conventional autoregressive decoding and a 67.2% average improvement over evaluated bit-sharing self-speculative decoding baselines."
+  },
+  {
+    "paper_id": "arxiv:2610.23328",
+    "title": "Peak-Memory Schedules You Can Trust: Exact Realization, Certified Optimality, and the Limits of Recomputation for Inference",
+    "url": "http://arxiv.org/abs/2610.23328v1",
+    "source": "arxiv",
+    "published_date": "2026-10-16T11:31:09+00:00",
+    "posted_at": "2026-10-19T15:31:49.576479+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "serving"
+    ],
+    "summary": "The paper proposes an exact statement-level memory modeling and permutation method to optimize operator scheduling for real-time inference, proving optimality for 94% of held-out wrapper graphs and reducing peak memory by 5.2-6.1% on ReDimNet networks with under 0.4% extra MACs."
+  },
+  {
+    "paper_id": "arxiv:2610.23455",
+    "title": "HydraLLM: Adaptive Width Slicing for Elastic Text and Vision-Language Models",
+    "url": "http://arxiv.org/abs/2610.23455v1",
+    "source": "arxiv",
+    "published_date": "2026-10-16T13:38:11+00:00",
+    "posted_at": "2026-10-19T15:31:49.576479+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "serving"
+    ],
+    "summary": "HydraLLM is an elastic architecture that adjusts its active width by slicing attention heads to adapt across hardware, using weight reordering and distillation for training. With 25% of heads active, the model increases token-generation throughput by 75.3% over the full-width configuration."
+  },
+  {
+    "paper_id": "arxiv:2610.23613",
+    "title": "Trajectory-Triggered Sparse Collaborative Decoding",
+    "url": "http://arxiv.org/abs/2610.23613v1",
+    "source": "arxiv",
+    "published_date": "2026-10-16T15:24:05+00:00",
+    "posted_at": "2026-10-19T15:31:49.576479+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 7,
+    "tags": [
+      "draft-model",
+      "speculative-decoding"
+    ],
+    "summary": "The paper introduces sparse collaborative decoding, where a lightweight predictor uses trajectory-shape features over the draft confidence path to trigger target model verification only for corrective segments. The method improves over the best open-loop schedules by +5.3 to +20.0 accuracy points across five GSM8K draft-target pairs and shows gains on MATH-500 and StrategyQA."
+  },
+  {
+    "paper_id": "arxiv:2610.23787",
+    "title": "DLite: History-free Speculative Decoding for Agentic AI",
+    "url": "http://arxiv.org/abs/2610.23787v1",
+    "source": "arxiv",
+    "published_date": "2026-10-16T17:18:54+00:00",
+    "posted_at": "2026-10-19T15:31:49.576479+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "kv-cache",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "DLite is a history-free speculative decoding framework that reuses target model contextual hidden states for local speculative prediction without maintaining historical KV cache. It achieves 2-6 acceptance length and outperforms the DSpark method by up to 70% on agentic workloads."
+  },
+  {
+    "paper_id": "arxiv:2610.23796",
+    "title": "FuTransformer: FP8 prefill and INT4 decode for Llama-style inference on Hopper",
+    "url": "http://arxiv.org/abs/2610.23796v1",
+    "source": "arxiv",
+    "published_date": "2026-10-16T17:22:01+00:00",
+    "posted_at": "2026-10-19T15:31:49.576479+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "quantization",
+      "kv-cache",
+      "hardware"
+    ],
+    "summary": "FuTransformer is a CUDA implementation of a Transformer block for Hopper GPUs that applies FP8 prefill and INT4 decode with direct KV-cache placement and quantization error reduction. On an H100, it achieves up to 1.48x faster prefill and 1.3-2.4x faster INT4 decode compared to PyTorch baselines, while maintaining minimal perplexity degradation."
+  },
+  {
+    "paper_id": "arxiv:2610.23818",
+    "title": "Acceptance Is Not Speed: Length Inflation in Training-Free Lossy Speculative Decoding",
+    "url": "http://arxiv.org/abs/2610.23818v1",
+    "source": "arxiv",
+    "published_date": "2026-10-16T17:41:19+00:00",
+    "posted_at": "2026-10-19T15:31:49.576479+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper investigates length inflation in training-free lossy speculative decoding, showing that relaxed verification lengthens completions and offsets acceptance gains. It evaluates existing relaxed verification rules across twelve target-drafter pairs, finding that while accepted tokens per round increase by 1.34x, completions become 1.54x longer, making acceptance an unreliable speed metric."
   }
 ]
