@@ -6963,5 +6963,52 @@
       "verification"
     ],
     "summary": "The paper investigates length inflation in training-free lossy speculative decoding, showing that relaxed verification lengthens completions and offsets acceptance gains. It evaluates existing relaxed verification rules across twelve target-drafter pairs, finding that while accepted tokens per round increase by 1.34x, completions become 1.54x longer, making acceptance an unreliable speed metric."
+  },
+  {
+    "paper_id": "arxiv:2610.22731",
+    "title": "Accelerated Dataflow: scaling inference in streaming data analytics with efficiency",
+    "url": "https://www.semanticscholar.org/paper/121847def36596fdb3e8d4dff9e1435df65b5f62",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-15",
+    "posted_at": "2026-10-19T23:10:32.383456+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "batching",
+      "serving"
+    ],
+    "summary": "The paper introduces a streaming data analytics system on Google Cloud Dataflow optimized for LLM inference using co-designed autoscaling and prefix-aware batching. It reports 1.5x to 2x throughput increases and up to 75% peak resource savings while maintaining or reducing tail latency."
+  },
+  {
+    "paper_id": "arxiv:2610.22863",
+    "title": "Understanding KV Residency in Production-Scale Agentic LLM Workloads",
+    "url": "https://www.semanticscholar.org/paper/ca841e0e0b933dcedafb7b118e02c04cc5832696",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-16",
+    "posted_at": "2026-10-19T23:10:32.383456+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "The paper characterizes production-scale agentic LLM KV cache memory residency and proposes multi-resolution retention (MRR), which demotes KV state to int4 to lower recompute rates. Trace-driven replay shows that under tight memory budgets, MRR reduces recompute to 13.6% compared to 63% under LRU eviction."
+  },
+  {
+    "paper_id": "arxiv:2610.23532",
+    "title": "Exploiting the Flexibility of LLM Inference for Frequency Regulation Service",
+    "url": "https://www.semanticscholar.org/paper/e68f5225f2b443541565e2622eaedfdad7630db5",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-16",
+    "posted_at": "2026-10-19T23:10:32.383456+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "serving"
+    ],
+    "summary": "The paper proposes using LLM inference clusters as controllable loads for frequency regulation via request scheduling and token-level resource allocation. Simulations using real-world data show the approach accurately tracks frequency regulation signals without compromising service-level objectives."
   }
 ]
