@@ -7010,5 +7010,193 @@
       "serving"
     ],
     "summary": "The paper proposes using LLM inference clusters as controllable loads for frequency regulation via request scheduling and token-level resource allocation. Simulations using real-world data show the approach accurately tracks frequency regulation signals without compromising service-level objectives."
+  },
+  {
+    "paper_id": "arxiv:2610.23935",
+    "title": "Factorization-Guided Training and Inference for Diffusion-Drafted Speculative Decoding",
+    "url": "https://huggingface.co/papers/2610.23935",
+    "source": "huggingface",
+    "published_date": "2026-10-07T00:00:00.000Z",
+    "posted_at": "2026-10-20T13:31:50.733282+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 9,
+    "tags": [
+      "multi-token-prediction",
+      "speculative-decoding"
+    ],
+    "summary": "DScout guides diffusion drafter training and inference in speculative decoding using factorized losses and throughput-aware configuration. It achieves up to 4.14x mean speedup over autoregressive decoding and up to 9.75% additional speedup via its inference configuration policy."
+  },
+  {
+    "paper_id": "arxiv:2610.24365",
+    "title": "FlashMap: Flow Map Speculative Decoding",
+    "url": "http://arxiv.org/abs/2610.24365v1",
+    "source": "arxiv",
+    "published_date": "2026-10-17T01:32:44+00:00",
+    "posted_at": "2026-10-20T13:31:50.733282+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "multi-token-prediction"
+    ],
+    "summary": "FlashMap is a continuous flow drafter for speculative decoding that generates an entire block of tokens in one forward pass while capturing inter-token dependencies. It achieves up to 6.1x lossless acceleration and a 7% higher average speedup than a matched DFlash baseline on Qwen3-8B."
+  },
+  {
+    "paper_id": "arxiv:2610.24722",
+    "title": "PV-Decoding: Progressive Verification Decoding with Decode Gating for Diffusion Language Models",
+    "url": "http://arxiv.org/abs/2610.24722v1",
+    "source": "arxiv",
+    "published_date": "2026-10-17T14:34:05+00:00",
+    "posted_at": "2026-10-20T13:31:50.733282+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 7,
+    "tags": [
+      "multi-token-prediction",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "PV-Decoding is a speculative decoding framework for diffusion language models that partitions tokens by confidence and verifies speculative tokens using progressively stronger verification policies. The method reduces sequential model forward passes by 8%--37% and improves throughput by 7.0%--13.6% on specific models while maintaining accuracy."
+  },
+  {
+    "paper_id": "arxiv:2610.24766",
+    "title": "ECHO: Efficient Causal Self-Recursion Beyond Auxiliary Multi-Token Prediction",
+    "url": "https://huggingface.co/papers/2610.24766",
+    "source": "huggingface",
+    "published_date": "2026-10-17T00:00:00.000Z",
+    "posted_at": "2026-10-20T13:31:50.733282+00:00",
+    "lane": "specdec",
+    "specdec_score": 8,
+    "inference_score": 7,
+    "tags": [
+      "draft-model",
+      "multi-token-prediction",
+      "speculative-decoding"
+    ],
+    "summary": "ECHO is a multi-token prediction method where the backbone's own final layer drafts future tokens without auxiliary modules, using Dynamic Depth Sampling to control training cost. At inference, the model acts as its own drafter for speculative decoding and maintains draft-target alignment on high-entropy generation."
+  },
+  {
+    "paper_id": "arxiv:2610.24993",
+    "title": "When Does Better Acceptance Pay? A Controlled Study of Speculative Decoding",
+    "url": "http://arxiv.org/abs/2610.24993v1",
+    "source": "arxiv",
+    "published_date": "2026-10-18T03:52:06+00:00",
+    "posted_at": "2026-10-20T13:31:50.733282+00:00",
+    "lane": "specdec",
+    "specdec_score": 8,
+    "inference_score": 7,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "This paper presents a controlled study of speculative decoding that compares various drafter training recipes and evaluates how acceptance rates trade off with execution latency to affect throughput. It finds that acceptance gains are highly conditional on task uncertainty and serving conditions, and that gaps between drafter methods shrink substantially under shared training protocols."
+  },
+  {
+    "paper_id": "arxiv:2610.25012",
+    "title": "Conjugate Compilation: Self-Improving Agentic Co-Compilation for Speculative Decoding",
+    "url": "http://arxiv.org/abs/2610.25012v1",
+    "source": "arxiv",
+    "published_date": "2026-10-18T04:46:51+00:00",
+    "posted_at": "2026-10-20T13:31:50.733282+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "hardware",
+      "serving",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper introduces Conjugate Compilation, a system that jointly optimizes the draft and target models within a shared compiler execution boundary for speculative decoding using an agentic search. Evaluated on single-GPU configurations, the method achieves up to 1.59x speedup and improves GPU utilization by 1.50x in the best case."
+  },
+  {
+    "paper_id": "arxiv:2610.25933",
+    "title": "The KV-Surgeon: Compensation-Aware Offline KV-Cache Compaction",
+    "url": "http://arxiv.org/abs/2610.25933v1",
+    "source": "arxiv",
+    "published_date": "2026-10-19T07:31:36+00:00",
+    "posted_at": "2026-10-20T13:31:50.733282+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "kv-cache",
+      "long-context"
+    ],
+    "summary": "KV-Surgeon introduces an offline KV-cache compaction method that accounts for nonlinear attention coupling to optimally remove and compensate cache entries. It advances the cost-accuracy Pareto frontier, improving QA accuracy by up to four points over the state of the art at 50x compaction."
+  },
+  {
+    "paper_id": "arxiv:2610.25970",
+    "title": "GLOBE: Geometry-Led Online Behavioral Early Exit via Unit-Sphere Trajectories",
+    "url": "http://arxiv.org/abs/2610.25970v1",
+    "source": "arxiv",
+    "published_date": "2026-10-19T08:01:32+00:00",
+    "posted_at": "2026-10-20T13:31:50.733282+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "early-exit",
+      "serving"
+    ],
+    "summary": "GLOBE is a training-free early exit algorithm that terminates chain-of-thought reasoning early by analyzing semantic trajectory shapes. It reduces output tokens by 49.7% and active end-to-end wall time by 51.0% across five benchmarks while maintaining comparable accuracy."
+  },
+  {
+    "paper_id": "arxiv:2610.26531",
+    "title": "ReAnchor: Reusing Rejected Verifier States for Diffusion Drafting",
+    "url": "http://arxiv.org/abs/2610.26531v1",
+    "source": "arxiv",
+    "published_date": "2026-10-19T14:57:27+00:00",
+    "posted_at": "2026-10-20T13:31:50.733282+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "ReAnchor is a training-free method that accelerates block diffusion drafting by reusing discarded verifier states to reanchor a drafter at shifted positions for parallel draft blocks. It reports up to a 19.4% improvement in acceptance length and 17.9% decoding speedup on Gemma 4-12B."
+  },
+  {
+    "paper_id": "arxiv:2610.26660",
+    "title": "Tandem: Serving Hybrid Linear-Attention GUI Agents on Mobile NPUs",
+    "url": "http://arxiv.org/abs/2610.26660v1",
+    "source": "arxiv",
+    "published_date": "2026-10-19T16:18:16+00:00",
+    "posted_at": "2026-10-20T13:31:50.733282+00:00",
+    "lane": "specdec",
+    "specdec_score": 6,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "hardware",
+      "serving",
+      "kv-cache"
+    ],
+    "summary": "The paper presents Tandam, a runtime for hybrid linear-attention models on mobile NPUs that efficiently manages recurrent state reuse and generates rollback states for speculative decoding verification. On a Snapdragon 8 Elite, it reduces per-step latency by 30% for text-based descriptions and 16% for screenshots relative to the fastest NPU configuration."
+  },
+  {
+    "paper_id": "arxiv:2610.26754",
+    "title": "TokenGate: Adapting LLMs for Fast and Memory-Efficient Prefill with Learned Token Pruning",
+    "url": "http://arxiv.org/abs/2610.26754v1",
+    "source": "arxiv",
+    "published_date": "2026-10-19T17:15:53+00:00",
+    "posted_at": "2026-10-20T13:31:50.733282+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "long-context",
+      "sparsity"
+    ],
+    "summary": "TokenGate introduces a learnable token pruning mechanism using token-gated attention to re-weight attention logits for long-context inputs. The method achieves 1.4-11.3x faster time-to-first token and 1.5-3.4x lower peak memory with no accuracy degradation."
   }
 ]
