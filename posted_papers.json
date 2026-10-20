@@ -7198,5 +7198,53 @@
       "sparsity"
     ],
     "summary": "TokenGate introduces a learnable token pruning mechanism using token-gated attention to re-weight attention logits for long-context inputs. The method achieves 1.4-11.3x faster time-to-first token and 1.5-3.4x lower peak memory with no accuracy degradation."
+  },
+  {
+    "paper_id": "arxiv:2610.25136",
+    "title": "Visual Cache Reuse for Efficient Multimodal Inference",
+    "url": "https://www.semanticscholar.org/paper/f3b2ca6df36d0750271619f17690df1e4237c57b",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-18",
+    "posted_at": "2026-10-20T22:45:22.518431+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "VisMemo is a serving system for Vision-Language Models that enables approximate KV cache reuse using an entropy-aware algorithm and differentiated cache management. Evaluated on a real-world production trace, it increases the overall cache hit rate from 27.78% to 61.45% and reduces prefill latency by up to 48.3% at 8K input tokens."
+  },
+  {
+    "paper_id": "arxiv:2610.25675",
+    "title": "LIRQuant: An Efficient Locally Isolated Rotation Quantization Method for Large Language Models",
+    "url": "https://www.semanticscholar.org/paper/c4685b9637c16725234d4c71d313debc8fb39b15",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-19",
+    "posted_at": "2026-10-20T22:45:22.518431+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "quantization"
+    ],
+    "summary": "LIRQuant is a post-training quantization method for LLMs using locally isolated rotations to handle activation outliers. It delivers up to 2.3x prefill speedup and 3.5x memory savings over FP16."
+  },
+  {
+    "paper_id": "arxiv:2610.26171",
+    "title": "CEMA-Router: Infrastructure-Aware Batch Routing for LLM Inference in Cloud-Edge Systems",
+    "url": "https://www.semanticscholar.org/paper/6711438d8deb8a8299426dc6cfb61091e4b027bc",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-19",
+    "posted_at": "2026-10-20T22:45:22.518431+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "batching",
+      "benchmark"
+    ],
+    "summary": "CEMA-Router is an infrastructure-aware batch routing system for LLM inference in cloud-edge environments that jointly optimizes model-quality loss, cost, energy, and completion time. Evaluated on RouterBench traces, it reduces the weighted objective by up to 86% for GSM8K and 80% for MMLU while reducing batch completion time by up to 30%."
   }
 ]
