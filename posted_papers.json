@@ -7433,5 +7433,38 @@
       "speculative-decoding"
     ],
     "summary": "AMTP introduces a lightweight controller for multi-token prediction that dynamically selects the speculation horizon based on context using online learning. Evaluated on Llama-3.1-8B-Instruct with Medusa heads, it decodes up to 4.1x faster than standard decoding and outperforms fixed-hizon windows in 8 out of 10 settings."
+  },
+  {
+    "paper_id": "doi:10.1117/12.3134545",
+    "title": "AI-enhanced structural optimization for private deployment of DeepSeek in computer artificial intelligence systems",
+    "url": "https://www.semanticscholar.org/paper/445a6e53cf138810a622113b17312c025aed2702",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-19",
+    "posted_at": "2026-10-21T22:50:35.180182+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "kv-cache",
+      "quantization",
+      "serving"
+    ],
+    "summary": "The paper proposes a DeepSeek private deployment architecture integrating quantization, KV-cache reuse, and inference scheduling to improve serving efficiency. The strongest result reported is an 88.1% increase in system throughput to 79 req/s under the complete deployment scheme compared to a single-node baseline."
+  },
+  {
+    "paper_id": "doi:10.1117/12.3135043",
+    "title": "Lightweight compression and inference performance optimization methods for large models aimed at engineering deployment",
+    "url": "https://www.semanticscholar.org/paper/33546ef4a7d9fe1948873e959f366bc818a50be2",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-19",
+    "posted_at": "2026-10-21T22:50:35.180182+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "kv-cache",
+      "quantization"
+    ],
+    "summary": "The method integrates pruning, quantization, and distillation alongside KV cache management and operator fusion to optimize LLM inference for deployment. The strongest result present in the abstract is a 1.91x increase in average generation throughput alongside a 51.7% reduction in peak memory occupation."
   }
 ]
