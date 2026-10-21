@@ -7246,5 +7246,192 @@
       "benchmark"
     ],
     "summary": "CEMA-Router is an infrastructure-aware batch routing system for LLM inference in cloud-edge environments that jointly optimizes model-quality loss, cost, energy, and completion time. Evaluated on RouterBench traces, it reduces the weighted objective by up to 86% for GSM8K and 80% for MMLU while reducing batch completion time by up to 30%."
+  },
+  {
+    "paper_id": "arxiv:2511.14102",
+    "title": "Specter: Fast MoE Inference via Quantization-Enabled Multi-Step Speculative Offloading",
+    "url": "https://huggingface.co/papers/2511.14102",
+    "source": "huggingface",
+    "published_date": "2026-10-20T00:00:00.000Z",
+    "posted_at": "2026-10-21T13:41:49.544422+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "mixture-of-experts",
+      "quantization"
+    ],
+    "summary": "Specter is an inference system that uses a lightweight quantized draft model to predict future expert activation patterns, enabling speculative offloading for Mixture-of-Experts models. The method achieves an average 1.50x (up to 1.88x) speedup in time per output token over state-of-the-art systems for single-request inference."
+  },
+  {
+    "paper_id": "arxiv:2610.27379",
+    "title": "DStill: Trajectory Consistency Distillation for Accelerated One-Step Drafting in Block Diffusion Speculative Decoding",
+    "url": "http://arxiv.org/abs/2610.27379v1",
+    "source": "arxiv",
+    "published_date": "2026-10-19T23:05:16+00:00",
+    "posted_at": "2026-10-21T13:41:49.544422+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "DStill distills a draft model's multi-step refinement into a one-step drafting process for block diffusion speculative decoding. Evaluated across reasoning, math, and code benchmarks, it improves acceptance length by up to 28% and achieves up to 6.45x speedup over autoregressive decoding."
+  },
+  {
+    "paper_id": "arxiv:2610.27583",
+    "title": "TeCoP: Accelerating Diffusion Large Language Model Decoding via Tentative Context Pipelining",
+    "url": "http://arxiv.org/abs/2610.27583v1",
+    "source": "arxiv",
+    "published_date": "2026-10-20T03:48:01+00:00",
+    "posted_at": "2026-10-21T13:41:49.544422+00:00",
+    "lane": "specdec",
+    "specdec_score": 7,
+    "inference_score": 9,
+    "tags": [
+      "multi-token-prediction",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "TeCoP accelerates diffusion LLM decoding through staggered block-parallel pipelining and a draft-and-verify mechanism that reuses uncommitted predictions as provisional context. It reduces forward evaluations by up to 87% and achieves up to 11.77-fold throughput over the original decoder while maintaining accuracy within one percentage point."
+  },
+  {
+    "paper_id": "arxiv:2610.27815",
+    "title": "ProVe: Proposer-Verifier Decoding",
+    "url": "http://arxiv.org/abs/2610.27815v1",
+    "source": "arxiv",
+    "published_date": "2026-10-20T08:06:37+00:00",
+    "posted_at": "2026-10-21T13:41:49.544422+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 9,
+    "tags": [
+      "multi-token-prediction",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "ProVe reverses standard speculative decoding by fine-tuning a large model to propose a block of tokens in a single forward pass and verifying them with a subsequent forward pass (using either a smaller model or the proposer itself). Across six benchmarks with a 32B proposer, the lossless variant reaches 2.5x average AR throughput, while a 3B verifier variant reaches 2.7x average throughput with a minor accuracy drop."
+  },
+  {
+    "paper_id": "arxiv:2610.28355",
+    "title": "Beyond the Point Mass: Acceptance-Derived Weights and Distributional Losses for Speculative Decoding",
+    "url": "http://arxiv.org/abs/2610.28355v1",
+    "source": "arxiv",
+    "published_date": "2026-10-20T15:20:26+00:00",
+    "posted_at": "2026-10-21T13:41:49.544422+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "The paper introduces D-PAL, a draft-model training loss for speculative decoding derived from the exact expected accepted length using distributional overlap. Replacing cross-entropy with Rényi-1/2 divergence improves mean acceptance length over prior work (4.50 to 4.57 at T=0) and consistently achieves higher throughput across six benchmarks."
+  },
+  {
+    "paper_id": "arxiv:2610.28385",
+    "title": "RACE: RoPE-Aligned Attention Compression Based on Query-Key Activation Energies",
+    "url": "http://arxiv.org/abs/2610.28385v1",
+    "source": "arxiv",
+    "published_date": "2026-10-20T15:34:02+00:00",
+    "posted_at": "2026-10-21T13:41:49.544422+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "long-context",
+      "sparsity"
+    ],
+    "summary": "RACE is a post-training KV-cache compression method that selects rotary pairs based on joint query-key activation energies to reduce both KV-cache storage and attention computation without runtime reconstruction. At 256K context with 50% retention, it reduces total inference FLOPs by 47.8%, yielding 1.79x higher throughput, 43.2% lower time-to-first-token (TTFT), and 28.1% lower allocated GPU memory."
+  },
+  {
+    "paper_id": "arxiv:2610.28441",
+    "title": "Stratified Sparse Attention: Reducing the Sparse-to-Dense Gap at Extreme Sparsity",
+    "url": "http://arxiv.org/abs/2610.28441v1",
+    "source": "arxiv",
+    "published_date": "2026-10-20T16:02:12+00:00",
+    "posted_at": "2026-10-21T13:41:49.544422+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "kv-cache",
+      "long-context",
+      "sparsity"
+    ],
+    "summary": "Stratified Sparse Attention (SSA) combines deterministic retrieval with score-guided sampling to reduce the sparse-to-dense gap at extreme sparsity levels. The method achieves up to 2.96x decode speedup over FlashInfer at 1M context while recovering up to 94% of dense-attention performance on RULER-HARD."
+  },
+  {
+    "paper_id": "arxiv:2610.28500",
+    "title": "BitMTP: When Multi-Token Prediction Meets Low-Bit Large Language Models",
+    "url": "http://arxiv.org/abs/2610.28500v1",
+    "source": "arxiv",
+    "published_date": "2026-10-20T16:42:17+00:00",
+    "posted_at": "2026-10-21T13:41:49.544422+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 10,
+    "tags": [
+      "multi-token-prediction",
+      "quantization",
+      "speculative-decoding",
+      "kv-cache"
+    ],
+    "summary": "BitMTP is an algorithm-system co-design framework combining multi-token prediction with ultra-low-bit LLMs, utilizing confidence-only, speculative-only, and hybrid decoding to accelerate generation without a separate draft model. The abstract reports five-task mean speedups of 2.2x on BitNet b1.58-2B and up to 2.4x on Bonsai models on NVIDIA H20."
+  },
+  {
+    "paper_id": "arxiv:2610.28559",
+    "title": "Large Flow Language Models",
+    "url": "http://arxiv.org/abs/2610.28559v1",
+    "source": "arxiv",
+    "published_date": "2026-10-20T17:20:29+00:00",
+    "posted_at": "2026-10-21T13:41:49.544422+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "multi-token-prediction",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper introduces a continuous flow language model that leverages a self-speculative decoding scheme to autoregressively verify flow-based drafts within a single model. This approach achieves 2.54x throughput compared to an autoregressive model at comparable quality, outperforming multi-token prediction and discrete diffusion methods."
+  },
+  {
+    "paper_id": "arxiv:2610.28577",
+    "title": "Cache Engineering for Agents",
+    "url": "http://arxiv.org/abs/2610.28577v1",
+    "source": "arxiv",
+    "published_date": "2026-10-20T17:32:24+00:00",
+    "posted_at": "2026-10-21T13:41:49.544422+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "The paper proposes cache engineering and the AKV serving engine to let LLM agents directly control their KV cache without modifying trajectories, overcoming prefix-matching limitations. The abstract reports a 27.7% average cost reduction, up to 1.2x output throughput, and a 1.5x speedup in P95 request latency."
+  },
+  {
+    "paper_id": "arxiv:2610.28619",
+    "title": "Adaptive Multi-Token Prediction: How far should we go?",
+    "url": "http://arxiv.org/abs/2610.28619v1",
+    "source": "arxiv",
+    "published_date": "2026-10-20T17:56:32+00:00",
+    "posted_at": "2026-10-21T13:41:49.544422+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "multi-token-prediction",
+      "speculative-decoding"
+    ],
+    "summary": "AMTP introduces a lightweight controller for multi-token prediction that dynamically selects the speculation horizon based on context using online learning. Evaluated on Llama-3.1-8B-Instruct with Medusa heads, it decodes up to 4.1x faster than standard decoding and outperforms fixed-hizon windows in 8 out of 10 settings."
   }
 ]
