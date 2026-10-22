@@ -7585,5 +7585,67 @@
       "serving"
     ],
     "summary": "HAWK is a KV cache transfer mechanism for phase-disaggregated LLM inference across heterogeneous GPU and NPU devices, using RDMA and layout-aware buffers. It is evaluated on a real heterogeneous system, achieving performance within 7.88% of a GPU-only system while improving power and cost efficiency."
+  },
+  {
+    "paper_id": "arxiv:2610.28909",
+    "title": "DiffResearch: Accelerating Deep Research with Diffusion Language Models",
+    "url": "https://huggingface.co/papers/2610.28909",
+    "source": "huggingface",
+    "published_date": "2026-10-20T00:00:00.000Z",
+    "posted_at": "2026-10-22T22:49:28.938114+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [],
+    "summary": "The method swaps autoregressive LLMs with a diffusion language model (dLLM) in a multi-agent deep research framework to parallelize planning and writing. The dLLM backbone yields a roughly 6x end-to-end latency reduction on 100 Deep Research Bench tasks without losing report quality."
+  },
+  {
+    "paper_id": "doi:10.1145/3795866.3844455",
+    "title": "CFMoE: Cache-Friendly Mixture of Experts Model Serving System on Edge Devices",
+    "url": "https://www.semanticscholar.org/paper/859cbdeb3027e5c11cc628744def5045ccec5750",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-26",
+    "posted_at": "2026-10-22T22:49:28.938114+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "mixture-of-experts",
+      "serving",
+      "kv-cache"
+    ],
+    "summary": "CFMoE is a mixture-of-experts serving system designed for edge devices that focuses on cache-friendly execution. The work is evaluated for its serving efficiency and performance on edge hardware."
+  },
+  {
+    "paper_id": "doi:10.1145/3795866.3844480",
+    "title": "NPUGen: NPU as KV Generator for Stable Long-Context Mobile LLM Inference",
+    "url": "https://www.semanticscholar.org/paper/ed77bdda705520f9cdef659cc346b6a20e21378d",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-26",
+    "posted_at": "2026-10-22T22:49:28.938114+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "kv-cache",
+      "hardware",
+      "long-context"
+    ],
+    "summary": "NPUGen proposes using an NPU as a KV generator to enable stable long-context mobile LLM inference. The system is evaluated for its effectiveness in maintaining stable inference on mobile devices."
+  },
+  {
+    "paper_id": "doi:10.1145/3795866.3844773",
+    "title": "WiP: Accelerating LLM Inference for RAN Control via Speculative Decoding",
+    "url": "https://www.semanticscholar.org/paper/3ace408a94bda83590e4a6274c0182730c1111e1",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-26",
+    "posted_at": "2026-10-22T22:49:28.938114+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding"
+    ],
+    "summary": "The paper proposes using speculative decoding to accelerate LLM inference for RAN control. While the abstract is empty, the title establishes the core speculative decoding contribution."
   }
 ]
