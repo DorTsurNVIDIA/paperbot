@@ -7466,5 +7466,124 @@
       "quantization"
     ],
     "summary": "The method integrates pruning, quantization, and distillation alongside KV cache management and operator fusion to optimize LLM inference for deployment. The strongest result present in the abstract is a 1.91x increase in average generation throughput alongside a 51.7% reduction in peak memory occupation."
+  },
+  {
+    "paper_id": "arxiv:2610.28671",
+    "title": "Accelerating CPU Speculative Decoding via Unified Graph Execution and Transactional KV Isolation",
+    "url": "http://arxiv.org/abs/2610.28671v1",
+    "source": "arxiv",
+    "published_date": "2026-10-17T20:14:00+00:00",
+    "posted_at": "2026-10-22T13:43:10.875052+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "kv-cache",
+      "serving",
+      "hardware"
+    ],
+    "summary": "SubTernary is an execution framework for CPU-based speculative decoding that eliminates context-swapping and memory allocation overhead via Unified Graph Caching and Transactional KV-Cache Isolation. It achieves a 1.35x speedup over llama.cpp speculative decoding and 3.99x over autoregressive decoding while maintaining O(1) rollback latency."
+  },
+  {
+    "paper_id": "arxiv:2610.29013",
+    "title": "Target Regeneration Shrinks the Gains of Draft-Training Objectives in Speculative Decoding",
+    "url": "http://arxiv.org/abs/2610.29013v1",
+    "source": "arxiv",
+    "published_date": "2026-10-21T00:26:37+00:00",
+    "posted_at": "2026-10-22T13:43:10.875052+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 6,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "The paper investigates how target model regeneration shrinks the acceptance gains of various draft-training objectives in speculative decoding. It finds that while distillation and gated distillation show large gains on external responses, these gains significantly diminish after greedy regeneration by the target model."
+  },
+  {
+    "paper_id": "arxiv:2610.29210",
+    "title": "Understanding Target Probability Reuse in Speculative Decoding",
+    "url": "http://arxiv.org/abs/2610.29210v1",
+    "source": "arxiv",
+    "published_date": "2026-10-21T05:02:50+00:00",
+    "posted_at": "2026-10-22T13:43:10.875052+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 7,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "This paper studies reusing target model next-token distributions to select the next speculative decoding tree. It finds that drawing the first token from this distribution before tree allocation improves expected acceptance and decoding speed over draft ranking, especially with small tree budgets."
+  },
+  {
+    "paper_id": "arxiv:2610.29527",
+    "title": "RCSD: Reinforcement and Continual Learning for Domain-Specific Speculative Decoding",
+    "url": "http://arxiv.org/abs/2610.29527v1",
+    "source": "arxiv",
+    "published_date": "2026-10-21T10:16:23+00:00",
+    "posted_at": "2026-10-22T13:43:10.875052+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "RCSD is a reinforcement and continual learning framework for training speculative decoding draft models by using accepted and rejected sequences as implicit preference pairs. It improves average acceptance length by 35% and achieves 1.35x faster end-to-end inference compared to the HASS baseline."
+  },
+  {
+    "paper_id": "arxiv:2610.29545",
+    "title": "PACE: Periodic and Channel-Aligned Encoding of Four-Bit Recurrent States",
+    "url": "http://arxiv.org/abs/2610.29545v1",
+    "source": "arxiv",
+    "published_date": "2026-10-21T10:31:52+00:00",
+    "posted_at": "2026-10-22T13:43:10.875052+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "quantization",
+      "kv-cache"
+    ],
+    "summary": "PACE is a post-hoc four-bit state quantizer for linear-attention language models that rounds the state less frequently and aligns quantization scales by column to reduce state memory. It achieves competitive accuracy with eight-bit baselines on large models at about two-thirds of the memory while preserving decoding speedup."
+  },
+  {
+    "paper_id": "arxiv:2610.29820",
+    "title": "UlaCache: Unified Logical Addressing for Sparse LLM Serving",
+    "url": "http://arxiv.org/abs/2610.29820v1",
+    "source": "arxiv",
+    "published_date": "2026-10-21T14:46:11+00:00",
+    "posted_at": "2026-10-22T13:43:10.875052+00:00",
+    "lane": "inference",
+    "specdec_score": 3,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving",
+      "sparsity",
+      "speculative-decoding"
+    ],
+    "summary": "UlaCache is a unified logical addressing system for managing sparse KV caches across GPU and CPU memory during LLM serving. It is evaluated against state-of-the-art baselines under matched memory budgets (including with speculative decoding enabled), achieving peak decoding throughput speedups of up to 2.51x on B300 hardware."
+  },
+  {
+    "paper_id": "arxiv:2610.29873",
+    "title": "HAWK: Heterogeneity-Aware KV Cache Transfer for Efficient GPU-NPU Phase-Disaggregated LLM Inference",
+    "url": "http://arxiv.org/abs/2610.29873v1",
+    "source": "arxiv",
+    "published_date": "2026-10-21T15:25:35+00:00",
+    "posted_at": "2026-10-22T13:43:10.875052+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "hardware",
+      "serving"
+    ],
+    "summary": "HAWK is a KV cache transfer mechanism for phase-disaggregated LLM inference across heterogeneous GPU and NPU devices, using RDMA and layout-aware buffers. It is evaluated on a real heterogeneous system, achieving performance within 7.88% of a GPU-only system while improving power and cost efficiency."
   }
 ]
