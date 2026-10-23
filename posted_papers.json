@@ -7647,5 +7647,105 @@
       "speculative-decoding"
     ],
     "summary": "The paper proposes using speculative decoding to accelerate LLM inference for RAN control. While the abstract is empty, the title establishes the core speculative decoding contribution."
+  },
+  {
+    "paper_id": "arxiv:2610.30644",
+    "title": "Speculative Acceptance Does Not Decay with Position: A Full-Length Diagnostic on Long Chain-of-Thought with Independent Drafts",
+    "url": "http://arxiv.org/abs/2610.30644v1",
+    "source": "arxiv",
+    "published_date": "2026-10-22T03:05:29+00:00",
+    "posted_at": "2026-10-23T13:19:38.567916+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 7,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "The paper presents a full-length diagnostic study of speculative decoding acceptance rates on long Chain-of-Thought using independent draft models, finding that acceptance rate does not decay with generation position after isolating greedy repetition pathologies. The evaluation measures 1.78M verification rounds across 500 math problems using same-family and cross-family drafts, showing that residual failures concentrate on high-entropy reflection tokens rather than positional length."
+  },
+  {
+    "paper_id": "arxiv:2610.30791",
+    "title": "Gandalf: Flash Shall Not Die! Increasing Flash Storage Lifetime for KV Cache Offloading in LLM Serving",
+    "url": "http://arxiv.org/abs/2610.30791v1",
+    "source": "arxiv",
+    "published_date": "2026-10-22T06:10:08+00:00",
+    "posted_at": "2026-10-23T13:19:38.567916+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving",
+      "hardware"
+    ],
+    "summary": "Gandalf is an SSD KV cache offloading system that prioritizes admission of full-attention KV cache into SSD to improve SSD lifetime without hurting cache hit rate. The abstract claims it extends SSD lifetime by 7.3X on average across multiple workload traces with negligible impact on cache hit rate."
+  },
+  {
+    "paper_id": "arxiv:2610.30923",
+    "title": "Low-Latency MoE Inference in Space Data Centers: A Wireless-Power-Transfer Perspective",
+    "url": "http://arxiv.org/abs/2610.30923v1",
+    "source": "arxiv",
+    "published_date": "2026-10-22T08:42:28+00:00",
+    "posted_at": "2026-10-23T13:19:38.567916+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "mixture-of-experts"
+    ],
+    "summary": "The paper proposes the SpaceWPT framework to optimize low-latency Mixture-of-Experts LLM inference in space data centers using inter-satellite wireless power transfer. Evaluated with Mixtral-8x7B and Phi-3.5-MoE, the method achieves up to 29.25% lower inference latency compared to baselines without WPT."
+  },
+  {
+    "paper_id": "arxiv:2610.31098",
+    "title": "RIFT: KV Cache Compression for Draft Models with Complementary Compressibility Training",
+    "url": "http://arxiv.org/abs/2610.31098v1",
+    "source": "arxiv",
+    "published_date": "2026-10-22T11:12:23+00:00",
+    "posted_at": "2026-10-23T13:19:38.567916+00:00",
+    "lane": "specdec",
+    "specdec_score": 8,
+    "inference_score": 7,
+    "tags": [
+      "draft-model",
+      "kv-cache",
+      "speculative-decoding"
+    ],
+    "summary": "RIFT introduces selection-based KV cache compression strategies and compressibility-driven training for draft models in speculative decoding to mitigate decode staleness. The method allows a 4B draft model to retain over 98% of its full-cache acceptance length on 32K-token inputs with an 8K-token KV cache budget."
+  },
+  {
+    "paper_id": "arxiv:2610.31338",
+    "title": "ValuSpec: Plug-and-Play Candidate Valuation before Target Verification for Tree-Based Speculative Decoding",
+    "url": "http://arxiv.org/abs/2610.31338v1",
+    "source": "arxiv",
+    "published_date": "2026-10-22T14:23:26+00:00",
+    "posted_at": "2026-10-23T13:19:38.567916+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "ValuSpec is a plug-and-play candidate valuation mechanism that filters low-quality branches from a supplied candidate tree before expensive target-side verification in tree-based speculative decoding. The method achieves up to 2.78x end-to-end speedup in retrieval-based tree settings without modifying tree construction strategy."
+  },
+  {
+    "paper_id": "arxiv:2610.31633",
+    "title": "BeNice! Closing Looping's Inference-Memory Gap via KV-Sharing",
+    "url": "http://arxiv.org/abs/2610.31633v1",
+    "source": "arxiv",
+    "published_date": "2026-10-22T17:49:44+00:00",
+    "posted_at": "2026-10-23T13:19:38.567916+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "long-context"
+    ],
+    "summary": "The paper proposes BeNice!, a method to enable KV-cache sharing across recurrences in looped architectures via pretraining and post-training interventions. In simulated low-memory, long-context inference, the method improves cache hit rates by up to 31.4%, increases throughput by up to 23.6%, and reduces p90 time-to-first-token by up to 83.6%."
   }
 ]
