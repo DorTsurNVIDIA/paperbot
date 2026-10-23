@@ -7747,5 +7747,52 @@
       "long-context"
     ],
     "summary": "The paper proposes BeNice!, a method to enable KV-cache sharing across recurrences in looped architectures via pretraining and post-training interventions. In simulated low-memory, long-context inference, the method improves cache hit rates by up to 31.4%, increases throughput by up to 23.6%, and reduces p90 time-to-first-token by up to 83.6%."
+  },
+  {
+    "paper_id": "arxiv:2610.30664",
+    "title": "Compiling Autoregressive LLM Control into Policy-Exact Parallel Inference for Hierarchical RAG",
+    "url": "https://www.semanticscholar.org/paper/4bde6e2a2ca7363147fb51d0713088b883abf6cb",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-22",
+    "posted_at": "2026-10-23T22:41:57.100578+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "serving",
+      "long-context"
+    ],
+    "summary": "The method compiles autoregressive LLM control for hierarchical RAG into a parallel inference process using a tree-causal probe to evaluate action distributions. It reduces control latency by 35-47% versus token-wise serial decoding while maintaining policy exactness."
+  },
+  {
+    "paper_id": "arxiv:2610.30675",
+    "title": "OneLatent: Latent Reasoning for Efficient Foundation Recommendation Models",
+    "url": "https://www.semanticscholar.org/paper/8a04e8ebcaf2398d95567958d49b1f1d0532e9ce",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-22",
+    "posted_at": "2026-10-23T22:41:57.100578+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving"
+    ],
+    "summary": "OneLatent compresses explicit Chain-of-Thought reasoning traces into learnable latent tokens to enable latent-reason-then-answer inference for recommendation models. It achieves over 17x higher online inference throughput and a 9.6% revenue lift in an online A/B test compared to strong baselines."
+  },
+  {
+    "paper_id": "arxiv:2610.31169",
+    "title": "SARIA: Persistence-Aware KV Caching with Coordinated DRAM--SSD Reload for LLM Agents",
+    "url": "https://www.semanticscholar.org/paper/e0bf5cee7005db9d0ab48c231fe7862ae5de29a6",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-22",
+    "posted_at": "2026-10-23T22:41:57.100578+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "SARIA is a KV caching system that jointly manages DRAM and SSD by exploiting session-level temporal locality to selectively persist and reload cache blocks. It reduces SSD writes by 57.1-58.9% and mean time to first token (TTFT) by 42.3-79.7% over DRAM-only caching."
   }
 ]
