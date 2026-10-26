@@ -7794,5 +7794,103 @@
       "serving"
     ],
     "summary": "SARIA is a KV caching system that jointly manages DRAM and SSD by exploiting session-level temporal locality to selectively persist and reload cache blocks. It reduces SSD writes by 57.1-58.9% and mean time to first token (TTFT) by 42.3-79.7% over DRAM-only caching."
+  },
+  {
+    "paper_id": "arxiv:2610.31819",
+    "title": "Speculative Diffusion is a Tale of Two Tradeoffs",
+    "url": "http://arxiv.org/abs/2610.31819v1",
+    "source": "arxiv",
+    "published_date": "2026-10-22T18:56:50+00:00",
+    "posted_at": "2026-10-26T15:07:21.892196+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 7,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper explores using diffusion LLMs as draft models in speculative decoding, jointly varying diffusion effort and acceptance leniency to push the speed-quality Pareto frontier. Experiments demonstrate that this joint variation extends the frontier compared to single-step diffusion drafting."
+  },
+  {
+    "paper_id": "arxiv:2610.31827",
+    "title": "KVStream: Adaptive Parallel Storage Management for KV Caching in Large-Scale LLM Serving",
+    "url": "http://arxiv.org/abs/2610.31827v1",
+    "source": "arxiv",
+    "published_date": "2026-10-22T19:05:39+00:00",
+    "posted_at": "2026-10-26T15:07:21.892196+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "KVStream introduces an adaptive parallel storage management system that batches and replicates KV cache retrievals across available storage tiers to scale long-context LLM serving. Evaluated on up to 128 GPUs, it delivers up to 1.49x higher offline throughput and lowers mean time-to-first-token (TTFT) by up to 6.1x under bursty arrivals."
+  },
+  {
+    "paper_id": "arxiv:2610.31840",
+    "title": "SPECMEM: Accelerating Agentic Tool Calling via Live Memory Management",
+    "url": "http://arxiv.org/abs/2610.31840v1",
+    "source": "arxiv",
+    "published_date": "2026-10-22T19:24:21+00:00",
+    "posted_at": "2026-10-26T15:07:21.892196+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "speculative-decoding"
+    ],
+    "summary": "SpecMem introduces a live, cross-session memory store that dynamically writes verified tool calls to manage drafts for speculative decoding in agentic workloads. Evaluated on multi-session streams, it maintains draft acceptance (+27% mean accepted tokens over a frozen store) and achieves up to 1.74x wall-clock speedup while preventing irreversible mistakes via a side-effect gate."
+  },
+  {
+    "paper_id": "arxiv:2610.32243",
+    "title": "BiLoCo: Binary Low-Rank Corrections for Post-Training Quantization",
+    "url": "http://arxiv.org/abs/2610.32243v1",
+    "source": "arxiv",
+    "published_date": "2026-10-23T06:51:44+00:00",
+    "posted_at": "2026-10-26T15:07:21.892196+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 10,
+    "tags": [
+      "quantization",
+      "hardware"
+    ],
+    "summary": "BiLoCo introduces a binary low-rank correction method for FP4 post-training quantization that runs concurrently on CUDA cores to reduce inference cost. On Blackwell B300 GPUs, the fused kernel is at most 11% slower than FP4-only GEMM at batch size 1, and at most 20% slower up to batch size 8 at rank 128."
+  },
+  {
+    "paper_id": "arxiv:2610.32638",
+    "title": "InferSlice: A Reference Architecture for SLO-driven LLM Inference over a Telco Wide-Area Network",
+    "url": "http://arxiv.org/abs/2610.32638v1",
+    "source": "arxiv",
+    "published_date": "2026-10-23T13:51:02+00:00",
+    "posted_at": "2026-10-26T15:07:21.892196+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "hardware"
+    ],
+    "summary": "InferSlice is a reference architecture for SLO-driven LLM inference over geographically distributed telco wide-area networks, integrating network slicing and GPU partitioning. The system is evaluated on service differentiation, elastic scale-out, and the reach of various parallelism and disaggregation strategies over the WAN, yielding distinct latency-throughput regimes across different configurations."
+  },
+  {
+    "paper_id": "arxiv:2610.32881",
+    "title": "NgramRL: Accelerating RL Post-Training for Structured Generation via Rollout-Aware N-gram Speculative Decoding",
+    "url": "http://arxiv.org/abs/2610.32881v1",
+    "source": "arxiv",
+    "published_date": "2026-10-23T16:47:29+00:00",
+    "posted_at": "2026-10-26T15:07:21.892196+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "serving"
+    ],
+    "summary": "NgramRL accelerates RL post-training rollouts using a per-prompt n-gram drafter verified by the target model, supplemented by an adaptive prefetcher to hide lookup latency. Across reasoning and structured-generation workloads, it commits 3.60-7.77 tokens per forward pass and improves measured rollout throughput by up to 1.38x over synchronous execution."
   }
 ]
