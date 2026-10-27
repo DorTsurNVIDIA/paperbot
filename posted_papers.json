@@ -7892,5 +7892,179 @@
       "serving"
     ],
     "summary": "NgramRL accelerates RL post-training rollouts using a per-prompt n-gram drafter verified by the target model, supplemented by an adaptive prefetcher to hide lookup latency. Across reasoning and structured-generation workloads, it commits 3.60-7.77 tokens per forward pass and improves measured rollout throughput by up to 1.38x over synchronous execution."
+  },
+  {
+    "paper_id": "arxiv:2610.33368",
+    "title": "Multiple Importance Sampling for Guided Speculative Inference",
+    "url": "http://arxiv.org/abs/2610.33368v1",
+    "source": "arxiv",
+    "published_date": "2026-10-23T23:28:38+00:00",
+    "posted_at": "2026-10-27T14:21:23.521030+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 5,
+    "tags": [
+      "draft-model",
+      "verification",
+      "speculative-decoding"
+    ],
+    "summary": "The paper extends Guided Speculative Inference by using an ensemble of smaller LLMs to propose draft reasoning steps that are verified by a larger base model and a process reward model. It introduces multiple importance sampling weighting schemes and demonstrates robust pass-at-N performance compared to single-draft GSI."
+  },
+  {
+    "paper_id": "arxiv:2610.33379",
+    "title": "One Call Ahead: Packed Self-Speculative Decoding with Diffusion Drafting",
+    "url": "http://arxiv.org/abs/2610.33379v1",
+    "source": "arxiv",
+    "published_date": "2026-10-24T00:24:46+00:00",
+    "posted_at": "2026-10-27T14:21:23.521030+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "multi-token-prediction",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "Packed-SS is a self-speculative decoding schedule that uses a diffusion drafter to propose tokens and verifies them in a single model call with linear input size complexity. Experiments on Nemotron and SetDLM models show the method achieves higher throughput and lower mean wall time than standard and one-call baselines."
+  },
+  {
+    "paper_id": "arxiv:2610.34103",
+    "title": "T2D: Target-to-Draft Model Pruning & Adaptation for Efficient Speculative Decoding",
+    "url": "http://arxiv.org/abs/2610.34103v1",
+    "source": "arxiv",
+    "published_date": "2026-10-25T07:00:45+00:00",
+    "posted_at": "2026-10-27T14:21:23.521030+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 7,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper proposes T2D, a framework that constructs draft models for speculative decoding directly from the target model using latency-aware structured pruning and knowledge distillation. Experiments show T2D prunes up to 92% of the target model to create highly performant draft models that improve speculative decoding efficiency across multiple model families."
+  },
+  {
+    "paper_id": "arxiv:2610.34436",
+    "title": "Prefix Keys and Values Matter Late: RIPE Caching for Self-Speculative Decoding in Looped Language Models",
+    "url": "http://arxiv.org/abs/2610.34436v1",
+    "source": "arxiv",
+    "published_date": "2026-10-25T16:44:33+00:00",
+    "posted_at": "2026-10-27T14:21:23.521030+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "kv-cache",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper proposes RIPE, a caching method for self-speculative decoding in looped language models that stores only the deepest KV plane except for a recent window, reducing memory. This approach yields self-speculative speed-ups of 2.58x with the deepest plane and a 2.24x fixed-memory throughput gain."
+  },
+  {
+    "paper_id": "arxiv:2610.34440",
+    "title": "Speculative Decoding for Mixture-of-Experts Models: Expert Bytes, Kernel Bandwidth and the Best Draft Length",
+    "url": "http://arxiv.org/abs/2610.34440v1",
+    "source": "arxiv",
+    "published_date": "2026-10-25T16:55:48+00:00",
+    "posted_at": "2026-10-27T14:21:23.521030+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "hardware",
+      "mixture-of-experts",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper introduces an analytical model for speculative decoding in Mixture-of-Experts models that predicts the optimal draft length based on expert deduplication bandwidth and geometric acceptance rates. It validates this model empirically across multiple hardware backends, successfully predicting the best draft length within one at all acceptance values on CUDA for DeepSeek-V2-Lite."
+  },
+  {
+    "paper_id": "arxiv:2610.34721",
+    "title": "Prefetch-Steered Routing: Deterministic Cache-Aware Expert Selection for Offloaded Mixture-of-Experts Decoding",
+    "url": "http://arxiv.org/abs/2610.34721v1",
+    "source": "arxiv",
+    "published_date": "2026-10-26T02:19:12+00:00",
+    "posted_at": "2026-10-27T14:21:23.521030+00:00",
+    "lane": "specdec",
+    "specdec_score": 6,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "mixture-of-experts",
+      "serving",
+      "speculative-decoding"
+    ],
+    "summary": "Prefetch-steered routing (PSR) deterministically caches predicted experts to accelerate offloaded MoE decoding, and evaluates speculative decoding with block-level drafters. PSR decodes 2.2-2.3x faster than exact routing with LRU on OLMoE-1B-7B, while block-level speculative decoding yields up to 2.9x speedup on Qwen3.6-35B-A3B."
+  },
+  {
+    "paper_id": "arxiv:2610.34959",
+    "title": "GUIFlow: Temporal Redundancy-Aware Incremental Inference for GUI Agents",
+    "url": "http://arxiv.org/abs/2610.34959v1",
+    "source": "arxiv",
+    "published_date": "2026-10-26T07:25:39+00:00",
+    "posted_at": "2026-10-27T14:21:23.521030+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "kv-cache",
+      "verification",
+      "serving"
+    ],
+    "summary": "GUIFlow accelerates multi-step GUI agent inference via incremental state reuse and cross-step KV-cache injection, where past action responses serve as speculative drafts verified by the target model. The framework achieves up to 3.49x speedup in closed-loop interaction while maintaining task performance."
+  },
+  {
+    "paper_id": "arxiv:2610.35309",
+    "title": "Shared Context, Separate Engines: Streaming Vision--Language Inference on Edge SoCs",
+    "url": "http://arxiv.org/abs/2610.35309v1",
+    "source": "arxiv",
+    "published_date": "2026-10-26T12:13:23+00:00",
+    "posted_at": "2026-10-27T14:21:23.521030+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "kv-cache",
+      "hardware"
+    ],
+    "summary": "A streaming vision-language inference system for edge SoCs that coordinates heterogeneous accelerators by separating shared context from engine-specific KV state. It demonstrates up to 27.2% higher throughput than parallel engines without shared state and reduces first-token latency by a factor of 4.6 via cross-engine KV import."
+  },
+  {
+    "paper_id": "arxiv:2610.35336",
+    "title": "One Megakernel is Not Enough: Predicting Where to Cut for Streaming Inference",
+    "url": "http://arxiv.org/abs/2610.35336v1",
+    "source": "arxiv",
+    "published_date": "2026-10-26T12:32:49+00:00",
+    "posted_at": "2026-10-27T14:21:23.521030+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "serving"
+    ],
+    "summary": "A framework that predicts the optimal composition of megakernels for streaming inference by simulating tile and event graphs. It demonstrates that using multiple specialized megakernels instead of a monolith can improve both latency and throughput, achieving 21.4% lower time to first audio and 28% higher throughput on an H100 GPU."
+  },
+  {
+    "paper_id": "arxiv:2610.35706",
+    "title": "Triage: Skip, Skim, or Refine Attention Tiles in Video Diffusion Transformers",
+    "url": "http://arxiv.org/abs/2610.35706v1",
+    "source": "arxiv",
+    "published_date": "2026-10-26T16:29:36+00:00",
+    "posted_at": "2026-10-27T14:21:23.521030+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "hardware",
+      "sparsity"
+    ],
+    "summary": "Triage is a training-free attention method that assigns visual tokens in video diffusion transformers to different approximation tiers (skip, skim, or refine) via a lightweight router. It accelerates end-to-end generation by up to 2.32x over dense FlashAttention across multiple models while achieving higher PSNR than baselines."
   }
 ]
