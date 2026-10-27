@@ -8066,5 +8066,38 @@
       "sparsity"
     ],
     "summary": "Triage is a training-free attention method that assigns visual tokens in video diffusion transformers to different approximation tiers (skip, skim, or refine) via a lightweight router. It accelerates end-to-end generation by up to 2.32x over dense FlashAttention across multiple models while achieving higher PSNR than baselines."
+  },
+  {
+    "paper_id": "arxiv:2610.35053",
+    "title": "LOCUS: Locate Once, Check Until Settled. Draft-and-Verify Visual Grounding with a Box Head and Coordinate-Token Verification",
+    "url": "https://www.semanticscholar.org/paper/ac7eecae3f270ec438c492a4a0d2c2466a7314c7",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-26",
+    "posted_at": "2026-10-27T23:17:26.615161+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "verification",
+      "multi-token-prediction"
+    ],
+    "summary": "The method uses a regression head as a speculative drafter for coordinate tokens, which are verified by the same VLM backbone via Jacobi iteration to refine visual grounding. This draft-and-verify approach reaches the fixed-point answer 1.5x faster than vLLM greedy decoding while improving high-IoU accuracy by +4.52 points over the baseline regression head."
+  },
+  {
+    "paper_id": "doi:10.37394/23205.2026.25.21",
+    "title": "Inference-Time Compute Allocation in LLMs: Dynamic Depth and Token Selection for Efficient Problem Solving",
+    "url": "https://www.semanticscholar.org/paper/b859bba4c156683cdd1e4d60524b5f5591214e8a",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-23",
+    "posted_at": "2026-10-27T23:17:26.615161+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "early-exit",
+      "sparsity"
+    ],
+    "summary": "The method proposes a unified framework for dynamic depth and token selection to allocate inference compute on demand. It reduces computational cost by 42.3%–61.3% and accelerates inference by 38.2%–55.7% while maintaining performance loss below 1%."
   }
 ]
