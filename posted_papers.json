@@ -8167,5 +8167,22 @@
       "sparsity"
     ],
     "summary": "CRISP is a combination-aware framework that co-designs pruning and runtime scheduling for MoE inference on edge servers by reordering neurons and overlapping expert loading with computation. It improves throughput by up to 2.1x at the same memory budget while limiting accuracy loss to 3.6%."
+  },
+  {
+    "paper_id": "doi:10.1038/s41598-026-76614-6",
+    "title": "Uncertainty-aware offline reinforcement learning for LLM inference serving with heterogeneous SLOs",
+    "url": "https://www.semanticscholar.org/paper/9805b580c42e4c753a2dd730182d488c27e19c96",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-26",
+    "posted_at": "2026-10-28T23:40:57.513448+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 10,
+    "tags": [
+      "kv-cache",
+      "serving",
+      "batching"
+    ],
+    "summary": "URSA is an offline RL-trained scheduler for LLM inference serving that predicts output lengths and KV cache footprints to jointly optimize SLO attainment, goodput, and memory risk. It raises overall SLO attainment to 90.4% and cuts P99 time-to-first-token by up to 3.3x across multiple production traces."
   }
 ]
