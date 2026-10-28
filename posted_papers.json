@@ -8099,5 +8099,73 @@
       "sparsity"
     ],
     "summary": "The method proposes a unified framework for dynamic depth and token selection to allocate inference compute on demand. It reduces computational cost by 42.3%–61.3% and accelerates inference by 38.2%–55.7% while maintaining performance loss below 1%."
+  },
+  {
+    "paper_id": "arxiv:2610.35957",
+    "title": "Distributed LLM Inference via Communication-Efficient Speculative Decoding",
+    "url": "http://arxiv.org/abs/2610.35957v1",
+    "source": "arxiv",
+    "published_date": "2026-10-25T05:37:27+00:00",
+    "posted_at": "2026-10-28T15:02:44.929919+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "verification",
+      "speculative-decoding"
+    ],
+    "summary": "The method introduces a server-side replica of the draft model to enable exact rejection sampling without transmitting full vocabulary distributions, exchanging only token indices and scalar probabilities. The strongest result is that this framework consistently achieves higher decoding speedup than existing distributed speculative decoding methods, particularly under stringent bandwidth constraints."
+  },
+  {
+    "paper_id": "arxiv:2610.36520",
+    "title": "Folding Attention Biases into Keys Makes Compacted KV Caches Run on Standard Kernels",
+    "url": "http://arxiv.org/abs/2610.36520v1",
+    "source": "arxiv",
+    "published_date": "2026-10-27T02:22:37+00:00",
+    "posted_at": "2026-10-28T15:02:44.929919+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving",
+      "attention",
+      "long-context"
+    ],
+    "summary": "The method folds attention biases into keys to allow compacted KV caches to run on unmodified standard serving kernels like vLLM. It matches full-cache accuracy on Qwen3-4B questions and maintains LongBench greedy output on 180 of 200 samples while using equal or smaller per-head budgets."
+  },
+  {
+    "paper_id": "arxiv:2610.37386",
+    "title": "Channel Selection for Mixture-of-Experts Decoding Needs No Calibration Data",
+    "url": "http://arxiv.org/abs/2610.37386v1",
+    "source": "arxiv",
+    "published_date": "2026-10-27T15:11:35+00:00",
+    "posted_at": "2026-10-28T15:02:44.929919+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "mixture-of-experts",
+      "sparsity"
+    ],
+    "summary": "The paper introduces a calibration-free top-k channel selection method and a custom reader for Mixture-of-Experts models to reduce memory reads during decoding. The proposed reader retains 98.1% of full-model accuracy at 17.8% of routed-expert reads, while speeding up MoE blocks by up to 2.69x over optimized vLLM."
+  },
+  {
+    "paper_id": "arxiv:2610.37442",
+    "title": "CRISP: Co-designing Pruning and Scheduling for Efficient MoE Inference on Edge Servers",
+    "url": "http://arxiv.org/abs/2610.37442v1",
+    "source": "arxiv",
+    "published_date": "2026-10-27T15:51:14+00:00",
+    "posted_at": "2026-10-28T15:02:44.929919+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "mixture-of-experts",
+      "serving",
+      "sparsity"
+    ],
+    "summary": "CRISP is a combination-aware framework that co-designs pruning and runtime scheduling for MoE inference on edge servers by reordering neurons and overlapping expert loading with computation. It improves throughput by up to 2.1x at the same memory budget while limiting accuracy loss to 3.6%."
   }
 ]
