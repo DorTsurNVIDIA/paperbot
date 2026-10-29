@@ -8201,5 +8201,72 @@
       "batching"
     ],
     "summary": "TAO is a tool-aware joint scheduling framework for LLM-based agentic serving that uses a dynamic program to schedule sessions based on tool readiness and cache decay. Across various settings, it reduces latency by up to 26.8%, reduces time to first token by up to 36.3%, and increases decode throughput by up to 29.5% relative to baselines."
+  },
+  {
+    "paper_id": "doi:10.1109/tcsi.2026.3700091",
+    "title": "BGM: A Block Processing Unit-Integrated GEMM Accelerator for Hardware-Efficient LLM Inference via Outlier-Aware Merge-and-Split Block Quantization",
+    "url": "https://www.semanticscholar.org/paper/a45138438e0daaf4fab10187bb68ec06ad0d2860",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-01",
+    "posted_at": "2026-10-29T23:40:39.015002+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "quantization",
+      "hardware"
+    ],
+    "summary": "BGM is a GEMM accelerator that co-designs an outlier-aware mixed-block-size quantization scheme with specialized block processing hardware. Simulations demonstrate up to a 3.04x speedup and 2.90x energy reduction for quantized LLM inference."
+  },
+  {
+    "paper_id": "doi:10.1109/tcsi.2026.3732698",
+    "title": "A Robot-Action-Planning FPGA Accelerator With Flow-Predictive Inference and Adaptive Real-Time Chunking for Embodied AI",
+    "url": "https://www.semanticscholar.org/paper/d0c8282953f8476aadbdbd55d46978e5517fd8f8",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-01",
+    "posted_at": "2026-10-29T23:40:39.015002+00:00",
+    "lane": "inference",
+    "specdec_score": 2,
+    "inference_score": 8,
+    "tags": [
+      "hardware",
+      "serving"
+    ],
+    "summary": "The paper presents an FPGA accelerator for diffusion-based VLA models that uses a velocity-estimation-driven flow predictor and adaptive real-time chunking to reduce inference latency. Evaluated in simulation and real-robot deployment, it sustains a 77.48 Hz control rate with an energy efficiency of 85 mJ/token."
+  },
+  {
+    "paper_id": "doi:10.1109/tpds.2026.3741399",
+    "title": "ALPS: An Application-Aware, Length-Predictive Scheduler for Efficient LLM Inference at Edge",
+    "url": "https://www.semanticscholar.org/paper/50755d379e830609cd5ccf810b5e1ccba2582507",
+    "source": "semantic_scholar",
+    "published_date": "2026-12-01",
+    "posted_at": "2026-10-29T23:40:39.015002+00:00",
+    "lane": "inference",
+    "specdec_score": 2,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "batching",
+      "kv-cache"
+    ],
+    "summary": "ALPS is an application-aware scheduler that uses semantic-aware grouping for shared prefill and phase-aware scheduling to maximize prefill-decode overlap in continuous batching. It demonstrates up to 1.6x throughput improvement and 2.4x latency reduction on edge GPU testbeds."
+  },
+  {
+    "paper_id": "doi:10.5626/jok.2026.53.10.943",
+    "title": "Load-Aware Dynamic Tree-Based Speculative Decoding Method in Mobile Systems",
+    "url": "https://www.semanticscholar.org/paper/dbfa75ca11b5364022e6a4667f5223487166e6ec",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-31",
+    "posted_at": "2026-10-29T23:40:39.015002+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 7,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification",
+      "serving"
+    ],
+    "summary": "The paper introduces a dynamic tree-based speculative decoding method for mobile systems that adapts candidate trees based on system load. It targets improved speculative decoding efficiency on mobile platforms."
   }
 ]
