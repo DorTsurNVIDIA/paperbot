@@ -8184,5 +8184,22 @@
       "batching"
     ],
     "summary": "URSA is an offline RL-trained scheduler for LLM inference serving that predicts output lengths and KV cache footprints to jointly optimize SLO attainment, goodput, and memory risk. It raises overall SLO attainment to 90.4% and cuts P99 time-to-first-token by up to 3.3x across multiple production traces."
+  },
+  {
+    "paper_id": "arxiv:2610.37230",
+    "title": "TAO: Tool-Aware Joint Scheduling for LLM-Based Agentic Serving",
+    "url": "https://huggingface.co/papers/2610.37230",
+    "source": "huggingface",
+    "published_date": "2026-10-27T00:00:00.000Z",
+    "posted_at": "2026-10-29T15:08:53.094076+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "kv-cache",
+      "batching"
+    ],
+    "summary": "TAO is a tool-aware joint scheduling framework for LLM-based agentic serving that uses a dynamic program to schedule sessions based on tool readiness and cache decay. Across various settings, it reduces latency by up to 26.8%, reduces time to first token by up to 36.3%, and increases decode throughput by up to 29.5% relative to baselines."
   }
 ]
