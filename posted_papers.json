@@ -8422,5 +8422,72 @@
       "verification"
     ],
     "summary": "TextSeal2 is a distortion-free watermarking method for LLMs that explicitly preserves the target verification and acceptance mechanisms of speculative decoding. Under speculative decoding, it detects 18 and 22 percentage points more 200-token answers than baselines at the same acceptance rate without adding inference latency."
+  },
+  {
+    "paper_id": "arxiv:2610.38303",
+    "title": "Don't Ask the LLM: Visual Token Pruning with Spectral Structure and Semantic Relevance",
+    "url": "https://www.semanticscholar.org/paper/257f367f6a93b2c4eb16a5018f0dd9086da05c1b",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-28",
+    "posted_at": "2026-10-30T23:20:06.928309+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "sparsity"
+    ],
+    "summary": "ST-Pruner is a training-free visual-token pruning method for LVLMs that combines spectral saliency and patch-text similarity before consulting the LLM. It achieves a 3.2x end-to-end speedup on LLaVA-NeXT while retaining over 95% of full-token performance using at most 11.1% of visual tokens."
+  },
+  {
+    "paper_id": "arxiv:2610.38822",
+    "title": "CopyLoop: Fast Looped Transformer Decoding via Context Copying and Shallow Screening",
+    "url": "https://www.semanticscholar.org/paper/d3e21b0745bddb236a3cd305bffbc6d0206e8504",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-28",
+    "posted_at": "2026-10-30T23:20:06.928309+00:00",
+    "lane": "specdec",
+    "specdec_score": 8,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "verification",
+      "early-exit"
+    ],
+    "summary": "CopyLoop accelerates looped transformer decoding by proposing multi-token suffixes via context-copy and using a shallow screening process for early verification before full-depth evaluation. The method is evaluated across code and math reasoning tasks, yielding 2.98x–10.70x speedups over full-depth autoregressive decoding."
+  },
+  {
+    "paper_id": "arxiv:2610.39418",
+    "title": "LinQuant: Functional Invariances for Low-Precision Linear Recurrences",
+    "url": "https://www.semanticscholar.org/paper/8f81b4b69923a160adbf5657819f20fc72fc3b77",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-29",
+    "posted_at": "2026-10-30T23:20:06.928309+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "long-context",
+      "quantization"
+    ],
+    "summary": "LinQuant introduces functional invariances to improve low-precision quantization for linear recurrent models during prefill. It improves perplexity at matched latency on Mamba-2 and Nemotron-H models compared to standard low-precision pipelines."
+  },
+  {
+    "paper_id": "arxiv:2610.39761",
+    "title": "GPU-Resident Speculative Decoding for In-Browser LLM Inference with WebGPU",
+    "url": "https://www.semanticscholar.org/paper/be31299f60b6c0109ccbb2f54b95f0eb4cd0f300",
+    "source": "semantic_scholar",
+    "published_date": "2026-10-29",
+    "posted_at": "2026-10-30T23:20:06.928309+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "hardware",
+      "kv-cache",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "A WebGPU runtime for in-browser LLM inference employing a GPU-resident loop for drafting, multi-token verification, and acceptance without per-token CPU decisions. The method achieves 3.5x to 8.6x faster decoding than WebLLM across various client GPUs while preserving exact greedy decoding agreement."
   }
 ]
