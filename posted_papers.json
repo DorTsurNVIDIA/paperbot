@@ -8489,5 +8489,71 @@
       "verification"
     ],
     "summary": "A WebGPU runtime for in-browser LLM inference employing a GPU-resident loop for drafting, multi-token verification, and acceptance without per-token CPU decisions. The method achieves 3.5x to 8.6x faster decoding than WebLLM across various client GPUs while preserving exact greedy decoding agreement."
+  },
+  {
+    "paper_id": "arxiv:2610.41177",
+    "title": "TraceSpec: Understanding and Improving Speculative Decoding for LLM Agents",
+    "url": "http://arxiv.org/abs/2610.41177v1",
+    "source": "arxiv",
+    "published_date": "2026-10-30T02:57:43+00:00",
+    "posted_at": "2026-11-02T18:10:50.029834+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 7,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "TraceSpec is a framework for speculative decoding in LLM agents that connects trajectory evaluation with adaptive draft training using state-conditioned estimates. The method improves replay throughput by 12.5% to 22.6% over its base and increases accepted length by 3.3% to 10.0% over fixed full-turn supervision."
+  },
+  {
+    "paper_id": "arxiv:2610.41359",
+    "title": "LEAP: Efficient LLM Inference Scheduling with Generalizable Length Prediction",
+    "url": "http://arxiv.org/abs/2610.41359v1",
+    "source": "arxiv",
+    "published_date": "2026-10-30T07:23:27+00:00",
+    "posted_at": "2026-11-02T18:10:50.029834+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "batching"
+    ],
+    "summary": "LEAP is a length-aware scheduling system for LLM serving that uses fast online adaptation of a linear readout for output length prediction. It reduces average per-token latency by 15.9-40.8% and improves throughput compared to evaluated length predictors."
+  },
+  {
+    "paper_id": "arxiv:2610.41508",
+    "title": "HiState: Hierarchical Prefix Cache Management for Hybrid LLM Serving in Agentic Workloads",
+    "url": "http://arxiv.org/abs/2610.41508v1",
+    "source": "arxiv",
+    "published_date": "2026-10-30T09:59:44+00:00",
+    "posted_at": "2026-11-02T18:10:50.029834+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "HiState is a prefix cache management system for hybrid LLMs that uses a hierarchy of SSD storage for recurrent checkpoints and fast memory for KV entries to balance recomputation and storage. On real agent traces, it achieves up to 5.73x and 5.44x speedups in p99 TTFT over vLLM-Marconi and SGLang-HiCache, respectively."
+  },
+  {
+    "paper_id": "arxiv:2610.42148",
+    "title": "Flide: Accelerating Decision Inference with Exact State Forking",
+    "url": "http://arxiv.org/abs/2610.42148v1",
+    "source": "arxiv",
+    "published_date": "2026-10-30T17:59:38+00:00",
+    "posted_at": "2026-11-02T18:10:50.029834+00:00",
+    "lane": "inference",
+    "specdec_score": 3,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "serving",
+      "kv-cache"
+    ],
+    "summary": "Flide is an efficient inference engine for decision models that decouples logical tree structures into flattened token streams using ForkAttention to guarantee exact query branch evaluation. The system answers queries up to 9.5 times faster than vLLM and SGLang while maintaining mathematical exactness."
   }
 ]
