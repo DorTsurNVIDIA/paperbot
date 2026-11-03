@@ -8555,5 +8555,178 @@
       "kv-cache"
     ],
     "summary": "Flide is an efficient inference engine for decision models that decouples logical tree structures into flattened token streams using ForkAttention to guarantee exact query branch evaluation. The system answers queries up to 9.5 times faster than vLLM and SGLang while maintaining mathematical exactness."
+  },
+  {
+    "paper_id": "arxiv:2611.00391",
+    "title": "Rethinking KV Cache Eviction for Agentic LLM Serving",
+    "url": "http://arxiv.org/abs/2611.00391v1",
+    "source": "arxiv",
+    "published_date": "2026-10-30T21:14:26+00:00",
+    "posted_at": "2026-11-03T16:06:20.338223+00:00",
+    "lane": "inference",
+    "specdec_score": 2,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "Penelope co-designs a KV cache eviction policy, recomputation, and unified GPU-CPU memory management for agentic LLM serving. It reduces mean time to first token by up to 60% and job completion time by up to 37% compared to SGLang on real agent traces."
+  },
+  {
+    "paper_id": "arxiv:2611.00506",
+    "title": "Weights That Stay: On-Chip Megakernels for Serial Heads in Speculative Decoding",
+    "url": "http://arxiv.org/abs/2611.00506v1",
+    "source": "arxiv",
+    "published_date": "2026-10-31T00:52:13+00:00",
+    "posted_at": "2026-11-03T16:06:20.338223+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "hardware",
+      "serving"
+    ],
+    "summary": "The paper proposes an execution design that keeps projection shards on-chip for serial draft heads in speculative decoding, using a persistent megakernel to enable cross-step weight reuse. Integrated into SGLang, it improves Markov drafting throughput by up to 12.3% and makes the DSpark walk up to 11.6x faster."
+  },
+  {
+    "paper_id": "arxiv:2611.00588",
+    "title": "TVP: TV is Almost All You Need for Speculative Decoding",
+    "url": "http://arxiv.org/abs/2611.00588v1",
+    "source": "arxiv",
+    "published_date": "2026-10-31T03:31:48+00:00",
+    "posted_at": "2026-11-03T16:06:20.338223+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "TVP is a loss family based on expected acceptance length for training speculative decoding draft models, addressing vanishing gradients and prefix starvation. It improves acceptance length by 9.8% over cross-entropy when fine-tuning and 6.2 to 12.9% over public DFlash2 recipes."
+  },
+  {
+    "paper_id": "arxiv:2611.00859",
+    "title": "Wave Forcing: Towards Speed-of-Light Streaming Video Generation",
+    "url": "https://huggingface.co/papers/2611.00859",
+    "source": "huggingface",
+    "published_date": "2026-10-31T00:00:00.000Z",
+    "posted_at": "2026-11-03T16:06:20.338223+00:00",
+    "lane": "inference",
+    "specdec_score": 2,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving",
+      "hardware"
+    ],
+    "summary": "Wave Forcing co-designs video generation, training, and execution to achieve continuous output with multi-step denoising. The system achieves 134.8 end-to-end FPS on eight H200 GPUs (7.07x single-GPU throughput) and up to 2.53x throughput over context-parallel baselines."
+  },
+  {
+    "paper_id": "arxiv:2611.01617",
+    "title": "Seeing What Matters, Verifying What Pays: Load-Adaptive Speculative Decoding for Vision-Language Models",
+    "url": "http://arxiv.org/abs/2611.01617v1",
+    "source": "arxiv",
+    "published_date": "2026-11-01T06:09:55+00:00",
+    "posted_at": "2026-11-03T16:06:20.338223+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification",
+      "quantization"
+    ],
+    "summary": "Uni-LaSpec is a block-parallel speculative decoding framework for VLMs that uses a verifier's attention to select visual tokens for draft conditioning and adapts verification structures dynamically based on GPU load. The method achieves up to 5.11x text throughput over autoregressive decoding and reduces mean end-to-end latency by 47.6% under bursty arrivals."
+  },
+  {
+    "paper_id": "arxiv:2611.01835",
+    "title": "ReFrame: Silence-Aware Compute Reclamation for Full-Duplex Speech Models",
+    "url": "http://arxiv.org/abs/2611.01835v1",
+    "source": "arxiv",
+    "published_date": "2026-11-01T12:10:55+00:00",
+    "posted_at": "2026-11-03T16:06:20.338223+00:00",
+    "lane": "inference",
+    "specdec_score": 2,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "serving",
+      "batching"
+    ],
+    "summary": "ReFrame reduces full-duplex speech model inference costs by speculating on temporal continuations during mutual silence and folding parallel listening frames, reinvesting the reclaimed GPU budget into external retrieval. It reduces measured GPU execution time by 18.80-31.01% while maintaining high text agreement across five models on the FDBench benchmark."
+  },
+  {
+    "paper_id": "arxiv:2611.02297",
+    "title": "FactorSpec: Serving Exact Relational Constraints as Speculative Drafts",
+    "url": "http://arxiv.org/abs/2611.02297v1",
+    "source": "arxiv",
+    "published_date": "2026-11-01T23:46:06+00:00",
+    "posted_at": "2026-11-03T16:06:20.338223+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "serving",
+      "verification"
+    ],
+    "summary": "FactorSpec compiles JSON schemas and exact relational constraints into a factor graph that drafts constraint-determined tokens for the target model to verify. It achieves up to 1.43x faster decoding and up to 13.9x more valid records per GPU-second compared to syntax-only baselines."
+  },
+  {
+    "paper_id": "arxiv:2611.02501",
+    "title": "SpecPilot: Autonomous Algorithm Discovery and Systems Optimization for Speculative Decoding",
+    "url": "http://arxiv.org/abs/2611.02501v1",
+    "source": "arxiv",
+    "published_date": "2026-11-02T04:21:47+00:00",
+    "posted_at": "2026-11-03T16:06:20.338223+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 10,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "serving",
+      "verification"
+    ],
+    "summary": "SpecPilot is an autonomous agentic loop that discovers speculative decoding algorithms and systems optimizations for specific deployments using a cost model and parallel agents. It improves speculative decoding speedups over autoregressive decoding from 4.46x to 10.87x for a single request and from 1.94x to 3.93x for batched serving without quality loss."
+  },
+  {
+    "paper_id": "arxiv:2611.02846",
+    "title": "SpecOPD: Branch-Parallel On-Policy Distillation for Speculative Decoding",
+    "url": "http://arxiv.org/abs/2611.02846v1",
+    "source": "arxiv",
+    "published_date": "2026-11-02T09:47:06+00:00",
+    "posted_at": "2026-11-03T16:06:20.338223+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "multi-token-prediction",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "SpecOPD is a branch-parallel on-policy distillation framework for speculative decoding that parallelizes draft sampling and target supervision using tree masks, sparse attention, and indexed state replay. It achieves up to 41.45% higher mean acceptance length and a 3.56x generation speedup over autoregressive decoding."
+  },
+  {
+    "paper_id": "doi:10.1145/3843179.3858057",
+    "title": "CoordSpec: Coordinating Edge Drafting and Cloud Verification for Efficient Speculative Decoding",
+    "url": "https://www.semanticscholar.org/paper/9614c243134ca8e63ec5e85fcf469986a18349a0",
+    "source": "semantic_scholar",
+    "published_date": "2026-12-07",
+    "posted_at": "2026-11-03T16:06:20.338223+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification",
+      "serving"
+    ],
+    "summary": "The method coordinates edge drafting with cloud verification for speculative decoding. The abstract lacks explicit quantitative results, but it targets improving speculative decoding efficiency through this edge-cloud coordination."
   }
 ]
