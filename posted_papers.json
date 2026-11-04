@@ -8728,5 +8728,108 @@
       "serving"
     ],
     "summary": "The method coordinates edge drafting with cloud verification for speculative decoding. The abstract lacks explicit quantitative results, but it targets improving speculative decoding efficiency through this edge-cloud coordination."
+  },
+  {
+    "paper_id": "arxiv:2611.04032",
+    "title": "ROCm InferaSim: Cut LLM Serving Trial Costs and Deploy the Best Configuration",
+    "url": "http://arxiv.org/abs/2611.04032v1",
+    "source": "arxiv",
+    "published_date": "2026-11-02T22:23:40+00:00",
+    "posted_at": "2026-11-04T16:09:55.154861+00:00",
+    "lane": "inference",
+    "specdec_score": 3,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "benchmark",
+      "kv-cache"
+    ],
+    "summary": "ROCm InferaSim is a simulator that predicts LLM serving performance from a few short kernel benchmarks to reduce configuration search costs. It predicts time per output token with 8.1% median error and throughput within 8% on multi-turn workloads, reducing the tuning GPU-hours required from 204 to 9.1."
+  },
+  {
+    "paper_id": "arxiv:2611.04042",
+    "title": "Testing Processor Contracts in Speculative Decoding Engines",
+    "url": "http://arxiv.org/abs/2611.04042v1",
+    "source": "arxiv",
+    "published_date": "2026-11-02T22:36:35+00:00",
+    "posted_at": "2026-11-04T16:09:55.154861+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 7,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper presents BADC, a branch-aware differential conformance testing method for verifying that speculative decoding engines correctly manage logits processor states and prefixes. Experiments confirm processor-interface failures and identify a 60.26-percentage-point difference in first-token event probability between ordinary and prompt-lookup decoding for a pilot prompt."
+  },
+  {
+    "paper_id": "arxiv:2611.04055",
+    "title": "HybridSpec: Throughput-Aware Speculative Decoding for Hybrid GDN-MoE Models",
+    "url": "http://arxiv.org/abs/2611.04055v1",
+    "source": "arxiv",
+    "published_date": "2026-11-02T22:58:00+00:00",
+    "posted_at": "2026-11-04T16:09:55.154861+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification",
+      "mixture-of-experts",
+      "hardware"
+    ],
+    "summary": "HybridSpec dynamically selects the verification length in speculative decoding for hybrid GDN-MoE models using draft-side acceptance estimates and introduces block-parallel GDN kernels with early routing correction to reduce overhead. In single-request greedy decoding, the method is 1.75x-1.88x faster than autoregressive decoding and 1.30x-1.33x faster than DFlash."
+  },
+  {
+    "paper_id": "arxiv:2611.04807",
+    "title": "Asymptotic Optimality of $cμ$-Rule for LLM Inference Scheduling under Memory Constraint",
+    "url": "http://arxiv.org/abs/2611.04807v1",
+    "source": "arxiv",
+    "published_date": "2026-11-03T12:41:05+00:00",
+    "posted_at": "2026-11-04T16:09:55.154861+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "batching",
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "The paper proposes a fluid model for LLM inference scheduling under memory constraints, yielding a cμ priority rule that jointly considers computation, memory bandwidth, and KV-cache capacity to minimize latency. Evaluated on an NVIDIA H800 serving engine, the policy substantially reduces average latency while maintaining high throughput."
+  },
+  {
+    "paper_id": "arxiv:2611.05304",
+    "title": "LoopVQ: Sub 1-bit KV Cache Quantization for Looped Transformers",
+    "url": "http://arxiv.org/abs/2611.05304v1",
+    "source": "arxiv",
+    "published_date": "2026-11-03T18:16:29+00:00",
+    "posted_at": "2026-11-04T16:09:55.154861+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "quantization",
+      "serving"
+    ],
+    "summary": "LoopVQ is a KV cache vector quantization method for looped transformers that jointly codes channels across loop steps. When implemented in SGLang, it nearly halves decode latency at a 32K context and raises peak serving throughput by up to 6.1x compared to the BF16 baseline."
+  },
+  {
+    "paper_id": "arxiv:2611.05345",
+    "title": "Adversarial Speculative Reasoning Improves Long Horizon Agents",
+    "url": "http://arxiv.org/abs/2611.05345v1",
+    "source": "arxiv",
+    "published_date": "2026-11-03T18:45:23+00:00",
+    "posted_at": "2026-11-04T16:09:55.154861+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "The method trains a draft model to be intentionally rejected at critical reasoning points during agent traces, forcing the target model to sample those tokens directly and reduce numerical noise over long horizons. Evaluated on complex agentic coding benchmarks, the approach raises end-to-end success rate with no change to the target model."
   }
 ]
