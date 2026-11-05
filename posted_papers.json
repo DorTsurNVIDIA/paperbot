@@ -8914,5 +8914,174 @@
       "quantization"
     ],
     "summary": "EPTQ is a 2-bit post-training quantization framework for LLMs that uses factored E8 lattice quantization and adaptive weight preservation to reduce memory usage. Evaluated on Llama models, the FE8 variant achieves up to 38% faster decode throughput than FP16 while reducing quantization time by over 80%."
+  },
+  {
+    "paper_id": "arxiv:2611.05611",
+    "title": "Hybrid Spark: Adaptive Speculative Decoding That Lets the Content Choose the Drafter",
+    "url": "http://arxiv.org/abs/2611.05611v1",
+    "source": "arxiv",
+    "published_date": "2026-11-03T20:55:26+00:00",
+    "posted_at": "2026-11-05T16:24:11.800366+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "serving"
+    ],
+    "summary": "The paper introduces a framework that runs both model-based and model-free drafters concurrently, using calibrated acceptance estimates and a pricing mechanism to allocate verification budget adaptively for speculative decoding. The framework achieves 1.10-1.62x throughput improvement on code editing tasks while maintaining baseline performance on chat workloads."
+  },
+  {
+    "paper_id": "arxiv:2611.05642",
+    "title": "Runway Characters: Serving a 57B Video Diffusion Transformer for Real-Time Conversation",
+    "url": "http://arxiv.org/abs/2611.05642v1",
+    "source": "arxiv",
+    "published_date": "2026-11-03T21:26:23+00:00",
+    "posted_at": "2026-11-05T16:24:11.800366+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 10,
+    "tags": [
+      "serving",
+      "kv-cache",
+      "quantization",
+      "hardware"
+    ],
+    "summary": "This paper presents a serving system for a 57B-parameter video diffusion transformer that optimizes KV-cache management and kernel fusion to achieve real-time generation. The optimizations reduce the diffusion step time to 147.4 ms, enabling 23.5 fps sustained production performance."
+  },
+  {
+    "paper_id": "arxiv:2611.05724",
+    "title": "Give the Drafter a Second Chance to Guess: Parallel Reconsideration for Speculative Decoding",
+    "url": "http://arxiv.org/abs/2611.05724v1",
+    "source": "arxiv",
+    "published_date": "2026-11-03T22:52:34+00:00",
+    "posted_at": "2026-11-05T16:24:11.800366+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "draft-model"
+    ],
+    "summary": "Parallel Reconsideration introduces a drafter that reconsiders its hesitant guesses using extra parallel passes to append refined candidates to the draft tree for target verification. The method improves acceptance length by 5.3% to 10.2% and speedup by 3.5% to 9.2% over baselines."
+  },
+  {
+    "paper_id": "arxiv:2611.05894",
+    "title": "RECAP: Context-Aware Prediction Recycling with Request-Local and Persistent Memories for Multimodal Speculative Decoding",
+    "url": "http://arxiv.org/abs/2611.05894v1",
+    "source": "arxiv",
+    "published_date": "2026-11-04T03:32:18+00:00",
+    "posted_at": "2026-11-05T16:24:11.800366+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "multi-token-prediction",
+      "verification"
+    ],
+    "summary": "RECAP introduces a training-free proposal recycling method for speculative decoding in vision-language models that stores target predictions under multi-token keys and verifies composed candidate trees in a single target pass. It achieves mean speedups of 1.66x and 1.56x on Qwen2.5-VL-7B and LLaVA-1.6-7B across seven single-turn benchmarks, exceeding the Token Recycling baseline."
+  },
+  {
+    "paper_id": "arxiv:2611.05926",
+    "title": "Split-KV: Efficient Context Parallelism for Training Diffusion Drafters",
+    "url": "http://arxiv.org/abs/2611.05926v1",
+    "source": "arxiv",
+    "published_date": "2026-11-04T04:16:46+00:00",
+    "posted_at": "2026-11-05T16:24:11.800366+00:00",
+    "lane": "specdec",
+    "specdec_score": 6,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "kv-cache"
+    ],
+    "summary": "Split-KV is a context parallelism method for training diffusion drafters used in speculative decoding, exploiting query-context asymmetry to limit attention communication and balance chunks by realized cost. It achieves up to 3.67x speedup over the fastest available context parallelism baseline at a CP size of 64."
+  },
+  {
+    "paper_id": "arxiv:2611.06425",
+    "title": "D3D: Decoupled Diffusion Drafting for Asynchronous Speculative Decoding",
+    "url": "http://arxiv.org/abs/2611.06425v1",
+    "source": "arxiv",
+    "published_date": "2026-11-04T12:27:58+00:00",
+    "posted_at": "2026-11-05T16:24:11.800366+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 9,
+    "tags": [
+      "multi-token-prediction",
+      "speculative-decoding",
+      "draft-model"
+    ],
+    "summary": "D3D is a standalone target-conditioned diffusion drafter that enables asynchronous speculative decoding by removing inter-round dependencies on target hidden states. It achieves up to 7.48x decoding speedup on GSM8K with a Qwen3-32B target, retaining over 99% of mean acceptance length even after pruning 5 of 36 layers."
+  },
+  {
+    "paper_id": "arxiv:2611.06606",
+    "title": "Verifier-Guided Self-Consistency: Test-Time Reasoning with Imperfect Generators and Verifiers",
+    "url": "http://arxiv.org/abs/2611.06606v1",
+    "source": "arxiv",
+    "published_date": "2026-11-04T14:57:04+00:00",
+    "posted_at": "2026-11-05T16:24:11.800366+00:00",
+    "lane": "specdec",
+    "specdec_score": 6,
+    "inference_score": 6,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "Verifier-Guided Self-Consistency (VGSC) is a stochastic decoding framework that proposes candidate reasoning steps and uses a verifier with an acceptance/resampling procedure to guide generation. The method is evaluated across multiple reasoning benchmarks where it achieves higher average accuracy than representative baselines."
+  },
+  {
+    "paper_id": "arxiv:2611.06841",
+    "title": "ServerBench: How can your coding agents design specialized LLM serving systems?",
+    "url": "http://arxiv.org/abs/2611.06841v1",
+    "source": "arxiv",
+    "published_date": "2026-11-04T17:59:07+00:00",
+    "posted_at": "2026-11-05T16:24:11.800366+00:00",
+    "lane": "inference",
+    "specdec_score": 2,
+    "inference_score": 9,
+    "tags": [
+      "benchmark",
+      "serving",
+      "kv-cache",
+      "batching"
+    ],
+    "summary": "ServerBench is a benchmark where coding agents design specialized LLM serving systems optimized for latency-qualified token value per dollar. The strongest result reported is that agents successfully produced verified systems, with one model achieving $4.87\\times$ the token value per dollar of the vLLM reference baseline."
+  },
+  {
+    "paper_id": "arxiv:2611.06876",
+    "title": "SpecCompact: Accelerating LLM Agent Context Compaction with Slot-Parallel Semantic Speculative Verification",
+    "url": "http://arxiv.org/abs/2611.06876v1",
+    "source": "arxiv",
+    "published_date": "2026-11-04T18:34:41+00:00",
+    "posted_at": "2026-11-05T16:24:11.800366+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "SpecCompact accelerates LLM context compaction by using a small drafter model to propose slot summaries in parallel, which a target model then verifies and repairs. The method achieves 2.04-5.63x compaction speedups over Hermes-style summarization across two benchmarks and an 8.68x median speedup in a user study."
+  },
+  {
+    "paper_id": "doi:10.1109/tpds.2026.3746050",
+    "title": "FlexKV: Resource-Efficient Remote KV Reuse for Low-Latency LLM Inference",
+    "url": "https://www.semanticscholar.org/paper/f982fa8e507d8fda6a539ed56f5602ae575b856b",
+    "source": "semantic_scholar",
+    "published_date": "2026-12-01",
+    "posted_at": "2026-11-05T16:24:11.800366+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 10,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "FlexKV is an LLM inference system that reduces Time-To-First-Token (TTFT) via a resource-efficient KV-cache reuse policy featuring an adaptive Hybrid Adapter and a layer-wise Pipeline Scheduler. Evaluated across 6.7B to 65B models, it achieves up to a 4.90x TTFT speedup over deployable baselines."
   }
 ]
