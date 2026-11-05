@@ -8831,5 +8831,88 @@
       "verification"
     ],
     "summary": "The method trains a draft model to be intentionally rejected at critical reasoning points during agent traces, forcing the target model to sample those tokens directly and reduce numerical noise over long horizons. Evaluated on complex agentic coding benchmarks, the approach raises end-to-end success rate with no change to the target model."
+  },
+  {
+    "paper_id": "arxiv:2611.01704",
+    "title": "MatMoE: Matryoshka Mixture-of-Experts with Dynamic Mixed-Precision Quantization for Efficient Inference",
+    "url": "https://www.semanticscholar.org/paper/7c8476f6d199eaba5189f6d0c51dfbeb804ad948",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-01",
+    "posted_at": "2026-11-05T00:35:21.951281+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "mixture-of-experts",
+      "quantization",
+      "hardware",
+      "serving"
+    ],
+    "summary": "MatMoE is a dynamic mixed-precision quantization framework for Mixture-of-Experts models that allocates bit-widths based on routing scores to satisfy dynamic latency requirements. Evaluated on CPU and GPU platforms, it claims 1.3x-3.7x speedup over llama.cpp on edge devices while improving accuracy over static mixed-precision baselines."
+  },
+  {
+    "paper_id": "arxiv:2611.02780",
+    "title": "Lookahead Prediction-Guided Adaptive Visual Refocusing for Interleaved Multimodal Reasoning",
+    "url": "https://www.semanticscholar.org/paper/112625bdeca32171e78b78252ce947d121dbe853",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-02",
+    "posted_at": "2026-11-05T00:35:21.951281+00:00",
+    "lane": "specdec",
+    "specdec_score": 8,
+    "inference_score": 6,
+    "tags": [
+      "multi-token-prediction",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "LPAVR repurposes multi-token prediction (MTP) to generate lookahead visual evidence, where the target model verifies draft tokens in parallel and retains the longest consistent prefix. The abstract reports that this approach improves reasoning accuracy and increases the acceptance rates of MTP speculative tokens on multimodal benchmarks."
+  },
+  {
+    "paper_id": "arxiv:2611.04488",
+    "title": "Perseus: A Full-Stack System for Homomorphic Model Inference",
+    "url": "https://www.semanticscholar.org/paper/2c0690928db94ef47d9d137b7200e75d6b4b1920",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-03",
+    "posted_at": "2026-11-05T00:35:21.951281+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "serving"
+    ],
+    "summary": "Perseus is an open-source software library for fully homomorphic encrypted LLM inference that introduces optimizations across the cryptographic backend, data packing, and execution stack. The system achieves state-of-the-art latency, running 3.96x faster at single-token decoding on Llama-3-8B than prior implementations while maintaining accuracy within 3% of plaintext models."
+  },
+  {
+    "paper_id": "doi:10.1145/3799682.3840849",
+    "title": "CriticRouter: Criticality-aware Step Router for Small-Large Collaborative Reasoning",
+    "url": "https://www.semanticscholar.org/paper/414640532fa626b638e144ee2ea87f30497bc227",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-07",
+    "posted_at": "2026-11-05T00:35:21.951281+00:00",
+    "lane": "specdec",
+    "specdec_score": 6,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "serving"
+    ],
+    "summary": "CriticRouter is a verifier-free collaborative reasoning framework that routes low-criticality reasoning steps to a small language model and high-criticality steps to a large LLM based on sensitivity to context perturbations. It achieves comparable accuracy to standard LLM reasoning while significantly reducing inference latency."
+  },
+  {
+    "paper_id": "doi:10.1145/3799682.3841056",
+    "title": "EPTQ: Fast and Accurate 2-bit Post-Training Quantization via Factored E8 Lattice",
+    "url": "https://www.semanticscholar.org/paper/d4441e7d183630ad26e3b670e37d9d9b43d55463",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-07",
+    "posted_at": "2026-11-05T00:35:21.951281+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "quantization"
+    ],
+    "summary": "EPTQ is a 2-bit post-training quantization framework for LLMs that uses factored E8 lattice quantization and adaptive weight preservation to reduce memory usage. Evaluated on Llama models, the FE8 variant achieves up to 38% faster decode throughput than FP16 while reducing quantization time by over 80%."
   }
 ]
