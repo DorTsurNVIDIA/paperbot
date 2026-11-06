@@ -9120,5 +9120,194 @@
       "long-context"
     ],
     "summary": "The paper presents a controlled systems characterization of KV-cache performance across context lengths, attention architectures, and GPU memory residency. It reports end-to-end generation speedups of up to 8.62x for fully resident cache conditions while maintaining below 61% physical GPU-memory utilization."
+  },
+  {
+    "paper_id": "arxiv:2611.05871",
+    "title": "The Invocation Bottleneck in LLM-Based Lossless Compression: What Can Be Removed and What Must Be Traded",
+    "url": "https://www.semanticscholar.org/paper/c562fa77f1d5e6146b4fb6e84ac920bf2d1f50c5",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-04",
+    "posted_at": "2026-11-06T15:54:17.222391+00:00",
+    "lane": "specdec",
+    "specdec_score": 8,
+    "inference_score": 7,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "multi-token-prediction"
+    ],
+    "summary": "The paper introduces speculative dual-model coding (SDMC) to trade sequential dependency for fewer model calls in LLM-based lossless compression, characterizing the compression cost of predicting multiple tokens from a shared prefix to speed up decompression."
+  },
+  {
+    "paper_id": "arxiv:2611.06982",
+    "title": "Decode Before You Hear: Speculative Listening for Chunk-Interleaved Full-Duplex Speech Language Models",
+    "url": "https://www.semanticscholar.org/paper/6abdf9f11e5cffad52bb05f635c46269c6c2dded",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-04",
+    "posted_at": "2026-11-06T15:54:17.222391+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "Speculative Listening is a training-free, lossless framework for full-duplex speech language models that drafts the next chunk under an assumed input during idle compute and verifies the drafts upon audio arrival, reducing decoding delay before a response starts by 73% and speeding up speak chunks by 2.6-2.8x."
+  },
+  {
+    "paper_id": "arxiv:2611.07149",
+    "title": "FastAFD: When Does Attention-FFN Disaggregation Pay on Rack-Scale NVLink?",
+    "url": "http://arxiv.org/abs/2611.07149v1",
+    "source": "arxiv",
+    "published_date": "2026-11-04T21:21:57+00:00",
+    "posted_at": "2026-11-06T15:54:17.222391+00:00",
+    "lane": "inference",
+    "specdec_score": 3,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "mixture-of-experts",
+      "serving",
+      "speculative-decoding"
+    ],
+    "summary": "FastAFD is an Attention-FFN disaggregation (AFD) engine for MoE models that overlaps MoE with attention, achieving up to 1.17x higher throughput over wide expert parallelism and deriving an analytical model to predict AFD throughput within 3%."
+  },
+  {
+    "paper_id": "arxiv:2611.07263",
+    "title": "HyFlash: A Prefix-Memory Prior for On-Device Speculative Decoding",
+    "url": "http://arxiv.org/abs/2611.07263v1",
+    "source": "arxiv",
+    "published_date": "2026-11-05T00:31:21+00:00",
+    "posted_at": "2026-11-06T15:54:17.222391+00:00",
+    "lane": "specdec",
+    "specdec_score": 8,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "multi-token-prediction",
+      "speculative-decoding",
+      "kv-cache"
+    ],
+    "summary": "HyFlash introduces a compact parallel drafter for on-device speculative decoding that uses a prefix-memory prior and recurrent memory to separate long-range context modeling from fine-grained draft-position interactions. It achieves higher acceptance rates than full-context attention with substantially less KV storage, yielding larger gains for shallow drafters and long contexts."
+  },
+  {
+    "paper_id": "arxiv:2611.07542",
+    "title": "FlashOffloading: Low-Latency KV Cache Offloading for Long-Context LLM Serving",
+    "url": "http://arxiv.org/abs/2611.07542v1",
+    "source": "arxiv",
+    "published_date": "2026-11-05T06:50:05+00:00",
+    "posted_at": "2026-11-06T15:54:17.222391+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "kv-cache",
+      "speculative-decoding",
+      "multi-token-prediction"
+    ],
+    "summary": "FlashOffloading is a host-DRAM-centric LLM serving architecture that fully offloads the KV cache to host DRAM using rolling HBM caches and overlapped kernels to reduce latency. Evaluated with a speculative decoding setup, it improves prefill throughput by up to 1.38x and decode throughput by up to 1.91x under a latency constraint."
+  },
+  {
+    "paper_id": "arxiv:2611.07634",
+    "title": "AiXapply: Fast and Reliable Full-File Code Integration with Specialized Small Models for IDE Workflows",
+    "url": "https://www.semanticscholar.org/paper/4f51a5c47c128ea045210d34e93fa6f60ce861d2",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-05",
+    "posted_at": "2026-11-06T15:54:17.222391+00:00",
+    "lane": "specdec",
+    "specdec_score": 6,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "serving"
+    ],
+    "summary": "AiXapply trains a specialized 4B model for full-file code integration and uses speculative decoding to accelerate inference. The speculative decoding variant achieves roughly 2700 tokens/s on an A100 and reduces mean Apply latency from 50 seconds to 1.89 seconds in an industrial deployment."
+  },
+  {
+    "paper_id": "arxiv:2611.07959",
+    "title": "CoRD: Coupled Rollouts Fill the Blind Spot of On-Policy Distillation",
+    "url": "http://arxiv.org/abs/2611.07959v1",
+    "source": "arxiv",
+    "published_date": "2026-11-05T12:55:51+00:00",
+    "posted_at": "2026-11-06T15:54:17.222391+00:00",
+    "lane": "specdec",
+    "specdec_score": 7,
+    "inference_score": 2,
+    "tags": [
+      "draft-model",
+      "speculative-decoding"
+    ],
+    "summary": "CoRD is a training method for on-policy distillation that uses the maximal coupling of speculative decoding to interpolate student and teacher rollouts. It improves student pass@1 by up to 2.0 points on math benchmarks and accelerates gap closure on teacher-reached states compared to standard distillation."
+  },
+  {
+    "paper_id": "arxiv:2611.08290",
+    "title": "AutoCompress: Automated Hardware-Guided Model Compression",
+    "url": "http://arxiv.org/abs/2611.08290v1",
+    "source": "arxiv",
+    "published_date": "2026-11-05T16:53:48+00:00",
+    "posted_at": "2026-11-06T15:54:17.222391+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "sparsity",
+      "hardware",
+      "serving",
+      "long-context"
+    ],
+    "summary": "AutoCompress is a hardware-guided differentiable architecture search framework that prunes LLMs to meet specific latency, throughput, and memory constraints. It compresses a 120B parameter model to 74B for single-GPU 128K context serving while retaining 95% of its mean benchmark score."
+  },
+  {
+    "paper_id": "arxiv:2611.08362",
+    "title": "SpecCTMC: Exact Speculative Simulation of Diffusion Language Model Continuous-Time Markov Chains",
+    "url": "http://arxiv.org/abs/2611.08362v1",
+    "source": "arxiv",
+    "published_date": "2026-11-05T17:41:20+00:00",
+    "posted_at": "2026-11-06T15:54:17.222391+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "SpecCTMC is a training-free speculative sampler for masked diffusion language models that proposes token updates from previous predictions and verifies them in parallel with an exact acceptance-and-correction procedure. The method is proven to preserve the reference sampling distribution while requiring 1.73-4.38x fewer sequential model evaluations than direct continuous-time sampling across five benchmarks."
+  },
+  {
+    "paper_id": "arxiv:2611.08363",
+    "title": "StrataFlux: Memory-Hierarchy-Native Low-Bit LLM Inference",
+    "url": "http://arxiv.org/abs/2611.08363v1",
+    "source": "arxiv",
+    "published_date": "2026-11-05T17:42:06+00:00",
+    "posted_at": "2026-11-06T15:54:17.222391+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "quantization",
+      "serving"
+    ],
+    "summary": "StrataFlux is a quantization framework that streams selective high-precision data from host RAM and SSDs to refine low-bit weights and KV caches during LLM inference. It recovers accuracy while maintaining high throughput, achieving 95.4% of the quantized base's throughput on an RTX 5090 while halving GPU memory usage for 128K context inference."
+  },
+  {
+    "paper_id": "arxiv:2611.08449",
+    "title": "VFlash: Fast, Accurate Visual Planning via Flash Primitive Decoding",
+    "url": "https://huggingface.co/papers/2611.08449",
+    "source": "huggingface",
+    "published_date": "2026-11-05T00:00:00.000Z",
+    "posted_at": "2026-11-06T15:54:17.222391+00:00",
+    "lane": "specdec",
+    "specdec_score": 7,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "multi-token-prediction",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "VFlash introduces a lightweight drafter that predicts entire visual primitives (e.g., points, trajectories) in one forward pass and directly accepts structurally valid predictions without target-token agreement for speculative decoding. It reduces prediction errors and achieves approximately 25x faster generation for 3D point motion forecasting."
   }
 ]
