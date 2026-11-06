@@ -9309,5 +9309,58 @@
       "verification"
     ],
     "summary": "VFlash introduces a lightweight drafter that predicts entire visual primitives (e.g., points, trajectories) in one forward pass and directly accepts structurally valid predictions without target-token agreement for speculative decoding. It reduces prediction errors and achieves approximately 25x faster generation for 3D point motion forecasting."
+  },
+  {
+    "paper_id": "arxiv:2611.06710",
+    "title": "Where Is VLA Inference Time Spent? Bottlenecks and Optimization Interactions Across GPUs",
+    "url": "https://www.semanticscholar.org/paper/dbd464754ef3d41b25961d2b19873a9c98c6976d",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-04",
+    "posted_at": "2026-11-06T23:52:12.780094+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "quantization",
+      "sparsity",
+      "serving"
+    ],
+    "summary": "The paper provides a comprehensive measurement study of seven inference optimization methods across multiple VLAs and GPU families, deriving VLA-Triage guidelines for stacking optimizations under latency budgets."
+  },
+  {
+    "paper_id": "arxiv:2611.07570",
+    "title": "ACSeL: Adaptive Configuration Search for Hardware-Constrained LLM Inference",
+    "url": "https://www.semanticscholar.org/paper/6cb1d7c46c0cc05e6f0ca31b8cd1119c50d1b552",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-05",
+    "posted_at": "2026-11-06T23:52:12.780094+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "quantization",
+      "serving",
+      "hardware"
+    ],
+    "summary": "ACSeL is a framework for hardware-constrained LLM inference that jointly searches model size, batch size, and mixed-precision quantization recipes to satisfy memory and latency SLOs. It demonstrates that its few-shot median calibration and structured search algorithm achieve the highest feasibility and lowest quality gaps on workstations and edge platforms."
+  },
+  {
+    "paper_id": "arxiv:2611.08299",
+    "title": "Should You Split Decode? Disaggregation Across Future Models and Accelerators",
+    "url": "https://www.semanticscholar.org/paper/6ebd7cd0a0818839414f6d2abc1e12f2136c8a96",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-05",
+    "posted_at": "2026-11-06T23:52:12.780094+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "kv-cache",
+      "batching",
+      "hardware"
+    ],
+    "summary": "SiliconForge is a calibrated model for LLM serving that co-optimizes serving decomposition and hardware assignment for prefill/decode and attention/feed-forward network disaggregation. It finds that prefill/decode disaggregation generally outperforms attention/feed-forward network disaggregation in SLO goodput per kW, and that re-optimizing mappings and pool sizes reduces median normalized goodput loss from 36% to 9%."
   }
 ]
