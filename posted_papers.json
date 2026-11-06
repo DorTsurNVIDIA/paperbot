@@ -9083,5 +9083,42 @@
       "serving"
     ],
     "summary": "FlexKV is an LLM inference system that reduces Time-To-First-Token (TTFT) via a resource-efficient KV-cache reuse policy featuring an adaptive Hybrid Adapter and a layer-wise Pipeline Scheduler. Evaluated across 6.7B to 65B models, it achieves up to a 4.90x TTFT speedup over deployable baselines."
+  },
+  {
+    "paper_id": "arxiv:2611.03768",
+    "title": "Multi-layer Indexer: Overlapping Selection and Attention in DeepSeek Sparse Attention",
+    "url": "https://huggingface.co/papers/2611.03768",
+    "source": "huggingface",
+    "published_date": "2026-11-02T00:00:00.000Z",
+    "posted_at": "2026-11-06T00:35:20.350999+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "kv-cache",
+      "long-context",
+      "serving",
+      "sparsity"
+    ],
+    "summary": "The paper introduces Multi-layer Indexer (MLI), a method that overlaps sparse attention selection and attention computation across adjacent layers to accelerate long-context inference without retraining. It reports decode speedups of up to 14.5% over IndexCache and a 1.32x throughput increase over the unmodified DeepSeek-V3.2 model at 128K context."
+  },
+  {
+    "paper_id": "doi:10.3390/jlpea16040052",
+    "title": "Characterizing KV-Cache Performance in Large Language Model Inference: Context Length, Attention Architecture, and GPU Memory Residency",
+    "url": "https://www.semanticscholar.org/paper/e99420799f638186acbda74c4d60e214a5455b78",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-03",
+    "posted_at": "2026-11-06T00:35:20.350999+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "attention",
+      "benchmark",
+      "kv-cache",
+      "long-context"
+    ],
+    "summary": "The paper presents a controlled systems characterization of KV-cache performance across context lengths, attention architectures, and GPU memory residency. It reports end-to-end generation speedups of up to 8.62x for fully resident cache conditions while maintaining below 61% physical GPU-memory utilization."
   }
 ]
