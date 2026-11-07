@@ -9362,5 +9362,36 @@
       "hardware"
     ],
     "summary": "SiliconForge is a calibrated model for LLM serving that co-optimizes serving decomposition and hardware assignment for prefill/decode and attention/feed-forward network disaggregation. It finds that prefill/decode disaggregation generally outperforms attention/feed-forward network disaggregation in SLO goodput per kW, and that re-optimizing mappings and pool sizes reduces median normalized goodput loss from 36% to 9%."
+  },
+  {
+    "paper_id": "arxiv:2611.06500",
+    "title": "Tools Need Not Speak in Text: Latent Context Compression for Agents",
+    "url": "https://huggingface.co/papers/2611.06500",
+    "source": "huggingface",
+    "published_date": "2026-11-04T00:00:00.000Z",
+    "posted_at": "2026-11-07T14:50:57.853049+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "Coca-Cola is a continuous latent context compression model for LLM agents that compresses tool observations into latent tokens. The method reduces agent token consumption by up to 89.24% and end-to-end runtime by up to 55.97% while maintaining or improving task performance on QA benchmarks."
+  },
+  {
+    "paper_id": "doi:10.1109/tmc.2026.3733238",
+    "title": "Scaling LLMs via Collaboration: Efficient LLM Inference Across Resource-Constrained Devices",
+    "url": "https://www.semanticscholar.org/paper/7ca7799f0c0a5f420fd4de46f46c9ff1be63dd91",
+    "source": "semantic_scholar",
+    "published_date": "2026-12-01",
+    "posted_at": "2026-11-07T14:50:57.853049+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving"
+    ],
+    "summary": "CoSEI is a collaborative edge inference system that uses operator-aware partitioning and synchronization-minimizing execution across multiple devices. The prototype achieves up to 5.4x lower latency than pipeline baselines on an eight-node edge cluster."
   }
 ]
