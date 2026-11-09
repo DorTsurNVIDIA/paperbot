@@ -9393,5 +9393,68 @@
       "serving"
     ],
     "summary": "CoSEI is a collaborative edge inference system that uses operator-aware partitioning and synchronization-minimizing execution across multiple devices. The prototype achieves up to 5.4x lower latency than pipeline baselines on an eight-node edge cluster."
+  },
+  {
+    "paper_id": "arxiv:2611.08669",
+    "title": "ChainFlow: Few-Step Latent Flow Matching for Speculative Decoding",
+    "url": "http://arxiv.org/abs/2611.08669v1",
+    "source": "arxiv",
+    "published_date": "2026-11-05T20:26:25+00:00",
+    "posted_at": "2026-11-09T18:41:30.355820+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "speculative-decoding"
+    ],
+    "summary": "ChainFlow is a flow-matching drafter for speculative decoding that conditions on target hidden states and uses a VAE along with tree drafting to raise acceptance rates. The method outperforms EAGLE-3 and DFlash in vLLM by 39% and 11%, respectively, on Qwen3.5 models."
+  },
+  {
+    "paper_id": "arxiv:2611.09474",
+    "title": "Nebula: Distributed Position-Independent Caching for LLM Serving",
+    "url": "http://arxiv.org/abs/2611.09474v1",
+    "source": "arxiv",
+    "published_date": "2026-11-06T13:54:49+00:00",
+    "posted_at": "2026-11-09T18:41:30.355820+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 10,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "Nebula is a distributed LLM serving framework that manages position-independent caching (PIC) for remote reuse and parallel prefill. It reduces median Time-To-First-Token (TTFT) by an average of 61.4% compared to the strongest existing baseline across multiple RAG and agentic workloads."
+  },
+  {
+    "paper_id": "arxiv:2611.09715",
+    "title": "Intent-Aware Caching for Efficient LLM Serving",
+    "url": "http://arxiv.org/abs/2611.09715v1",
+    "source": "arxiv",
+    "published_date": "2026-11-06T16:56:48+00:00",
+    "posted_at": "2026-11-09T18:41:30.355820+00:00",
+    "lane": "inference",
+    "specdec_score": 2,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "Intent-Aware Caching (IAC) is an online KV cache eviction policy that uses user intent and learned reuse statistics to guide eviction, achieving a 34.6% cache hit rate and reducing average serving latency by up to 46.1% on real workloads."
+  },
+  {
+    "paper_id": "arxiv:2611.09868",
+    "title": "CodeQuant2: Enhanced Outlier Mitigation and Adaptive Clustering for Low-Precision LRMs",
+    "url": "http://arxiv.org/abs/2611.09868v1",
+    "source": "arxiv",
+    "published_date": "2026-11-06T18:48:04+00:00",
+    "posted_at": "2026-11-09T18:41:30.355820+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "quantization"
+    ],
+    "summary": "CodeQuant2 is a clustering-based lookup-table quantization framework for large reasoning models that addresses activation outliers and non-uniform weight distributions. It delivers accuracy improvements on reasoning benchmarks while achieving up to 2.85x speedup over BF16."
   }
 ]
