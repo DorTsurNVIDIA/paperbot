@@ -9524,5 +9524,125 @@
       "hardware"
     ],
     "summary": "Hibana is an inference engine for unified-memory devices that co-optimizes model representation, memory management, and decoding strategies including adaptive speculation. On a DGX Spark serving up to 125B parameter models, it delivers up to 3.9x higher decoding throughput and completes up to 3.4x more agentic tasks per hour compared to established frameworks."
+  },
+  {
+    "paper_id": "arxiv:2611.10634",
+    "title": "Coverage-Verified Sparse Attention: Closed-Loop Quality Control for Long-Context LLM Decoding",
+    "url": "http://arxiv.org/abs/2611.10634v1",
+    "source": "arxiv",
+    "published_date": "2026-11-07T10:22:27+00:00",
+    "posted_at": "2026-11-10T16:23:13.104459+00:00",
+    "lane": "inference",
+    "specdec_score": 3,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "kv-cache",
+      "long-context"
+    ],
+    "summary": "The method introduces Coverage-Verified Sparse Attention, a training-free, closed-loop verify-then-correct decode loop for long-context LLMs that accepts high-coverage subsets of the KV cache and recovers the rest. Evaluated on LongBench and RULER, it statistically matches dense attention quality at 70B while achieving a median decode-step speedup of 6.21x at 128K context."
+  },
+  {
+    "paper_id": "arxiv:2611.11098",
+    "title": "Efficient VLA Inference via Retrieval-Based Speculation and Hardware Acceleration",
+    "url": "http://arxiv.org/abs/2611.11098v1",
+    "source": "arxiv",
+    "published_date": "2026-11-08T03:28:09+00:00",
+    "posted_at": "2026-11-10T16:23:13.104459+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "verification",
+      "hardware",
+      "kv-cache"
+    ],
+    "summary": "Zora accelerates vision-language-action model inference using a retrieval-augmented draft model for speculative decoding alongside hardware co-design. It achieves up to 3.4x speedup with software-only optimization and up to 7.6x speedup with hardware support over GPUs."
+  },
+  {
+    "paper_id": "arxiv:2611.11371",
+    "title": "D3Tree: Learning to Prune Block-Diffusion Draft Trees for Efficient Verification",
+    "url": "http://arxiv.org/abs/2611.11371v1",
+    "source": "arxiv",
+    "published_date": "2026-11-08T13:29:14+00:00",
+    "posted_at": "2026-11-10T16:23:13.104459+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "verification",
+      "draft-model",
+      "serving"
+    ],
+    "summary": "D3Tree learns to prune block-diffusion draft trees for speculative decoding by predicting node survival to adapt verification capacity. It achieves 3.2-4.0x speedup over autoregressive decoding for a single request and maintains 1.3-1.8x speedup at 64 concurrent requests."
+  },
+  {
+    "paper_id": "arxiv:2611.12304",
+    "title": "Evolving Infra: Agent-Adaptive LLM Serving at Scale",
+    "url": "http://arxiv.org/abs/2611.12304v1",
+    "source": "arxiv",
+    "published_date": "2026-11-09T12:26:02+00:00",
+    "posted_at": "2026-11-10T16:23:13.104459+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 10,
+    "tags": [
+      "serving",
+      "kv-cache",
+      "batching"
+    ],
+    "summary": "Evolving Infra is an agent-adaptive LLM serving framework that decouples compute allocation from KV cache management to dynamically adapt prefill-decode splits and cache eviction based on agent workloads. It reduces mean end-to-end request latency and P95 TTFT by up to 4.1x and 14x over a production framework."
+  },
+  {
+    "paper_id": "arxiv:2611.12319",
+    "title": "Mitigating SM-Level Load Imbalance in 3D Gaussian Splatting on GPUs",
+    "url": "http://arxiv.org/abs/2611.12319v1",
+    "source": "arxiv",
+    "published_date": "2026-11-09T12:41:30+00:00",
+    "posted_at": "2026-11-10T16:23:13.104459+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "serving"
+    ],
+    "summary": "The paper presents a software-defined GPU scheduling approach using a persistent kernel to mitigate SM-level load imbalance in 3D Gaussian Splatting. It accelerates alpha blending by up to 2.93x on large-scale urban scenes and up to 5.6x on the most imbalanced frames."
+  },
+  {
+    "paper_id": "arxiv:2611.12356",
+    "title": "DForkTree: Accelerating Speculative Decoding with Fork-Aware Block Diffusion Draft Trees",
+    "url": "http://arxiv.org/abs/2611.12356v1",
+    "source": "arxiv",
+    "published_date": "2026-11-09T13:06:52+00:00",
+    "posted_at": "2026-11-10T16:23:13.104459+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "draft-model"
+    ],
+    "summary": "DForkTree is a training-free method for speculative decoding that re-anchors draft tree branches on their own tokens using n-gram statistics from the target model. Evaluated on Qwen models, it achieves up to 4.75x average speedup over autoregressive decoding and outperforms prior tree methods like DFlash and DDTree."
+  },
+  {
+    "paper_id": "arxiv:2611.12464",
+    "title": "Phrase-Level Speculative Decoding on a Frozen Target",
+    "url": "http://arxiv.org/abs/2611.12464v1",
+    "source": "arxiv",
+    "published_date": "2026-11-09T14:13:32+00:00",
+    "posted_at": "2026-11-10T16:23:13.104459+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification",
+      "multi-token-prediction"
+    ],
+    "summary": "The method introduces a phrase-level speculative decoding approach using a small MLP head to predict multi-word phrases from a frozen target model's hidden states, which are mapped to the target vocabulary and verified in a single forward pass. On an A5000 GPU with Qwen3-4B, the 21.94M-parameter draft head achieves up to a 2.44x speedup over the HuggingFace baseline while matching greedy decoding output."
   }
 ]
