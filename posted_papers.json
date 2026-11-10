@@ -9456,5 +9456,73 @@
       "quantization"
     ],
     "summary": "CodeQuant2 is a clustering-based lookup-table quantization framework for large reasoning models that addresses activation outliers and non-uniform weight distributions. It delivers accuracy improvements on reasoning benchmarks while achieving up to 2.85x speedup over BF16."
+  },
+  {
+    "paper_id": "arxiv:2611.10240",
+    "title": "PACE: Keeping the Right Tokens in the KV Cache Is Not Enough for Long-Horizon LLM Agents",
+    "url": "http://arxiv.org/abs/2611.10240v1",
+    "source": "arxiv",
+    "published_date": "2026-11-06T21:25:45+00:00",
+    "posted_at": "2026-11-10T02:27:20.822244+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "long-context",
+      "serving"
+    ],
+    "summary": "PACE is a KV-cache engine that couples planner-aware token retention with position renumbering to keep rotary distances bounded for long-horizon LLM agents. It passes 97% of hidden unit tests at 100K tokens and maintains under 0.7 GB of KV state where a full cache would require 147-295 GB."
+  },
+  {
+    "paper_id": "arxiv:2611.10357",
+    "title": "LEGIT: Live Eligibility Gating over Identifier Tries for Constrained Decoding of Heterogeneous Pages",
+    "url": "http://arxiv.org/abs/2611.10357v1",
+    "source": "arxiv",
+    "published_date": "2026-11-07T00:41:50+00:00",
+    "posted_at": "2026-11-10T02:27:20.822244+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving"
+    ],
+    "summary": "The paper proposes a live eligibility gating method over identifier tries to enforce dynamic constraints during LLM decoding for generative recommendation. The fastest implementation reduces the time per output token by 65.9% compared to a direct GPU implementation, achieving a latency of 1.7 times unconstrained decoding."
+  },
+  {
+    "paper_id": "arxiv:2611.10432",
+    "title": "D-REAL: Acceptance-Length Optimization with Unbiased Gradients for Speculative Decoding",
+    "url": "http://arxiv.org/abs/2611.10432v1",
+    "source": "arxiv",
+    "published_date": "2026-11-07T03:19:43+00:00",
+    "posted_at": "2026-11-10T02:27:20.822244+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "serving",
+      "verification"
+    ],
+    "summary": "D-REAL is a post-training method for draft models that directly optimizes expected acceptance length in speculative decoding by weighting position-wise distributional overlap with prefix survival probabilities. Evaluated on ten benchmarks, it improves mean acceptance length by up to 0.23 tokens and end-to-end serving throughput by up to 9.4%."
+  },
+  {
+    "paper_id": "arxiv:2611.10469",
+    "title": "Hibana: Fast Agentic Inference on Unified-Memory Devices",
+    "url": "http://arxiv.org/abs/2611.10469v1",
+    "source": "arxiv",
+    "published_date": "2026-11-07T04:38:35+00:00",
+    "posted_at": "2026-11-10T02:27:20.822244+00:00",
+    "lane": "inference",
+    "specdec_score": 3,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "serving",
+      "kv-cache",
+      "hardware"
+    ],
+    "summary": "Hibana is an inference engine for unified-memory devices that co-optimizes model representation, memory management, and decoding strategies including adaptive speculation. On a DGX Spark serving up to 125B parameter models, it delivers up to 3.9x higher decoding throughput and completes up to 3.4x more agentic tasks per hour compared to established frameworks."
   }
 ]
