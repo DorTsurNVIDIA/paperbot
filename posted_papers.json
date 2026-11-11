@@ -9644,5 +9644,70 @@
       "multi-token-prediction"
     ],
     "summary": "The method introduces a phrase-level speculative decoding approach using a small MLP head to predict multi-word phrases from a frozen target model's hidden states, which are mapped to the target vocabulary and verified in a single forward pass. On an A5000 GPU with Qwen3-4B, the 21.94M-parameter draft head achieves up to a 2.44x speedup over the HuggingFace baseline while matching greedy decoding output."
+  },
+  {
+    "paper_id": "arxiv:2611.11013",
+    "title": "Slim Foundation Models for Latency-Critical Recommendation Serving",
+    "url": "https://www.semanticscholar.org/paper/057f0e4ac5e248c8b35d22ce5d69012f11564275",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-07",
+    "posted_at": "2026-11-11T00:17:28.853703+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "sparsity",
+      "serving"
+    ],
+    "summary": "SlimFM uses dependency-aware structured pruning and LoRA-based fine-tuning to compress an LLM for online CTR prediction serving. The method retains over 99% of uncompressed-model accuracy while reducing inference latency by up to 3.4x relative to existing LLM-enhanced baselines."
+  },
+  {
+    "paper_id": "arxiv:2611.11533",
+    "title": "Ostinato: Fast CPU-GPU MoE Inference for Local Agents via Resident Experts in Every Forward Pass",
+    "url": "https://www.semanticscholar.org/paper/8cdc99b96d49ecb0a0169d3e0a44aa9937b1a326",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-08",
+    "posted_at": "2026-11-11T00:17:28.853703+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "mixture-of-experts",
+      "serving"
+    ],
+    "summary": "Ostinato is a CPU-GPU MoE inference engine that keeps frequently activated resident experts on-GPU during every forward pass while offloading cold experts. Evaluated on real agent sessions with DeepSeek-V4-Flash on 4 RTX 4090D GPUs, it cuts median wait after tool output by 22-55% and finishes sessions 1.4-2.5x sooner than baselines."
+  },
+  {
+    "paper_id": "doi:10.1145/3858916",
+    "title": "One-Step Limits of Randomized Speculative Decoding",
+    "url": "https://www.semanticscholar.org/paper/14466592395c2edb0bda21f2dfd418c226174c49",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-05",
+    "posted_at": "2026-11-11T00:17:28.853703+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 6,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper studies the theoretical limits of one-step randomized speculative decoding under a parallel verification budget, proposing and bounding acceptance based on top-P mass. Stylized simulations and inference-only logits experiments illustrate the predicted diminishing returns of randomization in matching verifier-prefix mass."
+  },
+  {
+    "paper_id": "doi:10.3390/electronics15215159",
+    "title": "Learning When to Invoke the Head: Routing-Aware Early Exit for MoE Language Models",
+    "url": "https://www.semanticscholar.org/paper/f42225f2ed11771681c8906f9aecaf8c1fed92cb",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-06",
+    "posted_at": "2026-11-11T00:17:28.853703+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "early-exit",
+      "mixture-of-experts"
+    ],
+    "summary": "The paper proposes a routing-aware double-gate early exit method for MoE language models that uses native routing signals to screen candidate exit layers and invokes the LM head only for verification. Measured end-to-end inference latency is reduced by up to 53.84% on Mixtral-8x7B while preserving accuracy."
   }
 ]
