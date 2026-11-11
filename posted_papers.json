@@ -9709,5 +9709,105 @@
       "mixture-of-experts"
     ],
     "summary": "The paper proposes a routing-aware double-gate early exit method for MoE language models that uses native routing signals to screen candidate exit layers and invokes the LM head only for verification. Measured end-to-end inference latency is reduced by up to 53.84% on Mixtral-8x7B while preserving accuracy."
+  },
+  {
+    "paper_id": "arxiv:2611.13017",
+    "title": "Multi-Future Drafting: Mixture Block Drafters for Tree-Verified Speculative Decoding",
+    "url": "http://arxiv.org/abs/2611.13017v1",
+    "source": "arxiv",
+    "published_date": "2026-11-09T05:15:08+00:00",
+    "posted_at": "2026-11-11T16:05:08.415527+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "Multi-Future Drafting (MFD) uses learned mode embeddings to draft multiple coherent token blocks in a single pass and a mixture DDTree for tree-based verification to avoid chimera prefixes. At batch size 1, the method achieves up to 7.8x speedup, outperforming single-mode and DARTree baselines."
+  },
+  {
+    "paper_id": "arxiv:2611.13293",
+    "title": "Decode Token Parallelism: Memory-Efficient Distributed Attention Parallelism for Scalable LLM Decoding",
+    "url": "http://arxiv.org/abs/2611.13293v1",
+    "source": "arxiv",
+    "published_date": "2026-11-09T22:01:46+00:00",
+    "posted_at": "2026-11-11T16:05:08.415527+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "The paper presents TKNP, a distributed attention architecture that decouples weight placement from attention ownership by distributing model layers across nodes while computing attention locally against resident KV caches. Evaluated on Llama 3.1 405B and Nemotron-4 340B on up to 64 H100 GPUs, TKNP improves long-context completion throughput by up to 1.7x over DCP and 2.06x over data parallelism."
+  },
+  {
+    "paper_id": "arxiv:2611.13413",
+    "title": "Placing LLM Lookup Tables by Per-Layer Prefetch Deadlines",
+    "url": "http://arxiv.org/abs/2611.13413v1",
+    "source": "arxiv",
+    "published_date": "2026-11-10T00:47:42+00:00",
+    "posted_at": "2026-11-11T16:05:08.415527+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "kv-cache"
+    ],
+    "summary": "SlackTier is a system for tiering large n-gram lookup tables to slower storage media like NVMe and RDMA during LLM serving based on per-layer prefetch deadlines, freeing host memory for KV cache. It holds mean time per output token overhead to at most 1.4% on agent and chat workloads while reallocating freed memory to host KV cache, raising median throughput by 36% on a KV-constrained agent workload."
+  },
+  {
+    "paper_id": "arxiv:2611.13442",
+    "title": "ForeSpark: Joint Draft and Verification Budget Scheduling for Parallel Speculative Decoding",
+    "url": "http://arxiv.org/abs/2611.13442v1",
+    "source": "arxiv",
+    "published_date": "2026-11-10T01:37:38+00:00",
+    "posted_at": "2026-11-11T16:05:08.415527+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 10,
+    "tags": [
+      "speculative-decoding",
+      "serving",
+      "verification"
+    ],
+    "summary": "ForeSpark introduces work-conserving speculation (WCS), which jointly schedules draft and verification budgets per request in parallel speculative decoding to avoid wasted draft compute at high load. Evaluated on vLLM, it improves throughput by up to 1.77x over the state-of-the-art DSpark and sustains up to 1.51x the request rate under latency SLOs."
+  },
+  {
+    "paper_id": "arxiv:2611.14246",
+    "title": "SinkState: On-the-Fly SVD of Recurrent States for Efficient Hybrid LLM Serving",
+    "url": "http://arxiv.org/abs/2611.14246v1",
+    "source": "arxiv",
+    "published_date": "2026-11-10T15:57:35+00:00",
+    "posted_at": "2026-11-11T16:05:08.415527+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "kv-cache"
+    ],
+    "summary": "SinkState compresses hybrid LLM recurrent states into adaptive low-rank forms via on-the-fly SVD to reduce memory traffic during decoding. The method reduces peak memory of recurrent states by up to 2.6x and speeds up decoding by up to 1.58x over existing systems while maintaining accuracy."
+  },
+  {
+    "paper_id": "arxiv:2611.14399",
+    "title": "REAL Loss: Optimizing Real Expected Acceptance Length for Speculative Decoding",
+    "url": "http://arxiv.org/abs/2611.14399v1",
+    "source": "arxiv",
+    "published_date": "2026-11-10T17:45:12+00:00",
+    "posted_at": "2026-11-11T16:05:08.415527+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper introduces REAL, a training loss for speculative decoding draft models that directly optimizes the exact expected acceptance length (EAL) using path weights for unbiased estimation. In evaluations with a Qwen3.6-35B-A3B target and a Domino drafter, the REAL loss outperforms existing block-level training objectives across 9 task subsets and 5 seeds on probabilistic serving acceptance length."
   }
 ]
