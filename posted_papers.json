@@ -9809,5 +9809,23 @@
       "verification"
     ],
     "summary": "The paper introduces REAL, a training loss for speculative decoding draft models that directly optimizes the exact expected acceptance length (EAL) using path weights for unbiased estimation. In evaluations with a Qwen3.6-35B-A3B target and a Domino drafter, the REAL loss outperforms existing block-level training objectives across 9 task subsets and 5 seeds on probabilistic serving acceptance length."
+  },
+  {
+    "paper_id": "arxiv:2611.13644",
+    "title": "Tri-Stack-PIM: A Heterogeneous Multi-Die 3D-Integrated Processing-in-Memory Architecture for Efficient LLM Inference",
+    "url": "https://www.semanticscholar.org/paper/b26d4c62368d0efba6ae130edf849c4e1106e6a0",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-10",
+    "posted_at": "2026-11-12T01:42:42.248784+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "kv-cache",
+      "attention",
+      "serving"
+    ],
+    "summary": "Tri-Stack-PIM is a heterogeneous three-die processing-in-memory architecture for LLM inference that resolves base-die area and logic density constraints. It achieves geometric-mean speedups of up to 4.95x over a GPU baseline and reduces the energy-delay product by 33-66x."
   }
 ]
