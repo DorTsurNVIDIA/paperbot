@@ -9827,5 +9827,22 @@
       "serving"
     ],
     "summary": "Tri-Stack-PIM is a heterogeneous three-die processing-in-memory architecture for LLM inference that resolves base-die area and logic density constraints. It achieves geometric-mean speedups of up to 4.95x over a GPU baseline and reduces the energy-delay product by 33-66x."
+  },
+  {
+    "paper_id": "arxiv:2608.22237",
+    "title": "Read Less, Solve More: Token-Efficient Sparse Reading of External Content for AI Agents",
+    "url": "https://huggingface.co/papers/2608.22237",
+    "source": "huggingface",
+    "published_date": "2026-11-07T00:00:00.000Z",
+    "posted_at": "2026-11-12T16:44:37.747354+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "benchmark",
+      "sparsity",
+      "serving"
+    ],
+    "summary": "The paper presents SparseRead, a reading control layer for AI agents that governs content admission to reduce token and latency costs. Across multiple models and scenarios, it reduces total tokens by up to 92.9% and wall time by up to 89.0% while preserving or improving task quality."
   }
 ]
