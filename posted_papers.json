@@ -9893,5 +9893,90 @@
       "serving"
     ],
     "summary": "The paper proposes a distributed LLM inference system using tensor parallelism across heterogeneous edge devices, formulating model partitioning as a convex integer optimization problem. Experiments demonstrate efficient model partitioning and up to 0.65 seconds per token inference performance for full-size models in edge environments."
+  },
+  {
+    "paper_id": "arxiv:2611.16661",
+    "title": "Reducing Batch Makespan for LLM Agent Workloads through Inference-Environment Coordination",
+    "url": "http://arxiv.org/abs/2611.16661v1",
+    "source": "arxiv",
+    "published_date": "2026-11-12T11:38:21+00:00",
+    "posted_at": "2026-11-13T16:09:19.113257+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "batching",
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "The paper presents coordinated optimizations for batch execution of LLM agent tasks, using workload-based GPU-memory allocation, trajectory-aware scheduling, and Chain-Advancing Action Scheduling (CAAS) to reduce batch makespan. It demonstrates makespan reductions of 10.4% to 65.0% on multiple benchmarks while maintaining evaluation scores."
+  },
+  {
+    "paper_id": "arxiv:2611.16714",
+    "title": "Towards Green Text Generation: Memory-Based Speculative Decoding",
+    "url": "http://arxiv.org/abs/2611.16714v1",
+    "source": "arxiv",
+    "published_date": "2026-11-12T12:32:14+00:00",
+    "posted_at": "2026-11-13T16:09:19.113257+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "hardware"
+    ],
+    "summary": "Olifant is a memory-based classifier draft model for speculative decoding that requires no GPU memory and executes in under 0.3 ms on CPU. Evaluated on consumer hardware, it achieves up to 2.43x throughput and 2.51x lower energy per token than the verifier alone, while maintaining a 1.25x throughput and the lowest energy when verified with a KV cache."
+  },
+  {
+    "paper_id": "arxiv:2611.17097",
+    "title": "Broadcast, Don't Replicate: Eliminating Weight HBM in Datacenter LLM Serving",
+    "url": "http://arxiv.org/abs/2611.17097v1",
+    "source": "arxiv",
+    "published_date": "2026-11-12T16:58:07+00:00",
+    "posted_at": "2026-11-13T16:09:19.113257+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "serving",
+      "mixture-of-experts"
+    ],
+    "summary": "Proposes Optical Broadcast Memory (OBM), a hierarchical fiber architecture that broadcasts model weights to distributed inference nodes to eliminate replicated HBM. Evaluated at an 80,000-accelerator scale, OBM eliminates petabytes of HBM while remaining competitive or better in throughput and energy per token than HBM-based systems."
+  },
+  {
+    "paper_id": "arxiv:2611.17108",
+    "title": "LazyWeights: Decode-on-Demand Edge LLMs",
+    "url": "http://arxiv.org/abs/2611.17108v1",
+    "source": "arxiv",
+    "published_date": "2026-11-12T17:03:40+00:00",
+    "posted_at": "2026-11-13T16:09:19.113257+00:00",
+    "lane": "inference",
+    "specdec_score": 5,
+    "inference_score": 9,
+    "tags": [
+      "quantization",
+      "speculative-decoding",
+      "serving",
+      "hardware"
+    ],
+    "summary": "LazyWeights compresses LLM weights via lossless Huffman coding with on-demand hardware decoding, and evaluates its integration with prompt-lookup speculative decoding to reduce latency and energy per token on edge devices."
+  },
+  {
+    "paper_id": "doi:10.1145/3830454.3832637",
+    "title": "SpecStega: Provably Secure Linguistic Steganography Based on Speculative Sampling in Asymmetric Resource Scenarios",
+    "url": "https://www.semanticscholar.org/paper/e1221b7751266811cc861ee5c4e257fdbd5b1331",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-15",
+    "posted_at": "2026-11-13T16:09:19.113257+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 5,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper proposes SpecStega, a linguistic steganography method that utilizes speculative sampling to generate provably secure text under asymmetric resource scenarios. The method is evaluated for its ability to maintain security while operating under these resource constraints."
   }
 ]
