@@ -9844,5 +9844,54 @@
       "serving"
     ],
     "summary": "The paper presents SparseRead, a reading control layer for AI agents that governs content admission to reduce token and latency costs. Across multiple models and scenarios, it reduces total tokens by up to 92.9% and wall time by up to 89.0% while preserving or improving task quality."
+  },
+  {
+    "paper_id": "doi:10.1109/tc.2026.3714652",
+    "title": "HyperInfer: Accelerating Large Language Model Inference via Importance-Informed Prefix-KV Caching and Prefetching",
+    "url": "https://www.semanticscholar.org/paper/d4f0baf4f51b671f7b882624d618df3cd6190cf7",
+    "source": "semantic_scholar",
+    "published_date": "2026-12-01",
+    "posted_at": "2026-11-13T00:45:55.463606+00:00",
+    "lane": "inference",
+    "specdec_score": 2,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "HyperInfer is an importance-informed multi-tier prefix KV caching and prefetching system that reduces disk I/O overhead by loading critical KVs and prefetching across layers. The abstract claims it reduces time-to-first-token by up to 1.75x compared to state-of-the-art systems while maintaining inference accuracy."
+  },
+  {
+    "paper_id": "doi:10.1109/tc.2026.3732029",
+    "title": "SpBatch: Reclaiming Lost Sparsity for Batched Sparse FFN Execution",
+    "url": "https://www.semanticscholar.org/paper/13af20292425222ac42ed8bcb94094b67667bebe",
+    "source": "semantic_scholar",
+    "published_date": "2026-12-01",
+    "posted_at": "2026-11-13T00:45:55.463606+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "sparsity",
+      "batching",
+      "hardware"
+    ],
+    "summary": "SpBatch is an execution framework for batched activation-sparse FFN computation that partitions batches to maximize sparsity and uses a CUDA/Tensor Core co-processing strategy. It achieves up to 8.89x speedup over PowerInfer and up to 2.6x over llama.cpp in end-to-end inference."
+  },
+  {
+    "paper_id": "doi:10.1109/tc.2026.3733643",
+    "title": "Enabling Distributed Cooperative Full-Size LLM Inference With Tensor Parallelism Across Heterogeneous Edge Devices",
+    "url": "https://www.semanticscholar.org/paper/45793a25922ee51dfaa37e87e95ae5a7eb64bf75",
+    "source": "semantic_scholar",
+    "published_date": "2026-12-01",
+    "posted_at": "2026-11-13T00:45:55.463606+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "hardware",
+      "serving"
+    ],
+    "summary": "The paper proposes a distributed LLM inference system using tensor parallelism across heterogeneous edge devices, formulating model partitioning as a convex integer optimization problem. Experiments demonstrate efficient model partitioning and up to 0.65 seconds per token inference performance for full-size models in edge environments."
   }
 ]
