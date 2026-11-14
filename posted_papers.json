@@ -10029,5 +10029,23 @@
       "serving"
     ],
     "summary": "The paper introduces SubGPU Pipelining, an intra-GPU spatial execution model that binds operator graph segments to disjoint streaming-multiprocessor pools to improve execution overlap. Silicon experiments demonstrate that this approach improves DRAM throughput and reduces 36-layer decoder iteration time by 10.33%."
+  },
+  {
+    "paper_id": "doi:10.1117/12.3133617",
+    "title": "Enhancing capability boundaries of in-context learning in large language models for computer vision",
+    "url": "https://www.semanticscholar.org/paper/3edbe9321f04fddc993b90122cfeaf2b97c594ca",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-12",
+    "posted_at": "2026-11-14T23:27:49.496554+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "attention",
+      "benchmark",
+      "long-context",
+      "serving"
+    ],
+    "summary": "The paper proposes a boundary-enhanced visual in-context learning framework (BEV-ICL) that uses structure-aware visual token compression and boundary-aware example selection to improve multimodal LLM efficiency. It reports a 37.5% reduction in context tokens, a 33.18% decrease in average inference latency, and a 50.89% increase in system throughput."
   }
 ]
