@@ -9978,5 +9978,56 @@
       "verification"
     ],
     "summary": "The paper proposes SpecStega, a linguistic steganography method that utilizes speculative sampling to generate provably secure text under asymmetric resource scenarios. The method is evaluated for its ability to maintain security while operating under these resource constraints."
+  },
+  {
+    "paper_id": "arxiv:2611.14776",
+    "title": "SlipStream: Enabling HBF for GPU Systems by Mitigating the Latency and SRAM Overheads",
+    "url": "https://www.semanticscholar.org/paper/e456b9716e50bb1b80bd1f53ed8fe1eb5d92c059",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-10",
+    "posted_at": "2026-11-14T14:56:52.410132+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "kv-cache",
+      "mixture-of-experts",
+      "serving"
+    ],
+    "summary": "SlipStream is a software-hardware co-designed prefetcher for High-Bandwidth Flash (HBF) memory that turns prefetching into a demand-paced producer-consumer pipeline to hide flash read latency. It achieves 92.4% of the performance of an ideal HBF system across seven dense models using only a 40 MB staging buffer, significantly outperforming prior tensor-streaming designs."
+  },
+  {
+    "paper_id": "arxiv:2611.14848",
+    "title": "Tideway: Phase-Aware Tiered Memory Management for MoE Inference on Consumer Devices",
+    "url": "https://www.semanticscholar.org/paper/e5ca48d6ff13a9b531b44e10af3618911dedf369",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-10",
+    "posted_at": "2026-11-14T14:56:52.410132+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "mixture-of-experts",
+      "serving",
+      "kv-cache"
+    ],
+    "summary": "The paper presents TIDEWAY, a system for efficient Mixture-of-Experts (MoE) inference on memory-constrained consumer devices that manages host RAM and GPU VRAM as a unified memory pool with phase-aware layouts. Evaluated on consumer hardware, it achieves 1.97x speedup in end-to-end latency and 2.40x in Time-to-First-Token compared to the fastest baselines."
+  },
+  {
+    "paper_id": "arxiv:2611.14904",
+    "title": "SubGPU Pipelining: Intra-GPU Fine-Grained Spatial Parallelism for LLM Inference",
+    "url": "https://www.semanticscholar.org/paper/2e5565f88176d52674072b10f015c2ca333be6a8",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-11",
+    "posted_at": "2026-11-14T14:56:52.410132+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "serving"
+    ],
+    "summary": "The paper introduces SubGPU Pipelining, an intra-GPU spatial execution model that binds operator graph segments to disjoint streaming-multiprocessor pools to improve execution overlap. Silicon experiments demonstrate that this approach improves DRAM throughput and reduces 36-layer decoder iteration time by 10.33%."
   }
 ]
