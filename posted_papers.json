@@ -10047,5 +10047,69 @@
       "serving"
     ],
     "summary": "The paper proposes a boundary-enhanced visual in-context learning framework (BEV-ICL) that uses structure-aware visual token compression and boundary-aware example selection to improve multimodal LLM efficiency. It reports a 37.5% reduction in context tokens, a 33.18% decrease in average inference latency, and a 50.89% increase in system throughput."
+  },
+  {
+    "paper_id": "doi:10.1145/3828523.3857044",
+    "title": "Model-as-a-Service in the Wild: Characterizing Production LLM Inference Clusters at Scale",
+    "url": "https://www.semanticscholar.org/paper/ffe786e247f03ac93d725d2ddc5432ba4da674af",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-15",
+    "posted_at": "2026-11-15T15:34:23.880673+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "benchmark",
+      "serving",
+      "hardware"
+    ],
+    "summary": "The paper characterizes production LLM inference clusters at scale, providing a large-scale benchmark and analysis of serving systems. It evaluates production cluster behavior to characterize inference efficiency and utilization."
+  },
+  {
+    "paper_id": "doi:10.1145/3828523.3857067",
+    "title": "InfiniLoRA: Disaggregated Multi-LoRA Serving for Large Language Models",
+    "url": "https://www.semanticscholar.org/paper/866ad7cf06140469fee0d7bfc2345cf47ae03b32",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-15",
+    "posted_at": "2026-11-15T15:34:23.880673+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "serving"
+    ],
+    "summary": "The paper presents InfiniLoRA, a disaggregated multi-LoRA serving system for large language models. It evaluates the system's capability to efficiently serve multiple LoRA adapters in a disaggregated inference setting."
+  },
+  {
+    "paper_id": "doi:10.1145/3828523.3857099",
+    "title": "BMV: Breaking Monolithic Verification for Fast Speculative LLM Inference",
+    "url": "https://www.semanticscholar.org/paper/1923ad038b40a6887ebd893fada932dac31d1093",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-15",
+    "posted_at": "2026-11-15T15:34:23.880673+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper proposes breaking monolithic verification into smaller parts for speculative LLM inference. It evaluates the method's ability to accelerate fast speculative inference, though no specific quantitative speedup is provided in the abstract."
+  },
+  {
+    "paper_id": "doi:10.1145/3828523.3857108",
+    "title": "HACK: Homomorphic Acceleration via Compression of the Key-Value Cache for Disaggregated LLM Inference",
+    "url": "https://www.semanticscholar.org/paper/a8372c90ffdd3a51d08be1455e63354b4ae4b939",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-15",
+    "posted_at": "2026-11-15T15:34:23.880673+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "The paper introduces a homomorphic acceleration method via key-value cache compression aimed at disaggregated LLM inference. It evaluates the system for inference efficiency in disaggregated serving setups."
   }
 ]
