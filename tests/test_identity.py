@@ -21,7 +21,7 @@ class IdentityTests(unittest.TestCase):
 
     def test_doi_urls_share_an_identity(self):
         self.assertEqual(
-            canonical_paper_id("openreview", "local", {"DOI": "https://doi.org/10.1234/EXAMPLE"}),
+            canonical_paper_id("semantic_scholar", "local", {"DOI": "https://doi.org/10.1234/EXAMPLE"}),
             "doi:10.1234/example",
         )
 

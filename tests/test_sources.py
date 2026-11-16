@@ -8,8 +8,7 @@ from unittest.mock import patch
 import httpx
 
 from agent.fetch import Paper, fetch_all
-from agent.identity import canonical_paper_id
-from agent.sources import _request_json, fetch_alphaxiv, fetch_openreview
+from agent.sources import _request_json, fetch_alphaxiv
 
 CUTOFF = datetime.datetime(2026, 11, 9, tzinfo=datetime.timezone.utc)
 FIXTURE = Path(__file__).parent / "fixtures" / "alphaxiv_loopfill.json"
@@ -23,22 +22,6 @@ def alpha_paper(identifier, date="2026-11-14T00:00:00Z", **kwargs):
         "authors": ["A Researcher"],
         "publication_date": date,
         "first_publication_date": date,
-        **kwargs,
-    }
-
-
-def review_paper(identifier, date="2026-11-14T00:00:00+00:00", **kwargs):
-    stamp = int(datetime.datetime.fromisoformat(date).timestamp() * 1000)
-    return {
-        "id": identifier,
-        "forum": identifier,
-        "cdate": stamp,
-        "odate": stamp,
-        "content": {
-            "title": {"value": "Speculative decoding of language models " + identifier},
-            "abstract": {"value": "Draft and verify to accelerate inference."},
-            "authors": {"value": ["Anonymous"]},
-        },
         **kwargs,
     }
 
@@ -108,93 +91,43 @@ class AlphaXivTests(unittest.TestCase):
         self.assertEqual([paper.source_id for paper in papers], ["2611.relevant"])
 
 
-class OpenReviewTests(unittest.TestCase):
-    def test_searches_all_pages_and_uses_first_public_release(self):
-        old = review_paper("old", "2025-01-01T00:00:00+00:00")
-        released = review_paper("released", cdate=old["cdate"])
-        mirror = review_paper("mirror")
-        mirror["content"]["arxiv_id"] = {"value": "https://arxiv.org/abs/2611.12345v2"}
-        pages = [[old, released], [mirror]]
-        requests = []
-
-        def respond(request):
-            requests.append(request)
-            return httpx.Response(200, json={"notes": pages[int(request.url.params["offset"]) // 2]})
-
-        with httpx.Client(transport=httpx.MockTransport(respond)) as client, patch(
-            "agent.sources.httpx.Client", return_value=nullcontext(client)
-        ), patch("agent.sources._cutoff", return_value=CUTOFF), patch(
-            "agent.sources.OPENREVIEW_QUERIES", ("speculative decoding",)
-        ), patch("agent.sources.PAGE_SIZE", 2):
-            papers = fetch_openreview()
-        self.assertEqual([p.id for p in papers], ["openreview:released", "arxiv:2611.12345"])
-        self.assertEqual(papers[0].authors, ["Anonymous"])
-        self.assertEqual(requests[0].url.params["source"], "forum")
-        self.assertEqual(requests[1].url.params["offset"], "2")
-
-    def test_excludes_replies_withdrawals_deleted_and_undated_notes(self):
-        withdrawn = review_paper("withdrawn")
-        withdrawn["content"]["venue"] = {"value": "Withdrawn Submission"}
-        notes = [
-            review_paper("reply", replyto="parent"),
-            review_paper("deleted", ddate=123),
-            review_paper("undated", odate=None, cdate=None, tcdate=None),
-            withdrawn,
-            review_paper("old", "2025-01-01T00:00:00+00:00", tmdate=1794614400000),
-        ]
-        with httpx.Client(transport=httpx.MockTransport(
-            lambda request: httpx.Response(200, json={"notes": notes})
-        )) as client, patch("agent.sources.httpx.Client", return_value=nullcontext(client)), patch(
-            "agent.sources._cutoff", return_value=CUTOFF
-        ):
-            self.assertEqual(fetch_openreview(), [])
-
-    def test_total_outage_surfaces_an_error(self):
-        with httpx.Client(transport=httpx.MockTransport(
-            lambda request: httpx.Response(401)
-        )) as client, patch("agent.sources.httpx.Client", return_value=nullcontext(client)):
-            with self.assertRaisesRegex(RuntimeError, "All OpenReview"):
-                fetch_openreview()
-
-
 class SourceIntegrationTests(unittest.TestCase):
     def test_a_title_and_doi_bridge_merges_two_prior_records(self):
         first = Paper("arxiv:2611.12345", "An earlier title for the same research paper", "", [], "", "arxiv", "2026-11-14")
         first.external_ids = {"ArXiv": "2611.12345", "DOI": "10.1234/bridge"}
-        second = Paper("alphaxiv:2611.slug", "A revised title for the same research paper", "", [], "", "alphaxiv", "2026-11-14")
-        bridge = Paper("doi:10.1234/bridge", second.title, "", [], "", "openreview", "2026-11-14")
+        second = Paper("semantic_scholar:local", "A revised title for the same research paper", "", [], "", "semantic_scholar", "2026-11-14")
+        bridge = Paper("doi:10.1234/bridge", second.title, "", [], "", "alphaxiv", "2026-11-14")
         with patch("agent.fetch.fetch_arxiv", return_value=[first]), patch(
-            "agent.fetch.fetch_semantic_scholar", return_value=[]
+            "agent.fetch.fetch_semantic_scholar", return_value=[second]
         ), patch("agent.fetch.fetch_huggingface", return_value=[]), patch(
-            "agent.sources.fetch_alphaxiv", return_value=[second]
-        ), patch("agent.sources.fetch_openreview", return_value=[bridge]):
+            "agent.sources.fetch_alphaxiv", return_value=[bridge]
+        ):
             self.assertEqual(fetch_all(), [first])
         self.assertIn(second.id, first.identity_aliases)
         self.assertIn(bridge.id, first.identity_aliases)
 
-    def test_new_sources_receive_backfill_window_and_merge_title_aliases(self):
+    def test_alphaxiv_receives_backfill_window_and_merges_title_aliases(self):
         title = "LoopFill: Pipelined Multi-Token Speculative Decoding for Looped Transformers"
+        existing = Paper("arxiv:2611.12345", title.upper(), "abstract", [], "https://example.com", "arxiv", "2026-11-14")
         alpha = Paper("alphaxiv:2611.loopfill", title, "abstract", [], "https://example.com", "alphaxiv", "2026-11-14")
-        review = Paper("openreview:local", title.upper(), "abstract", [], "https://example.com", "openreview", "2026-11-14")
-        with patch("agent.fetch.fetch_arxiv", return_value=[]), patch(
+        with patch("agent.fetch.fetch_arxiv", return_value=[existing]), patch(
             "agent.fetch.fetch_semantic_scholar", return_value=[]
         ), patch("agent.fetch.fetch_huggingface", return_value=[]), patch(
             "agent.sources.fetch_alphaxiv", return_value=[alpha]
-        ) as fetch_alpha, patch("agent.sources.fetch_openreview", return_value=[review]) as fetch_review:
+        ) as fetch_alpha:
             papers = fetch_all(lookback_hours=720)
-        self.assertEqual(papers, [alpha])
-        self.assertIn(review.id, alpha.identity_aliases)
+        self.assertEqual(papers, [existing])
+        self.assertIn(alpha.id, existing.identity_aliases)
         fetch_alpha.assert_called_once_with(lookback_hours=720)
-        fetch_review.assert_called_once_with(lookback_hours=720)
 
     def test_optional_source_outage_keeps_other_results(self):
-        with patch("agent.fetch.fetch_arxiv", return_value=[]), patch(
+        existing = Paper("arxiv:2611.12345", "Existing result", "", [], "", "arxiv", "2026-11-14")
+        with patch("agent.fetch.fetch_arxiv", return_value=[existing]), patch(
             "agent.fetch.fetch_semantic_scholar", return_value=[]
         ), patch("agent.fetch.fetch_huggingface", return_value=[]), patch(
             "agent.sources.fetch_alphaxiv", side_effect=ValueError("schema changed")
-        ), patch("agent.sources.fetch_openreview", return_value=[]) as review:
-            self.assertEqual(fetch_all(), [])
-        review.assert_called_once()
+        ):
+            self.assertEqual(fetch_all(), [existing])
 
     def test_transient_requests_retry_but_authentication_does_not(self):
         attempts = []

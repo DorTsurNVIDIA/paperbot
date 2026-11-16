@@ -1,8 +1,7 @@
-"""Additional sources with public, credential-free metadata retrieval.
+"""alphaXiv discovery with public, credential-free metadata retrieval.
 
 alphaXiv's feed is the interface used by its website, not a versioned public API
 contract. Keep its response parsing covered by fixtures and surface schema errors.
-OpenReview uses the documented API v2 search endpoint.
 """
 
 from __future__ import annotations
@@ -20,17 +19,9 @@ from agent.identity import canonical_paper_id, is_arxiv_id
 logger = logging.getLogger(__name__)
 
 ALPHAXIV_FEED_URL = "https://api.alphaxiv.org/papers/v3/feed"
-OPENREVIEW_SEARCH_URL = "https://api2.openreview.net/notes/search"
 SOURCE_HEADERS = {"User-Agent": "paperbot/1.0 (+https://github.com/DorTsurNVIDIA/paperbot)"}
 PAGE_SIZE = 100
 ALPHAXIV_MAX_PAGES = 100
-OPENREVIEW_MAX_PAGES = 20
-OPENREVIEW_QUERIES = (
-    "speculative decoding",
-    "LLM inference",
-    "language model inference",
-    "LLM serving",
-)
 
 
 def _request_json(client: httpx.Client, url: str, params: dict) -> dict:
@@ -146,82 +137,4 @@ def fetch_alphaxiv(*, lookback_hours: int | None = None) -> list[Paper]:
                 raise RuntimeError("alphaXiv feed repeated a page; coverage is incomplete")
         else:
             logger.warning("alphaXiv reached the %d-page cap; lookback coverage may be incomplete", ALPHAXIV_MAX_PAGES)
-    return papers
-
-
-def _content_value(content: dict, key: str, default=None):
-    field = content.get(key, default)
-    return field.get("value", default) if isinstance(field, dict) else field
-
-
-def fetch_openreview(*, lookback_hours: int | None = None) -> list[Paper]:
-    """Search public paper forums, excluding replies, revisions and old releases.
-
-    Search results are relevance-ranked, so never stop at the first old result.
-    The bounded crawl logs any query that reaches its cap.
-    """
-    cutoff = _cutoff(lookback_hours)
-    papers: list[Paper] = []
-    seen: set[str] = set()
-    successful_queries = 0
-    with httpx.Client(timeout=30, headers=SOURCE_HEADERS) as client:
-        for query in OPENREVIEW_QUERIES:
-            try:
-                for page in range(OPENREVIEW_MAX_PAGES):
-                    data = _request_json(client, OPENREVIEW_SEARCH_URL, {
-                        "term": query,
-                        "type": "exact",
-                        "source": "forum",
-                        "limit": PAGE_SIZE,
-                        "offset": page * PAGE_SIZE,
-                    })
-                    items = _rows(data, "notes")
-                    for item in items:
-                        source_id = item.get("id")
-                        if not isinstance(source_id, str) or not source_id or source_id in seen:
-                            continue
-                        seen.add(source_id)
-                        if item.get("replyto") or item.get("ddate") or item.get("forum", source_id) != source_id:
-                            continue
-                        # odate is the date the submission first became public;
-                        # cdate/tcdate can precede a venue's public release.
-                        published = _date(item.get("odate") or item.get("cdate") or item.get("tcdate"))
-                        if published is None or published < cutoff:
-                            continue
-                        content = item.get("content") or {}
-                        title = _content_value(content, "title", "")
-                        abstract = _content_value(content, "abstract", "")
-                        if not isinstance(title, str) or not title or not isinstance(abstract, str) or not abstract:
-                            continue
-                        venue = str(_content_value(content, "venue", "")).lower()
-                        if "withdrawn" in venue or "desk rejected" in venue:
-                            continue
-                        external_ids = {}
-                        arxiv = _content_value(content, "arxiv_id") or _content_value(content, "arxiv")
-                        if isinstance(arxiv, str) and is_arxiv_id(arxiv):
-                            external_ids["ArXiv"] = arxiv
-                        doi = _content_value(content, "doi")
-                        if isinstance(doi, str) and doi:
-                            external_ids["DOI"] = doi
-                        authors = _content_value(content, "authors", []) or []
-                        papers.append(Paper(
-                            id=canonical_paper_id("openreview", source_id, external_ids),
-                            title=title,
-                            abstract=abstract,
-                            authors=[author for author in authors if isinstance(author, str)],
-                            url=f"https://openreview.net/forum?id={source_id}",
-                            source="openreview",
-                            published_date=published.isoformat(),
-                            source_id=source_id,
-                            external_ids=external_ids,
-                        ))
-                    if len(items) < PAGE_SIZE:
-                        break
-                else:
-                    logger.warning("OpenReview query %r reached the %d-page cap; coverage may be incomplete", query, OPENREVIEW_MAX_PAGES)
-                successful_queries += 1
-            except (httpx.HTTPError, ValueError) as exc:
-                logger.warning("OpenReview query %r failed: %s", query, exc)
-    if not successful_queries:
-        raise RuntimeError("All OpenReview searches failed")
     return papers

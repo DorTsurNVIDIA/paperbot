@@ -395,7 +395,7 @@ def fetch_all(
     arxiv_category_max_results: int = ARXIV_CATEGORY_MAX_RESULTS,
 ) -> list[Paper]:
     """Fetch papers from all sources and deduplicate by canonical identity."""
-    from agent.sources import fetch_alphaxiv, fetch_openreview
+    from agent.sources import fetch_alphaxiv
 
     all_papers: list[Paper] = []
     by_identity: dict[str, Paper] = {}
@@ -412,7 +412,6 @@ def fetch_all(
         (fetch_semantic_scholar, {"lookback_hours": lookback_hours}),
         (fetch_huggingface, {}),
         (fetch_alphaxiv, {"lookback_hours": lookback_hours}),
-        (fetch_openreview, {"lookback_hours": lookback_hours}),
     )
     for fetcher, kwargs in fetchers:
         fetcher_name = getattr(fetcher, "__name__", fetcher.__class__.__name__)

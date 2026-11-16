@@ -1,6 +1,6 @@
 # paperbot
 
-Paperbot is a scheduled research feed for **speculative decoding** and **LLM inference optimization**. It fetches recent papers from arXiv, Semantic Scholar, Hugging Face, alphaXiv, and OpenReview, scores them with an LLM, and posts ranked papers to Slack.
+Paperbot is a scheduled research feed for **speculative decoding** and **LLM inference optimization**. It fetches recent papers from arXiv, Semantic Scholar, Hugging Face, and alphaXiv, scores them with an LLM, and posts ranked papers to Slack.
 
 The feed has two explicit lanes:
 
@@ -28,10 +28,9 @@ The twice-daily schedule catches papers missed by a delayed run without posting 
 | Semantic Scholar | Topic searches across its indexed papers |
 | Hugging Face | Relevant entries from the current daily papers list |
 | alphaXiv | Paginated **Recent** feed for `cs.CL`, `cs.LG`, `cs.AI`, `cs.DC`, `cs.AR`, and `stat.ML`, including papers published directly on alphaXiv |
-| OpenReview | API v2 public paper forums matching speculative decoding, LLM inference, language model inference, or LLM serving |
 
-The new sources need no API keys or additional Actions secrets. Both daily runs and
-backfill audits use them automatically with the requested lookback window.
+alphaXiv needs no API key or additional Actions secrets. Both daily runs and
+backfill audits use it automatically with the requested lookback window.
 
 alphaXiv-exclusive IDs such as
 [`2611.loopfill-speculative-decoding-looped-transformers`](https://www.alphaxiv.org/abs/2611.loopfill-speculative-decoding-looped-transformers)
@@ -42,15 +41,8 @@ keeps unrelated category papers out of the LLM scoring queue. Its feed is the
 public interface used by the website, without a formal
 API stability guarantee; response schema changes surface in the workflow logs.
 
-OpenReview uses the first public-release date (`odate`), falling back to the
-creation date when unavailable. It excludes replies, deleted notes, and submissions
-marked withdrawn or desk rejected. Searches are relevance-ranked, so the bot checks
-all retrieved pages rather than stopping at an old result. This currently covers
-API v2; legacy API v1-only venues are not crawled directly.
-
-The crawl is bounded: alphaXiv checks up to 100 pages of 100 entries and OpenReview
-up to 20 pages of 100 entries per phrase. Reaching a cap logs a coverage warning.
-These feeds improve recall but do not guarantee every paper: category labels,
+The alphaXiv crawl checks up to 100 pages of 100 entries. Reaching the cap logs a
+coverage warning. These feeds improve recall but do not guarantee every paper: category labels,
 search terms, indexing delays, and upstream outages can still leave gaps. Supplemental
 source failures are logged while the remaining sources continue; a complete arXiv
 outage still fails the run.

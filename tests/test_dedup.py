@@ -13,7 +13,7 @@ from agent.identity import paper_identity_keys
 class DedupTests(unittest.TestCase):
     def test_historical_delivery_blocks_a_new_source_with_the_same_title(self):
         title = "LoopFill: Pipelined Multi-Token Speculative Decoding for Looped Transformers"
-        paper = Paper("openreview:loopfill", title.upper(), "", [], "", "openreview", "2026-11-14")
+        paper = Paper("semantic_scholar:loopfill", title.upper(), "", [], "", "semantic_scholar", "2026-11-14")
         with tempfile.TemporaryDirectory() as directory:
             seen_file = Path(directory) / "seen.json"
             seen_file.write_text('["alphaxiv:2611.loopfill"]')
@@ -29,7 +29,7 @@ class DedupTests(unittest.TestCase):
     def test_title_alias_survives_state_roundtrip(self):
         title = "Efficient Speculative Decoding for Large Language Models"
         original = Paper("alphaxiv:2611.exclusive", title, "", [], "", "alphaxiv", "2026-11-14")
-        mirror = Paper("openreview:mirror", title, "", [], "", "openreview", "2026-11-14")
+        mirror = Paper("semantic_scholar:mirror", title, "", [], "", "semantic_scholar", "2026-11-14")
         with tempfile.TemporaryDirectory() as directory:
             with patch.object(dedup, "SEEN_FILE", Path(directory) / "seen.json"), patch.dict(os.environ, {}, clear=True):
                 dedup.save_seen(paper_identity_keys(original))

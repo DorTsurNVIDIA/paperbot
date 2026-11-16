@@ -12,7 +12,7 @@ class MainTests(unittest.TestCase):
     def test_failed_delivery_does_not_checkpoint_cross_source_aliases(self):
         title = "LoopFill: Pipelined Multi-Token Speculative Decoding for Looped Transformers"
         paper = Paper("alphaxiv:2611.loopfill", title, "abstract", [], "", "alphaxiv", "2026-11-14")
-        paper.identity_aliases.add("openreview:loopfill")
+        paper.identity_aliases.add("semantic_scholar:loopfill")
         scored = ScoredPaper(paper, 9, 9, (), "Summary")
         scoring = ScoringResult([scored], set(), set(), set())
         for delivered in (False, True):
@@ -29,7 +29,7 @@ class MainTests(unittest.TestCase):
                     with self.assertRaisesRegex(RuntimeError, "Slack delivery failed"):
                         main()
             if delivered:
-                self.assertIn("openreview:loopfill", saved)
+                self.assertIn("semantic_scholar:loopfill", saved)
                 self.assertIn(title_identity_key(title), saved)
             else:
                 self.assertEqual(saved, set())

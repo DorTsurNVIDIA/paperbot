@@ -78,7 +78,7 @@ class FetchTests(unittest.TestCase):
             "agent.fetch.fetch_semantic_scholar", return_value=[semantic_scholar]
         ), patch("agent.fetch.fetch_huggingface", return_value=[huggingface]), patch(
             "agent.sources.fetch_alphaxiv", return_value=[]
-        ), patch("agent.sources.fetch_openreview", return_value=[]):
+        ):
             result = fetch_all()
 
         self.assertEqual([item.id for item in result], ["arxiv:2607.01234", "s2:other"])
