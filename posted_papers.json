@@ -10111,5 +10111,94 @@
       "serving"
     ],
     "summary": "The paper introduces a homomorphic acceleration method via key-value cache compression aimed at disaggregated LLM inference. It evaluates the system for inference efficiency in disaggregated serving setups."
+  },
+  {
+    "paper_id": "arxiv:2611.17753",
+    "title": "Superfluid: Local AI Server for Distributed LLM Inference",
+    "url": "http://arxiv.org/abs/2611.17753v1",
+    "source": "arxiv",
+    "published_date": "2026-11-13T05:10:32+00:00",
+    "posted_at": "2026-11-16T18:20:23.448628+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 10,
+    "tags": [
+      "serving",
+      "batching",
+      "kv-cache",
+      "hardware"
+    ],
+    "summary": "Superfluid is an open-source local LLM server that uses isolated worker processes and a scheduler to manage interactive requests, shared prompts, and distributed hardware fleets. It demonstrates end-to-end inference improvements, sustaining 10,656 tok/s across 38,563 requests on twelve machines and significantly reducing median first-token time under heavy agent load."
+  },
+  {
+    "paper_id": "arxiv:2611.18422",
+    "title": "The State Is Not the Bottleneck: A Paged-State Gated-DeltaNet Tile on a Tri-Mode Multicast Mesh, Bit-Exact from RTL to Silicon",
+    "url": "http://arxiv.org/abs/2611.18422v1",
+    "source": "arxiv",
+    "published_date": "2026-11-13T17:01:18+00:00",
+    "posted_at": "2026-11-16T18:20:23.448628+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "kv-cache",
+      "long-context",
+      "serving",
+      "sparsity"
+    ],
+    "summary": "The paper designs an FPGA hardware tile for linear-attention language models that pages recurrent states to external memory, profiling the decoding latency and memory traffic. It finds that state paging adds minimal overhead (11.2% of total traffic) and is not the bottleneck, as weight matrix-vector products dominate decoding time."
+  },
+  {
+    "paper_id": "arxiv:2611.18459",
+    "title": "Callo: Serving Cache-Miss Requests with Speculative Decoding on Invalidated KV under Prefill-Decode Disaggregation",
+    "url": "http://arxiv.org/abs/2611.18459v1",
+    "source": "arxiv",
+    "published_date": "2026-11-13T17:28:37+00:00",
+    "posted_at": "2026-11-16T18:20:23.448628+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "serving",
+      "kv-cache",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "Callo is a disaggregated serving system that uses invalidated KV state to generate speculative drafts for cache-miss requests and verifies them against the exact KV after prefill. The system achieves all-request speedups of 1.05-1.19x over vLLM at moderate load on SWE-agent sessions."
+  },
+  {
+    "paper_id": "arxiv:2611.18482",
+    "title": "MMFlash: Faster Speculative Decoding for Vision-Language Models",
+    "url": "https://www.semanticscholar.org/paper/6c75f4459a9353e9cd5eaf12f28cff49d5a3d0a7",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-13",
+    "posted_at": "2026-11-16T18:20:23.448628+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "MMFlash is a speculative decoding framework for vision-language models that adaptively upweights visually dependent tokens predicted poorly by a diffusion drafter and uses sparse attention for long video inputs. It achieves lossless decoding speedups of up to 3.58x on multimodal benchmarks, outperforming EAGLE-3 and DFlash."
+  },
+  {
+    "paper_id": "arxiv:2611.18527",
+    "title": "WaferTetris: Efficient Freeform Mapping on Wafer-Scale Accelerators",
+    "url": "http://arxiv.org/abs/2611.18527v1",
+    "source": "arxiv",
+    "published_date": "2026-11-13T18:41:44+00:00",
+    "posted_at": "2026-11-16T18:20:23.448628+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "serving"
+    ],
+    "summary": "WaferTetris is a freeform mapping system for wafer-scale accelerators that uses a Tetris-like packing strategy to improve PE and memory utilization. Evaluated on Cerebras WSE-3 for LLM decoding, it achieves up to 4.42x the system throughput of template-based automatic mapping and supports 1.8x the context length of WaferLLM for LLaMA3.1-8B."
   }
 ]
