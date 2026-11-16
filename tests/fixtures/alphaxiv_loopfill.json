@@ -1,0 +1,24 @@
+{
+  "id": "01a1dc2b-4036-7b1a-b4c0-c61b688e6bd0",
+  "paper_group_id": "01a1dc2b-4036-7b1a-b4c0-c61b688e6bd0",
+  "title": "LoopFill: Pipelined Multi-Token Speculative Decoding for Looped Transformers",
+  "abstract": "Looped Transformers improve parameter efficiency by repeatedly applying the same Transformer layers. During autoregressive decoding, however, generating each token requires several sequential passes through these layers, leading to high decoding latency. Pipelined self-speculative methods use shallow-loop predictions to process tokens at different loops in the same batch, but each token must reach the drafting depth before the next can enter the pipeline. We introduce LoopFill, a training-free speculative decoding algorithm for looped LLM that combines multi-token suffix drafts with shallow-loop predictions in a single draft tree. Both drafters contribute to one tree, so a suffix lookup can immediately extend a shallow prediction and several future tokens can enter the pipeline together. The shared block computes the highest-scoring draft candidates at different loop depths in one batch, and full-depth verification preserves the model’s autoregressive output distribution. Across seven benchmarks, LoopFill’s average speedup over greedy autoregressive decoding is 5.85× on Ouro-2.6B and 5.13× on Huginn-3.5B. The speedups exceed those of LoopAhead, the strongest baseline, by 40% on Ouro-2.6B and 25% on Huginn-3.5B.",
+  "authors": [
+    "Siqi Zhu",
+    "Suozhi Huang",
+    "Yi Zhao",
+    "Jiaxuan You"
+  ],
+  "universal_paper_id": "2611.loopfill-speculative-decoding-looped-transformers",
+  "first_publication_date": "2026-11-14T00:00:00.000Z",
+  "publication_date": "2026-11-14T00:00:00.000Z",
+  "updated_at": "2026-11-14T22:26:24.438Z",
+  "topics": [
+    "Computer Science",
+    "cs.AI",
+    "cs.LG"
+  ],
+  "canonical_id": "2611.loopfill-speculative-decoding-looped-transformersv1",
+  "external_blog": null,
+  "external_link": null
+}

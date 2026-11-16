@@ -1,4 +1,4 @@
-"""Fetch papers from arXiv, Semantic Scholar, and Hugging Face."""
+"""Fetch research papers from preprint servers and discovery services."""
 
 from __future__ import annotations
 
@@ -10,7 +10,7 @@ from dataclasses import dataclass, field
 
 import httpx
 
-from agent.identity import canonical_paper_id
+from agent.identity import canonical_paper_id, paper_identity_keys
 
 logger = logging.getLogger(__name__)
 
@@ -32,6 +32,7 @@ class Paper:
     published_date: str
     source_id: str = ""
     external_ids: dict[str, str] = field(default_factory=dict)
+    identity_aliases: set[str] = field(default_factory=set)
 
 
 def _cutoff(lookback_hours: int | None = None) -> datetime.datetime:
@@ -394,8 +395,10 @@ def fetch_all(
     arxiv_category_max_results: int = ARXIV_CATEGORY_MAX_RESULTS,
 ) -> list[Paper]:
     """Fetch papers from all sources and deduplicate by canonical identity."""
+    from agent.sources import fetch_alphaxiv, fetch_openreview
+
     all_papers: list[Paper] = []
-    seen: set[str] = set()
+    by_identity: dict[str, Paper] = {}
 
     fetchers = (
         (
@@ -408,6 +411,8 @@ def fetch_all(
         ),
         (fetch_semantic_scholar, {"lookback_hours": lookback_hours}),
         (fetch_huggingface, {}),
+        (fetch_alphaxiv, {"lookback_hours": lookback_hours}),
+        (fetch_openreview, {"lookback_hours": lookback_hours}),
     )
     for fetcher, kwargs in fetchers:
         fetcher_name = getattr(fetcher, "__name__", fetcher.__class__.__name__)
@@ -422,8 +427,25 @@ def fetch_all(
             batch = []
 
         for p in batch:
-            if p.id not in seen:
-                seen.add(p.id)
-                all_papers.append(p)
+            keys = paper_identity_keys(p)
+            matches = {id(by_identity[key]) for key in keys if key in by_identity}
+            existing = next((paper for paper in all_papers if id(paper) in matches), None)
+            if existing is None:
+                existing = p
+                all_papers.append(existing)
+            else:
+                # A new record can bridge two earlier records (for example a
+                # DOI match to one and a title match to another). Merge the
+                # whole group, retaining the first source's preferred record.
+                for duplicate in all_papers:
+                    if id(duplicate) in matches:
+                        keys.update(paper_identity_keys(duplicate))
+                existing.identity_aliases.update(keys)
+                all_papers = [
+                    paper for paper in all_papers
+                    if id(paper) not in matches or paper is existing
+                ]
+            for key in keys:
+                by_identity[key] = existing
 
     return all_papers
