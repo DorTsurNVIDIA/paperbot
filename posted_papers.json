@@ -10271,5 +10271,140 @@
       "speculative-decoding"
     ],
     "summary": "The paper introduces a dynamic feature projection method for block diffusion speculators that computes context-dependent gates for target hidden states to improve draft model acceptance. Evaluated on math datasets, the method improves mean accepted length by 5% and increases speculative decoding throughput by 4.1%."
+  },
+  {
+    "paper_id": "arxiv:2611.19455",
+    "title": "Text Speeding Itself Up: Recency and Restraint in Session-Local Drafting",
+    "url": "http://arxiv.org/abs/2611.19455v1",
+    "source": "arxiv",
+    "published_date": "2026-11-14T15:23:04+00:00",
+    "posted_at": "2026-11-17T17:34:32.473763+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "The paper evaluates session-local drafting methods (recency-weighted memory and prompt lookup variants) for speculative decoding, comparing their speedup and energy efficiency. Most-recent lookup yields up to 0.09 speedup improvement over earliest-match, while confidence-gated drafters save 3-4 joules per 100 tokens with 94% token-identical outputs."
+  },
+  {
+    "paper_id": "arxiv:2611.19649",
+    "title": "LoopFill: Pipelined Multi-Token Speculative Decoding for Looped Transformers",
+    "url": "http://arxiv.org/abs/2611.19649v1",
+    "source": "arxiv",
+    "published_date": "2026-11-14T22:35:41+00:00",
+    "posted_at": "2026-11-17T17:34:32.473763+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "LoopFill is a training-free speculative decoding algorithm for looped LLMs that combines multi-token suffix drafts with shallow-loop predictions in a single draft tree. It achieves 5.85x and 5.13x speedups over greedy decoding on two models, outperforming the LoopAhead baseline by 40% and 25%."
+  },
+  {
+    "paper_id": "arxiv:2611.19896",
+    "title": "LoopSkim: Lossless Multi-Depth Speculative Decoding for Looped Language Models",
+    "url": "http://arxiv.org/abs/2611.19896v1",
+    "source": "arxiv",
+    "published_date": "2026-11-15T09:21:32+00:00",
+    "posted_at": "2026-11-17T17:34:32.473763+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "LoopSkim introduces a lossless speculative decoding method for looped language models where pipeline depth acts as the verifier for drafted tokens. Without training, it achieves an average 1.73x speedup over the LoopSpec baseline, which increases to 1.99x with an optional draft head."
+  },
+  {
+    "paper_id": "arxiv:2611.20289",
+    "title": "Benchmarking LLM Inference on Desktop-Scale NVIDIA Grace Blackwell Clusters",
+    "url": "http://arxiv.org/abs/2611.20289v1",
+    "source": "arxiv",
+    "published_date": "2026-11-15T22:37:14+00:00",
+    "posted_at": "2026-11-17T17:34:32.473763+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "hardware",
+      "mixture-of-experts",
+      "quantization",
+      "benchmark"
+    ],
+    "summary": "The paper benchmarks LLM inference deployments on desktop-scale clusters, finding that tensor parallelism yields a 1.59x peak throughput gain and higher goodput under strict latency limits compared to pipeline parallelism."
+  },
+  {
+    "paper_id": "arxiv:2611.20565",
+    "title": "Memory-Efficient Speculative Decoding with Quantized Draft KV Cache",
+    "url": "http://arxiv.org/abs/2611.20565v1",
+    "source": "arxiv",
+    "published_date": "2026-11-16T05:44:21+00:00",
+    "posted_at": "2026-11-17T17:34:32.473763+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "kv-cache",
+      "quantization"
+    ],
+    "summary": "The paper proposes quantizing the draft model KV cache to reduce the memory overhead in speculative decoding. It shows that K4V4 quantization with grouped per-channel keys and per-token values reduces draft cache memory by 66.20% with only a 1.36% relative drop in acceptance rate."
+  },
+  {
+    "paper_id": "arxiv:2611.20771",
+    "title": "Nemotron 3.5 Bolt E4B 4GB: An Open and Efficient Small Language Model for Fast Conversational Agents",
+    "url": "http://arxiv.org/abs/2611.20771v1",
+    "source": "arxiv",
+    "published_date": "2026-11-16T09:21:45+00:00",
+    "posted_at": "2026-11-17T17:34:32.473763+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "speculative-decoding"
+    ],
+    "summary": "The paper introduces an efficient small language model released with a DFlash drafter for speculative decoding. It reports that using DFlash increases per-user decode speed by 2.74x over inference without speculative decoding at concurrency 1."
+  },
+  {
+    "paper_id": "arxiv:2611.21165",
+    "title": "A Matter of Stages: Energy-Latency Trade-offs in Multimodal LLM Serving",
+    "url": "http://arxiv.org/abs/2611.21165v1",
+    "source": "arxiv",
+    "published_date": "2026-11-16T14:29:27+00:00",
+    "posted_at": "2026-11-17T17:34:32.473763+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "hardware"
+    ],
+    "summary": "The paper proposes a budgeted frequency exploration strategy for energy-latency trade-offs in multimodal LLM serving via EPD disaggregation and downclocking. The method reduces GPU energy per successful request by 13.3-37.0% at nearly identical output-token throughput, and identifies the lowest-energy feasible configuration among 25 candidates across all 288 evaluated SLO scenarios with just four probes."
+  },
+  {
+    "paper_id": "arxiv:2611.21274",
+    "title": "SURMA: Efficient Fine-Grained Communication Offload for SuperPOD",
+    "url": "http://arxiv.org/abs/2611.21274v1",
+    "source": "arxiv",
+    "published_date": "2026-11-16T15:41:12+00:00",
+    "posted_at": "2026-11-17T17:34:32.473763+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "SURMA is an on-die Scale-Up Remote Memory Access engine that improves fine-grained inter-GPU communication for KV-cache entries. Evaluated on a two-FPGA prototype and 8-GPU NVLink servers, it saturates bandwidth with a single SM at 512B granularity and accelerates inference on four models by 1.05--1.26x over NVLink."
   }
 ]
