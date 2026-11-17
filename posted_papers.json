@@ -10200,5 +10200,76 @@
       "serving"
     ],
     "summary": "WaferTetris is a freeform mapping system for wafer-scale accelerators that uses a Tetris-like packing strategy to improve PE and memory utilization. Evaluated on Cerebras WSE-3 for LLM decoding, it achieves up to 4.42x the system throughput of template-based automatic mapping and supports 1.8x the context length of WaferLLM for LLaMA3.1-8B."
+  },
+  {
+    "paper_id": "arxiv:2611.18859",
+    "title": "Exstill: The Most Efficient Single-Chip Processor for the Next Token",
+    "url": "http://arxiv.org/abs/2611.18859v1",
+    "source": "arxiv",
+    "published_date": "2026-11-13T19:10:17+00:00",
+    "posted_at": "2026-11-17T02:40:56.273420+00:00",
+    "lane": "specdec",
+    "specdec_score": 6,
+    "inference_score": 10,
+    "tags": [
+      "draft-model",
+      "hardware",
+      "kv-cache",
+      "speculative-decoding"
+    ],
+    "summary": "Exstill is a co-designed single-chip processor holding model weights and KV caches on-die to bring token generation energy close to the arithmetic floor. It decodes tokens 110x faster at 690x lower energy than a B300 for 12 users, and its specialized drafter model speeds single-user speculative decoding of large models by up to 6.6x."
+  },
+  {
+    "paper_id": "arxiv:2611.18963",
+    "title": "SpecRelay: Amortize or Avoid the Round Trip in Edge-Cloud Speculative Decoding",
+    "url": "http://arxiv.org/abs/2611.18963v1",
+    "source": "arxiv",
+    "published_date": "2026-11-13T21:40:06+00:00",
+    "posted_at": "2026-11-17T02:40:56.273420+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "serving"
+    ],
+    "summary": "SpecRelay is an edge-cloud speculative decoding system that uses an asynchronous verification pipeline to keep draft trees in flight and a latency-aware router to select between local and cloud modes. It improves decoding throughput by up to 50% with asynchronous scheduling alone, and the full system delivers 1.95x throughput on SPROUT under 250 ms RTT latency."
+  },
+  {
+    "paper_id": "arxiv:2611.18972",
+    "title": "NVFP4-MLA: Unified FP4 KV-Cache Storage and Attention Computation for Multi-Head Latent Attention",
+    "url": "http://arxiv.org/abs/2611.18972v1",
+    "source": "arxiv",
+    "published_date": "2026-11-13T22:00:49+00:00",
+    "posted_at": "2026-11-17T02:40:56.273420+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 10,
+    "tags": [
+      "attention",
+      "hardware",
+      "kv-cache",
+      "long-context",
+      "quantization",
+      "serving"
+    ],
+    "summary": "NVFP4-MLA co-designs FP4 quantization for KV-cache storage and attention computation specifically for multi-head latent attention. The method matches BF16 accuracy while compressing the KV cache by over 3x, speeding up the attention kernel by up to 2.82x, and raising per-GPU throughput in disaggregated serving by up to 2.30x."
+  },
+  {
+    "paper_id": "arxiv:2611.19085",
+    "title": "DynaDFlash: Dynamic Feature Projection for Block Diffusion Speculators",
+    "url": "http://arxiv.org/abs/2611.19085v1",
+    "source": "arxiv",
+    "published_date": "2026-11-14T01:45:55+00:00",
+    "posted_at": "2026-11-17T02:40:56.273420+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "speculative-decoding"
+    ],
+    "summary": "The paper introduces a dynamic feature projection method for block diffusion speculators that computes context-dependent gates for target hidden states to improve draft model acceptance. Evaluated on math datasets, the method improves mean accepted length by 5% and increases speculative decoding throughput by 4.1%."
   }
 ]
