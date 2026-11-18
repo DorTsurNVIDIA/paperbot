@@ -10406,5 +10406,54 @@
       "serving"
     ],
     "summary": "SURMA is an on-die Scale-Up Remote Memory Access engine that improves fine-grained inter-GPU communication for KV-cache entries. Evaluated on a two-FPGA prototype and 8-GPU NVLink servers, it saturates bandwidth with a single SM at 512B granularity and accelerates inference on four models by 1.05--1.26x over NVLink."
+  },
+  {
+    "paper_id": "arxiv:2611.20885",
+    "title": "ProSE: Probing Reconstruction Error for Semantic-guided Expert Skipping in MoE-MLLMs",
+    "url": "https://www.semanticscholar.org/paper/9b6a2ab4e273932d5ce528db9581a1b1ea127b1b",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-16",
+    "posted_at": "2026-11-18T01:55:18.905255+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "mixture-of-experts",
+      "sparsity"
+    ],
+    "summary": "ProSE is a training-free expert skipping framework for Mixture-of-Experts models that uses semantic-guided reconstruction error to adaptively skip experts. It maintains over 96% performance with 83% expert skipping and accelerates prefilling by 1.7x."
+  },
+  {
+    "paper_id": "arxiv:2611.20893",
+    "title": "Disaggregated LLM Inference in Space: A Communication Feasibility Study",
+    "url": "https://www.semanticscholar.org/paper/033a3776f6c0eb665c6012d93ba750527d38d20f",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-16",
+    "posted_at": "2026-11-18T01:55:18.905255+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "kv-cache",
+      "long-context",
+      "mixture-of-experts",
+      "serving"
+    ],
+    "summary": "The paper studies the communication feasibility of disaggregated LLM serving across orbital satellites, evaluating Prefill-Decode and Attention-FFN disaggregation under varying link capacities and separations. It finds PDD tolerates separations up to a thousand kilometers with fast links, while AFD is limited by propagation delay to about a kilometer."
+  },
+  {
+    "paper_id": "arxiv:2611.21033",
+    "title": "POKE: Probe Offline, Keep Efficiently for Vision-Language-Action Models",
+    "url": "https://www.semanticscholar.org/paper/bc12203056606bb31db80b4867dbb279d61cbe17",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-16",
+    "posted_at": "2026-11-18T01:55:18.905255+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "sparsity"
+    ],
+    "summary": "The method prunes visual tokens for Vision-Language-Action models using action sensitivity estimated offline by a lightweight student network. It achieves 95.2% success on LIBERO while keeping 32 of 512 visual tokens, yielding a 1.85x inference speedup."
   }
 ]
