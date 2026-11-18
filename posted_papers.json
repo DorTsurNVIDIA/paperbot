@@ -10455,5 +10455,124 @@
       "sparsity"
     ],
     "summary": "The method prunes visual tokens for Vision-Language-Action models using action sensitivity estimated offline by a lightweight student network. It achieves 95.2% success on LIBERO while keeping 32 of 512 visual tokens, yielding a 1.85x inference speedup."
+  },
+  {
+    "paper_id": "arxiv:2611.21839",
+    "title": "VisHead-Spec: Head-Routed Visual Attention for Multimodal Speculative Decoding",
+    "url": "https://www.semanticscholar.org/paper/a6d12ecf0e67d0ce0a005074cbf10c4a501f0a53",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-16",
+    "posted_at": "2026-11-18T17:15:02.975590+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "VisHead-Spec improves multimodal speculative decoding for VLMs by routing only a small fixed set of the draft model's KV heads to attend to visual features from the target model. This method maintains accepted length within 0.3% of the baseline while increasing the throughput gain over autoregressive decoding to 16.0% at batch size 64, up from 9.5% for the baseline drafter."
+  },
+  {
+    "paper_id": "arxiv:2611.21925",
+    "title": "DNeo: Your Parallel Draft Model Needs Better Target Feature Encoding",
+    "url": "http://arxiv.org/abs/2611.21925v1",
+    "source": "arxiv",
+    "published_date": "2026-11-16T21:41:20+00:00",
+    "posted_at": "2026-11-18T17:15:02.975590+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "DNeo introduces a Mixture-of-Features Attention (MoFA) mechanism equipped with working memory to improve feature encoding for parallel draft models in speculative diffusion decoding. The method achieves 1.3x faster generation speed than the prior state-of-the-art without impacting drafter footprint or generation quality."
+  },
+  {
+    "paper_id": "arxiv:2611.22215",
+    "title": "Communicate the Change: Efficient Expert Parallelism via Activation Compression",
+    "url": "https://www.semanticscholar.org/paper/f16c1112d9020316a617635d330242d675240e78",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-17",
+    "posted_at": "2026-11-18T17:15:02.975590+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "mixture-of-experts",
+      "serving",
+      "kv-cache",
+      "quantization"
+    ],
+    "summary": "EchoMoE is a lightweight architecture modification for MoE models that compresses the difference between current and earlier hidden states to reduce communication during expert parallelism. It reduces inter-node communication volume by 58% and improves inference throughput by up to 2.38x over bandwidth-constrained networks."
+  },
+  {
+    "paper_id": "arxiv:2611.22296",
+    "title": "SpecSearch: Towards Hardware-Aware Efficient Speculative Decoding",
+    "url": "https://www.semanticscholar.org/paper/75222fa5d9b1ed4653c1efbfec582ec014699e17",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-17",
+    "posted_at": "2026-11-18T17:15:02.975590+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "hardware",
+      "serving"
+    ],
+    "summary": "SpecSearch is a hardware-aware search engine that optimizes speculative decoding configurations (decoding strategy, draft length, and precision) across different workload-GPU pairs. It achieves up to 2.01x throughput over autoregressive decoding and 1.36x over standard speculative decoding, with a predictor that closely matches this performance without per-GPU calibration."
+  },
+  {
+    "paper_id": "arxiv:2611.22666",
+    "title": "VSpark: Speculative Decoding for Autoregressive Vision-Language-Action Models",
+    "url": "https://www.semanticscholar.org/paper/caddd3e785c2e77ce98e9e558756565b605f32ab",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-17",
+    "posted_at": "2026-11-18T17:15:02.975590+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "VSpark accelerates vision-language-action models using speculative decoding by training a lightweight draft model with feature alignment and reusing computations from rejected drafts for subsequent verification. It achieves 1.28x to 2.10x speedup across four manipulation benchmarks while maintaining lossless decoding."
+  },
+  {
+    "paper_id": "arxiv:2611.23035",
+    "title": "Storing the Gemma 4 K=V Cache Once: Exact Global-KV Memory Savings in a Paged Serving Engine with Unchanged Attention Kernels",
+    "url": "http://arxiv.org/abs/2611.23035v1",
+    "source": "arxiv",
+    "published_date": "2026-11-17T16:36:28+00:00",
+    "posted_at": "2026-11-18T17:15:02.975590+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "The method stores a single shared row for the key and value cache in Gemma 4 attention layers using strided views, achieving bit-identical exact arithmetic. In a vLLM prototype, this reduces decode KV memory per request by a factor of 1.34 to 1.40 at 32K-64K tokens and increases decode tokens per step by 1.38x for 16K-token prompts."
+  },
+  {
+    "paper_id": "arxiv:2611.23228",
+    "title": "Spool: Low-Latency Streaming Inference for Hybrid Vision-Language Models",
+    "url": "http://arxiv.org/abs/2611.23228v1",
+    "source": "arxiv",
+    "published_date": "2026-11-17T18:59:27+00:00",
+    "posted_at": "2026-11-18T17:15:02.975590+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving",
+      "long-context"
+    ],
+    "summary": "Spool is a training-free framework that efficiently maintains a sliding window for hybrid VLMs by caching and composing per-frame state transformations, avoiding replaying old frames. It reduces p95 time-to-first-token by a geometric mean of 6.6x compared to vLLM baselines while improving accuracy by 2.3 percentage points."
   }
 ]
