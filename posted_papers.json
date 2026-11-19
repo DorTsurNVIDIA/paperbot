@@ -10627,5 +10627,176 @@
       "serving"
     ],
     "summary": "LaFlash is a High-Bandwidth Flash architecture utilizing QLC-based flash for capacity-driven acceleration of coding agent workflows, replacing KV cache recomputation with memory access. It achieves 7.04x higher throughput and 10.96x higher energy efficiency over SLC-HBF baselines on end-to-end coding agent workloads."
+  },
+  {
+    "paper_id": "arxiv:2611.23463",
+    "title": "FACT: Fixed-Budget Allocation and Cross-Step Training for Speculative Decoding",
+    "url": "http://arxiv.org/abs/2611.23463v1",
+    "source": "arxiv",
+    "published_date": "2026-11-17T20:10:23+00:00",
+    "posted_at": "2026-11-19T17:17:16.641130+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification",
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "FACT is a framework for studying how drafter training, candidate allocation, and execution conditions jointly affect speculative decoding acceptance and latency. Confidence-guided candidate allocation with a fixed 256-node budget increases speedup over autoregressive decoding from 1.46x to 2.02x on HumanEval."
+  },
+  {
+    "paper_id": "arxiv:2611.23483",
+    "title": "SpecLook: Speculating Where to Look for Fast and Reliable Agentic MLLMs",
+    "url": "http://arxiv.org/abs/2611.23483v1",
+    "source": "arxiv",
+    "published_date": "2026-11-17T20:34:56+00:00",
+    "posted_at": "2026-11-19T17:17:16.641130+00:00",
+    "lane": "specdec",
+    "specdec_score": 7,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "verification",
+      "speculative-decoding"
+    ],
+    "summary": "SpecLook is a training-free speculate-and-verify framework where a small model drafts an observation (glimpse) for an agentic MLLM, which is then verified or corrected by the target model. The method achieves 7.7x and 4.7x speedups over DeepEyes-7B and Thyme-RL agents while improving mean accuracy to 87.2% and 86.2%."
+  },
+  {
+    "paper_id": "arxiv:2611.23807",
+    "title": "Sightline: Long-Window Speculative Decoding for Fast SVG Generation",
+    "url": "http://arxiv.org/abs/2611.23807v1",
+    "source": "arxiv",
+    "published_date": "2026-11-18T04:12:31+00:00",
+    "posted_at": "2026-11-19T17:17:16.641130+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper proposes Sightline, a speculative decoding method for SVG generation that pairs long verification windows with wide draft trees. Sightline achieves the fastest decoding among lossless decoders across six benchmarks without fabricating explicit quantitative speedups in the abstract."
+  },
+  {
+    "paper_id": "arxiv:2611.23835",
+    "title": "NarrowSpec: Draft Hidden Width Need Not Match the Target in Speculative Decoding",
+    "url": "http://arxiv.org/abs/2611.23835v1",
+    "source": "arxiv",
+    "published_date": "2026-11-18T04:40:10+00:00",
+    "posted_at": "2026-11-19T17:17:16.641130+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "speculative-decoding"
+    ],
+    "summary": "The paper proposes NarrowSpec, a method for speculative decoding where the draft model's residual stream runs at a reduced hidden width. Narrowing the draft to half or a quarter width is shown to speed up end-to-end decoding by up to 1.44x on GB10 while largely preserving acceptance rates."
+  },
+  {
+    "paper_id": "arxiv:2611.23917",
+    "title": "Vanguard: Knowing When to Trust the Draft in Speculative Vision-Language Agents",
+    "url": "http://arxiv.org/abs/2611.23917v1",
+    "source": "arxiv",
+    "published_date": "2026-11-18T06:09:08+00:00",
+    "posted_at": "2026-11-19T17:17:16.641130+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper introduces Vanguard, a training-free judge that evaluates candidate steps from a small draft model against screenshots to decide whether to accept them or fall back to a larger target model in vision-language agents. The 2B draft judged by Vanguard is at least as accurate as its 8B target while completing far more closed-loop episodes, and the method also composes with token-level speculative decoding to improve overall performance."
+  },
+  {
+    "paper_id": "arxiv:2611.24119",
+    "title": "eFAIR: Fair LLM Serving under Hourly Electricity Commitments",
+    "url": "http://arxiv.org/abs/2611.24119v1",
+    "source": "arxiv",
+    "published_date": "2026-11-18T09:36:28+00:00",
+    "posted_at": "2026-11-19T17:17:16.641130+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "hardware"
+    ],
+    "summary": "eFAIR is an online scheduler for fair LLM serving under hourly electricity commitments, coordinating request dispatching, electricity budget allocation, and GPU frequency selection. It improves the tenth percentile of normalized throughput by 28.0%-31.0% over the best budget-feasible baseline while keeping deviations from hourly electricity commitments below 0.26%."
+  },
+  {
+    "paper_id": "arxiv:2611.24301",
+    "title": "LoopCache: Accelerating Long-Context Self-Speculative Decoding for Looped Transformers",
+    "url": "http://arxiv.org/abs/2611.24301v1",
+    "source": "arxiv",
+    "published_date": "2026-11-18T12:11:43+00:00",
+    "posted_at": "2026-11-19T17:17:16.641130+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "kv-cache",
+      "long-context",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "LoopCache is a self-speculative decoding framework for long-context looped transformers that introduces confidence-guided dynamic draft updating and a cyclic loop KV cache strategy to reduce memory traffic. The method is evaluated on long-context tasks, achieving average speedups of 10.25x and 14.56x over WFD and LoopSpec."
+  },
+  {
+    "paper_id": "arxiv:2611.24479",
+    "title": "Every Query Routes Itself: Accelerating Video Diffusion Transformers with Per-Query Routed Sparse Attention",
+    "url": "http://arxiv.org/abs/2611.24479v1",
+    "source": "arxiv",
+    "published_date": "2026-11-18T14:17:16+00:00",
+    "posted_at": "2026-11-19T17:17:16.641130+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "sparsity"
+    ],
+    "summary": "The method proposes Per-Query Routed Sparse Attention (PQRS), a training-free approach that clusters only keys and lets each query select its own key clusters to accelerate video diffusion transformers. Evaluated on Wan and HunyuanVideo models, it achieves 1.66-2.10x end-to-end speedup while maintaining high output quality (up to 35.4 dB PSNR)."
+  },
+  {
+    "paper_id": "arxiv:2611.24576",
+    "title": "Late Entry in Looped Language Models",
+    "url": "http://arxiv.org/abs/2611.24576v1",
+    "source": "arxiv",
+    "published_date": "2026-11-18T15:09:01+00:00",
+    "posted_at": "2026-11-19T17:17:16.641130+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "early-exit",
+      "verification",
+      "speculative-decoding",
+      "serving"
+    ],
+    "summary": "The paper introduces late entry and Wake verification for looped LLMs, where candidate blocks are verified using logit-margin tolerance against full T-pass wake states. This achieves up to 8.4x greedy-exact speedup for T=64 looped models without quality loss."
+  },
+  {
+    "paper_id": "arxiv:2611.24891",
+    "title": "Cap-and-Track: Optimizing LLM Inference Request Dispatch Across Shifting Capacity",
+    "url": "http://arxiv.org/abs/2611.24891v1",
+    "source": "arxiv",
+    "published_date": "2026-11-18T18:34:10+00:00",
+    "posted_at": "2026-11-19T17:17:16.641130+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "batching"
+    ],
+    "summary": "Cap-and-Track is a dispatch design that uses fail-fast admission refusals to dynamically probe and regulate request flow. It achieves high goodput in replay and served production traffic using 43% fewer H100s than a fixed-rate precursor."
   }
 ]
