@@ -10574,5 +10574,58 @@
       "long-context"
     ],
     "summary": "Spool is a training-free framework that efficiently maintains a sliding window for hybrid VLMs by caching and composing per-frame state transformations, avoiding replaying old frames. It reduces p95 time-to-first-token by a geometric mean of 6.6x compared to vLLM baselines while improving accuracy by 2.3 percentage points."
+  },
+  {
+    "paper_id": "arxiv:2611.22206",
+    "title": "TAILROLL: Tail-Aware Rollout Acceleration for RL-Based LLM Post-Training",
+    "url": "http://arxiv.org/abs/2611.22206v1",
+    "source": "arxiv",
+    "published_date": "2026-11-17T04:44:20+00:00",
+    "posted_at": "2026-11-19T01:33:25.320729+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "serving",
+      "kv-cache",
+      "batching"
+    ],
+    "summary": "TAILROLL is an online scheduler for RL-based LLM post-training that accelerates rollouts using stateless in-flight migration and sufficiency-gated termination. It reduces end-to-end rollout time by 24% to 34% and full step time by 21% to 22% on long-CoT RL while raising generation throughput by up to 33%."
+  },
+  {
+    "paper_id": "arxiv:2611.22280",
+    "title": "XM-Sparse: High-Throughput Sparse-Attention LLM Serving over Scale-up Memory Pools",
+    "url": "http://arxiv.org/abs/2611.22280v1",
+    "source": "arxiv",
+    "published_date": "2026-11-17T06:32:15+00:00",
+    "posted_at": "2026-11-19T01:33:25.320729+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "kv-cache",
+      "serving",
+      "sparsity",
+      "long-context"
+    ],
+    "summary": "XM-Sparse is a sparse-attention offloading system for scale-up memory pools that aggressively offloads hot KV and K-index caches with tailored I/O mechanisms. It delivers up to 4.98x and 4.52x higher decode throughput than PCIe-based ECHO and HiSparse, respectively, across 16K-1M contexts."
+  },
+  {
+    "paper_id": "arxiv:2611.22746",
+    "title": "LaFlash: Capacity-Driven Acceleration for Coding Agent Workflows via QLC-HBF",
+    "url": "http://arxiv.org/abs/2611.22746v1",
+    "source": "arxiv",
+    "published_date": "2026-11-17T13:16:09+00:00",
+    "posted_at": "2026-11-19T01:33:25.320729+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "long-context",
+      "serving"
+    ],
+    "summary": "LaFlash is a High-Bandwidth Flash architecture utilizing QLC-based flash for capacity-driven acceleration of coding agent workflows, replacing KV cache recomputation with memory access. It achieves 7.04x higher throughput and 10.96x higher energy efficiency over SLC-HBF baselines on end-to-end coding agent workloads."
   }
 ]
