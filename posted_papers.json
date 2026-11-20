@@ -10798,5 +10798,22 @@
       "batching"
     ],
     "summary": "Cap-and-Track is a dispatch design that uses fail-fast admission refusals to dynamically probe and regulate request flow. It achieves high goodput in replay and served production traffic using 43% fewer H100s than a fixed-rate precursor."
+  },
+  {
+    "paper_id": "doi:10.3390/computers15110841",
+    "title": "Sustainability-Aware Scheduling of LLM Inference Tasks on Heterogeneous Geo-Distributed Infrastructures Using an Improved Golden Jackal Optimization Approach",
+    "url": "https://www.semanticscholar.org/paper/19bc73004a6a85ed23252b01673b336169b918d0",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-16",
+    "posted_at": "2026-11-20T01:28:47.878689+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "serving",
+      "batching",
+      "hardware"
+    ],
+    "summary": "The paper proposes Improved Golden Jackal Optimization (IGJO) for scheduling LLM inference tasks across heterogeneous geo-distributed devices to optimize energy, carbon, and SLA adherence. IGJO outperforms baseline scheduling rules and other metaheuristics on synthetic and production workloads, achieving a 12.5–28.5% fitness gap over the FPC method."
   }
 ]
