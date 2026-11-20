@@ -10815,5 +10815,104 @@
       "hardware"
     ],
     "summary": "The paper proposes Improved Golden Jackal Optimization (IGJO) for scheduling LLM inference tasks across heterogeneous geo-distributed devices to optimize energy, carbon, and SLA adherence. IGJO outperforms baseline scheduling rules and other metaheuristics on synthetic and production workloads, achieving a 12.5–28.5% fitness gap over the FPC method."
+  },
+  {
+    "paper_id": "arxiv:2611.25436",
+    "title": "Raptor: Rejection-aware Adaptive Tree based on Speculative Decoding",
+    "url": "http://arxiv.org/abs/2611.25436v1",
+    "source": "arxiv",
+    "published_date": "2026-11-19T03:17:52+00:00",
+    "posted_at": "2026-11-20T16:57:09.403977+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "Raptor is a training-free speculative decoding framework for vision-language models that uses rejection-aware signals to dynamically adjust tree depth, branching width, and drafting budget. Evaluated on multimodal benchmarks, the method achieves up to a 2.39x average speedup over autoregressive decoding."
+  },
+  {
+    "paper_id": "arxiv:2611.25813",
+    "title": "Efficient and Robust Drafting with Multi-Token Prediction",
+    "url": "http://arxiv.org/abs/2611.25813v1",
+    "source": "arxiv",
+    "published_date": "2026-11-19T09:33:39+00:00",
+    "posted_at": "2026-11-20T16:57:09.403977+00:00",
+    "lane": "specdec",
+    "specdec_score": 8,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "multi-token-prediction",
+      "speculative-decoding",
+      "kv-cache"
+    ],
+    "summary": "The paper introduces G-MTP, a highly optimized multi-token prediction architecture with a shared drafting head used to produce high-quality drafts for speculative decoding. Evaluated on the Gemma 4 model family, the method demonstrates out-of-the-box inference speedups of up to 3.1x for server-side setups and up to 2.3x for memory-constrained on-device environments."
+  },
+  {
+    "paper_id": "arxiv:2611.26020",
+    "title": "FrontierReplay: Split-Free Exact Prefix Caching for Hybrid Language Models",
+    "url": "http://arxiv.org/abs/2611.26020v1",
+    "source": "arxiv",
+    "published_date": "2026-11-19T12:34:25+00:00",
+    "posted_at": "2026-11-20T16:57:09.403977+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "FrontierReplay is a prefix caching system for hybrid language models that materializes exact recurrent state checkpoints at structural boundaries using a state-only replay kernel. It lowers median time to first token by 16-89% and improves goodput by up to 4.26x compared to existing exact caches without sacrificing task accuracy."
+  },
+  {
+    "paper_id": "arxiv:2611.26211",
+    "title": "SpecWM: Turning Verification into Refinement for Streaming World Models",
+    "url": "https://huggingface.co/papers/2611.26211",
+    "source": "huggingface",
+    "published_date": "2026-11-19T00:00:00.000Z",
+    "posted_at": "2026-11-20T16:57:09.403977+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "SpecWM is a training-free speculative framework for streaming world models that verifies draft chunks using the target model's latent velocity field and applies a reusable correction to accept, refine, or reject drafts. Evaluated on WBench Navigation, it achieves a 1.63x speedup over the target model while improving visual quality and raising NavScore from 75.99 to 85.63."
+  },
+  {
+    "paper_id": "arxiv:2611.26435",
+    "title": "Aggron: Aggressive Compression of Agentic KV Caches during Head-of-Line Stalls in the Request Queue",
+    "url": "http://arxiv.org/abs/2611.26435v1",
+    "source": "arxiv",
+    "published_date": "2026-11-19T17:09:37+00:00",
+    "posted_at": "2026-11-20T16:57:09.403977+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "Aggron is a serving system that compresses agentic KV caches during head-of-line stalls using a separate summarization queue. The abstract claims it reduces P99 program latency by 27-31% and increases throughput by 1.34-1.40x at high load."
+  },
+  {
+    "paper_id": "arxiv:2611.26619",
+    "title": "TideCache: Efficient Hybrid LLM Serving with Transparent Cache Management and Layer-Wise Streaming",
+    "url": "http://arxiv.org/abs/2611.26619v1",
+    "source": "arxiv",
+    "published_date": "2026-11-19T18:58:31+00:00",
+    "posted_at": "2026-11-20T16:57:09.403977+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving",
+      "long-context"
+    ],
+    "summary": "TideCache is a serving system that manages GPU memory among heterogeneous caches using transparent page redistribution and layer-wise streaming. Evaluated on GB300 and GH200, it completes up to 2.04x as many agent turns and reduces overall P50 per-token latency by 20--59% compared to SGLang with HiCache."
   }
 ]
