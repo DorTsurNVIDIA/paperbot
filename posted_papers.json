@@ -10914,5 +10914,54 @@
       "long-context"
     ],
     "summary": "TideCache is a serving system that manages GPU memory among heterogeneous caches using transparent page redistribution and layer-wise streaming. Evaluated on GB300 and GH200, it completes up to 2.04x as many agent turns and reduces overall P50 per-token latency by 20--59% compared to SGLang with HiCache."
+  },
+  {
+    "paper_id": "arxiv:2611.25617",
+    "title": "Splice-Core: Low-Order-Bit-Splicing GEMM for Highly Energy-Efficient AI Inference Accelerators",
+    "url": "https://www.semanticscholar.org/paper/b5e3d4eab474fe8ef329517a81f66da8535b36b3",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-19",
+    "posted_at": "2026-11-21T00:59:15.012252+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "hardware",
+      "quantization"
+    ],
+    "summary": "The paper presents Splice-Core, a hybrid GEMM unit for AI accelerators that uses low-order-bit-splicing to minimize accumulation latency, demonstrating significant geometric-mean tile energy reductions and throughput increases across CNN and LLM workloads."
+  },
+  {
+    "paper_id": "arxiv:2611.25971",
+    "title": "Kameleo: In-Situ Activation-Precision Selection for Bit-Serial LLM Accelerators",
+    "url": "https://www.semanticscholar.org/paper/7e51eeda99c81c096d17ee5c0ef16a469c6b1e59",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-19",
+    "posted_at": "2026-11-21T00:59:15.012252+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "hardware",
+      "quantization"
+    ],
+    "summary": "The paper presents Kameleo, an accelerator that dynamically selects activation precision at runtime using a local proxy, achieving a 2.11-2.34x reduction in prefill cycles on the matrix multiplication unit while staying within a 1% perplexity budget."
+  },
+  {
+    "paper_id": "doi:10.3389/frai.2026.1993541",
+    "title": "Structured sparse attention for accelerating long-context diffusion language models",
+    "url": "https://www.semanticscholar.org/paper/3fb902043c734ee0bd022bcef4d629c0e7a42b5e",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-18",
+    "posted_at": "2026-11-21T00:59:15.012252+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "attention",
+      "long-context",
+      "sparsity"
+    ],
+    "summary": "The paper proposes Structured Sparse Attention (SSA) for diffusion LLMs, which accelerates inference by reusing geometric attention patterns and protecting the active decoding region. Evaluated on LongBench and RULER, SSA achieves an end-to-end inference speedup of approximately 2x at a 128K context length while maintaining competitive quality."
   }
 ]
