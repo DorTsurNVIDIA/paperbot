@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
+import hashlib
 import re
+import unicodedata
 from collections.abc import Mapping
 
 _ARXIV_NEW_STYLE = re.compile(r"^\d{4}\.\d{4,5}(?:v\d+)?$", re.IGNORECASE)
@@ -58,18 +60,45 @@ def canonical_paper_id(
     normalized_source = (source or "").strip().lower()
     raw_id = (source_id or "").strip()
     if normalized_source == "arxiv" or (
-        normalized_source == "huggingface" and is_arxiv_id(raw_id)
+        normalized_source in {"huggingface", "alphaxiv"} and is_arxiv_id(raw_id)
     ):
         normalized = normalize_arxiv_id(raw_id)
         return f"arxiv:{normalized}" if normalized else ""
 
     doi = normalized_external_ids.get("doi", "")
     if doi:
+        doi = re.sub(r"^(?:https?://(?:dx\.)?doi\.org/|doi:\s*)", "", doi, flags=re.IGNORECASE)
         return f"doi:{doi.lower()}"
 
     if not normalized_source or not raw_id:
         return ""
     return f"{normalized_source}:{raw_id}"
+
+
+def title_identity_key(title: str) -> str:
+    """Match full titles across sources, ignoring case, spacing and punctuation.
+
+    Short/generic titles are deliberately excluded. This is an exact normalized
+    match, not fuzzy matching, so similarly named follow-up papers remain distinct.
+    """
+    normalized = "".join(
+        char for char in unicodedata.normalize("NFKC", title).casefold()
+        if char.isalnum()
+    )
+    if len(normalized) < 20:
+        return ""
+    return "title:" + hashlib.sha256(normalized.encode("utf-8")).hexdigest()
+
+
+def paper_identity_keys(paper) -> set[str]:
+    keys = {paper.id, *paper.identity_aliases}
+    title_key = title_identity_key(paper.title)
+    if title_key:
+        keys.add(title_key)
+    for name, value in paper.external_ids.items():
+        if name.lower() in {"arxiv", "doi"} and value:
+            keys.add(canonical_paper_id("", "", {name: value}))
+    return keys - {""}
 
 
 def canonicalize_stored_id(value: str) -> str:

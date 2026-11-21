@@ -9,6 +9,7 @@ from agent.dedup import filter_new, load_seen, save_seen
 from agent.fetch import fetch_all
 from agent.filter import score_and_filter
 from agent.history import record_posted_papers
+from agent.identity import paper_identity_keys
 from agent.slack import post_to_slack
 
 logging.basicConfig(
@@ -60,6 +61,10 @@ def main() -> None:
     seen.update(scoring.rejected_ids)
     seen.update(scoring.suppressed_ids)
     seen.update(delivery.delivered_ids)
+    terminal_ids = scoring.rejected_ids | scoring.suppressed_ids | delivery.delivered_ids
+    for paper in new_papers:
+        if paper.id in terminal_ids:
+            seen.update(paper_identity_keys(paper))
     save_seen(seen)
     logger.info("Saved %d total seen paper IDs", len(seen))
 
