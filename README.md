@@ -1,6 +1,6 @@
 # paperbot
 
-Paperbot is a scheduled research feed for **speculative decoding** and **LLM inference optimization**. It fetches recent papers from arXiv, Semantic Scholar, and Hugging Face, scores them with an LLM, and posts ranked papers to Slack.
+Paperbot is a scheduled research feed for **speculative decoding** and **LLM inference optimization**. It fetches recent papers from arXiv, Semantic Scholar, Hugging Face, and alphaXiv, scores them with an LLM, and posts ranked papers to Slack.
 
 The feed has two explicit lanes:
 
@@ -12,13 +12,49 @@ Every qualifying specdec paper is posted first. Each run then posts at most the 
 ## How it works
 
 1. **Fetch** papers from the last seven days.
-2. **Canonicalize and deduplicate** identities across arXiv versions, Hugging Face, Semantic Scholar, and DOI metadata.
+2. **Canonicalize and deduplicate** identities across providers, arXiv versions, DOI metadata, and matching full titles.
 3. **Classify** each unseen paper with independent 1–10 specdec and inference scores.
 4. **Rank and post** every accepted specdec paper followed by the top three broader-inference papers.
 5. **Record successful posts** for a webhook-only weekly recap.
 6. **Checkpoint safely**: rejected, intentionally suppressed, and successfully delivered papers are saved; failed, rate-limited, capped, or undelivered papers remain eligible for retry.
 
 The twice-daily schedule catches papers missed by a delayed run without posting known papers again.
+
+## Sources and coverage
+
+| Source | Retrieval |
+|---|---|
+| arXiv | Keyword searches and recent category submissions |
+| Semantic Scholar | Topic searches across its indexed papers |
+| Hugging Face | Relevant entries from the current daily papers list |
+| alphaXiv | Paginated **Recent** feed for `cs.CL`, `cs.LG`, `cs.AI`, `cs.DC`, `cs.AR`, and `stat.ML`, including papers published directly on alphaXiv |
+
+alphaXiv needs no API key or additional Actions secrets. Both daily runs and
+backfill audits use it automatically with the requested lookback window.
+
+alphaXiv-exclusive IDs such as
+[`2611.loopfill-speculative-decoding-looped-transformers`](https://www.alphaxiv.org/abs/2611.loopfill-speculative-decoding-looped-transformers)
+stay in the `alphaxiv:` namespace. Numeric arXiv mirrors share their `arxiv:` IDs.
+alphaXiv uses the original publication date so a revision does not reintroduce an
+old paper. The same broad title/abstract keyword check used for Hugging Face
+keeps unrelated category papers out of the LLM scoring queue. Its feed is the
+public interface used by the website, without a formal
+API stability guarantee; response schema changes surface in the workflow logs.
+
+The alphaXiv crawl checks up to 100 pages of 100 entries. Reaching the cap logs a
+coverage warning. These feeds improve recall but do not guarantee every paper: category labels,
+search terms, indexing delays, and upstream outages can still leave gaps. Supplemental
+source failures are logged while the remaining sources continue; a complete arXiv
+outage still fails the run.
+
+To prevent duplicate Slack posts under unrelated provider IDs, full titles of at
+least 20 alphanumeric characters also receive a stable identity alias, ignoring
+case, spacing, and punctuation. This is exact normalized matching, not fuzzy
+matching. Successful delivery history seeds these aliases for older posts; new
+aliases are checkpointed only for rejected, intentionally suppressed, or delivered
+papers. Failed and deferred papers retain their retry eligibility. Renamed papers
+without shared external IDs may still appear twice. `CLEAR_SEEN_PAPERS` explicitly
+bypasses both ID and title history for the one-run rescore.
 
 ## Setup
 
