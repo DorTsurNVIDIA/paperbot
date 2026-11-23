@@ -10963,5 +10963,147 @@
       "sparsity"
     ],
     "summary": "The paper proposes Structured Sparse Attention (SSA) for diffusion LLMs, which accelerates inference by reusing geometric attention patterns and protecting the active decoding region. Evaluated on LongBench and RULER, SSA achieves an end-to-end inference speedup of approximately 2x at a 128K context length while maintaining competitive quality."
+  },
+  {
+    "paper_id": "arxiv:2611.26980",
+    "title": "Contexture: Runtime Context Eviction for High-Throughput Agent Serving",
+    "url": "http://arxiv.org/abs/2611.26980v1",
+    "source": "arxiv",
+    "published_date": "2026-11-20T01:55:52+00:00",
+    "posted_at": "2026-11-23T20:07:19.702100+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving",
+      "long-context"
+    ],
+    "summary": "Contexture introduces a runtime context eviction architecture that uses tool-execution information and global KV cache visibility to reduce memory demand. It improves throughput under SLO by 20-73% over existing baselines across various models and benchmarks."
+  },
+  {
+    "paper_id": "arxiv:2611.27217",
+    "title": "CoPyro: Feeding Copy Proposals to Parallel Drafters",
+    "url": "http://arxiv.org/abs/2611.27217v1",
+    "source": "arxiv",
+    "published_date": "2026-11-20T07:11:06+00:00",
+    "posted_at": "2026-11-23T20:07:19.702100+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 7,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "CoPyro accelerates speculative decoding by feeding n-gram retrieval-based copy proposals into a parallel drafter to predict whole blocks of tokens, rather than using masks. Evaluated across eight benchmarks on Qwen3-4B, it increases overall acceptance length by 2.19-5.08% over four tested parallel drafters with 100K training samples."
+  },
+  {
+    "paper_id": "arxiv:2611.27233",
+    "title": "LongCat Recall Sparse Attention: Co-Designing Key Organization and Retrieval for Long-Context Inference",
+    "url": "http://arxiv.org/abs/2611.27233v1",
+    "source": "arxiv",
+    "published_date": "2026-11-20T07:35:09+00:00",
+    "posted_at": "2026-11-23T20:07:19.702100+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "kv-cache",
+      "long-context",
+      "serving",
+      "sparsity"
+    ],
+    "summary": "LongCat Recall Sparse Attention (LRSA) accelerates long-context inference by optimizing key-value retrieval via a paged, incrementally maintained index with fine-grained representatives. The method is evaluated in SGLang, achieving a 4.70x speedup in key selection and 35.60x speedup in combined selection and attention over full attention at a 1024K-token context."
+  },
+  {
+    "paper_id": "arxiv:2611.27477",
+    "title": "Cannot Wait to Verify: Parallel Drafting to Eliminate Verifier Idle Time in Speculative Decoding",
+    "url": "http://arxiv.org/abs/2611.27477v1",
+    "source": "arxiv",
+    "published_date": "2026-11-20T11:26:57+00:00",
+    "posted_at": "2026-11-23T20:07:19.702100+00:00",
+    "lane": "specdec",
+    "specdec_score": 8,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The method accelerates the drafting phase of speculative decoding by evaluating multiple transformer layers in parallel from a shared hidden state and verifying their consistency via divergence. It speeds up draft generation by up to 1.65x with minimal accuracy degradation."
+  },
+  {
+    "paper_id": "arxiv:2611.27554",
+    "title": "Vega-Fafnir: Is Greedy Decoding the Same Decoding? Where Rounding Noise in Speculative Verification Comes From and What Removing It Costs",
+    "url": "http://arxiv.org/abs/2611.27554v1",
+    "source": "arxiv",
+    "published_date": "2026-11-20T12:51:06+00:00",
+    "posted_at": "2026-11-23T20:07:19.702100+00:00",
+    "lane": "specdec",
+    "specdec_score": 8,
+    "inference_score": 7,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "Analyzes rounding noise in speculative verification for greedy decoding and proposes a fixed-width decoding method. The fixed-width method eliminates verification divergences (0 of 100 prompts differ) while requiring 0.75 model passes per token."
+  },
+  {
+    "paper_id": "arxiv:2611.27701",
+    "title": "FOREST: Coordinating Tree-based HBF, RRAM, and HBM for Efficient Speculative LLM Inference",
+    "url": "http://arxiv.org/abs/2611.27701v1",
+    "source": "arxiv",
+    "published_date": "2026-11-20T15:07:53+00:00",
+    "posted_at": "2026-11-23T20:07:19.702100+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification",
+      "kv-cache",
+      "hardware",
+      "quantization",
+      "long-context",
+      "serving"
+    ],
+    "summary": "FOREST is a heterogeneous memory-centric hardware architecture coordinating HBF, 3D-stacked RRAM, and HBM to accelerate speculative decoding's drafting and verification stages. Evaluated across large 32B-405B target models, it achieves up to 5.5x end-to-end speedup and 11.46x higher decode throughput over GPU-based baselines."
+  },
+  {
+    "paper_id": "arxiv:2611.27891",
+    "title": "Speculative Decoding Is Less Speculative Than You Think",
+    "url": "http://arxiv.org/abs/2611.27891v1",
+    "source": "arxiv",
+    "published_date": "2026-11-20T17:33:21+00:00",
+    "posted_at": "2026-11-23T20:07:19.702100+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "draft-model"
+    ],
+    "summary": "DICE improves speculative decoding by pre-sampling and synchronizing verification randomness to better guide draft-tree construction and asynchronous prefetching. It claims up to 24.6 percentage point speedups over strong baselines without additional drafter training."
+  },
+  {
+    "paper_id": "arxiv:2611.27973",
+    "title": "MemOnce: A Scalable Memory Architecture for Large Language Models",
+    "url": "http://arxiv.org/abs/2611.27973v1",
+    "source": "arxiv",
+    "published_date": "2026-11-20T18:51:29+00:00",
+    "posted_at": "2026-11-23T20:07:19.702100+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "long-context",
+      "sparsity"
+    ],
+    "summary": "MemOnce is a memory architecture that caches a small subset of hidden states and dynamically decodes them into KV caches, using sparse attention to reduce GPU memory footprint and achieve linear-time complexity. Adapting the method to a 4B parameter model reduces memory state cache by 1313x and prefill latency by 6.9x at 1M context length."
   }
 ]
