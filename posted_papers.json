@@ -11105,5 +11105,131 @@
       "sparsity"
     ],
     "summary": "MemOnce is a memory architecture that caches a small subset of hidden states and dynamically decodes them into KV caches, using sparse attention to reduce GPU memory footprint and achieve linear-time complexity. Adapting the method to a 4B parameter model reduces memory state cache by 1313x and prefill latency by 6.9x at 1M context length."
+  },
+  {
+    "paper_id": "arxiv:2611.26906",
+    "title": "Budget-Aware Predict-and-Verify Theorem Proving with Heterogeneous LLM Solvers",
+    "url": "https://www.semanticscholar.org/paper/b9b7f913e58d893559a823b4e4eb1df654b36ead",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-19",
+    "posted_at": "2026-11-24T04:30:07.338256+00:00",
+    "lane": "specdec",
+    "specdec_score": 6,
+    "inference_score": 7,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "BudgetPV is a predict-and-verify system for theorem proving that uses a cross-solver predictor to draft solutions via cheaper LLMs and verifies them to guide budget-aware compute allocation among heterogeneous solvers. It reduces the total LLM generation computation required to solve the same number of subgoals compared to uniform allocation."
+  },
+  {
+    "paper_id": "arxiv:2611.28227",
+    "title": "Feedback Shortcut: Speculative Decoding for Latent Feedback Transformers",
+    "url": "http://arxiv.org/abs/2611.28227v1",
+    "source": "arxiv",
+    "published_date": "2026-11-20T19:02:38+00:00",
+    "posted_at": "2026-11-24T04:30:07.338256+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "multi-token-prediction",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The method proposes state alignment and pipelined correction to enable speculative decoding in latent feedback transformers by training a lightweight projection for draft states and re-evaluating drafts using newly computed predecessor states during verification. The approach accelerates decoding by 2.4-2.8x while staying within 1e-4 bits per byte of the exact-decoding ceiling."
+  },
+  {
+    "paper_id": "arxiv:2611.28349",
+    "title": "Grammar-as-a-Draft: More Tokens per Speculative Decoding Step on Grammar-Constrained Structured Outputs",
+    "url": "http://arxiv.org/abs/2611.28349v1",
+    "source": "arxiv",
+    "published_date": "2026-11-20T22:00:38+00:00",
+    "posted_at": "2026-11-24T04:30:07.338256+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 10,
+    "tags": [
+      "speculative-decoding",
+      "serving",
+      "draft-model",
+      "multi-token-prediction",
+      "verification"
+    ],
+    "summary": "The method treats a grammar engine as a second drafter, merging grammar-forced tokens with draft model proposals before target verification in speculative decoding. It increases average acceptance length (e.g., from 2.06 to 5.43) and accelerates decoding by up to 2.81x at batch size 1, with end-to-end speedups demonstrated in both vLLM and an independent Rust serving runtime."
+  },
+  {
+    "paper_id": "arxiv:2611.28550",
+    "title": "CCAMoE: Cache-Conditioned Adaptive Inference for Offloaded MoE",
+    "url": "http://arxiv.org/abs/2611.28550v1",
+    "source": "arxiv",
+    "published_date": "2026-11-21T04:15:13+00:00",
+    "posted_at": "2026-11-24T04:30:07.338256+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification",
+      "kv-cache",
+      "mixture-of-experts",
+      "serving"
+    ],
+    "summary": "CCAMoE coordinates speculative decoding with expert-cache updates for offloaded MoE models by reusing resident target experts for cache-only drafting and overlapping draft-guided cache transfers. Evaluated across various MoE models, the method achieves up to a 2.33x decoding latency speedup over state-of-the-art baselines."
+  },
+  {
+    "paper_id": "arxiv:2611.28625",
+    "title": "IndexerStage: Staging Indexer-K across Memory Tiers for Sparse-Attention LLM Serving",
+    "url": "http://arxiv.org/abs/2611.28625v1",
+    "source": "arxiv",
+    "published_date": "2026-11-21T07:23:05+00:00",
+    "posted_at": "2026-11-24T04:30:07.338256+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "long-context",
+      "serving",
+      "sparsity",
+      "attention"
+    ],
+    "summary": "IndexerStage is a serving runtime that externalizes and stages sparse attention Indexer-K state across GPU and backing memory tiers to optimize memory usage and transfers. It increases batch size by up to 23.08% and decode throughput by up to 1.31x during long-context LLM serving."
+  },
+  {
+    "paper_id": "arxiv:2611.28702",
+    "title": "HiPerfCC-KVCache: Accelerating Confidential LLM Serving with Hierarchical KV Caching",
+    "url": "http://arxiv.org/abs/2611.28702v1",
+    "source": "arxiv",
+    "published_date": "2026-11-21T09:55:05+00:00",
+    "posted_at": "2026-11-24T04:30:07.338256+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 10,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "HiPerfCC-KVCache manages resource lifetimes and parallelizes KV restores to accelerate confidential LLM serving. It achieves a 1.74x geometric-mean output-token throughput speedup and a 36% average reduction in time to first token over a staged KV-transfer baseline."
+  },
+  {
+    "paper_id": "arxiv:2611.29497",
+    "title": "Gossamer: A Utility-Driven Architecture for Constant-Budget KV Cache Compression in Reasoning LLMs",
+    "url": "http://arxiv.org/abs/2611.29497v1",
+    "source": "arxiv",
+    "published_date": "2026-11-22T14:09:01+00:00",
+    "posted_at": "2026-11-24T04:30:07.338256+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "long-context",
+      "quantization"
+    ],
+    "summary": "Gossamer is a KV cache compression architecture for reasoning LLMs that dynamically selects compression operations under a constant memory budget. It improves end-to-end throughput by up to 16.7x over uncompressed baselines while sustaining reasoning quality under tight memory constraints."
   }
 ]
