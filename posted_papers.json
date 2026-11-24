@@ -11231,5 +11231,109 @@
       "quantization"
     ],
     "summary": "Gossamer is a KV cache compression architecture for reasoning LLMs that dynamically selects compression operations under a constant memory budget. It improves end-to-end throughput by up to 16.7x over uncompressed baselines while sustaining reasoning quality under tight memory constraints."
+  },
+  {
+    "paper_id": "arxiv:2611.30205",
+    "title": "PackLoop: Row-Packed Self-Speculative Decoding for Looped Language Models under Concurrency",
+    "url": "http://arxiv.org/abs/2611.30205v1",
+    "source": "arxiv",
+    "published_date": "2026-11-23T07:42:44+00:00",
+    "posted_at": "2026-11-24T19:30:20.212596+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "serving",
+      "kv-cache",
+      "batching"
+    ],
+    "summary": "PackLoop is a self-speculative decoding method for looped language models that pipelines speculative positions inside KV-cache rows already being read to maintain speedups under concurrent load. Evaluated across 164 load points on multiple GPUs, it achieves up to 1.76x speedup over the best existing schedules while remaining exact (token-for-token identical to autoregressive decoding)."
+  },
+  {
+    "paper_id": "arxiv:2611.30455",
+    "title": "CGSpec: Consistency-Guided Speculative Decoding with Overlap-Aware Verification Scheduling for Edge-Cloud Inference",
+    "url": "http://arxiv.org/abs/2611.30455v1",
+    "source": "arxiv",
+    "published_date": "2026-11-23T10:46:17+00:00",
+    "posted_at": "2026-11-24T19:30:20.212596+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification",
+      "serving"
+    ],
+    "summary": "CGSpec is a consistency-guided framework for multi-client edge-cloud speculative decoding that adapts speculative budgets using draft-target divergence and introduces overlap-aware verification scheduling. Evaluated across multiple model pairs and datasets, it improves system throughput by 12.2% and 10.2%, and mean client throughput by 14.0% and 33.0% over current state-of-the-art methods."
+  },
+  {
+    "paper_id": "arxiv:2611.30542",
+    "title": "GC-MoE K3: A Green-Context Role Graph for Latent Mixture-of-Experts Decode",
+    "url": "http://arxiv.org/abs/2611.30542v1",
+    "source": "arxiv",
+    "published_date": "2026-11-23T11:49:19+00:00",
+    "posted_at": "2026-11-24T19:30:20.212596+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "mixture-of-experts",
+      "serving"
+    ],
+    "summary": "GC-MoE K3 is a datacenter Blackwell implementation that schedules the full feed-forward evaluation of a latent mixture-of-experts model as a CUDA Graph across two Green Contexts. On GB200, the operator is faster than paired SGLang-style and vLLM-style reference measurements across 24 configurations."
+  },
+  {
+    "paper_id": "arxiv:2611.30554",
+    "title": "Near-Far Attention: Region-Aware Sparse Retrieval for Long-Context LLM Decoding",
+    "url": "http://arxiv.org/abs/2611.30554v1",
+    "source": "arxiv",
+    "published_date": "2026-11-23T12:00:27+00:00",
+    "posted_at": "2026-11-24T19:30:20.212596+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "attention",
+      "kv-cache",
+      "long-context",
+      "sparsity"
+    ],
+    "summary": "Near-Far Attention (NFA) introduces a region-aware sparse retrieval method for long-context decoding that uses lightweight gates and distance-aware scoring to reduce selection overhead. Evaluated on Qwen3-8B at 512K context length, it achieves up to 5.49x operator speedup and 2.97x whole-model decoding speedup over FlashInfer."
+  },
+  {
+    "paper_id": "arxiv:2611.31105",
+    "title": "LiveLoRA: Exact KV Cache Migration Across LoRA Updates for LLM Agents",
+    "url": "http://arxiv.org/abs/2611.31105v1",
+    "source": "arxiv",
+    "published_date": "2026-11-23T17:43:16+00:00",
+    "posted_at": "2026-11-24T19:30:20.212596+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "LiveLoRA is a model-runtime co-design for exact KV cache migration across LoRA updates that avoids full-history re-prefill. It demonstrates a 68.98x median speedup over full-history re-prefill for 32 active sessions with only a 4.8% decoding overhead relative to native cached decoding."
+  },
+  {
+    "paper_id": "arxiv:2611.31112",
+    "title": "Look Back, Draft Ahead: Corrective Prefix Attention for Parallel Speculative Decoding",
+    "url": "http://arxiv.org/abs/2611.31112v1",
+    "source": "arxiv",
+    "published_date": "2026-11-23T17:52:33+00:00",
+    "posted_at": "2026-11-24T19:30:20.212596+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "verification",
+      "draft-model"
+    ],
+    "summary": "Corrective Prefix Attention (CPA) improves parallel speculative decoding by letting candidates attend to earlier choices within a block while adding an autoregressive loss for clean prefixes. Across eight benchmarks, CPA commits 13-15% more tokens per verification round than DSpark and achieves mean speedups of 3.35x and 3.37x under greedy decoding."
   }
 ]
