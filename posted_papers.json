@@ -11502,5 +11502,124 @@
       "hardware"
     ],
     "summary": "Norn co-optimizes sublayer-level computation assignments and placements for model weights and the KV cache during offloaded LLM inference, dynamically switching execution plans as context length increases. It demonstrates up to a 16.8x end-to-end latency speedup over Pipelined Sharding on single-GPU systems."
+  },
+  {
+    "paper_id": "arxiv:2611.32617",
+    "title": "VenusOCR2.0: Towards Efficient and Effective Document Parsing",
+    "url": "https://huggingface.co/papers/2611.32617",
+    "source": "huggingface",
+    "published_date": "2026-11-24T00:00:00.000Z",
+    "posted_at": "2026-11-25T18:37:50.509306+00:00",
+    "lane": "specdec",
+    "specdec_score": 8,
+    "inference_score": 9,
+    "tags": [
+      "multi-token-prediction",
+      "speculative-decoding",
+      "draft-model",
+      "verification",
+      "serving"
+    ],
+    "summary": "Introduces PTPv2, a lightweight decoupled parallel draft module with frozen multi-layer verifier conditioning for speculative decoding to eliminate autoregressive bottlenecks. Evaluated in vLLM on a single H20 GPU, the method delivers a 2.96x single-request speedup and up to 2.36x higher batched throughput with lossless token equivalence."
+  },
+  {
+    "paper_id": "arxiv:2611.32855",
+    "title": "Speculative Decoding for Semantic-ID-Based Generative Recommendations",
+    "url": "https://www.semanticscholar.org/paper/242219d2f3ad3e1dbf45cfeeb32ffa7391f1201f",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-24",
+    "posted_at": "2026-11-25T18:37:50.509306+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification",
+      "serving"
+    ],
+    "summary": "SIDECAR applies speculative decoding to generative recommenders by using approximate draft candidates and a tree-attention pass to score drafts in a single model call, certifying exact top-K items. It reduces the sequential model calls required by constrained beam search while bounding output accuracy and enabling early stopping based on latency limits."
+  },
+  {
+    "paper_id": "arxiv:2611.32881",
+    "title": "Scalable Placement for Disaggregated LLM Serving on Heterogeneous Edge Fleets",
+    "url": "http://arxiv.org/abs/2611.32881v1",
+    "source": "arxiv",
+    "published_date": "2026-11-24T16:16:35+00:00",
+    "posted_at": "2026-11-25T18:37:50.509306+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "hardware",
+      "batching"
+    ],
+    "summary": "Spade is a scalable placement planner for disaggregated LLM serving on heterogeneous edge clusters that uses dominance-based pruning and a bounded knapsack formulation to optimize replica assignment. It finds the optimal placement in 441ms on a 30-device synthetic fleet, yielding a 19.7% better congestion objective than a genetic-search baseline."
+  },
+  {
+    "paper_id": "arxiv:2611.32954",
+    "title": "LoomKV: Lossless KV Cache Compression from GPU Memory to SSD for LLM Serving",
+    "url": "http://arxiv.org/abs/2611.32954v1",
+    "source": "arxiv",
+    "published_date": "2026-11-24T16:54:37+00:00",
+    "posted_at": "2026-11-25T18:37:50.509306+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving"
+    ],
+    "summary": "LoomKV introduces lossless KV cache compression for GPU memory, host DRAM, and SSD tiers in LLM serving using a per-head two-level 3-bit code. The method improves serving goodput by 2.7-3.6x and reduces mean time-to-first-token by 1.9-3.1x on multi-turn agent traces."
+  },
+  {
+    "paper_id": "arxiv:2611.33004",
+    "title": "LEGOSpec: A Composable and Efficient Framework for Speculative Draft Design and Training",
+    "url": "http://arxiv.org/abs/2611.33004v1",
+    "source": "arxiv",
+    "published_date": "2026-11-24T17:29:40+00:00",
+    "posted_at": "2026-11-25T18:37:50.509306+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "speculative-decoding"
+    ],
+    "summary": "LEGOSpec is a composable framework for designing and training speculative draft models that decomposes drafts into context, backbone, proposal, and objective components. The resulting DFlux draft model improves acceptance length by up to 13.7% on regular benchmarks and 34.7% on long-context workloads over the strongest baseline, while increasing training throughput by up to 79%."
+  },
+  {
+    "paper_id": "arxiv:2611.33080",
+    "title": "Shifter Quantization: Compact Representations for Native Integer Computation",
+    "url": "http://arxiv.org/abs/2611.33080v1",
+    "source": "arxiv",
+    "published_date": "2026-11-24T18:14:52+00:00",
+    "posted_at": "2026-11-25T18:37:50.509306+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "quantization"
+    ],
+    "summary": "The paper introduces Shifter Quantization, a method that reconstructs native-width integer operands for efficient groupwise LLM quantization. It demonstrates up to 3.77x prefill throughput improvements over llama.cpp baselines while maintaining lower KL divergence."
+  },
+  {
+    "paper_id": "arxiv:2611.33111",
+    "title": "Draft Calibration for Speculative Decoding: Accelerating LLM Serving by Matching Draft and Target Distributions",
+    "url": "http://arxiv.org/abs/2611.33111v1",
+    "source": "arxiv",
+    "published_date": "2026-11-24T18:41:59+00:00",
+    "posted_at": "2026-11-25T18:37:50.509306+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification",
+      "serving"
+    ],
+    "summary": "The paper proposes post-hoc calibration of the draft model's distribution to better match the target model and increase speculative decoding acceptance rates. Standard temperature scaling on the draft distribution is shown to improve acceptance length by up to 10% with almost no cost and enhance serving throughput."
   }
 ]
