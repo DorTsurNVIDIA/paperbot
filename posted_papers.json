@@ -11335,5 +11335,172 @@
       "draft-model"
     ],
     "summary": "Corrective Prefix Attention (CPA) improves parallel speculative decoding by letting candidates attend to earlier choices within a block while adding an autoregressive loss for clean prefixes. Across eight benchmarks, CPA commits 13-15% more tokens per verification round than DSpark and achieves mean speedups of 3.35x and 3.37x under greedy decoding."
+  },
+  {
+    "paper_id": "arxiv:2611.28427",
+    "title": "Froq: Safe Speculative Execution on Live Quantum States for FTQC",
+    "url": "https://www.semanticscholar.org/paper/05f51032ab33b32a12612fe9f2d3797bbd3e91a1",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-20",
+    "posted_at": "2026-11-25T03:14:14.477701+00:00",
+    "lane": "specdec",
+    "specdec_score": 8,
+    "inference_score": 7,
+    "tags": [
+      "speculative-decoding",
+      "hardware"
+    ],
+    "summary": "Proposes Froq, a system that enables safe speculative execution on live quantum states for fault-tolerant quantum computing by using compiler-assisted recovery contracts and a resource-aware runtime. Evaluated across 88 configurations, Froq reduces quantum-side time by 9.81% overall, peaking at a 31.1% reduction under limited resources."
+  },
+  {
+    "paper_id": "arxiv:2611.29029",
+    "title": "T2ISpec: Benchmarking Speculative Decoding for Text-to-Image Generation",
+    "url": "https://www.semanticscholar.org/paper/dc05d67ec723d97a14e5a24238534644205d7d17",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-21",
+    "posted_at": "2026-11-25T03:14:14.477701+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "benchmark",
+      "speculative-decoding"
+    ],
+    "summary": "Introduces T2ISpec, a benchmark for speculative decoding accelerators in text-to-image generation, and proposes TopicRoute, a plugin combining prompt routing with speculative and cache controls. Evaluated across six model-method pairs, it achieves a geometric mean speedup of 1.0308x over native methods without retraining the generator."
+  },
+  {
+    "paper_id": "arxiv:2611.29460",
+    "title": "Fill in the Blanks: Non-Autoregressive Schema-Parallel Key Information Extraction with CTC Decoding",
+    "url": "https://www.semanticscholar.org/paper/6a7bf9bcbfd0278b1e789944ea6eb865aa14daeb",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-22",
+    "posted_at": "2026-11-25T03:14:14.477701+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "multi-token-prediction",
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The method uses a non-autoregressive CTC-based schema-parallel extractor to draft multiple tokens in parallel for speculative decoding with an autoregressive base. The strongest result reported is an 8.3x speedup over autoregressive decoding (up to 10.4x) while maintaining accuracy within 0.4 points."
+  },
+  {
+    "paper_id": "arxiv:2611.30083",
+    "title": "MotionServe: Efficient Multi-Robot Serving by Exploiting Robot Execution Slack",
+    "url": "https://www.semanticscholar.org/paper/079399faf289ab91b37758c3275f71ecb2d99828",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-23",
+    "posted_at": "2026-11-25T03:14:14.477701+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "batching",
+      "serving"
+    ],
+    "summary": "MotionServe is a shared-GPU serving system for multi-robot VLA policies that coordinates observation timing with batch formation using execution slack; evaluated on up to 96 robots sharing one GPU, it reduces mean stall per episode by 43.4% and improves task success by 8.98 percentage points over baselines."
+  },
+  {
+    "paper_id": "arxiv:2611.30216",
+    "title": "EdgeALM: An Efficient and Unified Edge Accelerator for Large Audio Language Models via Full-Stack Hardware-Software Co-Design and Agent-Driven Recursive Optimization",
+    "url": "https://www.semanticscholar.org/paper/8ce41d78c1a0c937944310cd6f92a7d8adee94a7",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-23",
+    "posted_at": "2026-11-25T03:14:14.477701+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "quantization",
+      "serving"
+    ],
+    "summary": "EdgeALM is an FPGA accelerator for large audio language models that uses full-stack hardware-software co-design, quantization, and modality-conditioned vocabulary pruning. The system demonstrates high-throughput inference on up to 13B parameter models, achieving 94% bandwidth utilization and sustaining real-time streaming."
+  },
+  {
+    "paper_id": "arxiv:2611.30328",
+    "title": "Draft Forcing: Target-guided Speculative Drafting and Learned Verifier for Autoregressive Video Generation",
+    "url": "https://www.semanticscholar.org/paper/e7953125694afc94fd0234c2dc27d9e1f0506625",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-23",
+    "posted_at": "2026-11-25T03:14:14.477701+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "verification",
+      "kv-cache"
+    ],
+    "summary": "Draft Forcing uses a target-guided feature-level draft model and an on-policy trained feature-space verifier to accelerate autoregressive video diffusion. The method achieves up to 1.63x DiT and 1.57x end-to-end speedups on VBench with minimal quality loss."
+  },
+  {
+    "paper_id": "arxiv:2611.30704",
+    "title": "Speculate in the Right Order: Efficient Self-Speculative Decoding for Autoregressive Image Generation",
+    "url": "https://www.semanticscholar.org/paper/5283bbfe0767825c4c2e2e4d24314e6a72e7ef53",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-23",
+    "posted_at": "2026-11-25T03:14:14.477701+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 7,
+    "tags": [
+      "speculative-decoding",
+      "verification"
+    ],
+    "summary": "The paper proposes Speculation-Aware Ordering (SAO), a training-free framework that optimizes generation orders to improve self-speculative decoding efficiency in autoregressive image generation. The method is evaluated across different backbones and speculative widths, demonstrating improved decoding efficiency and generation quality."
+  },
+  {
+    "paper_id": "arxiv:2611.31638",
+    "title": "Wavefront: Low-Rank Drafting with Parallel Causal Refinement for Speculative Decoding",
+    "url": "http://arxiv.org/abs/2611.31638v1",
+    "source": "arxiv",
+    "published_date": "2026-11-23T22:28:36+00:00",
+    "posted_at": "2026-11-25T03:14:14.477701+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 9,
+    "tags": [
+      "draft-model",
+      "speculative-decoding",
+      "serving"
+    ],
+    "summary": "Wavefront accelerates speculative decoding by replacing the target model's full lm_head with a learned low-rank base and a stronger correction head refined via parallel Jacobi passes. On Qwen3-8B, it improves average throughput over prior block drafting methods by 2.6% to 23.6% across various benchmarks."
+  },
+  {
+    "paper_id": "arxiv:2611.32269",
+    "title": "Pando: Noise-Coupled Parallel Draft Trees for Efficient Edge Speculative Decoding",
+    "url": "http://arxiv.org/abs/2611.32269v1",
+    "source": "arxiv",
+    "published_date": "2026-11-24T09:39:12+00:00",
+    "posted_at": "2026-11-25T03:14:14.477701+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification"
+    ],
+    "summary": "Pando constructs dynamic draft trees on top of a parallel drafter and uses noise-coupled pruning to retain branches the target model will actually sample, increasing acceptance length losslessly. On an edge device, it attains a 5.3x speedup over AR decoding and outperforms DSpark and EAGLE-3 in speed and energy efficiency."
+  },
+  {
+    "paper_id": "arxiv:2611.32295",
+    "title": "Norn: Context-Length-Aware Optimization of Weight and KV Cache Placement for Offloaded LLM Inference",
+    "url": "http://arxiv.org/abs/2611.32295v1",
+    "source": "arxiv",
+    "published_date": "2026-11-24T09:55:02+00:00",
+    "posted_at": "2026-11-25T03:14:14.477701+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving",
+      "hardware"
+    ],
+    "summary": "Norn co-optimizes sublayer-level computation assignments and placements for model weights and the KV cache during offloaded LLM inference, dynamically switching execution plans as context length increases. It demonstrates up to a 16.8x end-to-end latency speedup over Pipelined Sharding on single-GPU systems."
   }
 ]
