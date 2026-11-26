@@ -11621,5 +11621,129 @@
       "serving"
     ],
     "summary": "The paper proposes post-hoc calibration of the draft model's distribution to better match the target model and increase speculative decoding acceptance rates. Standard temperature scaling on the draft distribution is shown to improve acceptance length by up to 10% with almost no cost and enhance serving throughput."
+  },
+  {
+    "paper_id": "arxiv:2611.33896",
+    "title": "Looped Models are Fast Multi-Token Predictors",
+    "url": "http://arxiv.org/abs/2611.33896v1",
+    "source": "arxiv",
+    "published_date": "2026-11-25T07:16:56+00:00",
+    "posted_at": "2026-11-26T18:21:03.126119+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "verification",
+      "multi-token-prediction"
+    ],
+    "summary": "Floodgates is a self-speculative decoding method for looped language models that uses shallow loops as drafters and deep loops as verifiers. It achieves up to 7.5x acceleration over standard decoding while remaining lossless."
+  },
+  {
+    "paper_id": "arxiv:2611.34010",
+    "title": "Asymmetric Speculative Decoding: Unlocking In-Context Learning in Draft Models",
+    "url": "http://arxiv.org/abs/2611.34010v1",
+    "source": "arxiv",
+    "published_date": "2026-11-25T08:57:57+00:00",
+    "posted_at": "2026-11-26T18:21:03.126119+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "draft-model"
+    ],
+    "summary": "Asymmetric Speculative Decoding (AsymSpec) is a training-free framework that provides different prompts to draft and target models to leverage in-context learning for higher acceptance rates. The method achieves 2.29x to 4.95x speedup over autoregressive decoding on reasoning, code generation, and summarization tasks."
+  },
+  {
+    "paper_id": "arxiv:2611.34092",
+    "title": "Improving Tail-Augmented Speculative Drafting with Hidden State Mixing and Gradient Detach",
+    "url": "http://arxiv.org/abs/2611.34092v1",
+    "source": "arxiv",
+    "published_date": "2026-11-25T10:02:05+00:00",
+    "posted_at": "2026-11-26T18:21:03.126119+00:00",
+    "lane": "specdec",
+    "specdec_score": 9,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "draft-model",
+      "multi-token-prediction",
+      "verification"
+    ],
+    "summary": "The paper introduces Hidden State Mixing (HSM) and Hidden State Gradient Detach (HSGD), two training-only methods for improving multi-token prediction and EAGLE-style drafters used in speculative decoding. The methods improve mean acceptance length by up to 52.2% over co-trained MTP while adding no inference cost, with HSM also reducing peak reserved training memory by 48% compared to EAGLE-3's training-time test."
+  },
+  {
+    "paper_id": "arxiv:2611.34584",
+    "title": "Routing and Cache Retention for Multi-Turn LLM Inference: Theory and Implementation",
+    "url": "https://www.semanticscholar.org/paper/92de84436d089c1df1822573b2d1e995123c0aaf",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-25",
+    "posted_at": "2026-11-26T18:21:03.126119+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "kv-cache",
+      "serving",
+      "batching",
+      "long-context",
+      "mixture-of-experts"
+    ],
+    "summary": "PARK is a routing and KV cache retention controller for multi-turn LLM serving that optimizes prefix reuse using projected subgradient price updates and a local retention index. In real GPU cluster experiments on multi-turn agent benchmarks, it raises output throughput by 24.2% to 40.0% over the strongest baselines and increases single-replica throughput by 36.7% over LRU eviction."
+  },
+  {
+    "paper_id": "arxiv:2611.34615",
+    "title": "PipeAxes: Decoupling Compute and Communication Granularities for Pipeline-Parallel LLM Serving",
+    "url": "http://arxiv.org/abs/2611.34615v1",
+    "source": "arxiv",
+    "published_date": "2026-11-25T16:03:12+00:00",
+    "posted_at": "2026-11-26T18:21:03.126119+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving",
+      "long-context",
+      "mixture-of-experts",
+      "kv-cache"
+    ],
+    "summary": "PipeAxes decouples compute and communication granularities in pipeline-parallel LLM serving by running wide prefill batches a few layers at a time and compressing activations with a fused Triton Hadamard-INT4 codec. In evaluated workloads, it achieved up to 23.3x higher serving rate than calibrated baselines and reduced p95 time to first token for short requests from 129.8s to 512ms."
+  },
+  {
+    "paper_id": "arxiv:2611.34630",
+    "title": "A Differential Computing Accelerator for LLM Inference Leveraging Bit-Slice Transition Sparsity",
+    "url": "https://www.semanticscholar.org/paper/4b38e111f7b507a59bfdf5a71767d7411bef6d0f",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-25",
+    "posted_at": "2026-11-26T18:21:03.126119+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "hardware",
+      "quantization",
+      "sparsity"
+    ],
+    "summary": "ISTS is an algorithm-hardware co-designed accelerator that leverages bit-slice transition sparsity in quantized LLMs to reuse partial sums via representative Steiner points. Evaluated against state-of-the-art accelerators, it achieves average speedups of 1.27x to 3.09x for LLM inference."
+  },
+  {
+    "paper_id": "arxiv:2611.34776",
+    "title": "DFly2: Turbocharging Long-Context Speculative Decoding by Sharing the Target's Sparsity",
+    "url": "http://arxiv.org/abs/2611.34776v1",
+    "source": "arxiv",
+    "published_date": "2026-11-25T17:37:49+00:00",
+    "posted_at": "2026-11-26T18:21:03.126119+00:00",
+    "lane": "specdec",
+    "specdec_score": 10,
+    "inference_score": 9,
+    "tags": [
+      "speculative-decoding",
+      "long-context",
+      "kv-cache",
+      "sparsity"
+    ],
+    "summary": "DFly2 is a block-parallel speculative decoding drafter that reuses the target model's KV-cache and native sparse attention indices, eliminating the drafter's separate cache and scoring pass. It accepts more tokens per step than baselines and achieves 62% to 81% higher throughput at high concurrency on 64K-context workloads."
   }
 ]
