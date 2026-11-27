@@ -11745,5 +11745,51 @@
       "sparsity"
     ],
     "summary": "DFly2 is a block-parallel speculative decoding drafter that reuses the target model's KV-cache and native sparse attention indices, eliminating the drafter's separate cache and scoring pass. It accepts more tokens per step than baselines and achieves 62% to 81% higher throughput at high concurrency on 64K-context workloads."
+  },
+  {
+    "paper_id": "doi:10.3390/math14234288",
+    "title": "Search Gain-Guided Decomposition-Based Multiobjective Evolutionary Scheduling of Multiuser Large Language Model Inference Workflows",
+    "url": "https://www.semanticscholar.org/paper/e17fcc32955d6ee4d701e8225d2ce99d95dfbe86",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-21",
+    "posted_at": "2026-11-27T02:29:52.631203+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "serving"
+    ],
+    "summary": "The paper proposes SG-MOEA/D, a search gain-guided multiobjective evolutionary algorithm for scheduling multiuser LLM inference workflows modeled as DAGs. Evaluated on 100 scheduling instances, the method achieves a 22.2% higher mean final population hypervolume and a 54.6% lower mean improved inverted generational distance compared to the baseline MOEA/D."
+  },
+  {
+    "paper_id": "doi:10.3390/network6040108",
+    "title": "Freshness-Aware LLM Inference Routing Across Heterogeneous Cloud-Edge Domains: Empirical Evaluation of SLO-Risk Calibration Under Stale Telemetry",
+    "url": "https://www.semanticscholar.org/paper/7c859b968f369f7f50b83dda2ebe1713d6977a81",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-23",
+    "posted_at": "2026-11-27T02:29:52.631203+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 8,
+    "tags": [
+      "serving",
+      "quantization"
+    ],
+    "summary": "The paper evaluates freshness-aware routing policies for LLM inference across heterogeneous cloud-edge backends. It empirically analyzes SLO-risk calibration and latency using 225 factorial runs and 50,565 requests, finding that workload intensity dominated outcomes while telemetry age had no detectable main effect on realized performance."
+  },
+  {
+    "paper_id": "doi:10.63345/ejset.v2.i4.106",
+    "title": "Scalable Infrastructure for Hosting Custom LLMs Using Terraform and Argo CD",
+    "url": "https://www.semanticscholar.org/paper/6ebdcf7e4344a051d5211078cc3f0ca6303e75d9",
+    "source": "semantic_scholar",
+    "published_date": "2026-11-24",
+    "posted_at": "2026-11-27T02:29:52.631203+00:00",
+    "lane": "inference",
+    "specdec_score": 1,
+    "inference_score": 9,
+    "tags": [
+      "serving"
+    ],
+    "summary": "The paper proposes a GitOps-based reference architecture using Terraform and Argo CD to automate the provisioning and deployment of LLM inference servers. It demonstrates up to 90% scaling efficiency at 23,100 tokens per second and a 60% reduction in cost per million tokens via spot and on-demand GPU mixing."
   }
 ]
