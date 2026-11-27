@@ -11791,5 +11791,21 @@
       "serving"
     ],
     "summary": "The paper proposes a GitOps-based reference architecture using Terraform and Argo CD to automate the provisioning and deployment of LLM inference servers. It demonstrates up to 90% scaling efficiency at 23,100 tokens per second and a 60% reduction in cost per million tokens via spot and on-demand GPU mixing."
+  },
+  {
+    "paper_id": "arxiv:2611.34693",
+    "title": "ShowNow: Fine-Grained Speculative Streaming for Responsive World Models",
+    "url": "https://huggingface.co/papers/2611.34693",
+    "source": "huggingface",
+    "published_date": "2026-11-25T00:00:00.000Z",
+    "posted_at": "2026-11-27T18:03:43.094236+00:00",
+    "lane": "specdec",
+    "specdec_score": 6,
+    "inference_score": 8,
+    "tags": [
+      "speculative-decoding",
+      "serving"
+    ],
+    "summary": "ShowNow is a fine-grained speculative streaming framework for interactive world models that uses playback-time computation to prepare action-conditioned futures before input arrives via shared-history tree execution. Evaluated on a single H100, the deployment reduces median input-to-display latency from 620 to 208 ms and sustains 480p generation at 16 fps with eight prepared futures."
   }
 ]
